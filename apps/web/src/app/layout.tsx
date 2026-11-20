@@ -13,7 +13,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "KalaChakra · Numerology reports",
+  title: "KalaChakra: numerology reports in Tamil and English",
   description:
     "Personal numerology reports in English and Tamil: Vedic, Chaldean, Pythagorean, Lo Shu and Kua.",
 };
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-white text-ink antialiased">
         <Providers>
           <SiteHeader />
-          <main className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">{children}</main>
+          <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">{children}</main>
           <SiteFooter />
         </Providers>
       </body>

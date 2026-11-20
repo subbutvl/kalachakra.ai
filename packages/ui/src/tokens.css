@@ -9,11 +9,25 @@
   --color-sand-50: #fbf5ec;
   --color-gold: #d8a250;
   --color-gold-600: #b9852f;
+  /* Gold deep enough for small text on white (contrast 5.6:1). */
+  --color-gold-700: #8a6220;
+  --color-sand-100: #f4e9d8;
+  /* A lifted ink for panels and lines on the ink band. */
+  --color-ink-700: #2c3538;
+  --color-ink-500: #4a5457;
   --color-ink: #1f2628;
   --color-muted: #6e7476;
   --color-danger: #a33a2c;
   --font-heading: "Aboreto", "Noto Sans Tamil", serif;
   --font-body: "Poppins", "Noto Sans Tamil", sans-serif;
   --font-label: "Geist", "Geist Sans", "Noto Sans Tamil", sans-serif;
-  --radius-card: 1rem;
+  --radius-card: 0.875rem;
+}
+
+/* The select arrow, in deep gold. */
+.kc-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%238a6220' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px 8px;
 }

@@ -14,7 +14,7 @@ export function Label({ className, ...props }: ComponentProps<typeof LabelPrimit
 }
 
 const field =
-  "h-11 w-full rounded-xl border border-sand bg-white px-4 text-base text-ink placeholder:text-muted/70 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30 aria-[invalid=true]:border-danger";
+  "h-11 w-full rounded-[10px] border border-ink/15 bg-white px-4 text-base text-ink placeholder:text-muted/70 focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30 aria-[invalid=true]:border-danger";
 
 export function Input({ className, ...props }: InputHTMLAttributes<HTMLInputElement>) {
   return <input className={cn(field, className)} {...props} />;
@@ -22,7 +22,14 @@ export function Input({ className, ...props }: InputHTMLAttributes<HTMLInputElem
 
 export function Select({ className, children, ...props }: SelectHTMLAttributes<HTMLSelectElement>) {
   return (
-    <select className={cn(field, "appearance-none pr-10", className)} {...props}>
+    <select
+      className={cn(
+        field,
+        "kc-select appearance-none pr-10",
+        className,
+      )}
+      {...props}
+    >
       {children}
     </select>
   );

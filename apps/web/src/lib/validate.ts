@@ -3,6 +3,24 @@
  * these only give quick, friendly messages.
  */
 
+/** Every message these checks can return, so the Tamil check sees them. */
+export const MESSAGES = /* i18n */ [
+  "Please enter the name.",
+  "Please type the name in English letters, as it is spelt.",
+  "A name needs at least 2 letters.",
+  "Please enter the date of birth.",
+  "Please enter the incorporation date.",
+  "That date does not exist.",
+  "Please use a year between 1900 and 2100.",
+  "Enter a 10-digit Indian mobile number (+91 or a leading 0 is fine).",
+  "Use a registration like KA 05 MN 1234.",
+  "Use a number like 12 or 12B.",
+  "Use English letters, at least 2.",
+  "Use HH:MM.",
+  "Choose a basis for the Kua number.",
+  "Choose a Kua basis.",
+] as const;
+
 export function lettersOnly(name: string): string {
   return name
     .normalize("NFD")
@@ -15,8 +33,7 @@ export function lettersOnly(name: string): string {
 export function checkName(name: string): string | undefined {
   if (!name.trim()) return "Please enter the name.";
   if (/\p{Script=Tamil}|\p{Script=Devanagari}/u.test(name))
-    if (/\p{Script=Tamil}|\p{Script=Devanagari}/u.test(name))
-      return "Please type the name in English letters, as it is spelt.";
+    return "Please type the name in English letters, as it is spelt.";
   if (lettersOnly(name).replace(/ /g, "").length < 2) return "A name needs at least 2 letters.";
   return undefined;
 }

@@ -8,6 +8,7 @@ import { z } from "zod";
 import { Button, Card, Field, Input, Select } from "@kalachakra/ui";
 import { Steps } from "@/components/steps";
 import { checkDate, checkHouse, checkMobile, checkName, checkRegistration } from "@/lib/validate";
+import { useT } from "@/i18n/locale";
 import { useCustomer, type Details } from "@/stores/customer";
 
 const optionalName = z
@@ -57,14 +58,14 @@ const Schema = z
       });
   });
 
-const GOALS = [
+const GOALS = /* i18n */ [
   ["finance", "Finance"],
   ["business_growth", "Business growth"],
   ["career", "Career"],
   ["peace_of_mind", "Peace of mind"],
   ["relationships", "Relationships"],
 ] as const;
-const TRADES = [
+const TRADES = /* i18n */ [
   ["", "Not specified"],
   ["leadership_government", "Leadership and government"],
   ["care_service", "Care and service"],
@@ -75,11 +76,23 @@ const TRADES = [
   ["manufacturing_long_term", "Manufacturing and long-term work"],
   ["engineering_sport", "Engineering and sport"],
 ] as const;
-const DOORS = ["", "N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+const DOORS = /* i18n */ [
+  ["", "Not sure"],
+  ["N", "North"],
+  ["NE", "North-east"],
+  ["E", "East"],
+  ["SE", "South-east"],
+  ["S", "South"],
+  ["SW", "South-west"],
+  ["W", "West"],
+  ["NW", "North-west"],
+] as const;
 
 export default function DetailsPage() {
   const router = useRouter();
   const { details, addOns, base, setDetails } = useCustomer();
+  const { t } = useT();
+  const tr = (m?: string) => (m ? t(m) : undefined);
   const form = useForm<Details>({
     resolver: zodResolver(Schema),
     mode: "onChange",
@@ -103,34 +116,34 @@ export default function DetailsPage() {
   });
 
   return (
-    <form onSubmit={onSubmit} noValidate>
+    <form onSubmit={onSubmit} noValidate className="mx-auto max-w-4xl">
       <Steps current={1} />
-      <h1 className="text-2xl sm:text-3xl">Your details</h1>
+      <h1 className="text-2xl sm:text-4xl">{t("Your details")}</h1>
       <p className="mt-2 text-muted">
-        {base === "child" ? "Enter your child's details." : "Enter the details as you use them."}{" "}
-        Names in English letters, spelt as used.
+        {base === "child" ? t("Enter your child's details.") : t("Enter the details as you use them.")}{" "}
+        {t("Names in English letters, spelt as used.")}
       </p>
 
       <Card className="mt-8 grid gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
-          <Field id="name" label="Full name as used daily" error={e.name?.message}>
+          <Field id="name" label={t("Full name as used daily")} error={tr(e.name?.message)}>
             <Input id="name" autoComplete="name" {...register("name")} {...aria(e.name, "name")} />
           </Field>
         </div>
         <Field
           id="birthName"
-          label="Name on the birth certificate (optional)"
-          error={e.birthName?.message}
+          label={t("Name on the birth certificate (optional)")}
+          error={tr(e.birthName?.message)}
         >
           <Input id="birthName" {...register("birthName")} {...aria(e.birthName, "birthName")} />
         </Field>
-        <Field id="nickname" label="Nickname (optional)" error={e.nickname?.message}>
+        <Field id="nickname" label={t("Nickname (optional)")} error={tr(e.nickname?.message)}>
           <Input id="nickname" {...register("nickname")} />
         </Field>
-        <Field id="marriedName" label="Married name (optional)" error={e.marriedName?.message}>
+        <Field id="marriedName" label={t("Married name (optional)")} error={tr(e.marriedName?.message)}>
           <Input id="marriedName" {...register("marriedName")} />
         </Field>
-        <Field id="dob" label="Date of birth" error={e.dob?.message}>
+        <Field id="dob" label={t("Date of birth")} error={tr(e.dob?.message)}>
           <Input
             id="dob"
             type="date"
@@ -140,50 +153,50 @@ export default function DetailsPage() {
             {...aria(e.dob, "dob")}
           />
         </Field>
-        <Field id="gender" label="Gender (used for the Kua number)">
+        <Field id="gender" label={t("Gender (used for the Kua number)")}>
           <Select id="gender" {...register("gender")}>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="unspecified">Choose a Kua basis</option>
+            <option value="male">{t("Male")}</option>
+            <option value="female">{t("Female")}</option>
+            <option value="unspecified">{t("Choose a Kua basis")}</option>
           </Select>
         </Field>
         {gender === "unspecified" ? (
-          <Field id="kuaBasis" label="Kua basis" error={e.kuaBasis?.message}>
+          <Field id="kuaBasis" label={t("Kua basis")} error={tr(e.kuaBasis?.message)}>
             <Select id="kuaBasis" {...register("kuaBasis")} {...aria(e.kuaBasis, "kuaBasis")}>
-              <option value="">Choose…</option>
-              <option value="male">Male formula</option>
-              <option value="female">Female formula</option>
+              <option value="">{t("Choose…")}</option>
+              <option value="male">{t("Male formula")}</option>
+              <option value="female">{t("Female formula")}</option>
             </Select>
           </Field>
         ) : null}
         <Field
           id="birthTime"
-          label="Time of birth (optional)"
-          hint="Helps only for births near the solar new year."
-          error={e.birthTime?.message}
+          label={t("Time of birth (optional)")}
+          hint={t("Helps only for births near the solar new year.")}
+          error={tr(e.birthTime?.message)}
         >
           <Input id="birthTime" type="time" {...register("birthTime")} />
         </Field>
-        <Field id="birthPlace" label="Place of birth (optional)">
+        <Field id="birthPlace" label={t("Place of birth (optional)")}>
           <Input id="birthPlace" {...register("birthPlace")} />
         </Field>
-        <Field id="language" label="Report language">
+        <Field id="language" label={t("Report language")}>
           <Select id="language" {...register("language")}>
-            <option value="en">English</option>
-            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="en">{t("English")}</option>
+            <option value="ta">தமிழ்</option>
           </Select>
         </Field>
       </Card>
 
       {addOns.includes("mobile") ? (
         <Card className="mt-6 space-y-4">
-          <h2 className="text-lg">Mobile numbers</h2>
+          <h2 className="text-lg">{t("Mobile numbers")}</h2>
           {mobiles.map((_, i) => (
             <Field
               key={i}
               id={`mobile-${i}`}
-              label={`Mobile ${i + 1}`}
-              error={e.mobiles?.[i]?.message}
+              label={t("Mobile {n}", { n: i + 1 })}
+              error={tr(e.mobiles?.[i]?.message)}
             >
               <Input
                 id={`mobile-${i}`}
@@ -201,11 +214,11 @@ export default function DetailsPage() {
               size="sm"
               onClick={() => setValue("mobiles", [...mobiles, ""])}
             >
-              Add another number
+              {t("Add another number")}
             </Button>
           ) : null}
           <fieldset>
-            <legend className="font-label text-sm font-medium">Goals (optional)</legend>
+            <legend className="font-label text-sm font-medium">{t("Goals (optional)")}</legend>
             <div className="mt-2 flex flex-wrap gap-2">
               {GOALS.map(([id, label]) => (
                 <label
@@ -222,7 +235,7 @@ export default function DetailsPage() {
                       )
                     }
                   />
-                  {label}
+                  {t(label)}
                 </label>
               ))}
             </div>
@@ -232,13 +245,13 @@ export default function DetailsPage() {
 
       {addOns.includes("vehicle_house") ? (
         <Card className="mt-6 grid gap-5 sm:grid-cols-2">
-          <h2 className="text-lg sm:col-span-2">Vehicle and house</h2>
+          <h2 className="text-lg sm:col-span-2">{t("Vehicle and house")}</h2>
           {vehicles.map((_, i) => (
             <Field
               key={i}
               id={`vehicle-${i}`}
-              label={`Vehicle registration ${i + 1}`}
-              error={e.vehicles?.[i]?.message}
+              label={t("Vehicle registration {n}", { n: i + 1 })}
+              error={tr(e.vehicles?.[i]?.message)}
             >
               <Input
                 id={`vehicle-${i}`}
@@ -260,17 +273,17 @@ export default function DetailsPage() {
               </Button>
             </div>
           ) : null}
-          <Field id="flat" label="Flat number" error={e.flat?.message}>
+          <Field id="flat" label={t("Flat number")} error={tr(e.flat?.message)}>
             <Input id="flat" placeholder="12B" {...register("flat")} {...aria(e.flat, "flat")} />
           </Field>
-          <Field id="building" label="House or building number" error={e.building?.message}>
+          <Field id="building" label={t("House or building number")} error={tr(e.building?.message)}>
             <Input id="building" {...register("building")} {...aria(e.building, "building")} />
           </Field>
-          <Field id="door" label="Main door faces">
+          <Field id="door" label={t("Main door faces")}>
             <Select id="door" {...register("door")}>
-              {DOORS.map((d) => (
+              {DOORS.map(([d, label]) => (
                 <option key={d} value={d}>
-                  {d || "Not sure"}
+                  {t(label)}
                 </option>
               ))}
             </Select>
@@ -280,25 +293,25 @@ export default function DetailsPage() {
 
       {addOns.includes("compatibility") ? (
         <Card className="mt-6 grid gap-5 sm:grid-cols-2">
-          <h2 className="text-lg sm:col-span-2">Partner&apos;s details</h2>
-          <Field id="partnerName" label="Partner's name">
+          <h2 className="text-lg sm:col-span-2">{t("Partner's details")}</h2>
+          <Field id="partnerName" label={t("Partner's name")}>
             <Input id="partnerName" {...register("partnerName")} />
           </Field>
-          <Field id="partnerDob" label="Partner's date of birth">
+          <Field id="partnerDob" label={t("Partner's date of birth")}>
             <Input id="partnerDob" type="date" {...register("partnerDob")} />
           </Field>
-          <Field id="partnerGender" label="Partner's gender">
+          <Field id="partnerGender" label={t("Partner's gender")}>
             <Select id="partnerGender" {...register("partnerGender")}>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="unspecified">Not specified</option>
+              <option value="male">{t("Male")}</option>
+              <option value="female">{t("Female")}</option>
+              <option value="unspecified">{t("Not specified")}</option>
             </Select>
           </Field>
-          <Field id="relationship" label="Relationship">
+          <Field id="relationship" label={t("Relationship")}>
             <Select id="relationship" {...register("relationship")}>
-              <option value="couple">Couple</option>
-              <option value="business_partners">Business partners</option>
-              <option value="parent_child">Parent and child</option>
+              <option value="couple">{t("Couple")}</option>
+              <option value="business_partners">{t("Business partners")}</option>
+              <option value="parent_child">{t("Parent and child")}</option>
             </Select>
           </Field>
         </Card>
@@ -306,9 +319,9 @@ export default function DetailsPage() {
 
       {addOns.includes("business") ? (
         <Card className="mt-6 grid gap-5 sm:grid-cols-2">
-          <h2 className="text-lg sm:col-span-2">Business</h2>
+          <h2 className="text-lg sm:col-span-2">{t("Business")}</h2>
           {businessNames.map((_, i) => (
-            <Field key={i} id={`business-${i}`} label={`Business name ${i + 1}`}>
+            <Field key={i} id={`business-${i}`} label={t("Business name {n}", { n: i + 1 })}>
               <Input id={`business-${i}`} {...register(`businessNames.${i}`)} />
             </Field>
           ))}
@@ -324,19 +337,19 @@ export default function DetailsPage() {
               </Button>
             </div>
           ) : null}
-          <Field id="trade" label="Trade (optional)">
+          <Field id="trade" label={t("Trade (optional)")}>
             <Select id="trade" {...register("trade")}>
               {TRADES.map(([id, label]) => (
                 <option key={id} value={id}>
-                  {label}
+                  {t(label)}
                 </option>
               ))}
             </Select>
           </Field>
           <Field
             id="incorporationDate"
-            label="Incorporation date (optional)"
-            error={e.incorporationDate?.message}
+            label={t("Incorporation date (optional)")}
+            error={tr(e.incorporationDate?.message)}
           >
             <Input id="incorporationDate" type="date" {...register("incorporationDate")} />
           </Field>
@@ -345,9 +358,9 @@ export default function DetailsPage() {
 
       <div className="mt-10 flex justify-between">
         <Button asChild variant="ghost">
-          <Link href="/choose">Back</Link>
+          <Link href="/choose">{t("Back")}</Link>
         </Button>
-        <Button type="submit">Check my details</Button>
+        <Button type="submit">{t("Check my details")}</Button>
       </div>
     </form>
   );

@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start --port 3000",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "eslint src e2e",
+    "lint": "eslint src e2e && node scripts/check-i18n.mjs",
     "test:e2e": "playwright test"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@kalachakra/engine": "workspace:*",
     "@kalachakra/report": "workspace:*",
     "@kalachakra/rules": "workspace:*",
+    "@kalachakra/texts": "workspace:*",
     "@kalachakra/ui": "workspace:*",
     "@tanstack/react-query": "^5.108.0",
     "lucide-react": "^1.76.0",

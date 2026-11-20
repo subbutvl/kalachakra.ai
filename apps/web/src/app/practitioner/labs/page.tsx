@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n/locale";
 import { useMemo, useState } from "react";
 import {
   computeBusiness,
@@ -21,14 +22,14 @@ import { profileFor, rulesFor, todayIso } from "@/lib/engine";
 import { usePractitioner, type Client } from "@/stores/practitioner";
 
 type Lab = "name" | "mobile" | "vehicle" | "business" | "compatibility" | "dates";
-const LABS: [Lab, string][] = [
+const LABS = /* i18n */ [
   ["name", "Name lab"],
   ["mobile", "Mobile lab"],
   ["vehicle", "Vehicle and house"],
   ["business", "Business lab"],
   ["compatibility", "Compatibility"],
   ["dates", "Date picker"],
-];
+] as const satisfies readonly (readonly [Lab, string])[];
 
 /** Runs an engine call and turns its errors into a message instead of a crash. */
 function attempt<T>(fn: () => T): { value?: T; error?: string } {
@@ -50,9 +51,10 @@ function ClientPicker({
   onChange: (id: string) => void;
   label?: string;
 }) {
+  const { t } = useT();
   return (
     <label className="font-label text-sm">
-      {label}
+      {t(label)}
       <Select className="mt-1" value={value} onChange={(e) => onChange(e.target.value)}>
         {clients.map((c) => (
           <option key={c.id} value={c.id}>
@@ -74,6 +76,7 @@ function Problem({ message }: { message?: string }) {
 
 /** The practitioner's labs (phase 1 spec 6.1): every number updates as you type. */
 export default function Labs() {
+  const { t } = useT();
   const { clients, profile } = usePractitioner();
   const [lab, setLab] = useState<Lab>("name");
   const [clientId, setClientId] = useState(clients[0]?.id ?? "");
@@ -85,12 +88,12 @@ export default function Labs() {
   );
 
   if (!clients.length)
-    return <p className="text-muted">Add a client on the client desk to use the labs.</p>;
+    return <p className="text-muted">{t("Add a client on the client desk to use the labs.")}</p>;
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl sm:text-3xl">Labs</h1>
-      <Tabs tabs={LABS} value={lab} onChange={setLab} label="Labs" />
+      <h1 className="text-2xl sm:text-4xl">{t("Labs")}</h1>
+      <Tabs tabs={LABS} value={lab} onChange={setLab} label={t("Labs")} />
       {lab !== "compatibility" ? (
         <ClientPicker clients={clients} value={client?.id ?? ""} onChange={setClientId} />
       ) : null}
@@ -121,6 +124,7 @@ function NameLab({
   rules: Rules;
   initial: string;
 }) {
+  const { t } = useT();
   const [name, setName] = useState(initial);
   const [pinned, setPinned] = useState<string[]>([]);
   const m = owner.date_numbers.mulank.reduced;
@@ -133,7 +137,7 @@ function NameLab({
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <Card className="space-y-3">
-        <Field id="lab-name" label="Spelling">
+        <Field id="lab-name" label={t("Spelling")}>
           <Input id="lab-name" value={name} onChange={(e) => setName(e.target.value)} />
         </Field>
         <Problem message={now.error} />
@@ -152,13 +156,13 @@ function NameLab({
               className="mt-2"
               onClick={() => setPinned((p) => [...new Set([...p, name.toUpperCase()])])}
             >
-              Pin this spelling
+              {t("Pin this spelling")}
             </Button>
           </div>
         ) : null}
       </Card>
       <Card>
-        <h3 className="text-base">Optimiser</h3>
+        <h3 className="text-base">{t("Optimiser")}</h3>
         <ol className="mt-2 space-y-2 text-sm">
           {ideas.value?.suggestions.map((s) => (
             <li key={s.name} className="flex items-center justify-between gap-2">
@@ -166,7 +170,7 @@ function NameLab({
                 <b>{s.name}</b> · {s.score} · {s.edits.join(", ")}
               </span>
               <Button size="sm" variant="ghost" onClick={() => setName(s.name)}>
-                Try
+                {t("Try")}
               </Button>
             </li>
           ))}
@@ -174,7 +178,7 @@ function NameLab({
       </Card>
       {pinnedScores.length ? (
         <Card className="lg:col-span-2">
-          <h3 className="text-base">Pinned spellings</h3>
+          <h3 className="text-base">{t("Pinned spellings")}</h3>
           <div className="mt-3 grid gap-3 sm:grid-cols-3">
             {pinnedScores.map((p) => (
               <div key={p!.name} className="rounded-xl border border-sand p-3 text-sm">
@@ -201,6 +205,7 @@ function MobileLab({
   rules: Rules;
   initial: string;
 }) {
+  const { t } = useT();
   const [text, setText] = useState(initial || "9876524310");
   const [open, setOpen] = useState(0);
   const [prefix, setPrefix] = useState("");
@@ -226,7 +231,7 @@ function MobileLab({
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <Card className="space-y-3">
-        <Field id="lab-mobiles" label="Numbers (up to 20, one per line)">
+        <Field id="lab-mobiles" label={t("Numbers (up to 20, one per line)")}>
           <textarea
             id="lab-mobiles"
             className="min-h-32 w-full rounded-xl border border-sand p-3 font-mono text-sm"
@@ -270,19 +275,19 @@ function MobileLab({
         </Card>
       ) : null}
       <Card className="space-y-3 lg:col-span-2">
-        <h3 className="text-base">Find new endings</h3>
+        <h3 className="text-base">{t("Find new endings")}</h3>
         <div className="grid gap-3 sm:grid-cols-2">
-          <Field id="lab-prefix" label="Prefix or full number (first 6 digits are kept)">
+          <Field id="lab-prefix" label={t("Prefix or full number (first 6 digits are kept)")}>
             <Input id="lab-prefix" value={prefix} onChange={(e) => setPrefix(e.target.value)} />
           </Field>
-          <Field id="lab-goal" label="Goal">
+          <Field id="lab-goal" label={t("Goal")}>
             <Select id="lab-goal" value={goal} onChange={(e) => setGoal(e.target.value)}>
-              <option value="">Any</option>
-              <option value="finance">Finance</option>
-              <option value="business_growth">Business growth</option>
-              <option value="career">Career</option>
-              <option value="peace_of_mind">Peace of mind</option>
-              <option value="relationships">Relationships</option>
+              <option value="">{t("Any")}</option>
+              <option value="finance">{t("Finance")}</option>
+              <option value="business_growth">{t("Business growth")}</option>
+              <option value="career">{t("Career")}</option>
+              <option value="peace_of_mind">{t("Peace of mind")}</option>
+              <option value="relationships">{t("Relationships")}</option>
             </Select>
           </Field>
         </div>
@@ -292,7 +297,7 @@ function MobileLab({
             {r.candidates.endings.map((e) => `${e.ending} (${e.score})`).join(" · ")}
           </p>
         ) : (
-          <p className="text-sm text-muted">Enter at least 6 digits.</p>
+          <p className="text-sm text-muted">{t("Enter at least 6 digits.")}</p>
         )}
       </Card>
     </div>
@@ -300,6 +305,7 @@ function MobileLab({
 }
 
 function VehicleLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
+  const { t } = useT();
   const [regs, setRegs] = useState("KA 05 MN 1234");
   const [flat, setFlat] = useState("12B");
   const [door, setDoor] = useState<"N" | "NE" | "E" | "SE" | "S" | "SW" | "W" | "NW" | "">("E");
@@ -319,7 +325,7 @@ function VehicleLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <Card className="space-y-3 text-sm">
-        <Field id="lab-regs" label="Registrations">
+        <Field id="lab-regs" label={t("Registrations")}>
           <Input id="lab-regs" value={regs} onChange={(e) => setRegs(e.target.value)} />
         </Field>
         <Problem message={v.error} />
@@ -333,10 +339,10 @@ function VehicleLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
       </Card>
       <Card className="space-y-3 text-sm">
         <div className="grid grid-cols-2 gap-3">
-          <Field id="lab-flat" label="House or flat number">
+          <Field id="lab-flat" label={t("House or flat number")}>
             <Input id="lab-flat" value={flat} onChange={(e) => setFlat(e.target.value)} />
           </Field>
-          <Field id="lab-door" label="Door faces">
+          <Field id="lab-door" label={t("Door faces")}>
             <Select
               id="lab-door"
               value={door}
@@ -344,7 +350,7 @@ function VehicleLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
             >
               {["", "N", "NE", "E", "SE", "S", "SW", "W", "NW"].map((d) => (
                 <option key={d} value={d}>
-                  {d || "Not set"}
+                  {d || t("Not set")}
                 </option>
               ))}
             </Select>
@@ -380,6 +386,7 @@ function BusinessLab({
   rules: Rules;
   clients: Client[];
 }) {
+  const { t } = useT();
   const [names, setNames] = useState("Loomcraft Works\nMehra Textiles Pvt Ltd");
   const [partnerIds, setPartnerIds] = useState<string[]>([]);
   const [trade, setTrade] = useState("");
@@ -406,7 +413,7 @@ function BusinessLab({
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <Card className="space-y-3">
-        <Field id="lab-biz" label="Names (up to 5, one per line)">
+        <Field id="lab-biz" label={t("Names (up to 5, one per line)")}>
           <textarea
             id="lab-biz"
             className="min-h-28 w-full rounded-xl border border-sand p-3 text-sm"
@@ -415,7 +422,7 @@ function BusinessLab({
           />
         </Field>
         <fieldset className="text-sm">
-          <legend className="font-label">Partners (up to 3)</legend>
+          <legend className="font-label">{t("Partners (up to 3)")}</legend>
           {clients.map((c) => (
             <label key={c.id} className="mr-3 inline-flex items-center gap-1">
               <input
@@ -431,9 +438,9 @@ function BusinessLab({
             </label>
           ))}
         </fieldset>
-        <Field id="lab-trade" label="Trade">
+        <Field id="lab-trade" label={t("Trade")}>
           <Select id="lab-trade" value={trade} onChange={(e) => setTrade(e.target.value)}>
-            <option value="">Not specified</option>
+            <option value="">{t("Not specified")}</option>
             {[
               "leadership_government",
               "care_service",
@@ -482,6 +489,7 @@ function BusinessLab({
 }
 
 function CompatibilityLab({ clients, rules }: { clients: Client[]; rules: Rules }) {
+  const { t } = useT();
   const [a, setA] = useState(clients[0]?.id ?? "");
   const [b, setB] = useState(clients[1]?.id ?? clients[0]?.id ?? "");
   const [rel, setRel] = useState<"couple" | "business_partners" | "parent_child">("couple");
@@ -498,18 +506,18 @@ function CompatibilityLab({ clients, rules }: { clients: Client[]; rules: Rules 
   return (
     <div className="space-y-4">
       <div className="grid gap-3 sm:grid-cols-3">
-        <ClientPicker clients={clients} value={a} onChange={setA} label="First person" />
-        <ClientPicker clients={clients} value={b} onChange={setB} label="Second person" />
+        <ClientPicker clients={clients} value={a} onChange={setA} label={t("First person")} />
+        <ClientPicker clients={clients} value={b} onChange={setB} label={t("Second person")} />
         <label className="font-label text-sm">
-          Relationship
+          {t("Relationship")}
           <Select
             className="mt-1"
             value={rel}
             onChange={(e) => setRel(e.target.value as typeof rel)}
           >
-            <option value="couple">Couple</option>
-            <option value="business_partners">Business partners</option>
-            <option value="parent_child">Parent and child</option>
+            <option value="couple">{t("Couple")}</option>
+            <option value="business_partners">{t("Business partners")}</option>
+            <option value="parent_child">{t("Parent and child")}</option>
           </Select>
         </label>
       </div>
@@ -543,6 +551,7 @@ function CompatibilityLab({ clients, rules }: { clients: Client[]; rules: Rules 
 }
 
 function DateLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
+  const { t } = useT();
   const today = todayIso();
   const [from, setFrom] = useState(today);
   const [to, setTo] = useState(() => {
@@ -555,18 +564,18 @@ function DateLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <Card className="grid gap-3 sm:grid-cols-3">
-        <Field id="lab-from" label="From">
+        <Field id="lab-from" label={t("From")}>
           <Input id="lab-from" type="date" value={from} onChange={(e) => setFrom(e.target.value)} />
         </Field>
-        <Field id="lab-to" label="To">
+        <Field id="lab-to" label={t("To")}>
           <Input id="lab-to" type="date" value={to} onChange={(e) => setTo(e.target.value)} />
         </Field>
-        <Field id="lab-purpose" label="Purpose">
+        <Field id="lab-purpose" label={t("Purpose")}>
           <Select id="lab-purpose" value={purpose} onChange={(e) => setPurpose(e.target.value)}>
-            <option value="launch">Launch</option>
-            <option value="signing">Signing</option>
-            <option value="move">Move</option>
-            <option value="general">General</option>
+            <option value="launch">{t("Launch")}</option>
+            <option value="signing">{t("Signing")}</option>
+            <option value="move">{t("Move")}</option>
+            <option value="general">{t("General")}</option>
           </Select>
         </Field>
         <div className="sm:col-span-3">

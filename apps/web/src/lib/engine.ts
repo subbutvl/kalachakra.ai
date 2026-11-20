@@ -20,11 +20,11 @@ export const catalog: RulesCatalog = { versions: rulesVersions, profiles: rulePr
 export type ProfileChoice =
   { kind: "id"; id: string } | { kind: "custom"; overrides: Record<string, unknown> };
 
-export const PROFILE_OPTIONS = [
+export const PROFILE_OPTIONS = /* i18n */ [
   { id: "house-default", label: "House default (rules v1.0)" },
   { id: "sample-practitioner", label: "Sample practitioner" },
   { id: "kalachakra-classic", label: "KalaChakra Classic" },
-];
+] as const;
 
 /** The rule profile to send to the API, or resolve here. */
 export function profileRef(

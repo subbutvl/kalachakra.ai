@@ -10,6 +10,7 @@ const config: NextConfig = {
     "@kalachakra/engine",
     "@kalachakra/rules",
     "@kalachakra/report",
+    "@kalachakra/texts",
   ],
   reactStrictMode: true,
   poweredByHeader: false,
