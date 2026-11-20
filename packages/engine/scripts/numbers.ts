@@ -6,6 +6,7 @@
 // Options: --birth-name, --as-of YYYY-MM-DD (default today), --time HH:MM,
 // --profile <id> (house-default, vedicpupil-compat, sample-practitioner),
 // --kua-basis male|female (with --gender unspecified), --json.
+import { existsSync, readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
 import { ruleProfiles, rulesVersions } from "@kalachakra/rules";
 import {
@@ -53,6 +54,8 @@ const { values } = parseArgs({
     relationship: { type: "string", default: "couple" },
     dates: { type: "string" },
     purpose: { type: "string", default: "launch" },
+    // A person from test/local/people.local.json (or the example file), by id.
+    sample: { type: "string" },
   },
 });
 
@@ -67,9 +70,29 @@ function otherPerson(spec: string): PersonInput {
   return { name, dob, gender: (gender ?? "unspecified") as PersonInput["gender"] };
 }
 
-if (values.help || !values.name || !values.dob) {
+// --sample <id>: take the person (and their mobiles) from the local test file.
+let sample: { person: PersonInput; mobiles?: string[] } | undefined;
+if (values.sample) {
+  const dir = new URL("../test/local/", import.meta.url);
+  const local = new URL("people.local.json", dir);
+  const file = existsSync(local) ? local : new URL("people.local.example.json", dir);
+  const people = (
+    JSON.parse(readFileSync(file, "utf8")) as {
+      people: { id: string; person: PersonInput; mobiles?: string[] }[];
+    }
+  ).people;
+  sample = people.find((x) => x.id === values.sample);
+  if (!sample) {
+    console.error(`No sample "${values.sample}" (have: ${people.map((x) => x.id).join(", ")}).`);
+    process.exit(1);
+  }
+  if (!values.mobile?.length && sample.mobiles?.length) values.mobile = sample.mobiles;
+}
+
+if (values.help || (!sample && (!values.name || !values.dob))) {
   console.log(
-    'Usage: pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male [--profile vedicpupil-compat] [--as-of 2026-11-20] [--birth-name "..."] [--time HH:MM] [--json]',
+    'Usage: pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male [--profile vedicpupil-compat] [--as-of 2026-11-20] [--birth-name "..."] [--time HH:MM] [--json]\n' +
+      "   or: pnpm numbers --sample <id>   (a person from packages/engine/test/local/people.local.json)",
   );
   process.exit(values.help ? 0 : 1);
 }
@@ -79,12 +102,12 @@ const asOf =
   values["as-of"] ??
   `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
 
-const person: PersonInput = {
-  name: values.name,
+const person: PersonInput = sample?.person ?? {
+  name: values.name!,
   other_names: values["birth-name"]
     ? [{ kind: "birth_certificate", name: values["birth-name"] }]
     : [],
-  dob: values.dob,
+  dob: values.dob!,
   gender: values.gender as PersonInput["gender"],
   ...(values["kua-basis"] ? { kua_basis: values["kua-basis"] as "male" | "female" } : {}),
   ...(values.time ? { birth_time: values.time } : {}),
