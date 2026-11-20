@@ -4,153 +4,194 @@
   "module": "life",
   "blocks": {
     "life.career.1": {
-      "text": "Career: leadership, entrepreneurship and roles with authority. Aim for positions where you decide.",
-      "child": "Learning: give responsibility and choice; leadership activities build confidence.",
+      "text": "Your path points to leadership and work where you set the direction. Founding a business, running a team or holding a post with real authority suits you far better than a role where others decide every step. Government, administration, management and any field where you can put your name to the result all fit. Expect to rise fastest when you take responsibility early and stand by your decisions.",
+      "child": "Your child learns best when given responsibility and a real choice. Put them in charge of small projects, a class role or a team captaincy, and confidence grows quickly. Praise effort and independence rather than obedience alone. Subjects with clear goals and visible results hold their attention best.",
       "status": "draft"
     },
     "life.career.2": {
-      "text": "Career: partnership, care, mediation and the arts. Choose teams that value harmony.",
-      "child": "Learning: a gentle, encouraging setting and group work suit best.",
+      "text": "Your path points to work with people and care: counselling, teaching, nursing, hospitality, diplomacy, design and any role that needs tact. You do best as the trusted partner or adviser rather than the lone face in front. Partnerships and steady teams bring more success than going it alone. Choose a workplace whose atmosphere is kind, because conflict drains you faster than hard work does.",
+      "child": "Your child learns best in a calm, encouraging setting with a patient teacher. Art, music, stories and group work suit them. They notice moods closely, so harsh criticism sets them back more than it would another child. Gentle routines and steady praise build both skill and confidence.",
       "status": "draft"
     },
     "life.career.3": {
-      "text": "Career: teaching, advice, law and finance. Expertise and reputation are your capital.",
-      "child": "Learning: reading, discussion and explaining ideas to others build strength.",
+      "text": "Your path points to teaching, advice and expression: education, law, finance, writing, speaking, consulting and anything that shares knowledge. Jupiter favours roles where you guide others and keep learning yourself. Recognition often comes through qualifications and a good name. Aim for work with room to grow, because a fixed routine with nothing new to master leaves you restless.",
+      "child": "Your child learns quickly through talking, reading and asking questions. Languages, debate, drama and any subject with a good story behind it suit them. Give them a chance to explain what they have learnt, because teaching others is how they learn best. Encourage finishing work, not only starting it.",
       "status": "draft"
     },
     "life.career.4": {
-      "text": "Career: technology, engineering, research and systems. Careful, practical work brings advancement.",
-      "child": "Learning: hands-on projects, science and maths with clear steps suit best.",
+      "text": "Your path points to technology, engineering, research, systems and reform. Rahu favours original thinking and work that changes how things are done, from software and data to law and social causes. You do well where method matters and shortcuts are punished. Careful, practical progress pays off, but sudden changes in employers or fields are common, so keep your skills current.",
+      "child": "Your child learns best with hands-on projects, clear steps and room to take things apart. Science, maths, coding and building kits suit them. They may question rules, so explain the reason behind each one. A tidy, predictable routine helps them focus, and praise for careful work goes further than praise for speed.",
       "status": "draft"
     },
     "life.career.5": {
-      "text": "Career: business, sales, media and travel. Variety and people keep you at your best.",
-      "child": "Learning: short, varied sessions and languages or debate keep interest high.",
+      "text": "Your path points to communication, trade and movement: sales, media, travel, marketing, commerce and any work with variety. Mercury favours quick thinking, networking and deals. You thrive where every day brings new people and problems. Avoid roles that tie you to one desk and one task for years; several income streams or a portfolio career often suit you better.",
+      "child": "Your child learns fast and gets bored fast. Short, varied lessons, games, puzzles and activities that involve movement hold their attention. Languages and maths often come easily. Help them build the habit of finishing one thing before starting the next, and reward follow-through as much as quick answers.",
       "status": "draft"
     },
     "life.career.6": {
-      "text": "Career: design, healthcare, hospitality and teaching. A pleasant workplace matters.",
-      "child": "Learning: art, music and caring roles bring out talent.",
+      "text": "Your path points to beauty, comfort and service: design, arts, hospitality, healthcare, teaching, luxury goods and family businesses. Venus favours work that makes life pleasant for others. You do well where quality and taste are valued and relationships with clients last. A harmonious workplace matters to you; you work hardest for people you respect.",
+      "child": "Your child learns best through art, music and caring roles. They enjoy helping others and respond to warmth and appreciation. Group projects, performance and creative subjects suit them. They can take on too much to please people, so teach them that saying no politely is allowed.",
       "status": "draft"
     },
     "life.career.7": {
-      "text": "Career: research, analysis, healing and specialist fields. Depth and independence suit you.",
-      "child": "Learning: time to explore one subject deeply, with quiet space.",
+      "text": "Your path points to research, analysis and the inner life: science, investigation, technology, spirituality, healing, writing and specialist expertise. Ketu favours depth over display. You do best when given time to think and work alone. Recognition comes from being the person who knows, not the loudest in the room. Choose work that rewards accuracy and insight.",
+      "child": "Your child learns best through quiet study, reading and exploring a subject deeply. They may prefer a few close friends and need time alone to recharge. Science, nature and research projects suit them. Do not mistake quietness for lack of interest; ask about their ideas and they will often surprise you.",
       "status": "draft"
     },
     "life.career.8": {
-      "text": "Career: business leadership, finance, property and industry. Patience builds lasting authority.",
-      "child": "Learning: clear goals, routines and steady encouragement.",
+      "text": "Your path points to responsibility and long-term building: management, law, finance, property, manufacturing, mining and government. Saturn rewards patience, discipline and endurance. Success may come later than for others, but it lasts. You do well in structures with clear rules and steady promotion. Avoid get-rich-quick schemes; your fortune is built slowly and kept.",
+      "child": "Your child learns best with structure, clear expectations and steady practice. They may be serious for their age and take setbacks hard. Reward persistence rather than only results. Subjects with long-term progress, such as music practice, maths or a sport, teach them that effort adds up.",
       "status": "draft"
     },
     "life.career.9": {
-      "text": "Career: service, the armed forces, medicine, sport and causes. Purpose fuels your energy.",
-      "child": "Learning: physical activity first, then focused study; competitions motivate.",
+      "text": "Your path points to action and courage: the armed forces, police, surgery, engineering, sport, property and any field that needs energy and protection of others. Mars favours bold, decisive work. You do well where there is a clear mission and something to overcome. Leadership in difficult situations suits you; routine without challenge does not.",
+      "child": "Your child learns best through activity, sport and competition. They have plenty of energy and need an outlet for it every day. Clear rules and a coach or teacher they respect bring out their best. Teach patience with others, and channel the competitive streak into games and goals.",
       "status": "draft"
     },
-
+    "life.work_style.1": {
+      "text": "You work best when you own the task from start to finish. You decide quickly and act on your own judgement, which makes you valuable in a crisis. The risk is impatience with slower colleagues and reluctance to ask for help. Set clear goals, delegate the details, and you get the most out of yourself and others.",
+      "child": "In class your child wants to lead and to be first. Give them a role, such as monitor or team leader, so the energy has a place to go. They dislike being told what to do without a reason, so explain the purpose of each task.",
+      "status": "draft"
+    },
+    "life.work_style.2": {
+      "text": "You work best in a team, with a partner you trust and a clear sense of what others need. You are careful, considerate and good at smoothing problems before they grow. The risk is hesitating too long and taking criticism to heart. Agree decisions with one trusted person, then act on them.",
+      "child": "In class your child works best next to a friend and under a kind teacher. They may hold back from answering until they are sure. Encourage them to speak up, and praise their care and neat work.",
+      "status": "draft"
+    },
+    "life.work_style.3": {
+      "text": "You work best when you can plan, explain and inspire. You are good at seeing the bigger picture and bringing people along with an idea. The risk is spreading yourself across too many projects. Choose two or three priorities at a time and finish them before taking on more.",
+      "child": "In class your child enjoys explaining, discussing and performing. They may chat more than they write. Give them chances to present, and use checklists to help them finish written work.",
+      "status": "draft"
+    },
+    "life.work_style.4": {
+      "text": "You work best with a method: clear steps, good tools and time to do things properly. You are reliable, practical and good at fixing what others have broken. The risk is getting stuck on details or resisting change for too long. Build in regular reviews so your system keeps up with the world.",
+      "child": "In class your child likes order and clear instructions. They may resist sudden changes in routine. Give warning before changes, and let them understand how things work rather than just memorising them.",
+      "status": "draft"
+    },
+    "life.work_style.5": {
+      "text": "You work best with variety, movement and people. You learn new skills quickly, adapt easily and are good with clients. The risk is losing interest once a task becomes routine. Break long work into short stages, change your setting now and then, and keep a written list of what you have promised.",
+      "child": "In class your child is quick and curious but restless. Short tasks, movement breaks and hands-on activities help. Teach them to check their work before handing it in, since speed can bring careless mistakes.",
+      "status": "draft"
+    },
+    "life.work_style.6": {
+      "text": "You work best in a pleasant, orderly setting with people you like. You take pride in quality, notice what others need and are often the one who keeps a team together. The risk is taking on others' work to keep the peace. Agree clear responsibilities, and protect time for your own tasks.",
+      "child": "In class your child likes a tidy desk, a kind teacher and helping others. They may avoid conflict at the cost of their own needs. Encourage them to ask for what they need, and praise good effort as well as good results.",
+      "status": "draft"
+    },
+    "life.work_style.7": {
+      "text": "You work best alone or in a small, quiet team, with time to think deeply. You notice what others miss and do excellent work when trusted. The risk is withdrawing when things go wrong and not sharing your ideas. Write down your thinking and share it early, so others can see its value.",
+      "child": "In class your child may be quiet but thinks deeply. Large noisy groups tire them. Give them time to think before answering, and projects they can explore on their own.",
+      "status": "draft"
+    },
+    "life.work_style.8": {
+      "text": "You work best with clear rules, long-term goals and steady effort. You are disciplined, dependable and able to carry heavy responsibility. The risk is working too hard for too little recognition and becoming rigid. Ask for what your work is worth, and allow yourself rest as part of the plan.",
+      "child": "In class your child is serious and conscientious. They may worry about getting things wrong. Help them see mistakes as part of learning, and celebrate steady progress.",
+      "status": "draft"
+    },
+    "life.work_style.9": {
+      "text": "You work best with a clear target and something to overcome. You bring energy, courage and drive, and you protect your team. The risk is impatience, anger when blocked and taking on battles that are not yours. Pause before reacting, and save your fire for the goals that matter most.",
+      "child": "In class your child has lots of energy and a strong sense of fairness. They may clash with others when they feel something is unjust. Give them physical activity every day and help them put their feelings into words.",
+      "status": "draft"
+    },
     "life.money.1": {
-      "text": "Money: earned through position and initiative. Invest in your own skills and ventures.",
-      "child": "Money habits: trust them with a small allowance to manage.",
+      "text": "Money comes to you through position, initiative and your own ventures. You earn best when you are in charge of the result. Invest first in your own skills and business, but keep a reserve, because confidence can lead to large bets. Big purchases are best made after a night's sleep.",
+      "child": "Trust your child with a small allowance to manage on their own. Let them make choices and learn from them. A savings goal they choose themselves motivates them more than rules.",
       "status": "draft"
     },
     "life.money.2": {
-      "text": "Money: steady income and partnership bring security. Keep a simple budget.",
-      "child": "Money habits: a visible savings jar builds security.",
+      "text": "Money comes to you through partnership, service and steady work. Your income often rises and falls like the tide, so a regular saving habit matters more for you than for most. Joint ventures with someone you trust do well. Avoid lending money from sympathy when you cannot afford to lose it.",
+      "child": "Your child may spend to please others. Teach them to save a little from every gift, and show them the money growing in a jar or account.",
       "status": "draft"
     },
     "life.money.3": {
-      "text": "Money: grows through expertise and long-term plans. Avoid lending too freely.",
-      "child": "Money habits: saving toward books or courses suits them.",
+      "text": "Money comes to you through knowledge, advice and your reputation. Fees, teaching, consulting and finance suit you. You can be generous to a fault, so keep a budget and a clear line between giving and lending. Long-term investments made with good advice serve you well.",
+      "child": "Your child may be generous and easily persuaded to spend. Talk about money openly, and let them plan a small purchase with a budget.",
       "status": "draft"
     },
     "life.money.4": {
-      "text": "Money: earned by hard work; keep a reserve for the unexpected.",
-      "child": "Money habits: a simple record of saving and spending.",
+      "text": "Money comes to you through careful, practical work and technical skill. Income can change suddenly, through new jobs or new fields, so an emergency fund is essential. Avoid speculation and schemes that promise fast returns. Steady saving and property often serve you better than shares you do not understand.",
+      "child": "Your child does well with a simple system: a jar for saving, a jar for spending. Explain why prices change, and keep the rules consistent.",
       "status": "draft"
     },
     "life.money.5": {
-      "text": "Money: comes fast through trade and contacts, and can go fast. Automate savings.",
-      "child": "Money habits: wait a day before buying something new.",
+      "text": "Money comes to you through trade, communication and many small streams. You earn quickly and can spend just as quickly. Automatic savings, set up when money comes in, protect you from yourself. Several income sources suit you better than one, but keep records, because details slip.",
+      "child": "Your child may spend as fast as they receive. Teach them to wait a day before buying anything they did not plan, and praise them when they do.",
       "status": "draft"
     },
     "life.money.6": {
-      "text": "Money: steady, with spending on home and loved ones. Plan for comfort.",
-      "child": "Money habits: plan for gifts and save for one wanted thing.",
+      "text": "Money comes to you through quality work, comfort and beauty, and often through family. You enjoy spending on your home, gifts and good things. A budget that includes some pleasure is easier for you to keep than a strict one. Property and family businesses often do well for you.",
+      "child": "Your child likes buying gifts and nice things. Let them save towards something special, and show them how waiting makes the reward sweeter.",
       "status": "draft"
     },
     "life.money.7": {
-      "text": "Money: can be uneven; a steady savings habit protects you.",
-      "child": "Money habits: explain the purpose of saving to them.",
+      "text": "Money comes to you through expertise, research and specialist knowledge. You are not driven by money, which can mean undercharging. Set your fees by the value you bring, not by how comfortable you feel asking. Simple, long-term investments suit you better than active trading.",
+      "child": "Your child may not care much about money. Teach the basics anyway: saving, value for money and how earning works.",
       "status": "draft"
     },
     "life.money.8": {
-      "text": "Money: builds slowly and solidly, especially through property and patience.",
-      "child": "Money habits: long-term goals with small celebrations along the way.",
+      "text": "Money comes to you slowly and steadily, through responsibility, management and long-term building. Saturn rewards patience: property, pensions and businesses built over years. Losses come from impatience or from carrying others' debts. Your later years are often more secure than your early ones.",
+      "child": "Your child may be a natural saver. Encourage it, but also show them that money can be used well, for experiences and for others.",
       "status": "draft"
     },
     "life.money.9": {
-      "text": "Money: comes through effort; generosity is good, but set aside savings first.",
-      "child": "Money habits: set aside a part of any money before spending.",
+      "text": "Money comes to you through energy, courage and action: you earn by doing. You can spend on impulse or to help others in need. Keep a reserve for emergencies, and avoid risky deals made in a hurry. Property and land often suit you.",
+      "child": "Your child may spend on impulse. Give them a goal to save towards, and let them earn some money through tasks, so they feel the effort it takes.",
       "status": "draft"
     },
-
     "life.love.1": {
-      "text": "Love: loyal and protective; a partner who respects your independence suits you.",
-      "child": "Friendships: a natural leader among friends; teach sharing and turn-taking.",
+      "text": "In love you are loyal, protective and generous, and you like to take the lead. You need a partner who respects your independence and has a life of their own. Your challenge is to listen as much as you direct. Shared goals keep the relationship strong; small daily appreciation keeps it warm.",
+      "child": "With friends your child is a natural leader. Teach sharing and turn-taking, and praise them when they let others lead.",
       "status": "draft"
     },
     "life.love.2": {
-      "text": "Love: devoted and caring; you need warmth and appreciation in return.",
-      "child": "Friendships: close, loyal friendships; help them speak up for themselves.",
+      "text": "In love you are tender, devoted and deeply attuned to your partner's moods. You need reassurance, kindness and a calm home. Your challenge is to say what you need instead of hoping it will be noticed. A partner who is steady and gentle brings out your best.",
+      "child": "Your child forms close bonds and feels hurt easily. Help them name their feelings, and teach them that one unkind word does not end a friendship.",
       "status": "draft"
     },
     "life.love.3": {
-      "text": "Love: generous and principled; shared values matter most.",
-      "child": "Friendships: often the advisor among friends.",
+      "text": "In love you are warm, sociable and generous, and you want a partner who is also a friend. Good conversation and shared beliefs matter to you. Your challenge is to give your partner time as well as advice. Learning, travel or a cause shared together keep the bond fresh.",
+      "child": "Your child makes friends easily and loves to talk. Teach them to listen as well as to tell stories.",
       "status": "draft"
     },
     "life.love.4": {
-      "text": "Love: slow to open up but faithful; trust grows over time.",
-      "child": "Friendships: a few lasting friends; encourage sharing feelings.",
+      "text": "In love you are steady, honest and practical, and you show care through what you do. You need trust and a partner who accepts your unusual side. Your challenge is to express feelings in words, not only in deeds. Sudden changes in relationships are possible, so keep talking through difficult times.",
+      "child": "Your child may have a few loyal friends rather than many. They can be blunt; teach them that kind words matter as much as honest ones.",
       "status": "draft"
     },
     "life.love.5": {
-      "text": "Love: charming and fun; freedom and conversation keep love alive.",
-      "child": "Friendships: many friends; help them stay loyal to close ones.",
+      "text": "In love you are charming, lively and fun, and you need a partner who enjoys change and conversation. Routine can make you restless. Your challenge is to stay present when things become ordinary. Plan new experiences together, and keep your promises, so freedom does not turn into distance.",
+      "child": "Your child has many friends and moves between groups easily. Teach them loyalty and keeping promises to friends.",
       "status": "draft"
     },
     "life.love.6": {
-      "text": "Love: deeply loving and family-centred; care without controlling.",
-      "child": "Friendships: caring and generous; teach them to receive as well as give.",
+      "text": "In love you are devoted, affectionate and family-minded. Home, beauty and harmony matter deeply to you, and you give a great deal. Your challenge is not to sacrifice yourself to keep the peace. Choose a partner who gives back as much as you give, and speak up early when something hurts.",
+      "child": "Your child is caring and loves to help. Teach them that their own wishes matter too, and that true friends do not take advantage.",
       "status": "draft"
     },
     "life.love.7": {
-      "text": "Love: deep but reserved; a partner who respects quiet suits you.",
-      "child": "Friendships: one or two close friends; respect their need for quiet.",
+      "text": "In love you are deep, private and sincere. You need a partner who respects your need for quiet and understands without many words. Your challenge is to let someone in and share what you feel. Shared interests and calm time together bring you close.",
+      "child": "Your child may prefer one or two close friends. Do not push them into large groups; help them deepen the friendships they choose.",
       "status": "draft"
     },
     "life.love.8": {
-      "text": "Love: shown through duty and loyalty; say the warm words too.",
-      "child": "Friendships: dependable; encourage play and lightness.",
+      "text": "In love you are serious, loyal and committed for the long term. You may be slow to open up but deeply faithful. Your challenge is to show warmth and not only responsibility. A patient partner who values stability suits you, and love grows stronger with the years.",
+      "child": "Your child may seem reserved with new friends. Give them time, and help them join activities where friendships form over months.",
       "status": "draft"
     },
     "life.love.9": {
-      "text": "Love: passionate and generous; patience keeps it smooth.",
-      "child": "Friendships: protective of friends; teach calm ways to resolve quarrels.",
+      "text": "In love you are passionate, protective and brave. You love intensely and defend those close to you. Your challenge is temper and impatience in disagreements. A partner who is calm and strong suits you; physical activity together and quick apologies keep things good.",
+      "child": "Your child is a loyal friend who stands up for others. Teach them to cool down before reacting, and to say sorry quickly.",
       "status": "draft"
     },
-
-    "life.family.1": "Family: often the one who takes charge and protects the family's standing.",
-    "life.family.2": "Family: the peacemaker who keeps everyone connected.",
-    "life.family.3": "Family: the guide whose advice is sought and respected.",
-    "life.family.4": "Family: the steady provider who keeps things running.",
-    "life.family.5": "Family: the lively one who brings news, fun and change.",
-    "life.family.6": "Family: the heart of the home, caring for everyone.",
-    "life.family.7": "Family: the quiet thinker who offers deep counsel.",
-    "life.family.8": "Family: the pillar who carries responsibility for many.",
-    "life.family.9": "Family: the protector who stands up for family members.",
-
+    "life.family.1": "In the family you are often the one who takes charge and protects its standing. Relatives may turn to you for decisions. Make room for others' opinions, especially those of your partner and children, so leadership feels like support rather than control.",
+    "life.family.2": "In the family you are the peacemaker who holds everyone together. You remember birthdays, notice tensions and smooth them over. Make sure your own needs are heard too, and let others carry some of the emotional load.",
+    "life.family.3": "In the family you are the adviser and teacher. Children and younger relatives learn a great deal from you. Family gatherings, traditions and shared learning matter to you. Balance guidance with listening, so advice is welcomed rather than resisted.",
+    "life.family.4": "In the family you are the dependable one who fixes problems and keeps things running. You may carry practical duties for parents or siblings. Family life can see sudden changes, such as moves or new arrangements; steady routines help everyone through them.",
+    "life.family.5": "In the family you bring energy, news and fun. You may live far from relatives or travel often, and you keep connections through calls and visits. Commit to regular family time, because others value your presence more than you may realise.",
+    "life.family.6": "In the family you are the heart of the home. Duty to parents, partner and children comes naturally, and family often shapes your biggest decisions. Accept help in return, and keep some time that is yours alone.",
+    "life.family.7": "In the family you may feel a little apart, the thoughtful one with different interests. Close bonds form with one or two relatives who understand you. Share your inner life with them, and keep up family traditions in your own way.",
+    "life.family.8": "In the family you often carry responsibility early, perhaps for parents or younger siblings. You build security for the next generation. Let duty sit beside affection: say what you feel, not only what needs doing.",
+    "life.family.9": "In the family you are protective and generous, the one who rushes to help in a crisis. Strong opinions can lead to clashes with relatives. Choose your battles, and let calm conversation settle disagreements.",
     "life.health.1": "Health tendencies: watch for overwork; regular rest and sunlight help.",
     "life.health.2": "Health tendencies: stress shows in digestion and sleep; calm routines help.",
     "life.health.3": "Health tendencies: moderation in rich food and regular walks help.",

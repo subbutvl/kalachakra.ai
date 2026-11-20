@@ -77,7 +77,7 @@ export const GLOSSARY = [
   "pinnacle",
   "dasha",
 ];
-export const LIFE_AREAS = ["career", "money", "love", "family", "health"] as const;
+export const LIFE_AREAS = ["career", "work_style", "money", "love", "family", "health"] as const;
 
 /** Every key, grouped by the module file it belongs to. */
 export function catalogue(): Record<string, string[]> {
@@ -220,6 +220,10 @@ export function catalogue(): Record<string, string[]> {
       DM.map((n) => `${m}.${n}`),
     );
   }
+  add(
+    "timing",
+    DM.map((n) => `personal_year.${n}.detail`),
+  );
   add(
     "timing",
     [0, 1, 2, 3, 4, 5, 6, 7, 8].map((n) => `challenge.${n}`),
