@@ -88,3 +88,46 @@ export { loshu, type LoshuGrid } from "./modules/loshu.js";
 export { driverConductor, type DriverConductor } from "./modules/driverConductor.js";
 export { lucky, type LuckySet } from "./modules/lucky.js";
 export { timing, type Timing } from "./modules/timing.js";
+
+// Milestone 3: commercial modules
+export {
+  suggestNames,
+  scoreSpelling,
+  generateVariants,
+  readable,
+  type NameSuggestions,
+  type ScoredName,
+  type Variant,
+} from "./modules/nameOptimizer.js";
+export {
+  computeMobile,
+  readDigits,
+  elementFlow,
+  fitWith,
+  goEasyDigits,
+  nationalNumber,
+  targetTotals,
+  ownerOf,
+  type MobileRequest,
+  type MobileResult,
+  type MobileReading,
+  type NumberReading,
+  type FlowPair,
+  type Owner,
+} from "./modules/mobile.js";
+export { computeVehicle, type VehicleResult, type VehicleReading } from "./modules/vehicle.js";
+export { computeHouse, type HouseRequest, type HouseResult } from "./modules/house.js";
+export {
+  computeBusiness,
+  countBusinessName,
+  type BusinessRequest,
+  type BusinessResult,
+  type BusinessName,
+} from "./modules/business.js";
+export {
+  computeCompatibility,
+  lifePathKind,
+  type CompatibilityResult,
+  type Relationship,
+} from "./modules/compatibility.js";
+export { findDates, type DateRequest, type DateResult } from "./modules/dates.js";
