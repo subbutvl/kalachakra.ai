@@ -17,7 +17,8 @@
     "check": "turbo run typecheck lint test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "numbers": "pnpm --silent --filter @kalachakra/engine run numbers"
+    "numbers": "pnpm --silent --filter @kalachakra/engine run numbers",
+    "report": "pnpm --silent --filter @kalachakra/report run report"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

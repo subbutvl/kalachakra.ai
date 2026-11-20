@@ -146,8 +146,59 @@ export const DiffBody = z
   })
   .meta({ id: "RulesDiffRequest" });
 
+const Branding = z.object({
+  name: z.string().optional(),
+  title: z.string().optional(),
+  phone: z.string().optional(),
+  email: z.string().optional(),
+  website: z.string().optional(),
+  logo: z.string().optional().meta({ description: "A data: URL" }),
+  signature: z.string().optional(),
+});
+
+/**
+ * A report request: the person, plus inputs for any optional modules. Each
+ * module given adds its section (mobile, vehicle and house) or add-on
+ * (business, compatibility). Practitioner mode may send branding and an
+ * edit overlay (phase 1 spec 6.2).
+ */
 export const ReportBody = z
-  .object({ person: Person, modules: z.array(z.string()).optional(), ...Common })
+  .object({
+    person: Person,
+    modules: z
+      .object({
+        mobile: z
+          .object({ numbers: z.array(z.string()).min(1).max(20), goals: MobileBody.shape.goals })
+          .optional(),
+        vehicle: z.object({ registrations: z.array(z.string()).min(1).max(20) }).optional(),
+        house: z
+          .object({
+            flat: z.string().optional(),
+            building: z.string().optional(),
+            door: Direction.optional(),
+            others: z.array(Person).max(9).optional(),
+          })
+          .optional(),
+        business: z
+          .object({
+            names: z.array(z.string().min(1)).min(1).max(5),
+            partners: z.array(Person).max(3).optional(),
+            trade: z.string().optional(),
+            incorporation_date: IsoDateSchema.optional(),
+          })
+          .optional(),
+        compatibility: z
+          .object({ partner: Person, relationship: CompatibilityBody.shape.relationship })
+          .optional(),
+      })
+      .optional(),
+    branding: Branding.optional(),
+    overlay: z
+      .record(z.string(), z.unknown())
+      .optional()
+      .meta({ description: "Practitioner edit overlay: {status, branding, order, edits[]}" }),
+    ...Common,
+  })
   .meta({ id: "ReportRequest" });
 
 /** Most responses are engine results; their full shapes are the engine's TypeScript types. */

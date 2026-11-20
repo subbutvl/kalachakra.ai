@@ -15,6 +15,7 @@
     "@hono/node-server": "^2.1.9",
     "@hono/zod-openapi": "^1.6.3",
     "@kalachakra/engine": "workspace:*",
+    "@kalachakra/report": "workspace:*",
     "@kalachakra/rules": "workspace:*",
     "@scalar/hono-api-reference": "0.12.16",
     "hono": "^4.13.19",

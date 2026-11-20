@@ -1,4 +1,5 @@
-import { beforeAll, describe, expect, it } from "vitest";
+import { afterAll, describe, expect, it } from "vitest";
+import { closePdfBrowser } from "@kalachakra/report/pdf";
 import { createApp } from "../src/app.js";
 import { todayInIndia } from "../src/rules.js";
 import { diffResults } from "../src/diff.js";
@@ -39,7 +40,7 @@ describe("service", () => {
     expect((await get("/v1/version")).body).toEqual({
       engine: "0.1.0",
       rules: ["v1.0"],
-      texts: null,
+      texts: "0.1",
     });
   });
 
@@ -101,7 +102,7 @@ describe("profile", () => {
     expect(r.body.meta).toMatchObject({
       engine: "0.1.0",
       rules: "v1.0",
-      texts: null,
+      texts: "0.1",
       profile: "house-default",
       as_of: AS_OF,
     });
@@ -312,12 +313,61 @@ describe("rules", () => {
 });
 
 describe("reports", () => {
-  beforeAll(() => undefined);
-  it("say they arrive in milestone 5", async () => {
-    for (const path of ["/v1/report", "/v1/report/pdf"]) {
-      const r = await post(path, { person: aarav });
-      expect(r.status).toBe(501);
-      expect(r.body.error.code).toBe("not_implemented");
-    }
+  it("returns the assembled report as JSON", async () => {
+    const r = await post("/v1/report", {
+      person: aarav,
+      as_of: AS_OF,
+      language: "ta",
+      audience: "adult",
+      modules: {
+        mobile: { numbers: ["9876524310"] },
+        compatibility: { partner: myra, relationship: "parent_child" },
+      },
+    });
+    expect(r.status).toBe(200);
+    expect(r.body.meta).toMatchObject({
+      language: "ta",
+      texts: "0.1",
+      modules: ["mobile", "compatibility"],
+    });
+    expect(r.body.sections.length).toBeGreaterThan(25);
+    expect(r.body.sections.map((s: { id: string }) => s.id)).toEqual(
+      expect.arrayContaining(["mobile", "compatibility"]),
+    );
   });
+
+  it("applies a practitioner overlay and rejects a bad one", async () => {
+    const r = await post("/v1/report", {
+      person: aarav,
+      as_of: AS_OF,
+      overlay: { edits: [{ section: "health", action: "hide" }] },
+    });
+    expect(r.body.sections.map((s: { id: string }) => s.id)).not.toContain("health");
+    const bad = await post("/v1/report", {
+      person: aarav,
+      overlay: { edits: [{ section: "x", action: "explode" }] },
+    });
+    expect(bad.status).toBe(400);
+    expect(bad.body.error.field).toBe("overlay");
+  });
+
+  it("returns a PDF", async () => {
+    const res = await app.request("/v1/report/pdf", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ person: myra, as_of: AS_OF, audience: "child" }),
+    });
+    expect(res.status).toBe(200);
+    expect(res.headers.get("content-type")).toBe("application/pdf");
+    expect(res.headers.get("content-disposition")).toContain(
+      "Kalachakra_Myra_Kapoor_Child_2026-11-20.pdf",
+    );
+    const bytes = new Uint8Array(await res.arrayBuffer());
+    expect(new TextDecoder().decode(bytes.slice(0, 5))).toBe("%PDF-");
+    expect(bytes.length).toBeGreaterThan(50_000);
+  });
+});
+
+afterAll(async () => {
+  await closePdfBrowser();
 });
