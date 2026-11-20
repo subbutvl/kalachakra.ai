@@ -1,0 +1,19 @@
+{
+  "$comment": "Chaldean name numbers and name fit labels. Draft text by Claude, for numerologist review.",
+  "language": "en",
+  "module": "name",
+  "blocks": {
+    "name_number.1": "A name that adds to 1 carries the Sun's vibration: it projects confidence, independence and leadership. People tend to see the bearer as capable and in charge.",
+    "name_number.2": "A name that adds to 2 carries the Moon's vibration: gentle, cooperative and approachable. It draws people in and suits partnership and care.",
+    "name_number.3": "A name that adds to 3 carries Jupiter's vibration: wise, respectable and expansive. It invites trust and suits teaching, advice and public life.",
+    "name_number.4": "A name that adds to 4 carries Rahu's vibration: practical, original and unconventional. It suits technical and reform-minded work but can attract sudden changes.",
+    "name_number.5": "A name that adds to 5 carries Mercury's vibration: lively, clever and sociable. It is one of the most popular business numbers and suits communication and trade.",
+    "name_number.6": "A name that adds to 6 carries Venus's vibration: warm, attractive and harmonious. It suits creative work, family life and anything involving beauty or comfort.",
+    "name_number.7": "A name that adds to 7 carries Ketu's vibration: thoughtful, private and insightful. It suits research and spiritual work; in business it may need a supportive Mulank.",
+    "name_number.8": "A name that adds to 8 carries Saturn's vibration: serious, enduring and disciplined. It brings slow, solid results and is best used where the birth numbers are friendly to Saturn.",
+    "name_number.9": "A name that adds to 9 carries Mars's vibration: energetic, courageous and determined. It suits leadership, sport and causes, and brings drive to whatever it names.",
+    "name_fit.supported": "The name supports the birth numbers: its planet is friendly or neutral to both the Mulank and the Bhagyank, and the compound is not unfavourable. No change is needed.",
+    "name_fit.mixed": "The name gives mixed support: one birth number welcomes it more than the other, or the compound needs care. A small spelling change could strengthen it.",
+    "name_fit.opposed": "The name pulls against the birth numbers. Many people with such names do well, but a spelling change that brings the name in line with the Mulank and Bhagyank is worth considering."
+  }
+}

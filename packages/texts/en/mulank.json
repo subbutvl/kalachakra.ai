@@ -1,0 +1,194 @@
+{
+  "$comment": "Mulank (driver) readings, master days and birthday numbers. Draft text by Claude, for numerologist review. Written so it reads for both the adult and the child edition; 'child' gives the parents' wording where the topic differs.",
+  "language": "en",
+  "module": "mulank",
+  "blocks": {
+    "mulank.1.nature": "Mulank 1 is ruled by the Sun, and it shows in a direct, self-starting nature. There is a strong wish to lead, to begin things and to be seen doing them well. Independence matters a great deal, and being told exactly what to do rarely sits well.",
+    "mulank.1.mind": "The mind works quickly and decisively. Once a plan is clear, action follows almost at once, sometimes before every detail has been checked. Original ideas come easily; patience with slow or repetitive thinking comes less easily.",
+    "mulank.1.work": {
+      "text": "Work goes best with ownership: running a team, a project or a business of one's own. Roles in management, government, administration, entrepreneurship and any field that rewards initiative suit this number. A job with no room to decide anything can feel like a cage.",
+      "child": "At school this child does best when given responsibility: class monitor, team captain, leading a project. Praise for initiative motivates more than rules do. Learning goes well when the child can choose how to approach a task.",
+      "status": "draft"
+    },
+    "mulank.1.money": {
+      "text": "Money tends to come through personal effort and recognised position rather than luck. There is a liking for quality and for things that show status. Earnings rise with responsibility, so steps up in role matter more than small savings.",
+      "child": "Give this child a small amount to manage on their own; they learn quickly when trusted. They may want the best of everything, so gentle lessons on value and patience help. Rewards linked to effort work well.",
+      "status": "draft"
+    },
+    "mulank.1.health": "The Sun governs vitality, the heart and the eyes in traditional numerology. Energy is usually good, but overwork and pride about rest can wear it down. Regular sleep, morning sunlight and steady exercise keep the fire balanced.",
+    "mulank.1.relationships": "Loyal and protective, with high expectations of those close by. Partners and friends who respect independence get the warmest side. The lesson is to listen as much as to lead, and to share credit freely.",
+    "mulank.1.strengths": "Courage, leadership, originality, determination and the energy to start what others only talk about.",
+    "mulank.1.watch_outs": "Impatience, stubbornness, taking over when others want to help, and difficulty admitting a mistake.",
+
+    "mulank.2.nature": "Mulank 2 is ruled by the Moon: gentle, sensitive and tuned to other people's feelings. There is a natural gift for harmony, cooperation and making others feel at ease. Moods can change with the surroundings, much as the Moon changes.",
+    "mulank.2.mind": "The mind is imaginative and intuitive, picking up what is unsaid. Decisions come more easily after time to reflect and some reassurance. Creativity in words, music or art often runs deep.",
+    "mulank.2.work": {
+      "text": "Work goes best in partnership and in caring or creative roles: counselling, teaching, nursing, hospitality, design, music, diplomacy and any job that needs tact. Harsh, competitive settings drain this number; supportive teams bring out its best.",
+      "child": "This child learns best in a calm, encouraging classroom and with a teacher they feel close to. Group work, music, art and reading suit them. Criticism lands hard, so correction works better when it is gentle and private.",
+      "status": "draft"
+    },
+    "mulank.2.money": {
+      "text": "Money often comes through partnership, service and steady work rather than bold risks. Spending can follow mood, so a simple budget brings calm. Savings give the sense of security this number values.",
+      "child": "A savings box they can see filling up gives this child security. They may spend to cheer themselves up, so simple rules about money help. Sharing comes naturally to them.",
+      "status": "draft"
+    },
+    "mulank.2.health": "The Moon is linked with fluids, digestion and the emotions in traditional numerology. Stress tends to show in the stomach and in sleep. Rest, water, calm routines and time near water or in nature restore balance.",
+    "mulank.2.relationships": "Warm, devoted and caring, with a deep need for closeness and appreciation. This number gives a great deal in love and friendship. The lesson is to say what is needed directly instead of hoping it will be noticed.",
+    "mulank.2.strengths": "Tact, empathy, cooperation, imagination, patience and a gift for bringing people together.",
+    "mulank.2.watch_outs": "Oversensitivity, indecision, mood swings, and depending too much on others' approval.",
+
+    "mulank.3.nature": "Mulank 3 is ruled by Jupiter, the planet of wisdom and growth. The nature is optimistic, principled and keen to learn and to teach. There is a natural dignity and a wish to be respected for what one knows.",
+    "mulank.3.mind": "The mind is broad, thoughtful and fond of structure and meaning. Advice and guidance come naturally, and others often ask for them. Discipline in study pays off strongly for this number.",
+    "mulank.3.work": {
+      "text": "Work goes best where knowledge and guidance are valued: teaching, law, finance, consulting, religion and philosophy, publishing, administration and senior advisory roles. Recognition for expertise matters more than speed.",
+      "child": "This child often enjoys learning for its own sake and may ask big questions. Encourage reading, debate and explaining things to others. A respected teacher or mentor can shape them strongly.",
+      "status": "draft"
+    },
+    "mulank.3.money": {
+      "text": "Money tends to grow steadily through expertise, good counsel and a reputation for honesty. Generosity is natural, sometimes too much so. Long-term investments and planned growth suit this number better than quick gains.",
+      "child": "This child can be generous with what they have. Teach them to save toward a goal and to understand why. Linking money to learning, such as books or courses, suits them.",
+      "status": "draft"
+    },
+    "mulank.3.health": "Jupiter is linked with the liver, weight and growth in traditional numerology. Rich food and too little movement are the usual risks. Moderation, regular walks and a light evening meal help.",
+    "mulank.3.relationships": "Loyal, generous and protective, often the advisor in the family or the circle of friends. Respect and shared values matter more than drama. The lesson is to guide without lecturing.",
+    "mulank.3.strengths": "Wisdom, optimism, honesty, discipline, generosity and the ability to teach and inspire.",
+    "mulank.3.watch_outs": "Preaching, pride in being right, over-commitment, and being too strict with others' mistakes.",
+
+    "mulank.4.nature": "Mulank 4 is linked with Rahu, read in this system through Saturn. The nature is practical, unconventional and independent in thought. There is a habit of seeing the world differently and of questioning accepted ways.",
+    "mulank.4.mind": "The mind is methodical, technical and good with systems and details. It can also be restless and given to sudden changes of plan. Ideas that break with tradition often turn out to be ahead of their time.",
+    "mulank.4.work": {
+      "text": "Work goes best with systems, technology, research and organisation: engineering, IT, data, research, construction, operations and reform-minded roles. Hard, careful work is a strength; office politics is not.",
+      "child": "This child often enjoys building, taking things apart and finding out how they work. Science, maths, coding and projects with clear steps suit them. They may question rules, so explaining the reasons behind them helps.",
+      "status": "draft"
+    },
+    "mulank.4.money": {
+      "text": "Money comes through hard, practical work and is best kept through careful planning. Sudden gains and sudden expenses can both happen, so a reserve fund is wise. Speculation and get-rich-quick schemes are best avoided.",
+      "child": "Teach this child to keep a small record of what they save and spend; they like systems. Explain that money grows slowly through steady effort.",
+      "status": "draft"
+    },
+    "mulank.4.health": "In traditional numerology Rahu is linked with nervous tension and sudden, hard-to-name complaints. Overwork and irregular hours are the main risks. A fixed daily routine, fresh air and time away from screens help.",
+    "mulank.4.relationships": "Faithful and dependable once trust is built, though slow to open up. Friendships are few but lasting. The lesson is to share feelings, not only solutions.",
+    "mulank.4.strengths": "Hard work, reliability, practical intelligence, organisation and the courage to try new ways.",
+    "mulank.4.watch_outs": "Rigidity, suspicion, arguing for the sake of it, and taking on too much alone.",
+
+    "mulank.5.nature": "Mulank 5 is ruled by Mercury, the planet of communication and trade. The nature is quick, curious, adaptable and sociable. Variety, movement and new experiences keep this number lively and content.",
+    "mulank.5.mind": "The mind is fast and clever, good with words, numbers and people. It learns quickly and gets bored quickly. Several interests at once are normal; finishing them is the challenge.",
+    "mulank.5.work": {
+      "text": "Work goes best with people, movement and communication: sales, marketing, media, trade, travel, finance, writing, technology and anything entrepreneurial. Routine desk work for long stretches suits this number least.",
+      "child": "This child learns fast and needs variety to stay engaged. Languages, debate, maths puzzles and hands-on activities suit them. Short study sessions with breaks work better than long ones.",
+      "status": "draft"
+    },
+    "mulank.5.money": {
+      "text": "Money often comes through trade, networking and quick thinking. It can also leave as fast as it comes. Automatic savings and a rule to wait a day before large purchases help keep what is earned.",
+      "child": "This child may enjoy buying and swapping things. Small trading games teach value well. Encourage them to wait before spending on something new.",
+      "status": "draft"
+    },
+    "mulank.5.health": "Mercury is linked with the nerves, skin and breathing in traditional numerology. Restlessness and irregular meals are the usual risks. Regular sleep, breathing exercises and time without devices calm the system.",
+    "mulank.5.relationships": "Charming, witty and good company, with many friends. Freedom and conversation matter in close relationships. The lesson is to stay with people and plans when the first excitement fades.",
+    "mulank.5.strengths": "Communication, adaptability, quick learning, business sense and the ability to connect with anyone.",
+    "mulank.5.watch_outs": "Restlessness, impatience, scattered effort, and promising more than can be delivered.",
+
+    "mulank.6.nature": "Mulank 6 is ruled by Venus, the planet of love, beauty and comfort. The nature is warm, artistic and devoted to home and family. Harmony, good taste and pleasant surroundings matter a great deal.",
+    "mulank.6.mind": "The mind has a strong sense of beauty and balance, and notices how things look and feel. Responsibility for others comes naturally. Decisions are often made with the heart as much as the head.",
+    "mulank.6.work": {
+      "text": "Work goes best in creative, caring and people-centred fields: design, fashion, arts, hospitality, beauty, healthcare, teaching and luxury trades. A pleasant place to work affects results more than for most numbers.",
+      "child": "This child often shows talent in art, music, dance or design. A friendly, attractive classroom helps them learn. They respond well to praise and to responsibility for others, such as helping younger children.",
+      "status": "draft"
+    },
+    "mulank.6.money": {
+      "text": "Money tends to come steadily, often through creative work, service or family support. Spending on comfort, beauty and loved ones comes easily. A budget that includes some pleasure is easier to keep than a strict one.",
+      "child": "This child may love buying gifts for others. Teach them to plan for gifts and to save for something they really want. They enjoy money that makes the home nicer.",
+      "status": "draft"
+    },
+    "mulank.6.health": "Venus is linked with the throat, kidneys and the reproductive system in traditional numerology. Overindulgence in sweets and comfort is the usual risk. Balanced meals, enough water and gentle exercise such as dance help.",
+    "mulank.6.relationships": "Loving, loyal and protective, often the heart of the family. Partnership and family life are central. The lesson is to care without controlling, and to let others carry their own responsibilities.",
+    "mulank.6.strengths": "Love, responsibility, artistic sense, generosity, diplomacy and the ability to create a beautiful home.",
+    "mulank.6.watch_outs": "Over-attachment, worry about others, love of luxury, and taking on others' burdens.",
+
+    "mulank.7.nature": "Mulank 7 is linked with Ketu, read in this system through Mars. The nature is reflective, intuitive and drawn to meaning beneath the surface. Time alone is not loneliness for this number but a need.",
+    "mulank.7.mind": "The mind is deep, analytical and spiritual by turns. Research, investigation and philosophy come naturally. Insights often arrive suddenly, after long quiet thinking.",
+    "mulank.7.work": {
+      "text": "Work goes best where depth is valued: research, science, technology, analysis, psychology, writing, healing and spiritual or religious work. Freedom to work at one's own pace brings the best results.",
+      "child": "This child may be quiet and observant, with interests that go deep rather than wide. Give them time and space to explore a subject fully. Nature, science and reading suit them well.",
+      "status": "draft"
+    },
+    "mulank.7.money": {
+      "text": "Money can come unevenly, through expertise and research rather than routine. Material things matter less to this number than meaning. A simple, steady savings plan protects against uneven income.",
+      "child": "This child may care little about money. Simple lessons about saving, explained with a purpose, help them value it.",
+      "status": "draft"
+    },
+    "mulank.7.health": "In traditional numerology Ketu is linked with sensitivity, digestion and the nervous system. Worry and irregular habits are the usual risks. Meditation, regular meals and walks in nature help.",
+    "mulank.7.relationships": "Loyal and caring but reserved, needing a partner who understands the need for quiet. Trust grows slowly and deeply. The lesson is to share inner thoughts rather than withdraw.",
+    "mulank.7.strengths": "Insight, intuition, analysis, spiritual depth, independence and a researcher's patience.",
+    "mulank.7.watch_outs": "Withdrawal, secrecy, over-thinking, and doubting others without reason.",
+
+    "mulank.8.nature": "Mulank 8 is ruled by Saturn, the planet of discipline, time and justice. The nature is serious, patient and hard-working, with a strong sense of duty. Success often comes later in life, and lasts.",
+    "mulank.8.mind": "The mind is careful, practical and thinks in the long term. It plans thoroughly and does not give up easily. Pessimism can creep in when results are slow.",
+    "mulank.8.work": {
+      "text": "Work goes best where persistence and responsibility build over time: industry, manufacturing, real estate, law, finance, administration, mining, engineering and long-term projects. Steady effort is rewarded more than quick wins.",
+      "child": "This child is often responsible and serious beyond their years. Clear goals and steady routines help them learn. Encourage play and lightness alongside hard work.",
+      "status": "draft"
+    },
+    "mulank.8.money": {
+      "text": "Money grows slowly and solidly through discipline, property and long-term planning. Early years may feel tight; later years are often secure. Debt should be taken on carefully and paid off steadily.",
+      "child": "This child often understands saving early. Help them set long-term goals and celebrate progress so it does not feel only like sacrifice.",
+      "status": "draft"
+    },
+    "mulank.8.health": "Saturn is linked with the bones, joints, teeth and skin in traditional numerology. Overwork and worry are the usual risks. Regular stretching, enough calcium and rest days protect long-term health.",
+    "mulank.8.relationships": "Deeply loyal and dependable, though not always expressive. Love is shown through duty and support. The lesson is to say the warm words, not only do the hard work.",
+    "mulank.8.strengths": "Patience, discipline, endurance, fairness, organisation and the ability to build things that last.",
+    "mulank.8.watch_outs": "Pessimism, rigidity, overwork, and carrying burdens silently.",
+
+    "mulank.9.nature": "Mulank 9 is ruled by Mars, the planet of energy and courage. The nature is bold, active and quick to defend what is right. There is a strong humanitarian streak and a dislike of injustice.",
+    "mulank.9.mind": "The mind is energetic, decisive and competitive. Challenges sharpen it. Anger can flare quickly and pass quickly.",
+    "mulank.9.work": {
+      "text": "Work goes best where courage and energy count: the armed forces, police, sport, surgery, engineering, emergency services, property, leadership and causes that help others. Idle or purposeless work frustrates this number.",
+      "child": "This child is energetic and competitive. Sport, physical activity and clear challenges suit them. Channel their energy before study time, and teach calm ways to handle frustration.",
+      "status": "draft"
+    },
+    "mulank.9.money": {
+      "text": "Money comes through effort, courage and taking initiative. Generosity and impulse spending can both drain it. A plan that sets money aside before spending helps.",
+      "child": "This child may spend quickly and give freely. Teach them to set aside a part of any money first, then spend.",
+      "status": "draft"
+    },
+    "mulank.9.health": "Mars is linked with the blood, muscles and injuries in traditional numerology. Haste and over-exertion are the usual risks. Warm-ups, enough water and cooling-down after anger or exercise help.",
+    "mulank.9.relationships": "Passionate, protective and generous in love and friendship. Honesty is valued above all. The lesson is patience: to pause before reacting.",
+    "mulank.9.strengths": "Courage, energy, generosity, leadership, compassion for the underdog and the drive to finish what is started.",
+    "mulank.9.watch_outs": "Anger, impatience, recklessness, and fighting battles that are not worth it.",
+
+    "master_day.11": "Born on the 11th, a master day. Along with the qualities of Mulank 2, there is unusual intuition, idealism and sensitivity. This brings inspiration and also nervous strain; calm routines help the gift shine.",
+    "master_day.22": "Born on the 22nd, a master day. Along with the qualities of Mulank 4, there is a capacity to build on a large scale and turn big ideas into practical results. The pressure to achieve can be heavy, so pacing matters.",
+
+    "birthday.1": "Born on the 1st: a natural starter with strong will and the courage to go first.",
+    "birthday.2": "Born on the 2nd: diplomatic and caring, with a gift for working with others.",
+    "birthday.3": "Born on the 3rd: expressive and optimistic, with a love of learning and sharing ideas.",
+    "birthday.4": "Born on the 4th: practical and hard-working, a builder of steady foundations.",
+    "birthday.5": "Born on the 5th: curious and adaptable, happiest with variety and freedom.",
+    "birthday.6": "Born on the 6th: warm and responsible, devoted to home and loved ones.",
+    "birthday.7": "Born on the 7th: thoughtful and intuitive, drawn to deeper questions.",
+    "birthday.8": "Born on the 8th: ambitious and disciplined, with a talent for managing resources.",
+    "birthday.9": "Born on the 9th: generous and idealistic, with a wish to help others.",
+    "birthday.10": "Born on the 10th: independent and capable, able to begin again with fresh energy.",
+    "birthday.11": "Born on the 11th: intuitive and inspired, sensitive to people and ideas.",
+    "birthday.12": "Born on the 12th: creative and sociable, with a gift for expression.",
+    "birthday.13": "Born on the 13th: hard-working and practical, learning through effort and change.",
+    "birthday.14": "Born on the 14th: versatile and freedom-loving, learning balance through experience.",
+    "birthday.15": "Born on the 15th: warm and magnetic, attracting help and affection.",
+    "birthday.16": "Born on the 16th: reflective and searching, growing through life's surprises.",
+    "birthday.17": "Born on the 17th: ambitious and capable, with a talent for business and planning.",
+    "birthday.18": "Born on the 18th: compassionate and determined, with strong ideals.",
+    "birthday.19": "Born on the 19th: independent and resilient, learning to accept help.",
+    "birthday.20": "Born on the 20th: sensitive and cooperative, at home in close relationships.",
+    "birthday.21": "Born on the 21st: sociable and creative, with a gift for bringing joy.",
+    "birthday.22": "Born on the 22nd: a master builder, practical and visionary at once.",
+    "birthday.23": "Born on the 23rd: lively and versatile, good with people and ideas.",
+    "birthday.24": "Born on the 24th: loyal and caring, steady in love and responsibility.",
+    "birthday.25": "Born on the 25th: analytical and intuitive, learning through observation.",
+    "birthday.26": "Born on the 26th: capable and generous, with a flair for leadership.",
+    "birthday.27": "Born on the 27th: compassionate and wise, with a mind for big ideas.",
+    "birthday.28": "Born on the 28th: independent and determined, a leader who works well with others.",
+    "birthday.29": "Born on the 29th: intuitive and idealistic, sensitive to others' needs.",
+    "birthday.30": "Born on the 30th: expressive and imaginative, with a gift for words.",
+    "birthday.31": "Born on the 31st: practical and creative, building steadily on new ideas."
+  }
+}
