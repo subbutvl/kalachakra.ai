@@ -13,7 +13,7 @@ Phase 1 runs locally only: no logins, no database, no deployment.
 
 | Part              | What it is                                                                 | Status |
 | ----------------- | -------------------------------------------------------------------------- | ------ |
-| `packages/engine` | `@kalachakra/engine`: pure calculation. No database, network, clock or UI. | M1     |
+| `packages/engine` | `@kalachakra/engine`: pure calculation. No database, network, clock or UI. | M1, M2 |
 | `packages/rules`  | `@kalachakra/rules`: rules v1.0 as JSON data, rule profiles, JSON Schemas  | M1     |
 | `packages/texts`  | `@kalachakra/texts`: interpretation library, English and Tamil             | M5     |
 | `packages/report` | `@kalachakra/report`: report builder and PDF                               | M5     |
@@ -35,7 +35,18 @@ pnpm check           # type check, lint and test
 pnpm --filter @kalachakra/engine test
 ```
 
-`pnpm dev` (API and web together) arrives with milestones 4 and 6.
+Print every number for any name and date (milestone 2):
+
+```sh
+pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male
+pnpm numbers --name "Myra Kapoor" --dob 2016-03-09 --gender female --profile vedicpupil-compat --as-of 2026-11-20
+```
+
+Options: `--birth-name "..."` (birth certificate name), `--time HH:MM`, `--profile`
+(`house-default`, `vedicpupil-compat`, `sample-practitioner`), `--as-of YYYY-MM-DD` (default today),
+`--kua-basis male|female` (with `--gender unspecified`), `--json` (the full result).
+
+`pnpm dev` (API and web together) arrives with milestones 4 and 6; until then it lists what you can run.
 
 ## Changing rules
 
