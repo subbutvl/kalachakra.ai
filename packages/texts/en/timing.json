@@ -4,18 +4,29 @@
   "module": "timing",
   "blocks": {
     "personal_year.1": "Personal year 1: a year of new beginnings. Start projects, take the lead and plant seeds for the next nine years.",
+    "personal_year.1.detail": "This is a year of new beginnings. Start the project, apply for the role, or make the move you have been putting off: what you begin now sets the tone for the next nine years. Expect to stand on your own more than usual. Avoid waiting for perfect conditions; momentum matters more this year than polish.",
     "personal_year.2": "Personal year 2: a year of patience and partnership. Build relationships, cooperate and let earlier seeds grow quietly.",
+    "personal_year.2.detail": "This is a year of patience and partnership. Things move more slowly, and progress comes through cooperation, not force. Relationships deepen, agreements are made, and details matter. Avoid pushing for quick results or making big decisions in a hurry; tend what you started last year and let it grow.",
     "personal_year.3": "Personal year 3: a year of expression and social life. Create, communicate and enjoy; avoid scattering energy.",
+    "personal_year.3.detail": "This is a year of expression, friendship and growth. Social life widens, creative ideas flow, and opportunities come through people. It is a good year to learn, write, teach or present. Avoid scattering your energy and money across too many things; choose what you most want to grow.",
     "personal_year.4": "Personal year 4: a year of hard work and foundations. Organise, budget and build; progress is steady rather than fast.",
+    "personal_year.4.detail": "This is a year of hard work and foundations. Organise, budget and build; progress is steady rather than fast. It is a good year for health routines, property and paperwork. Avoid shortcuts and risky bets, and expect some delays: they test whether the foundation is sound.",
     "personal_year.5": "Personal year 5: a year of change and freedom. Travel, new contacts and fresh choices arrive; stay flexible but careful.",
+    "personal_year.5.detail": "This is a year of change and freedom. Travel, new people and unexpected opportunities arrive. It is a good year to try something new, update your skills or change direction. Avoid restless decisions you might regret, and keep commitments you have already made.",
     "personal_year.6": "Personal year 6: a year of home, family and responsibility. Care for loved ones, beautify the home and settle commitments.",
+    "personal_year.6.detail": "This is a year of home, family and responsibility. Relationships, marriage, children and care for others come to the fore. It is a good year to improve your home and mend relationships. Avoid taking on everyone's problems; give generously but within limits.",
     "personal_year.7": "Personal year 7: a year of reflection and study. Slow down, learn, rest and look inward; avoid big risky moves.",
+    "personal_year.7.detail": "This is a year of reflection and inner growth. Study, rest, research and time alone bring clarity. Outward progress may slow, and that is fine. It is a good year to plan, heal and deepen your skills. Avoid forcing big launches; use the quiet to decide what you really want.",
     "personal_year.8": "Personal year 8: a year of results, money and authority. Effort from earlier years pays off; act with ambition and fairness.",
+    "personal_year.8.detail": "This is a year of achievement, money and authority. Effort from earlier years can pay off in promotion, income or recognition. It is a good year for business, investment and taking charge. Avoid overwork and harsh decisions; handle power and money with fairness.",
     "personal_year.9": "Personal year 9: a year of completion. Finish, release and forgive, to make room for the new cycle that follows.",
+    "personal_year.9.detail": "This is a year of completion and letting go. Finish what is unfinished, clear out what no longer fits, and forgive what you can. It is a good year for service, travel and generosity. Avoid starting big new ventures late in the year; a new cycle begins next year.",
     "personal_year.11": "Personal year 11/2: a master year of intuition and inspiration. Spiritual insight and sensitivity rise; stay calm and trust your inner voice.",
+    "personal_year.11.detail": "This is a master year of insight and inspiration. Intuition is strong, and you may feel called to teach, guide or create. It can also bring nervous tension. Rest well, trust your inner voice, and share what you see with people who need it. It is read alongside personal year 2.",
     "personal_year.22": "Personal year 22/4: a master year for building something big. Plans made now can last; work steadily and think large.",
+    "personal_year.22.detail": "This is a master year for building something lasting. Large plans can take shape if you are practical and patient. The pressure can be heavy; break big goals into steps and ask for help. It is read alongside personal year 4.",
     "personal_year.33": "Personal year 33/6: a master year of service and healing. Care for others brings deep fulfilment.",
-
+    "personal_year.33.detail": "This is a master year of service and compassion. You may be asked to care for others or lead through example. Give generously, but protect your own health and limits. It is read alongside personal year 6.",
     "personal_month.1": "Month 1: start something, take initiative.",
     "personal_month.2": "Month 2: be patient, cooperate, nurture relationships.",
     "personal_month.3": "Month 3: socialise, create and share ideas.",
@@ -28,7 +39,6 @@
     "personal_month.11": "Month 11/2: heightened intuition; listen to inner guidance.",
     "personal_month.22": "Month 22/4: a strong month for large, practical plans.",
     "personal_month.33": "Month 33/6: a caring month of service to others.",
-
     "personal_day.1": "Day 1: good for starting things.",
     "personal_day.2": "Day 2: good for talks and partnership.",
     "personal_day.3": "Day 3: good for creative work and socialising.",
@@ -41,7 +51,6 @@
     "personal_day.11": "Day 11/2: good for intuition and inspiration.",
     "personal_day.22": "Day 22/4: good for important practical work.",
     "personal_day.33": "Day 33/6: good for helping others.",
-
     "universal_year.1": "The universal year is 1: a fresh start for the world at large, good for beginnings.",
     "universal_year.2": "The universal year is 2: a year of diplomacy and cooperation worldwide.",
     "universal_year.3": "The universal year is 3: a year of communication and creativity worldwide.",
@@ -54,7 +63,6 @@
     "universal_year.11": "The universal year is 11/2: a year of awakening and idealism worldwide.",
     "universal_year.22": "The universal year is 22/4: a year of large-scale building worldwide.",
     "universal_year.33": "The universal year is 33/6: a year of compassion worldwide.",
-
     "pinnacle.1": "Pinnacle 1: a period for independence, leadership and building self-reliance.",
     "pinnacle.2": "Pinnacle 2: a period for partnership, patience and close relationships.",
     "pinnacle.3": "Pinnacle 3: a period for creativity, expression and social life.",
@@ -67,7 +75,6 @@
     "pinnacle.11": "Pinnacle 11/2: a period of inspiration and spiritual growth.",
     "pinnacle.22": "Pinnacle 22/4: a period of building something large and lasting.",
     "pinnacle.33": "Pinnacle 33/6: a period of teaching, healing and service.",
-
     "challenge.0": "Challenge 0: the challenge of choice. Any lesson may arise, and free will decides how it is met.",
     "challenge.1": "Challenge 1: learning to stand up for yourself without dominating others.",
     "challenge.2": "Challenge 2: learning not to be over-sensitive, and to trust your own worth.",
@@ -77,7 +84,6 @@
     "challenge.6": "Challenge 6: learning to balance responsibility and to accept others as they are.",
     "challenge.7": "Challenge 7: learning faith and openness instead of doubt.",
     "challenge.8": "Challenge 8: learning a healthy balance with money and power.",
-
     "period.1": "Period cycle 1: a time to develop independence and individuality.",
     "period.2": "Period cycle 2: a time of cooperation, sensitivity and relationships.",
     "period.3": "Period cycle 3: a time of creativity, friends and self-expression.",
@@ -90,7 +96,6 @@
     "period.11": "Period cycle 11/2: a time of inspiration and heightened intuition.",
     "period.22": "Period cycle 22/4: a time of large, practical achievement.",
     "period.33": "Period cycle 33/6: a time of caring and selfless service.",
-
     "essence.1": "Essence 1: this year's energy favours independence and new starts.",
     "essence.2": "Essence 2: this year's energy favours patience and partnership.",
     "essence.3": "Essence 3: this year's energy favours creativity and communication.",
@@ -103,7 +108,6 @@
     "essence.11": "Essence 11/2: this year's energy favours intuition and inspiration.",
     "essence.22": "Essence 22/4: this year's energy favours building on a large scale.",
     "essence.33": "Essence 33/6: this year's energy favours service and healing.",
-
     "dasha.1": "Dasha of 1 (Sun): years of confidence, recognition and leadership.",
     "dasha.2": "Dasha of 2 (Moon): years of feeling, family and imagination.",
     "dasha.3": "Dasha of 3 (Jupiter): years of learning, growth and good counsel.",

@@ -317,6 +317,16 @@
     "ui.trace.month_lower": "month",
     "ui.trace.day": "Day",
     "ui.trace.day_lower": "day",
-    "ui.trace.year": "year"
+    "ui.trace.year": "year",
+    "ui.life_section.career": "Career",
+    "ui.life_section.career.child": "School and learning",
+    "ui.life_section.work_style": "How you work",
+    "ui.life_section.work_style.child": "How they learn",
+    "ui.life_section.money": "Money",
+    "ui.life_section.money.child": "Money habits",
+    "ui.life_section.love": "Love and partnership",
+    "ui.life_section.love.child": "Friendships",
+    "ui.life_section.family": "Family",
+    "ui.year_section.reading": "What this year asks of you"
   }
 }

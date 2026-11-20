@@ -510,8 +510,23 @@ export function buildReport(input: ReportInput): ReportDocument {
   ]);
 
   // ---- V. Life areas --------------------------------------------------------
-  section("career_money", "life", 2, [p(`life.career.${bhg}`), p(`life.money.${mul}`)]);
-  section("love_family", "life", 2, [p(`life.love.${mul}`), p(`life.family.${bhg}`)]);
+  // Career and family are read from the Bhagyank; how you work, money and love from the Mulank.
+  const lifeHead = (k: string, childToo = true) =>
+    h3(ui(`life_section.${k}${child && childToo ? ".child" : ""}`));
+  section("career_money", "life", 2, [
+    lifeHead("career"),
+    p(`life.career.${bhg}`),
+    lifeHead("work_style"),
+    p(`life.work_style.${mul}`),
+    lifeHead("money"),
+    p(`life.money.${mul}`),
+  ]);
+  section("love_family", "life", 2, [
+    lifeHead("love"),
+    p(`life.love.${mul}`),
+    lifeHead("family", false),
+    p(`life.family.${bhg}`),
+  ]);
   section("health", "life", 1, [
     p(`life.health.${mul}`),
     p(`mulank.${mul}.health`),
@@ -543,6 +558,8 @@ export function buildReport(input: ReportInput): ReportDocument {
       ],
     },
     p(`personal_year.${t.personal_year.value}`),
+    h3(ui("year_section.reading")),
+    p(`personal_year.${t.personal_year.value}.detail`),
     p(`universal_year.${t.universal.year.value}`),
     p(`essence.${t.essence.value}`),
     ...(t.dasha.current ? [p(`dasha.${t.dasha.current.number}`)] : []),

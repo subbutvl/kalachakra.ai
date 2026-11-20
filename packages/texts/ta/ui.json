@@ -317,6 +317,16 @@
     "ui.trace.month_lower": "மாதம்",
     "ui.trace.day": "தேதி",
     "ui.trace.day_lower": "தேதி",
-    "ui.trace.year": "ஆண்டு"
+    "ui.trace.year": "ஆண்டு",
+    "ui.life_section.career": "தொழில்",
+    "ui.life_section.career.child": "பள்ளியும் கற்றலும்",
+    "ui.life_section.work_style": "நீங்கள் பணியாற்றும் விதம்",
+    "ui.life_section.work_style.child": "அவர்கள் கற்கும் விதம்",
+    "ui.life_section.money": "பணம்",
+    "ui.life_section.money.child": "பணப் பழக்கங்கள்",
+    "ui.life_section.love": "காதலும் துணையும்",
+    "ui.life_section.love.child": "நட்புகள்",
+    "ui.life_section.family": "குடும்பம்",
+    "ui.year_section.reading": "இந்த ஆண்டு உங்களிடம் கேட்பது"
   }
 }
