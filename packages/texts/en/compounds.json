@@ -1,0 +1,33 @@
+{
+  "$comment": "Chaldean compound numbers 10 to 52 that have their own reading; the others read like an earlier one (rules spec 3.5). Draft text by Claude, based on classical Chaldean meanings, for numerologist review.",
+  "language": "en",
+  "module": "compounds",
+  "blocks": {
+    "compound.10": "10, the Wheel of Fortune: rise and fall, and the ability to make plans come true. Good name and honour follow when it is used for good.",
+    "compound.11": "11, the Clenched Hand: hidden trials and the need for care with trust. Faith and vigilance turn its tests into strength.",
+    "compound.12": "12, the Sacrifice: giving more than one receives. Its lesson is to serve without being used, and to say no when needed.",
+    "compound.13": "13, Regeneration: change, upheaval and new beginnings. Hard work and acceptance of change bring renewal.",
+    "compound.14": "14, Movement: travel, trade and changing fortunes through others. Caution in partnerships and moderation bring success.",
+    "compound.15": "15, the Magician: charm, eloquence and a gift for attracting help and money. Use its magnetism kindly.",
+    "compound.16": "16, the Shattered Citadel: sudden reversals of plans. Humility and careful foresight soften its lessons.",
+    "compound.17": "17, the Star of the Magi: rising above difficulty, peace and a lasting name. One of the most fortunate compounds.",
+    "compound.18": "18, conflict between the material and the spiritual. Watchfulness and honesty guard against deception.",
+    "compound.19": "19, the Prince of Heaven: success, happiness and esteem. A highly fortunate compound.",
+    "compound.20": "20, the Awakening: new purpose and a call to action. Better for higher aims than for material gain alone.",
+    "compound.21": "21, the Crown of the Magi: honour, advancement and victory after long effort. A fortunate compound.",
+    "compound.22": "22, Submission and Caution: a good person misled by false judgement. Care in choices and advisers is needed.",
+    "compound.23": "23, the Royal Star of the Lion: help from superiors and success in plans. A very fortunate compound.",
+    "compound.24": "24, Love and Support: help from people in power and success in love and money. A fortunate compound.",
+    "compound.25": "25, Strength through Experience: success after trials, earned by observation and learning. Favourable for later life.",
+    "compound.26": "26, the Partnership Warning: loss through bad advice or partners. Choose associates carefully.",
+    "compound.27": "27, the Sceptre: authority, command and reward for intellect and creativity. A fortunate compound.",
+    "compound.28": "28, Trust and Contradiction: great promise with a risk of loss through trust in others. Plan for the future and guard what is built.",
+    "compound.29": "29, Grace under Pressure: trials, uncertainty and deception by others. Faith and steady effort carry one through.",
+    "compound.30": "30, Thoughtful Deduction: mental superiority and retrospection, chosen over material gain. Neither fortunate nor unfortunate; it depends on aim.",
+    "compound.31": "31, the Hermit: self-containment and solitude, with depth of thought. Fortunate for inner life more than worldly success.",
+    "compound.32": "32, Communication: magic in speech and the ability to sway people. Fortunate when one keeps to one's own judgement.",
+    "compound.37": "37, Love and Friendship: good partnerships, harmony and good fortune through others. A fortunate compound.",
+    "compound.43": "43, Upheaval and Revolution: struggle, change and opposition. Careful planning and patience are needed.",
+    "compound.51": "51, the Warrior: sudden advancement and success in leadership. Powerful, though it may attract rivals."
+  }
+}

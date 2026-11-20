@@ -1,0 +1,25 @@
+{
+  "$comment": "Planet descriptions and how to use each planet's lucky set. Draft text by Claude, for numerologist review.",
+  "language": "en",
+  "module": "planets",
+  "blocks": {
+    "planet.sun": "The Sun (1) stands for the self, vitality, authority and confidence. Its day is Sunday.",
+    "planet.moon": "The Moon (2) stands for the mind, feelings, care and imagination. Its day is Monday.",
+    "planet.jupiter": "Jupiter (3) stands for wisdom, growth, teachers and good fortune. Its day is Thursday.",
+    "planet.rahu": "Rahu (4) stands for ambition, change and the unconventional. In this system it is read through Saturn, and its day is Saturday.",
+    "planet.mercury": "Mercury (5) stands for intelligence, speech, trade and adaptability. Its day is Wednesday.",
+    "planet.venus": "Venus (6) stands for love, beauty, comfort and the arts. Its day is Friday.",
+    "planet.ketu": "Ketu (7) stands for insight, detachment and the spiritual. In this system it is read through Mars, and its day is Tuesday.",
+    "planet.saturn": "Saturn (8) stands for discipline, time, justice and endurance. Its day is Saturday.",
+    "planet.mars": "Mars (9) stands for energy, courage, action and protection. Its day is Tuesday.",
+    "lucky.planet.sun": "With the Sun leading, use the lucky numbers and Sunday for beginnings, interviews and anything that needs confidence. Gold and orange support it.",
+    "lucky.planet.moon": "With the Moon leading, use the lucky numbers and Monday for relationships, family matters and creative work. White and cream support it.",
+    "lucky.planet.jupiter": "With Jupiter leading, use the lucky numbers and Thursday for study, advice, finance and important agreements. Yellow supports it.",
+    "lucky.planet.rahu": "With Rahu leading, use the lucky numbers and Saturday for planning, technology and steady practical work. Grey and blue support it.",
+    "lucky.planet.mercury": "With Mercury leading, use the lucky numbers and Wednesday for business, travel, writing and negotiation. Green supports it.",
+    "lucky.planet.venus": "With Venus leading, use the lucky numbers and Friday for celebrations, creative work and buying things for the home. White, pink and light blue support it.",
+    "lucky.planet.ketu": "With Ketu leading, use the lucky numbers and Tuesday for research, reflection and spiritual practice. Smoky grey supports it.",
+    "lucky.planet.saturn": "With Saturn leading, use the lucky numbers and Saturday for long-term plans, property and steady commitments. Black and dark blue support it.",
+    "lucky.planet.mars": "With Mars leading, use the lucky numbers and Tuesday for bold steps, sport and starting physical work. Red supports it."
+  }
+}
