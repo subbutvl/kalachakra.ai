@@ -1,0 +1,18 @@
+{
+  "$comment": "Copy this file to people.local.json (git ignores it) and put real people's details there. The tests and `pnpm numbers --sample <id>` use people.local.json when it exists, and this example otherwise.",
+  "people": [
+    {
+      "id": "example",
+      "person": {
+        "name": "Asha Rao",
+        "other_names": [
+          { "kind": "birth_certificate", "name": "R. Asha" },
+          { "kind": "nickname", "name": "Ashu" }
+        ],
+        "dob": "1985-07-22",
+        "gender": "female"
+      },
+      "mobiles": ["9876500000"]
+    }
+  ]
+}
