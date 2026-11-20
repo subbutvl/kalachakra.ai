@@ -1,6 +1,7 @@
 import { serve } from "@hono/node-server";
 import { createApp } from "./app.js";
 import { readEnv } from "./env.js";
+import { warmUpPdf } from "@kalachakra/report/pdf";
 
 const env = readEnv();
 const app = createApp(env);
@@ -23,4 +24,9 @@ server.on("error", (err: NodeJS.ErrnoException) => {
     process.exit(1);
   }
   throw err;
+});
+
+// Start the PDF browser in the background so the first report download is quick.
+warmUpPdf().catch((e: unknown) => {
+  console.warn(`PDF browser not ready: ${e instanceof Error ? e.message : String(e)}`);
 });
