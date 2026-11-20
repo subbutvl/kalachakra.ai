@@ -2,7 +2,7 @@
 //
 //   pnpm report --name "Aarav Mehra" --dob 1991-08-14 --gender male
 //   pnpm report --name "Myra Kapoor" --dob 2016-03-09 --gender female --audience child --language ta
-//   pnpm report --sample subbu --mobile 9600173111
+//   pnpm report --sample <id> --mobile 9876524310   (people from test/local/people.local.json)
 //
 // Options: --birth-name, --as-of, --profile, --audience adult|child, --language en|ta,
 // --mobile (repeatable), --vehicle (repeatable), --html (also write the HTML), --out <folder>.
