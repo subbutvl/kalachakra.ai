@@ -70,7 +70,7 @@ describe("validateRulesVersion rejects broken data", () => {
   });
 
   it("reports schema errors with their path", () => {
-    const v = cloneV1() as any; // eslint-disable-line @typescript-eslint/no-explicit-any
+    const v = cloneV1() as any;
     v.letters.chaldean.A = 9;
     delete v.planets.friendship.mars;
     const m = errorOf(() => validateRulesVersion(v)).message;
@@ -79,7 +79,7 @@ describe("validateRulesVersion rejects broken data", () => {
   });
 
   it("catches cross-file problems", () => {
-    const v = cloneV1() as any; // eslint-disable-line @typescript-eslint/no-explicit-any
+    const v = cloneV1() as any;
     delete v.letters.pythagorean.Z;
     v.letters.planes_of_expression.physical.push("A");
     v.planets.numbers["9"] = "sun";
