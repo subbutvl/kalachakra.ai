@@ -17,13 +17,13 @@ export const PRINT_CSS = `
 @page { size: A4; margin: 18mm 16mm 20mm; }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--kc-white); color: var(--kc-ink); }
-body { font-family: var(--kc-body); font-size: 10.5pt; line-height: 1.55; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--kc-body); font-size: 11.5pt; line-height: 1.65; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 .kc-report { max-width: 178mm; margin: 0 auto; }
 h1, h2, h3, .kc-mark { font-family: var(--kc-heading); font-weight: 400; letter-spacing: 0.04em; }
 [lang="ta"] h1, [lang="ta"] h2, [lang="ta"] h3 { letter-spacing: 0; font-weight: 600; }
 h1 { font-size: 26pt; margin: 0 0 6mm; line-height: 1.2; }
 h2 { font-size: 17pt; margin: 0 0 5mm; line-height: 1.25; }
-h3 { font-size: 11.5pt; margin: 6mm 0 2mm; color: var(--kc-ink); border-bottom: 1px solid var(--kc-sand); padding-bottom: 1mm; }
+h3 { font-size: 12.5pt; margin: 6mm 0 2mm; color: var(--kc-ink); border-bottom: 1px solid var(--kc-sand); padding-bottom: 1mm; }
 p { margin: 0 0 3mm; }
 ul { margin: 0 0 4mm; padding-left: 5mm; }
 li { margin-bottom: 1.5mm; }
