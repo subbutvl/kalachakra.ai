@@ -1,6 +1,7 @@
 "use client";
 
 import { useT } from "@/i18n/locale";
+import { PLANET_NAMES, type Planet } from "@/lib/texts";
 import { useMemo, useState } from "react";
 import {
   computeBusiness,
@@ -30,6 +31,58 @@ const LABS = /* i18n */ [
   ["compatibility", "Compatibility"],
   ["dates", "Date picker"],
 ] as const satisfies readonly (readonly [Lab, string])[];
+
+/** Words for the codes the engine returns, so they can be shown in either language. */
+const CODES: Record<string, string> = /* i18n */ {
+  favourable: "favourable",
+  mixed: "mixed",
+  unfavourable: "unfavourable",
+  keep: "Keep",
+  keep_with_notes: "Keep, with notes",
+  consider_second_number: "Consider a second number",
+  excellent: "Excellent",
+  good: "Good",
+  workable: "Workable",
+  needs_effort: "Needs effort",
+  driver_harmony: "Driver harmony",
+  conductor_harmony: "Conductor harmony",
+  cross_harmony: "Cross harmony",
+  loshu_gap_filling: "Lo Shu gaps filled",
+  life_path_synergy: "Life path synergy",
+  name_harmony: "Name harmony",
+  kua_group: "Kua group",
+  success: "Success",
+  health: "Health",
+  relationships: "Relationships",
+  growth: "Growth",
+  mishaps: "Mishaps",
+  five_ghosts: "Five ghosts",
+  six_killings: "Six killings",
+  total_loss: "Total loss",
+  sunday: "Sunday",
+  monday: "Monday",
+  tuesday: "Tuesday",
+  wednesday: "Wednesday",
+  thursday: "Thursday",
+  friday: "Friday",
+  saturday: "Saturday",
+  leadership_government: "Leadership and government",
+  care_service: "Care and service",
+  education_advice: "Education and advice",
+  research_technology: "Research and technology",
+  trade_media: "Trade and media",
+  hospitality_design: "Hospitality and design",
+  manufacturing_long_term: "Manufacturing and long-term work",
+  engineering_sport: "Engineering and sport",
+} as const;
+
+/** A code as words in the current language; planets use their own names. */
+function useWords() {
+  const { t, locale } = useT();
+  const word = (c: string) =>
+    c in PLANET_NAMES ? PLANET_NAMES[c as Planet][locale] : t(CODES[c] ?? c.replace(/_/g, " "));
+  return { t, word };
+}
 
 /** Runs an engine call and turns its errors into a message instead of a crash. */
 function attempt<T>(fn: () => T): { value?: T; error?: string } {
@@ -124,7 +177,7 @@ function NameLab({
   rules: Rules;
   initial: string;
 }) {
-  const { t } = useT();
+  const { t, word } = useWords();
   const [name, setName] = useState(initial);
   const [pinned, setPinned] = useState<string[]>([]);
   const m = owner.date_numbers.mulank.reduced;
@@ -144,10 +197,10 @@ function NameLab({
         {now.value ? (
           <div className="text-sm" data-testid="name-lab-result">
             <p>
-              <span className="font-heading text-3xl">{now.value.name_number}</span> · compound{" "}
-              {now.value.compound ?? "–"}
-              {now.value.compound_class ? ` (${now.value.compound_class})` : ""} · score{" "}
-              <b>{now.value.score}</b>/100
+              <span className="font-heading text-3xl">{now.value.name_number}</span>{" "}
+              {t("compound {c}", { c: now.value.compound ?? "–" })}
+              {now.value.compound_class ? ` (${word(now.value.compound_class)})` : ""}.{" "}
+              {t("Score {s} out of 100", { s: now.value.score })}
             </p>
             <p className="text-muted">{now.value.reason}</p>
             <Button
@@ -167,7 +220,7 @@ function NameLab({
           {ideas.value?.suggestions.map((s) => (
             <li key={s.name} className="flex items-center justify-between gap-2">
               <span>
-                <b>{s.name}</b> · {s.score} · {s.edits.join(", ")}
+                <b>{s.name}</b> {t("score {s}", { s: s.score })}, {s.edits.join(", ")}
               </span>
               <Button size="sm" variant="ghost" onClick={() => setName(s.name)}>
                 {t("Try")}
@@ -184,8 +237,8 @@ function NameLab({
               <div key={p!.name} className="rounded-xl border border-sand p-3 text-sm">
                 <div className="font-heading">{p!.name}</div>
                 <div>
-                  {p!.name_number} (compound {p!.compound ?? "–"}) · fit {signed(p!.fit_total)} ·{" "}
-                  {p!.score}/100
+                  {p!.name_number} ({t("compound {c}", { c: p!.compound ?? "–" })}),{" "}
+                  {t("fit {f}", { f: signed(p!.fit_total) })}, {t("score {s}", { s: p!.score })}
                 </div>
               </div>
             ))}
@@ -205,7 +258,7 @@ function MobileLab({
   rules: Rules;
   initial: string;
 }) {
-  const { t } = useT();
+  const { t, word } = useWords();
   const [text, setText] = useState(initial || "9876524310");
   const [open, setOpen] = useState(0);
   const [prefix, setPrefix] = useState("");
@@ -251,7 +304,7 @@ function MobileLab({
                 >
                   {x.input}
                 </button>{" "}
-                · <b>{x.score}</b> · {x.verdict.replace(/_/g, " ")}
+                <b>{x.score}</b>, {word(x.verdict)}
               </li>
             ))}
           </ol>
@@ -261,16 +314,25 @@ function MobileLab({
         <Card className="space-y-2 text-sm">
           <h3 className="text-base">{reading.input}</h3>
           <p>
-            Total {reading.total.chain.join(" → ")} ({reading.planet}) · fit{" "}
-            {signed(reading.fit.total)} · score {reading.score.value}
+            {t("Total {chain} ({planet}), fit {f}, score {s}", {
+              chain: reading.total.chain.join(" → "),
+              planet: word(reading.planet),
+              f: signed(reading.fit.total),
+              s: reading.score.value,
+            })}
           </p>
           {reading.flow ? <FlowStrip pairs={reading.flow.pairs} /> : null}
           <p>
-            Fills Lo Shu gaps: {reading.counts.fills_loshu_gaps.join(", ") || "none"} · go easy on:{" "}
-            {reading.counts.go_easy_present.join(", ") || "none"}
+            {t("Fills Lo Shu gaps: {fills}. Go easy on: {easy}.", {
+              fills: reading.counts.fills_loshu_gaps.join(", ") || t("none"),
+              easy: reading.counts.go_easy_present.join(", ") || t("none"),
+            })}
           </p>
           <p>
-            Last 4: {reading.last4.digits} → {formatValue(reading.last4.total)}
+            {t("Last 4 digits: {d} → {v}", {
+              d: reading.last4.digits,
+              v: formatValue(reading.last4.total),
+            })}
           </p>
         </Card>
       ) : null}
@@ -293,8 +355,8 @@ function MobileLab({
         </div>
         {r?.candidates ? (
           <p className="text-sm">
-            Targets {r.target_totals.join(", ")}:{" "}
-            {r.candidates.endings.map((e) => `${e.ending} (${e.score})`).join(" · ")}
+            {t("Target totals {targets}:", { targets: r.target_totals.join(", ") })}{" "}
+            {r.candidates.endings.map((e) => `${e.ending} (${e.score})`).join(", ")}
           </p>
         ) : (
           <p className="text-sm text-muted">{t("Enter at least 6 digits.")}</p>
@@ -305,7 +367,7 @@ function MobileLab({
 }
 
 function VehicleLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
-  const { t } = useT();
+  const { t, word } = useWords();
   const [regs, setRegs] = useState("KA 05 MN 1234");
   const [flat, setFlat] = useState("12B");
   const [door, setDoor] = useState<"N" | "NE" | "E" | "SE" | "S" | "SW" | "W" | "NW" | "">("E");
@@ -331,9 +393,12 @@ function VehicleLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
         <Problem message={v.error} />
         {v.value?.readings.map((r) => (
           <p key={r.registration}>
-            {r.registration}: full {r.full.total.chain.join(" → ")}, digits{" "}
-            {r.digits_only.total.chain.join(" → ")} · score{" "}
-            {(r.headline === "full" ? r.full : r.digits_only).score.value}
+            {t("{reg}: letters and digits {full}, digits only {digits}, score {s}", {
+              reg: r.registration,
+              full: r.full.total.chain.join(" → "),
+              digits: r.digits_only.total.chain.join(" → "),
+              s: (r.headline === "full" ? r.full : r.digits_only).score.value,
+            })}
           </p>
         ))}
       </Card>
@@ -359,15 +424,15 @@ function VehicleLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
         <Problem message={h.error} />
         {h.value?.numbers.map((n) => (
           <p key={n.input}>
-            {n.input} → {n.number.value}: fit {signed(n.residents[0]!.total)}
+            {n.input} → {n.number.value}: {t("fit {f}", { f: signed(n.residents[0]!.total) })}
           </p>
         ))}
         {h.value?.door ? (
           <p>
-            Door {h.value.door.direction}:{" "}
+            {t("Door {d}:", { d: h.value.door.direction })}{" "}
             {h.value.door.residents
               .map((r) =>
-                r.kind ? `${r.kind.replace(/_/g, " ")} (${r.good ? "good" : "avoid"})` : "no Kua",
+                r.kind ? `${word(r.kind)} (${r.good ? t("good") : t("avoid")})` : t("no Kua"),
               )
               .join(", ")}
           </p>
@@ -386,7 +451,7 @@ function BusinessLab({
   rules: Rules;
   clients: Client[];
 }) {
-  const { t } = useT();
+  const { t, word } = useWords();
   const [names, setNames] = useState("Loomcraft Works\nMehra Textiles Pvt Ltd");
   const [partnerIds, setPartnerIds] = useState<string[]>([]);
   const [trade, setTrade] = useState("");
@@ -452,7 +517,7 @@ function BusinessLab({
               "engineering_sport",
             ].map((t) => (
               <option key={t} value={t}>
-                {t.replace(/_/g, " ")}
+                {word(t)}
               </option>
             ))}
           </Select>
@@ -463,24 +528,27 @@ function BusinessLab({
         <Card className="space-y-2 text-sm">
           {res.value.names.map((n) => (
             <p key={n.input}>
-              {n.rank}. <b>{n.input}</b> · {n.counted.total} → {n.counted.number.value} · total{" "}
-              {signed(n.total)}
+              {n.rank}. <b>{n.input}</b> {n.counted.total} → {n.counted.number.value},{" "}
+              {t("total {f}", { f: signed(n.total) })}
             </p>
           ))}
           {res.value.spelling_ideas.length ? (
             <p>
-              Ideas:{" "}
+              {t("Spelling ideas:")}{" "}
               {res.value.spelling_ideas.map((s) => `${s.name} (${signed(s.total)})`).join(", ")}
             </p>
           ) : null}
           <p>
-            Domains:{" "}
-            {res.value.domains.map((d) => `${d.domain} ${d.with_extension.value}`).join(" · ")}
+            {t("Domains:")}{" "}
+            {res.value.domains.map((d) => `${d.domain} ${d.with_extension.value}`).join(", ")}
           </p>
           <p>
-            Brand: {res.value.brand_kit.planet}, {res.value.brand_kit.day},{" "}
-            {res.value.brand_kit.colours.join("/")}; launch days{" "}
-            {res.value.brand_kit.launch_days.join(", ")}
+            {t("Brand: {planet}, {day}, {colours}. Launch days {days}.", {
+              planet: word(res.value.brand_kit.planet),
+              day: word(res.value.brand_kit.day.toLowerCase()),
+              colours: res.value.brand_kit.colours.join("/"),
+              days: res.value.brand_kit.launch_days.join(", "),
+            })}
           </p>
         </Card>
       ) : null}
@@ -489,7 +557,7 @@ function BusinessLab({
 }
 
 function CompatibilityLab({ clients, rules }: { clients: Client[]; rules: Rules }) {
-  const { t } = useT();
+  const { t, word } = useWords();
   const [a, setA] = useState(clients[0]?.id ?? "");
   const [b, setB] = useState(clients[1]?.id ?? clients[0]?.id ?? "");
   const [rel, setRel] = useState<"couple" | "business_partners" | "parent_child">("couple");
@@ -525,24 +593,26 @@ function CompatibilityLab({ clients, rules }: { clients: Client[]; rules: Rules 
       {res.value ? (
         <Card className="space-y-3 text-sm" data-testid="compat-result">
           <p>
-            <span className="font-heading text-3xl">{res.value.score}</span>/100 ·{" "}
-            {res.value.band.replace(/_/g, " ")}
+            <span className="font-heading text-3xl">{res.value.score}</span>/100,{" "}
+            {word(res.value.band)}
           </p>
           <CompatibilityBars
             data={res.value.components.map((c) => ({
               id: c.id,
-              label: c.id.replace(/_/g, " "),
+              label: word(c.id),
               points: c.points,
               weight: c.weight,
             }))}
           />
           <p>
-            Shared Lo Shu gaps: {res.value.combined_loshu.shared_gaps.join(", ") || "none"} · good
-            joint years:{" "}
-            {res.value.timeline
-              .filter((t) => t.joint_step)
-              .map((t) => t.year)
-              .join(", ") || "none"}
+            {t("Shared Lo Shu gaps: {gaps}. Good years together: {years}.", {
+              gaps: res.value.combined_loshu.shared_gaps.join(", ") || t("none"),
+              years:
+                res.value.timeline
+                  .filter((y) => y.joint_step)
+                  .map((y) => y.year)
+                  .join(", ") || t("none"),
+            })}
           </p>
         </Card>
       ) : null}
@@ -551,7 +621,7 @@ function CompatibilityLab({ clients, rules }: { clients: Client[]; rules: Rules 
 }
 
 function DateLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
-  const { t } = useT();
+  const { t, word } = useWords();
   const today = todayIso();
   const [from, setFrom] = useState(today);
   const [to, setTo] = useState(() => {
@@ -587,8 +657,11 @@ function DateLab({ owner, rules }: { owner: ProfileResult; rules: Rules }) {
           <ol className="space-y-1 text-sm">
             {res.value.dates.map((d) => (
               <li key={d.date}>
-                <b>{d.date}</b> {d.weekday} · score {d.score} · personal day{" "}
-                {d.people[0]?.personal_day}
+                <b>{d.date}</b> {word(d.weekday)},{" "}
+                {t("score {s}, personal day {pd}", {
+                  s: d.score,
+                  pd: d.people[0]?.personal_day ?? "–",
+                })}
               </li>
             ))}
           </ol>
