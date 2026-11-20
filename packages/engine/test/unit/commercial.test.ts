@@ -22,7 +22,8 @@ import {
 import { catalog, rules } from "../helpers.js";
 
 const AS_OF = "2026-11-20";
-const profile = (person: PersonInput, r: ResolvedRules = rules.house) => computeProfile({ person, as_of: AS_OF }, r);
+const profile = (person: PersonInput, r: ResolvedRules = rules.house) =>
+  computeProfile({ person, as_of: AS_OF }, r);
 const aarav = profile({ name: "Aarav Mehra", dob: "1991-08-14", gender: "male" });
 const myra = profile({ name: "Myra Kapoor", dob: "2016-03-09", gender: "female" });
 const custom = (overrides: Record<string, unknown>) =>
@@ -60,9 +61,21 @@ describe("name optimiser (rules spec 3.10)", () => {
   });
 
   it("covers the silent H, K to C and ending rules", () => {
-    const edits = ["Rohit", "Bharat", "Makunda", "Kapila"].flatMap((n) => generateVariants(n, 1, true, 2000).flatMap((v) => v.edits));
-    expect(edits).toEqual(expect.arrayContaining(["drop silent H", "add H after T", "K to C", "ending A to AA", "I to Y"]));
-    expect(generateVariants("Divyaa", 1, true, 2000).flatMap((v) => v.edits)).toContain("ending AA to A");
+    const edits = ["Rohit", "Bharat", "Makunda", "Kapila"].flatMap((n) =>
+      generateVariants(n, 1, true, 2000).flatMap((v) => v.edits),
+    );
+    expect(edits).toEqual(
+      expect.arrayContaining([
+        "drop silent H",
+        "add H after T",
+        "K to C",
+        "ending A to AA",
+        "I to Y",
+      ]),
+    );
+    expect(generateVariants("Divyaa", 1, true, 2000).flatMap((v) => v.edits)).toContain(
+      "ending AA to A",
+    );
     expect(generateVariants("Myra", 1, true, 2000).flatMap((v) => v.edits)).toContain("Y to I");
   });
 
@@ -81,12 +94,21 @@ describe("name optimiser (rules spec 3.10)", () => {
     expect(three.forms.business_card.split(" ")).toHaveLength(2);
     // Without a better spelling the current one is kept for every form.
     const none = suggestNames(custom({ "optimizer.max_edits": 1 }), "Q", 5, 6);
-    expect(none.forms.signature).toBe(none.current.score >= (none.suggestions[0]?.score ?? 0) ? "Q" : none.suggestions[0]!.name);
+    expect(none.forms.signature).toBe(
+      none.current.score >= (none.suggestions[0]?.score ?? 0) ? "Q" : none.suggestions[0]!.name,
+    );
   });
 
   it("is part of the profile unless switched off", () => {
     expect(aarav.name_optimizer?.suggestions).toHaveLength(5);
-    const off = computeProfile({ person: { name: "Aarav Mehra", dob: "1991-08-14", gender: "male" }, as_of: AS_OF, options: { name_suggestions: 0 } }, rules.house);
+    const off = computeProfile(
+      {
+        person: { name: "Aarav Mehra", dob: "1991-08-14", gender: "male" },
+        as_of: AS_OF,
+        options: { name_suggestions: 0 },
+      },
+      rules.house,
+    );
     expect(off.name_optimizer).toBeUndefined();
   });
 });
@@ -96,13 +118,17 @@ describe("mobile (rules spec 3.11)", () => {
     expect(nationalNumber(rules.house, "+91 98765-24310")).toBe("9876524310");
     expect(nationalNumber(rules.house, "0091 9876524310")).toBe("9876524310");
     expect(nationalNumber(rules.house, "09876524310")).toBe("9876524310");
-    expect(err(() => nationalNumber(rules.house, "12345"))).toMatchObject({ code: "invalid_input" });
+    expect(err(() => nationalNumber(rules.house, "12345"))).toMatchObject({
+      code: "invalid_input",
+    });
   });
 
   it("reads zeros as a pause, ignores them or amplifies (D16)", () => {
     const d = [3, 1, 0, 8];
     expect(elementFlow(rules.house, d).map((p) => p.kind)).toEqual(["smooth", "pause", "pause"]);
-    expect(elementFlow(custom({ "mobile.zero_mode": "ignore" }), d).map((p) => `${p.pair}:${p.kind}`)).toEqual(["31:smooth", "18:clash"]);
+    expect(
+      elementFlow(custom({ "mobile.zero_mode": "ignore" }), d).map((p) => `${p.pair}:${p.kind}`),
+    ).toEqual(["31:smooth", "18:clash"]);
     expect(elementFlow(custom({ "mobile.zero_mode": "amplifier" }), d)[1]!.kind).toBe("amplifier");
   });
 
@@ -112,7 +138,11 @@ describe("mobile (rules spec 3.11)", () => {
   });
 
   it("scores, ranks up to 20 numbers and reads the last 4", () => {
-    const m = computeMobile({ numbers: ["9876524310", "9123456789", "9999999999"] }, aarav, rules.house);
+    const m = computeMobile(
+      { numbers: ["9876524310", "9123456789", "9999999999"] },
+      aarav,
+      rules.house,
+    );
     expect(m.ranked).toHaveLength(3);
     expect(m.ranked[0]!.score).toBeGreaterThanOrEqual(m.ranked[2]!.score);
     const r0 = m.readings[0]!;
@@ -123,19 +153,37 @@ describe("mobile (rules spec 3.11)", () => {
     expect(r0.counts.repeated).toEqual({});
     expect(m.readings[2]!.counts.repeated).toEqual({ "9": 10 });
     expect(["keep", "keep_with_notes", "consider_second_number"]).toContain(r0.score.verdict);
-    expect(err(() => computeMobile({ numbers: [] }, aarav, rules.house))).toMatchObject({ field: "numbers" });
-    expect(err(() => computeMobile({ numbers: ["9876524310"], goals: ["fame"] }, aarav, rules.house))).toMatchObject({ field: "goals" });
+    expect(err(() => computeMobile({ numbers: [] }, aarav, rules.house))).toMatchObject({
+      field: "numbers",
+    });
+    expect(
+      err(() => computeMobile({ numbers: ["9876524310"], goals: ["fame"] }, aarav, rules.house)),
+    ).toMatchObject({ field: "goals" });
   });
 
   it("follows the reading model (D20)", () => {
-    expect(computeMobile({ numbers: ["9876524310"] }, aarav, custom({ "mobile.reading_model": "classic" })).readings[0]!.flow).toBeUndefined();
-    const ef = computeMobile({ numbers: ["9876524310"] }, aarav, custom({ "mobile.reading_model": "element_flow" })).readings[0]!;
+    expect(
+      computeMobile(
+        { numbers: ["9876524310"] },
+        aarav,
+        custom({ "mobile.reading_model": "classic" }),
+      ).readings[0]!.flow,
+    ).toBeUndefined();
+    const ef = computeMobile(
+      { numbers: ["9876524310"] },
+      aarav,
+      custom({ "mobile.reading_model": "element_flow" }),
+    ).readings[0]!;
     expect(ef.score.components.fit).toBeUndefined();
     expect(ef.flow).toBeDefined();
   });
 
   it("finds endings for a 6-digit prefix", () => {
-    const m = computeMobile({ numbers: ["9876524310"], find_for: "987652", max_candidates: 3 }, aarav, rules.house);
+    const m = computeMobile(
+      { numbers: ["9876524310"], find_for: "987652", max_candidates: 3 },
+      aarav,
+      rules.house,
+    );
     expect(m.candidates?.endings).toHaveLength(3);
   });
 });
@@ -150,9 +198,16 @@ describe("vehicle and house (rules spec 3.11)", () => {
     expect(r.digits_only.total.chain).toEqual([15, 6]);
     expect(r.headline).toBe("full");
     expect(v.ranked).toHaveLength(2);
-    expect(computeVehicle(["KA05MN1234"], aarav, custom({ "vehicle.letters": "digits_only" })).readings[0]!.headline).toBe("digits_only");
-    expect(err(() => computeVehicle(["HELLO"], aarav, rules.house))).toMatchObject({ code: "invalid_input" });
-    expect(err(() => computeVehicle([], aarav, rules.house))).toMatchObject({ code: "invalid_input" });
+    expect(
+      computeVehicle(["KA05MN1234"], aarav, custom({ "vehicle.letters": "digits_only" }))
+        .readings[0]!.headline,
+    ).toBe("digits_only");
+    expect(err(() => computeVehicle(["HELLO"], aarav, rules.house))).toMatchObject({
+      code: "invalid_input",
+    });
+    expect(err(() => computeVehicle([], aarav, rules.house))).toMatchObject({
+      code: "invalid_input",
+    });
   });
 
   it("scores flat then building for every resident and checks the door against Kua", () => {
@@ -160,17 +215,28 @@ describe("vehicle and house (rules spec 3.11)", () => {
     // 1 + 2 + B=2 = 5.
     expect(h.numbers[0]!.number.chain).toEqual([5]);
     expect(h.numbers[1]!.number.chain).toEqual([9]);
-    expect(h.numbers[0]!.residents[0]).toEqual({ name: "Aarav Mehra", mulank: 2, bhagyank: 2, total: 4 });
+    expect(h.numbers[0]!.residents[0]).toEqual({
+      name: "Aarav Mehra",
+      mulank: 2,
+      bhagyank: 2,
+      total: 4,
+    });
     // Aarav's Kua 9: east is success; Myra's Kua 4: east is relationships.
     expect(h.door?.residents).toEqual([
       { name: "Aarav Mehra", kua: 9, kind: "success", good: true },
       { name: "Myra Kapoor", kua: 4, kind: "relationships", good: true },
     ]);
     const noKua = profile({ name: "Sam", dob: "2000-01-01", gender: "unspecified" });
-    expect(computeHouse({ flat: "7", door: "N" }, [noKua], rules.house).door?.residents[0]).toMatchObject({ kua: null, good: null });
+    expect(
+      computeHouse({ flat: "7", door: "N" }, [noKua], rules.house).door?.residents[0],
+    ).toMatchObject({ kua: null, good: null });
     expect(err(() => computeHouse({}, [aarav], rules.house))).toMatchObject({ field: "flat" });
-    expect(err(() => computeHouse({ flat: "12-C/4" }, [aarav], rules.house))).toMatchObject({ code: "invalid_input" });
-    expect(err(() => computeHouse({ flat: "1" }, [], rules.house))).toMatchObject({ field: "residents" });
+    expect(err(() => computeHouse({ flat: "12-C/4" }, [aarav], rules.house))).toMatchObject({
+      code: "invalid_input",
+    });
+    expect(err(() => computeHouse({ flat: "1" }, [], rules.house))).toMatchObject({
+      field: "residents",
+    });
   });
 });
 
@@ -178,31 +244,63 @@ describe("business (rules spec 3.5a)", () => {
   it("counts digits at face value and handles & (D22)", () => {
     expect(countBusinessName(rules.house, "3M Works").total).toBe(3 + 4 + 20);
     expect(countBusinessName(rules.house, "A & B").total).toBe(3);
-    expect(countBusinessName(custom({ "business.ampersand": "as_and" }), "A & B").total).toBe(1 + 1 + 5 + 4 + 2);
-    expect(err(() => countBusinessName(rules.house, "&&"))).toMatchObject({ code: "invalid_input" });
+    expect(countBusinessName(custom({ "business.ampersand": "as_and" }), "A & B").total).toBe(
+      1 + 1 + 5 + 4 + 2,
+    );
+    expect(err(() => countBusinessName(rules.house, "&&"))).toMatchObject({
+      code: "invalid_input",
+    });
   });
 
   it("can count the suffix in the headline", () => {
-    const b = computeBusiness({ names: ["Mehra Textiles Pvt. Ltd."] }, aarav, [], custom({ "business.legal_suffix": "include" }));
+    const b = computeBusiness(
+      { names: ["Mehra Textiles Pvt. Ltd."] },
+      aarav,
+      [],
+      custom({ "business.legal_suffix": "include" }),
+    );
     expect(b.names[0]!.counted.total).toBe(76);
     expect(b.names[0]!.other_version).toMatchObject({ kind: "without_suffix", total: 47 });
   });
 
   it("scores the trade, compound class and incorporation date (D8, D23)", () => {
-    const trade = computeBusiness({ names: ["Loomcraft Works"], trade: "trade_media", incorporation_date: "2020-05-14" }, aarav, [], rules.house);
+    const trade = computeBusiness(
+      { names: ["Loomcraft Works"], trade: "trade_media", incorporation_date: "2020-05-14" },
+      aarav,
+      [],
+      rules.house,
+    );
     const n = trade.names[0]!;
     expect(n.bonus).toEqual({ kind: "trade", value: 1 });
     expect(n.compound_class).toBe(0); // 14 is mixed
     expect(n.incorporation?.bhagyank).toBe(5); // 1+4+0+5+2+0+2+0 = 14 → 5
     expect(n.total).toBe(5 + 1 + 0 + n.incorporation!.score);
-    expect(computeBusiness({ names: ["Loomcraft Works"] }, aarav, [], custom({ "business.bonus": "none" })).names[0]!.bonus).toEqual({ kind: "none", value: 0 });
-    expect(err(() => computeBusiness({ names: ["X"], trade: "magic" }, aarav, [], rules.house))).toMatchObject({ field: "trade" });
-    expect(err(() => computeBusiness({ names: [] }, aarav, [], rules.house))).toMatchObject({ field: "names" });
-    expect(err(() => computeBusiness({ names: ["X"] }, aarav, [myra, myra, myra, myra], rules.house))).toMatchObject({ field: "partners" });
+    expect(
+      computeBusiness(
+        { names: ["Loomcraft Works"] },
+        aarav,
+        [],
+        custom({ "business.bonus": "none" }),
+      ).names[0]!.bonus,
+    ).toEqual({ kind: "none", value: 0 });
+    expect(
+      err(() => computeBusiness({ names: ["X"], trade: "magic" }, aarav, [], rules.house)),
+    ).toMatchObject({ field: "trade" });
+    expect(err(() => computeBusiness({ names: [] }, aarav, [], rules.house))).toMatchObject({
+      field: "names",
+    });
+    expect(
+      err(() => computeBusiness({ names: ["X"] }, aarav, [myra, myra, myra, myra], rules.house)),
+    ).toMatchObject({ field: "partners" });
   });
 
   it("can count domains by name only (D24) and builds the partner triangle", () => {
-    const b = computeBusiness({ names: ["Loomcraft Works"] }, aarav, [myra], custom({ "business.domain_count": "name_only" }));
+    const b = computeBusiness(
+      { names: ["Loomcraft Works"] },
+      aarav,
+      [myra],
+      custom({ "business.domain_count": "name_only" }),
+    );
     expect(b.domains[0]!.headline).toBe("name_only");
     expect(b.domains[0]!.name_only.chain[0]).toBe(59);
     expect(b.domains.map((d) => d.extension)).toEqual([".com", ".in", ".co", ".co.in"]);
@@ -236,10 +334,24 @@ describe("compatibility (rules spec 3.12)", () => {
   });
 
   it("is symmetric and takes custom weights (D18)", () => {
-    expect(computeCompatibility(aarav, myra, "couple", rules.house).score).toBe(computeCompatibility(myra, aarav, "couple", rules.house).score);
-    const w = { driver_harmony: 100, conductor_harmony: 0, cross_harmony: 0, loshu_gap_filling: 0, life_path_synergy: 0, name_harmony: 0, kua_group: 0 };
-    expect(computeCompatibility(aarav, myra, "couple", custom({ "compatibility.weights": w })).score).toBe(25);
-    expect(err(() => computeCompatibility(aarav, myra, "rivals" as "couple", rules.house))).toMatchObject({ field: "relationship" });
+    expect(computeCompatibility(aarav, myra, "couple", rules.house).score).toBe(
+      computeCompatibility(myra, aarav, "couple", rules.house).score,
+    );
+    const w = {
+      driver_harmony: 100,
+      conductor_harmony: 0,
+      cross_harmony: 0,
+      loshu_gap_filling: 0,
+      life_path_synergy: 0,
+      name_harmony: 0,
+      kua_group: 0,
+    };
+    expect(
+      computeCompatibility(aarav, myra, "couple", custom({ "compatibility.weights": w })).score,
+    ).toBe(25);
+    expect(
+      err(() => computeCompatibility(aarav, myra, "rivals" as "couple", rules.house)),
+    ).toMatchObject({ field: "relationship" });
   });
 
   it("reads the life path table symmetrically", () => {
@@ -251,20 +363,49 @@ describe("compatibility (rules spec 3.12)", () => {
 
 describe("favourable dates", () => {
   it("ranks dates in a range for a purpose", () => {
-    const d = findDates({ from: "2026-12-01", to: "2026-12-31", purpose: "launch" }, [aarav], rules.house);
+    const d = findDates(
+      { from: "2026-12-01", to: "2026-12-31", purpose: "launch" },
+      [aarav],
+      rules.house,
+    );
     expect(d.checked).toBe(31);
     expect(d.dates).toHaveLength(10);
-    for (let i = 1; i < d.dates.length; i++) expect(d.dates[i - 1]!.score).toBeGreaterThanOrEqual(d.dates[i]!.score);
+    for (let i = 1; i < d.dates.length; i++)
+      expect(d.dates[i - 1]!.score).toBeGreaterThanOrEqual(d.dates[i]!.score);
     expect(d.dates[0]!.people[0]!.reasons.length).toBeGreaterThan(0);
-    const two = findDates({ from: "2026-12-01", to: "2026-12-07", purpose: "signing", top_n: 3 }, [aarav, myra], rules.house);
+    const two = findDates(
+      { from: "2026-12-01", to: "2026-12-07", purpose: "signing", top_n: 3 },
+      [aarav, myra],
+      rules.house,
+    );
     expect(two.dates[0]!.people).toHaveLength(2);
     expect(two.dates).toHaveLength(3);
   });
 
   it("checks its input", () => {
-    expect(err(() => findDates({ from: "2026-12-01", to: "2026-12-31", purpose: "wedding" }, [aarav], rules.house))).toMatchObject({ field: "purpose" });
-    expect(err(() => findDates({ from: "2026-12-31", to: "2026-12-01", purpose: "move" }, [aarav], rules.house))).toMatchObject({ field: "to" });
-    expect(err(() => findDates({ from: "2026-01-01", to: "2028-01-01", purpose: "move" }, [aarav], rules.house))).toMatchObject({ field: "to" });
-    expect(err(() => findDates({ from: "2026-01-01", to: "2026-01-02", purpose: "move" }, [], rules.house))).toMatchObject({ field: "profiles" });
+    expect(
+      err(() =>
+        findDates(
+          { from: "2026-12-01", to: "2026-12-31", purpose: "wedding" },
+          [aarav],
+          rules.house,
+        ),
+      ),
+    ).toMatchObject({ field: "purpose" });
+    expect(
+      err(() =>
+        findDates({ from: "2026-12-31", to: "2026-12-01", purpose: "move" }, [aarav], rules.house),
+      ),
+    ).toMatchObject({ field: "to" });
+    expect(
+      err(() =>
+        findDates({ from: "2026-01-01", to: "2028-01-01", purpose: "move" }, [aarav], rules.house),
+      ),
+    ).toMatchObject({ field: "to" });
+    expect(
+      err(() =>
+        findDates({ from: "2026-01-01", to: "2026-01-02", purpose: "move" }, [], rules.house),
+      ),
+    ).toMatchObject({ field: "profiles" });
   });
 });

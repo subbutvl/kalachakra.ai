@@ -14,13 +14,20 @@ const r = rules.vedicpupil;
 const owner = computeProfile({ person: g.owner as PersonInput, as_of: g.as_of }, r);
 
 describe("VedicPupil mobile sample: 98765 24310 for Aarav Mehra", () => {
-  const m = computeMobile({ numbers: [g.mobile.number], goals: g.mobile.goals, find_for: g.mobile.number }, owner, r);
+  const m = computeMobile(
+    { numbers: [g.mobile.number], goals: g.mobile.goals, find_for: g.mobile.number },
+    owner,
+    r,
+  );
   const reading = m.readings[0]!;
 
   it("totals 45 → 9, compound 45 read like 27", () => {
     expect(reading.total.value).toBe(g.mobile.total.value);
     expect(reading.total.chain).toEqual(g.mobile.total.chain);
-    expect(reading.compound).toMatchObject({ value: g.mobile.total.compound, read_like: g.mobile.total.read_like });
+    expect(reading.compound).toMatchObject({
+      value: g.mobile.total.compound,
+      read_like: g.mobile.total.read_like,
+    });
   });
 
   it("fits Mulank −1, Bhagyank 0, name number +2", () => {
@@ -30,7 +37,9 @@ describe("VedicPupil mobile sample: 98765 24310 for Aarav Mehra", () => {
 
   it("reads 3 smooth, 4 neutral, 1 clash (24) and 1 pause (10)", () => {
     const f = reading.flow!;
-    expect({ smooth: f.smooth, neutral: f.neutral, clash: f.clash, pause: f.pause }).toEqual(g.mobile.flow);
+    expect({ smooth: f.smooth, neutral: f.neutral, clash: f.clash, pause: f.pause }).toEqual(
+      g.mobile.flow,
+    );
     expect(f.pairs.find((p) => p.kind === "clash")?.pair).toBe(g.mobile.clash_pair);
     expect(f.pairs.find((p) => p.kind === "pause")?.pair).toBe(g.mobile.pause_pair);
   });
@@ -42,7 +51,9 @@ describe("VedicPupil mobile sample: 98765 24310 for Aarav Mehra", () => {
   });
 
   it("targets 5, 6, 4 and drops 3 from the goals", () => {
-    expect(computeMobile({ numbers: [g.mobile.number] }, owner, r).target_totals).toEqual(g.mobile.target_totals);
+    expect(computeMobile({ numbers: [g.mobile.number] }, owner, r).target_totals).toEqual(
+      g.mobile.target_totals,
+    );
     expect(m.goals).toEqual(g.mobile.goals_after_drop);
   });
 
@@ -79,7 +90,10 @@ describe("VedicPupil business sample: Loomcraft Works for Aarav Mehra and Ishaan
     expect(n.counted.total).toBe(g.business.loomcraft_works.total);
     expect(n.counted.compound?.value).toBe(g.business.loomcraft_works.compound);
     expect(n.counted.number.value).toBe(g.business.loomcraft_works.number);
-    expect(n.people.map((p) => p.total)).toEqual([g.business.loomcraft_works.owner_fit, g.business.loomcraft_works.partner_fit]);
+    expect(n.people.map((p) => p.total)).toEqual([
+      g.business.loomcraft_works.owner_fit,
+      g.business.loomcraft_works.partner_fit,
+    ]);
   });
 
   it("leaves the legal suffix out of the headline and shows the counted version", () => {
@@ -97,7 +111,8 @@ describe("VedicPupil business sample: Loomcraft Works for Aarav Mehra and Ishaan
   it("scores the sample's spelling ideas the same way", () => {
     for (const idea of g.business.spelling_ideas) {
       const c = countBusinessName(r, idea.name);
-      const scored = computeBusiness({ names: [idea.name], spelling_ideas: 0 }, owner, [partner], r).names[0]!;
+      const scored = computeBusiness({ names: [idea.name], spelling_ideas: 0 }, owner, [partner], r)
+        .names[0]!;
       expect(scored.total, `${idea.name} (${c.total})`).toBe(idea.total);
     }
     // Our own best idea for each of those names is at least as good as the sample's.

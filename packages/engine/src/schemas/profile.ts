@@ -255,7 +255,11 @@ export const ProfileResultSchema = z.object({
     .object({
       current: ScoredNameSchema,
       suggestions: z.array(ScoredNameSchema),
-      forms: z.object({ signature: z.string(), business_card: z.string(), social_profile: z.string() }),
+      forms: z.object({
+        signature: z.string(),
+        business_card: z.string(),
+        social_profile: z.string(),
+      }),
       candidates_checked: z.int(),
       rule_refs: z.array(z.string()),
     })

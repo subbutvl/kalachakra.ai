@@ -29,17 +29,28 @@ export interface VehicleResult {
  * are converted with Chaldean values; the flow and digit counts read the
  * digits in order.
  */
-export function computeVehicle(registrations: string[], owner: ProfileResult, rules: ResolvedRules): VehicleResult {
-  if (registrations.length === 0) throw new EngineError("invalid_input", "Give at least one registration.", "registrations");
+export function computeVehicle(
+  registrations: string[],
+  owner: ProfileResult,
+  rules: ResolvedRules,
+): VehicleResult {
+  if (registrations.length === 0)
+    throw new EngineError("invalid_input", "Give at least one registration.", "registrations");
   const o = ownerOf(owner);
   const tables = rules.data.letters;
   const mode = rules.settings["vehicle.letters"];
   const readings = registrations.map((raw, i): VehicleReading => {
     const reg = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
     if (!/^[A-Z]{2}\d{1,2}[A-Z]{0,3}\d{1,4}$/.test(reg) && !/^\d{2}BH\d{4}[A-Z]{1,2}$/.test(reg)) {
-      throw new EngineError("invalid_input", `${raw} is not a known registration format.`, `registrations.${i}`);
+      throw new EngineError(
+        "invalid_input",
+        `${raw} is not a known registration format.`,
+        `registrations.${i}`,
+      );
     }
-    const letters = [...reg].filter((c) => /[A-Z]/.test(c)).map((c) => ({ letter: c, value: letterValue(tables, "chaldean", c) }));
+    const letters = [...reg]
+      .filter((c) => /[A-Z]/.test(c))
+      .map((c) => ({ letter: c, value: letterValue(tables, "chaldean", c) }));
     const digits = [...reg].filter((c) => /\d/.test(c)).map(Number);
     const letterSum = letters.reduce((s, l) => s + l.value, 0);
     const digitSumv = digits.reduce((s, d) => s + d, 0);
