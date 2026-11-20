@@ -1,5 +1,5 @@
 import type { ResolvedRules } from "../rules/loader.js";
-import type { NumberResult } from "../schemas/common.js";
+import type { NumberResult, Planet } from "../schemas/common.js";
 import type { CalendarDate } from "../core/dates.js";
 import { digitSum, formatChain, reduce } from "../core/reduce.js";
 import { keepMasters } from "../core/masters.js";
@@ -7,8 +7,8 @@ import { karmicDebtIn, numberKey, sumTrace, withExtras } from "../core/result.js
 import { planetOf } from "../core/planets.js";
 
 export interface DateNumbers {
-  mulank: NumberResult & { planet: string };
-  bhagyank: NumberResult & { planet: string };
+  mulank: NumberResult & { planet: Planet };
+  bhagyank: NumberResult & { planet: Planet };
   birthday: { value: number; text_keys: string[] };
   /** Karmic debt numbers found on the day or the Bhagyank sum (name totals are checked in their modules). */
   karmic_debt: number[];
@@ -16,7 +16,8 @@ export interface DateNumbers {
 }
 
 function digitsOf(d: CalendarDate): number[] {
-  const s = `${String(d.day).padStart(2, "0")}${String(d.month).padStart(2, "0")}${String(d.year).padStart(4, "0")}`;
+  // Day as written, month as two digits, year as four (as the benchmark writes 9+0+3+2+0+1+6).
+  const s = `${d.day}${String(d.month).padStart(2, "0")}${String(d.year).padStart(4, "0")}`;
   return [...s].map(Number);
 }
 

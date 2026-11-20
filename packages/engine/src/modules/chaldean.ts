@@ -1,5 +1,5 @@
 import type { ResolvedRules } from "../rules/loader.js";
-import type { NumberResult } from "../schemas/common.js";
+import type { NumberResult, Planet } from "../schemas/common.js";
 import { reduce, toCompound, formatChain } from "../core/reduce.js";
 import { keepMasters } from "../core/masters.js";
 import { karmicDebtIn, numberKey, withExtras } from "../core/result.js";
@@ -20,7 +20,7 @@ export interface CompoundInfo {
 
 export interface NameNumber {
   total: number;
-  number: NumberResult & { planet: string };
+  number: NumberResult & { planet: Planet };
   compound?: CompoundInfo;
   letters: NameScore["parts"];
 }
