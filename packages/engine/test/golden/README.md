@@ -1,1 +1,1 @@
-One JSON file per worked example with its expected numbers. Milestone 1 holds the benchmark letter totals and pair scores; full person files arrive in M2, and the 15 to 20 trusted examples are added when they are sent.
+Golden examples. `people.json` holds each person with the numbers expected under each profile: `vedicpupil-compat` reproduces the VedicPupil sample reports exactly, `house-default` follows rules v1.0. `benchmark-m1.json` holds the letter totals and pair scores. Add the 15 to 20 trusted worked examples to `people.json` when they arrive.

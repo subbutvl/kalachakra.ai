@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "reviewed"
+      ]
+    },
+    "max_range_days": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "top_n": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "purposes": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9
+        }
+      }
+    },
+    "weights": {
+      "type": "object",
+      "properties": {
+        "purpose_personal_day": {
+          "type": "number"
+        },
+        "personal_day_with_mulank": {
+          "type": "number"
+        },
+        "universal_day_lucky": {
+          "type": "number"
+        },
+        "date_day_lucky": {
+          "type": "number"
+        },
+        "avoid_weekday_of_enemy": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "purpose_personal_day",
+        "personal_day_with_mulank",
+        "universal_day_lucky",
+        "date_day_lucky",
+        "avoid_weekday_of_enemy"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "status",
+    "max_range_days",
+    "top_n",
+    "purposes",
+    "weights"
+  ],
+  "additionalProperties": false
+}

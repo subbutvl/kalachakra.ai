@@ -100,6 +100,15 @@ export const LoshuSchema = z.strictObject({
   plane_states: z.tuple([z.literal("complete"), z.literal("partial"), z.literal("empty")]),
   directions: z.record(DigitKey, z.union([Direction, z.literal("centre")])),
   elements: z.record(DigitKey, z.enum(["water", "earth", "wood", "metal", "fire"])),
+  element_colours: z.strictObject({
+    $comment: Comment,
+    status: Status,
+    water: z.array(z.string()).min(1),
+    wood: z.array(z.string()).min(1),
+    fire: z.array(z.string()).min(1),
+    earth: z.array(z.string()).min(1),
+    metal: z.array(z.string()).min(1),
+  }),
   remedy_tags: z.array(RemedyTagSchema),
 });
 
@@ -232,6 +241,21 @@ export const OptimizerSchema = z.strictObject({
   karmic_debt_numbers: z.array(z.int()),
 });
 
+export const DatesSchema = z.strictObject({
+  $comment: Comment,
+  status: Status,
+  max_range_days: z.int().min(1),
+  top_n: z.int().min(1),
+  purposes: z.record(z.string(), z.array(DigitSchema)),
+  weights: z.strictObject({
+    purpose_personal_day: z.number(),
+    personal_day_with_mulank: z.number(),
+    universal_day_lucky: z.number(),
+    date_day_lucky: z.number(),
+    avoid_weekday_of_enemy: z.number(),
+  }),
+});
+
 export const SwitchesSchema = z.strictObject({
   $comment: Comment,
   decisions: z.record(
@@ -252,6 +276,7 @@ export const RulesVersionSchema = z.strictObject({
   business: BusinessSchema,
   compatibility: CompatibilitySchema,
   optimizer: OptimizerSchema,
+  dates: DatesSchema,
   switches: SwitchesSchema,
 });
 export type RulesVersion = z.infer<typeof RulesVersionSchema>;
@@ -278,6 +303,7 @@ export const RULES_FILE_SCHEMAS = {
   business: BusinessSchema,
   compatibility: CompatibilitySchema,
   optimizer: OptimizerSchema,
+  dates: DatesSchema,
   switches: SwitchesSchema,
 } as const;
 

@@ -9,7 +9,10 @@ export type EngineErrorCode =
   | "invalid_profile"
   | "unknown_setting"
   | "invalid_setting"
-  | "invalid_input";
+  | "invalid_input"
+  | "invalid_date"
+  | "invalid_time"
+  | "invalid_output";
 
 export class EngineError extends Error {
   readonly code: EngineErrorCode;

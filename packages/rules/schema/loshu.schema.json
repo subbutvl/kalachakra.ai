@@ -140,6 +140,65 @@
         ]
       }
     },
+    "element_colours": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "reviewed"
+          ]
+        },
+        "water": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "wood": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fire": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "earth": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metal": {
+          "minItems": 1,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "water",
+        "wood",
+        "fire",
+        "earth",
+        "metal"
+      ],
+      "additionalProperties": false
+    },
     "remedy_tags": {
       "type": "array",
       "items": {
@@ -164,6 +223,7 @@
     "plane_states",
     "directions",
     "elements",
+    "element_colours",
     "remedy_tags"
   ],
   "additionalProperties": false
