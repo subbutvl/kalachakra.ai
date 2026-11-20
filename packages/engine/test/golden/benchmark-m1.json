@@ -1,0 +1,72 @@
+{
+  "$comment": "Golden values from the VedicPupil samples (rules spec, section 1) that milestone 1 can check: letter totals and pair scores. Person-level numbers (Mulank, Bhagyank, Lo Shu, Kua, timing) are added in M2 with the full golden files.",
+  "profile": "vedicpupil-compat",
+  "names": [
+    {
+      "sample": "Aarav Mehra report",
+      "name": "Aarav Mehra",
+      "chaldean": { "parts": [11, 17], "total": 28, "chain": [28, 10, 1] },
+      "pythagorean": {
+        "parts": [16, 27],
+        "total": 43,
+        "chain": [43, 7],
+        "vowels": 9,
+        "consonants": 34
+      }
+    },
+    {
+      "sample": "Myra Kapoor report",
+      "name": "Myra Kapoor",
+      "chaldean": { "parts": [8, 27], "total": 35, "chain": [35, 8] },
+      "pythagorean": {
+        "parts": [21, 31],
+        "total": 52,
+        "chain": [52, 7],
+        "vowels": 14,
+        "consonants": 38
+      }
+    },
+    {
+      "sample": "Business report",
+      "name": "Loomcraft Works",
+      "chaldean": { "parts": [39, 20], "total": 59, "chain": [59, 14, 5], "compound": 14 }
+    },
+    {
+      "sample": "Spelling idea, Aarav report",
+      "name": "Aarave Mehra",
+      "chaldean": { "total": 33, "chain": [33, 6] }
+    },
+    {
+      "sample": "Spelling idea, Myra report",
+      "name": "Myrra Kapoor",
+      "chaldean": { "total": 37, "chain": [37, 10, 1] }
+    },
+    {
+      "sample": "Spelling idea, Myra report",
+      "name": "Myraa Kapoor",
+      "chaldean": { "total": 36, "chain": [36, 9] }
+    }
+  ],
+  "pairs": [
+    { "sample": "Aarav: Mulank 5 – Bhagyank 6", "a": 5, "b": 6, "score": 2 },
+    { "sample": "Myra: Mulank 9 – Bhagyank 3", "a": 9, "b": 3, "score": 2 },
+    { "sample": "Aarav: name 1 vs Mulank 5", "a": 1, "b": 5, "score": 1 },
+    { "sample": "Aarav: name 1 vs Bhagyank 6", "a": 1, "b": 6, "score": -2 },
+    { "sample": "Myra: name 8 vs Mulank 9", "a": 8, "b": 9, "score": -1 },
+    { "sample": "Myra: name 8 vs Bhagyank 3", "a": 8, "b": 3, "score": 0 },
+    { "sample": "Aarav spelling Aarave: 6 vs Mulank 5", "a": 6, "b": 5, "score": 2 },
+    { "sample": "Aarav spelling Aarave: 6 vs Bhagyank 6", "a": 6, "b": 6, "score": 2 },
+    { "sample": "Mobile 9 vs Mulank 5", "a": 9, "b": 5, "score": -1 },
+    { "sample": "Mobile 9 vs Bhagyank 6", "a": 9, "b": 6, "score": 0 },
+    { "sample": "Mobile 9 vs name number 1", "a": 9, "b": 1, "score": 2 },
+    { "sample": "New SIM target total 8 vs Mulank 5", "a": 8, "b": 5, "score": 1 },
+    { "sample": "New SIM target total 8 vs Bhagyank 6", "a": 8, "b": 6, "score": 2 },
+    { "sample": "New SIM target total 4 vs Mulank 5", "a": 4, "b": 5, "score": 1 },
+    { "sample": "New SIM target total 4 vs Bhagyank 6", "a": 4, "b": 6, "score": 2 },
+    { "sample": "Digit to go easy on: 3 vs Mulank 5", "a": 3, "b": 5, "score": -1 },
+    { "sample": "Digit to go easy on: 3 vs Bhagyank 6", "a": 3, "b": 6, "score": -1 },
+    { "sample": "Partner Ishaan: business 5 vs Mulank 4", "a": 5, "b": 4, "score": 1 },
+    { "sample": "Partner Ishaan: business 5 vs Bhagyank 1", "a": 5, "b": 1, "score": 1 },
+    { "sample": "Partner Ishaan: business 5 vs name 7", "a": 5, "b": 7, "score": -1 }
+  ]
+}

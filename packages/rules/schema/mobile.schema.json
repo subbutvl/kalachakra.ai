@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "national_number": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "number",
+          "const": 10
+        },
+        "strip_prefixes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "length",
+        "strip_prefixes"
+      ],
+      "additionalProperties": false
+    },
+    "element_matrix": {
+      "type": "object",
+      "properties": {
+        "smooth": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "enum": [
+                  "fire",
+                  "water",
+                  "space",
+                  "air",
+                  "earth"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "fire",
+                  "water",
+                  "space",
+                  "air",
+                  "earth"
+                ]
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "clash": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "enum": [
+                  "fire",
+                  "water",
+                  "space",
+                  "air",
+                  "earth"
+                ]
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "fire",
+                  "water",
+                  "space",
+                  "air",
+                  "earth"
+                ]
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      },
+      "required": [
+        "smooth",
+        "clash"
+      ],
+      "additionalProperties": false
+    },
+    "goals": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9
+        }
+      }
+    },
+    "score": {
+      "type": "object",
+      "properties": {
+        "weights": {
+          "type": "object",
+          "properties": {
+            "fit": {
+              "type": "number"
+            },
+            "flow": {
+              "type": "number"
+            },
+            "go_easy_digits": {
+              "type": "number"
+            },
+            "loshu_gaps_filled": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "fit",
+            "flow",
+            "go_easy_digits",
+            "loshu_gaps_filled"
+          ],
+          "additionalProperties": false
+        },
+        "bands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "verdict": {
+                "type": "string",
+                "enum": [
+                  "keep",
+                  "keep_with_notes",
+                  "consider_second_number"
+                ]
+              }
+            },
+            "required": [
+              "min",
+              "verdict"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "weights",
+        "bands"
+      ],
+      "additionalProperties": false
+    },
+    "finder": {
+      "type": "object",
+      "properties": {
+        "target_totals": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "keep_prefix_digits": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "max_ranked_numbers": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "target_totals",
+        "keep_prefix_digits",
+        "max_ranked_numbers"
+      ],
+      "additionalProperties": false
+    },
+    "vehicle": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        },
+        "letter_system": {
+          "type": "string",
+          "const": "chaldean"
+        }
+      },
+      "required": [
+        "letter_system"
+      ],
+      "additionalProperties": false
+    },
+    "house": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        },
+        "letter_system": {
+          "type": "string",
+          "const": "chaldean"
+        },
+        "order": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "string",
+              "const": "flat"
+            },
+            {
+              "type": "string",
+              "const": "building"
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "required": [
+        "letter_system",
+        "order"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "national_number",
+    "element_matrix",
+    "goals",
+    "score",
+    "finder",
+    "vehicle",
+    "house"
+  ],
+  "additionalProperties": false
+}

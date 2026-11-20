@@ -1,0 +1,52 @@
+{
+  "$comment": "Rules spec v1.0, section 3.11 (mobile, vehicle, house). Element flow matrix confirmed against the VedicPupil mobile sample (section 1). Pairs not listed are neutral.",
+  "national_number": {
+    "length": 10,
+    "strip_prefixes": ["+91", "0091", "0"]
+  },
+  "element_matrix": {
+    "smooth": [
+      ["water", "earth"],
+      ["water", "water"],
+      ["water", "space"],
+      ["earth", "earth"],
+      ["fire", "space"],
+      ["fire", "earth"],
+      ["space", "space"]
+    ],
+    "clash": [
+      ["water", "air"],
+      ["air", "air"]
+    ]
+  },
+  "goals": {
+    "$comment": "Default goal digit sets from popular practice. Digits opposed to both birth numbers are dropped from a set.",
+    "finance": [5, 6, 3],
+    "business_growth": [1, 5, 3],
+    "career": [1, 9, 3],
+    "peace_of_mind": [2, 7, 3],
+    "relationships": [2, 6, 5]
+  },
+  "score": {
+    "weights": { "fit": 40, "flow": 30, "go_easy_digits": 15, "loshu_gaps_filled": 15 },
+    "bands": [
+      { "min": 60, "verdict": "keep" },
+      { "min": 40, "verdict": "keep_with_notes" },
+      { "min": 0, "verdict": "consider_second_number" }
+    ]
+  },
+  "finder": {
+    "target_totals": 3,
+    "keep_prefix_digits": 6,
+    "max_ranked_numbers": 20
+  },
+  "vehicle": {
+    "$comment": "Letters in registrations are converted with Chaldean values (D17).",
+    "letter_system": "chaldean"
+  },
+  "house": {
+    "$comment": "Flat number first, then building number. A letter suffix (12B) adds its Chaldean value.",
+    "letter_system": "chaldean",
+    "order": ["flat", "building"]
+  }
+}

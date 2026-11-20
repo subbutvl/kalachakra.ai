@@ -1,0 +1,29 @@
+{
+  "name": "@kalachakra/engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kalachakra numerology engine: pure calculation, no database, no network, no UI.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint src test scripts",
+    "gen:schemas": "tsx scripts/gen-schemas.ts"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@kalachakra/rules": "workspace:*",
+    "@types/node": "^22.20.5",
+    "@vitest/coverage-v8": "^5.1.1",
+    "fast-check": "^4.10.3",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.1"
+  }
+}

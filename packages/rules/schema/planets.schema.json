@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "numbers": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[1-9]$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "enum": [
+          "sun",
+          "moon",
+          "jupiter",
+          "rahu",
+          "mercury",
+          "venus",
+          "ketu",
+          "saturn",
+          "mars"
+        ]
+      }
+    },
+    "friendship": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "enum": [
+          "sun",
+          "moon",
+          "jupiter",
+          "mercury",
+          "venus",
+          "saturn",
+          "mars"
+        ]
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "friends": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "sun",
+                "moon",
+                "jupiter",
+                "mercury",
+                "venus",
+                "saturn",
+                "mars"
+              ]
+            }
+          },
+          "neutral": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "sun",
+                "moon",
+                "jupiter",
+                "mercury",
+                "venus",
+                "saturn",
+                "mars"
+              ]
+            }
+          },
+          "enemies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "sun",
+                "moon",
+                "jupiter",
+                "mercury",
+                "venus",
+                "saturn",
+                "mars"
+              ]
+            }
+          }
+        },
+        "required": [
+          "friends",
+          "neutral",
+          "enemies"
+        ],
+        "additionalProperties": false
+      },
+      "required": [
+        "sun",
+        "moon",
+        "jupiter",
+        "mercury",
+        "venus",
+        "saturn",
+        "mars"
+      ]
+    },
+    "pair_score": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        },
+        "friend": {
+          "type": "number",
+          "const": 1
+        },
+        "neutral": {
+          "type": "number",
+          "const": 0
+        },
+        "enemy": {
+          "type": "number",
+          "const": -1
+        },
+        "same_planet": {
+          "type": "number",
+          "const": 2
+        }
+      },
+      "required": [
+        "friend",
+        "neutral",
+        "enemy",
+        "same_planet"
+      ],
+      "additionalProperties": false
+    },
+    "days": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": "string",
+        "enum": [
+          "sunday",
+          "monday",
+          "tuesday",
+          "wednesday",
+          "thursday",
+          "friday",
+          "saturday"
+        ]
+      }
+    },
+    "colours": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "reviewed"
+          ]
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "elements": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "type": "string",
+        "enum": [
+          "fire",
+          "water",
+          "space",
+          "air",
+          "earth"
+        ]
+      }
+    }
+  },
+  "required": [
+    "numbers",
+    "friendship",
+    "pair_score",
+    "days",
+    "colours",
+    "elements"
+  ],
+  "additionalProperties": false
+}

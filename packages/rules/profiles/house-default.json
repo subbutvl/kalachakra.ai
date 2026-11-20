@@ -1,0 +1,7 @@
+{
+  "id": "house-default",
+  "name": "Kalachakra house default",
+  "description": "Rules v1.0 exactly as approved on 20 Nov 2026, with no overrides.",
+  "base": "v1.0",
+  "overrides": {}
+}
