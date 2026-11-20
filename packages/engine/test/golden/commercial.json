@@ -1,0 +1,55 @@
+{
+  "$comment": "Golden values from the VedicPupil mobile and business samples (rules spec, section 1, second batch), checked under the VedicPupil-compatible profile. Ishaan Verma's date of birth is not in the sample; 2003-01-04 is used because it gives the sample's Mulank 4 and Bhagyank 1.",
+  "as_of": "2026-11-20",
+  "owner": { "name": "Aarav Mehra", "dob": "1991-08-14", "gender": "male" },
+  "mobile": {
+    "number": "+91 98765 24310",
+    "goals": ["finance", "career"],
+    "total": { "value": 9, "chain": [45, 9], "compound": 45, "read_like": 27 },
+    "fit": { "mulank": -1, "bhagyank": 0, "name_number": 2, "total": 1 },
+    "flow": { "smooth": 3, "neutral": 4, "clash": 1, "pause": 1 },
+    "clash_pair": "24",
+    "pause_pair": "10",
+    "fills_loshu_gaps": [2, 3, 7],
+    "go_easy_digits": [3],
+    "target_totals": [5, 6, 4],
+    "goals_after_drop": { "finance": [5, 6], "career": [1, 9] },
+    "prefix": "987652",
+    "last4_ideas": ["2659", "5566", "2515"]
+  },
+  "business": {
+    "partner": { "name": "Ishaan Verma", "dob": "2003-01-04", "gender": "male" },
+    "partner_numbers": { "mulank": 4, "bhagyank": 1, "name_number": 7 },
+    "names": ["Loomcraft Works", "Aarav Weaves", "Mehra Textiles Pvt Ltd", "Loomcraft India"],
+    "loomcraft_works": {
+      "total": 59,
+      "compound": 14,
+      "number": 5,
+      "owner_fit": 5,
+      "partner_fit": 1
+    },
+    "suffix": { "without": 47, "without_number": 2, "with": 76, "with_number": 4 },
+    "ranking": [
+      { "name": "Loomcraft Works", "total": 7 },
+      { "name": "Aarav Weaves", "total": 4 },
+      { "name": "Mehra Textiles Pvt Ltd", "total": 3 },
+      { "name": "Loomcraft India", "total": 3 }
+    ],
+    "spelling_ideas": [
+      { "name": "Aarrav Weaves", "total": 5 },
+      { "name": "Mehra Textilles", "total": 7 },
+      { "name": "Loomcrafft India", "total": 7 }
+    ],
+    "domains": [
+      { "extension": ".com", "total": 73, "number": 1 },
+      { "extension": ".in", "total": 65, "number": 2 },
+      { "extension": ".co", "total": 69, "number": 6 }
+    ],
+    "brand_kit": {
+      "day": "wednesday",
+      "colour": "green",
+      "lucky_numbers": [1, 5, 6],
+      "launch_days": [5, 14, 23]
+    }
+  }
+}

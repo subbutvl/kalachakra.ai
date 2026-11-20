@@ -61,6 +61,21 @@ export const ChaldeanNameSchema = z.object({
   }),
 });
 
+const ScoredNameSchema = z.object({
+  name: z.string(),
+  edits: z.array(z.string()),
+  score: z.number().min(0).max(100),
+  name_number: z.int(),
+  compound: z.int().optional(),
+  compound_class: z.enum(["favourable", "mixed", "unfavourable"]).optional(),
+  fit_total: z.int(),
+  first_name_fit: z.int(),
+  pythagorean_expression: z.int(),
+  karmic_debt: z.boolean(),
+  reason: z.string(),
+  components: z.record(z.string(), z.number()),
+});
+
 const Span = z.object({ number: Num, from_age: z.int(), to_age: z.int().optional() });
 const MaturitySchema = Num.extend({ system: z.enum(["pythagorean", "chaldean"]) });
 const LetterRef = z.object({ letter: z.string(), value: z.int(), text_keys: Keys });
@@ -235,6 +250,20 @@ export const ProfileResultSchema = z.object({
       .length(10),
     rule_refs: z.array(z.string()),
   }),
+  /** Name optimiser results for the headline name (rules spec 3.10), when asked for. */
+  name_optimizer: z
+    .object({
+      current: ScoredNameSchema,
+      suggestions: z.array(ScoredNameSchema),
+      forms: z.object({
+        signature: z.string(),
+        business_card: z.string(),
+        social_profile: z.string(),
+      }),
+      candidates_checked: z.int(),
+      rule_refs: z.array(z.string()),
+    })
+    .optional(),
   /** Every flag raised anywhere in the profile, for quick display. */
   flags: z.array(z.object({ flag: z.string(), where: z.string(), value: z.int().optional() })),
 });
