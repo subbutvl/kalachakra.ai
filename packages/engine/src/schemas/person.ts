@@ -38,9 +38,15 @@ export const PersonSchema = z.strictObject({
 export type PersonInput = z.input<typeof PersonSchema>;
 export type Person = z.output<typeof PersonSchema>;
 
+export const ProfileOptionsSchema = z.strictObject({
+  /** How many spelling suggestions to include (0 leaves the name optimiser out). */
+  name_suggestions: z.int().min(0).max(10).default(5),
+});
+
 export const ProfileRequestSchema = z.strictObject({
   person: PersonSchema,
   as_of: IsoDateSchema,
+  options: ProfileOptionsSchema.default({ name_suggestions: 5 }),
 });
 export type ProfileRequestInput = z.input<typeof ProfileRequestSchema>;
 export type ProfileRequest = z.output<typeof ProfileRequestSchema>;
