@@ -10,6 +10,7 @@ import {
   computeProfile,
   computeVehicle,
   describeRules,
+  diffResults,
   ENGINE_VERSION,
   findDates,
   listRuleProfiles,
@@ -35,7 +36,7 @@ import { embeddedFontCss } from "@kalachakra/report/fonts";
 import { readEnv, type Env } from "./env.js";
 import { ApiError, ErrorSchema, handleError, validationHook } from "./errors.js";
 import { catalog, rulesFor, todayInIndia } from "./rules.js";
-import { diffResults } from "./diff.js";
+
 import {
   BusinessBody,
   CompatibilityBody,

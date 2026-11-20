@@ -1,4 +1,5 @@
 import type { PersonInput, ProfileResult } from "@kalachakra/engine";
+import type { ReportDocument } from "@kalachakra/report";
 
 /** The API runs on this computer (apps/api). The web app talks to it only over HTTP. */
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8787";
@@ -60,6 +61,10 @@ export interface ReportRequest {
   audience: "adult" | "child";
   language: "en" | "ta";
   modules?: ReportModulesInput;
+  /** Practitioner mode: a profile id or an inline custom profile. */
+  rule_profile?: unknown;
+  branding?: Record<string, string>;
+  overlay?: Record<string, unknown>;
 }
 
 export interface ReportSummary {
@@ -76,6 +81,8 @@ export const api = {
     ).json() as Promise<ProfileResult>,
   report: async (req: ReportRequest): Promise<ReportSummary> =>
     (await post("/v1/report", req)).json() as Promise<ReportSummary>,
+  reportDocument: async (req: ReportRequest): Promise<ReportDocument> =>
+    (await post("/v1/report", req)).json() as Promise<ReportDocument>,
   reportHtml: async (req: ReportRequest): Promise<string> =>
     (await post("/v1/report/html", req)).text(),
   reportPdf: async (req: ReportRequest): Promise<Blob> =>
