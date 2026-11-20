@@ -18,6 +18,7 @@ import {
   type TextLibrary,
 } from "./texts.js";
 import { applyOverlay } from "./overlay.js";
+import { BHAGYANK_SECTIONS, NAME_SECTIONS } from "./keys.js";
 
 export interface ReportModules {
   mobile?: MobileResult;
@@ -208,9 +209,9 @@ export function buildReport(input: ReportInput): ReportDocument {
       ],
     },
   ];
-  for (const s of ["direction", "lessons", "careers", "decades"] as const) {
+  for (const s of BHAGYANK_SECTIONS) {
     bBlocks.push(
-      h3(ui(`bhagyank_section.${s}${child && s === "careers" ? ".child" : ""}`)),
+      h3(ui(`bhagyank_section.${s}${child && (s === "careers" || s === "money") ? ".child" : ""}`)),
       p(`bhagyank.${bhg}.${s}`),
     );
   }
@@ -316,6 +317,9 @@ export function buildReport(input: ReportInput): ReportDocument {
       nameBlocks.push(p(`name_number.${nn.number.reduced}`));
       if (nn.compound) nameBlocks.push(p(nn.compound.text_key));
       nameBlocks.push(p(`name_fit.${nm.fit.label}`));
+      // The child edition leaves out the working-life reading of the name.
+      for (const s of NAME_SECTIONS.filter((x) => !(child && x === "work")))
+        nameBlocks.push(h3(ui(`name_section.${s}`)), p(`name_number.${nn.number.reduced}.${s}`));
     }
   }
   nameBlocks.push(how(ch.name_number.number.trace ?? []));
@@ -516,20 +520,33 @@ export function buildReport(input: ReportInput): ReportDocument {
   section("career_money", "life", 2, [
     lifeHead("career"),
     p(`life.career.${bhg}`),
+    lifeHead("career_growth"),
+    p(`life.career_growth.${bhg}`),
     lifeHead("work_style"),
     p(`life.work_style.${mul}`),
     lifeHead("money"),
     p(`life.money.${mul}`),
+    lifeHead("money_plan"),
+    p(`life.money_plan.${mul}`),
   ]);
   section("love_family", "life", 2, [
     lifeHead("love"),
     p(`life.love.${mul}`),
+    // Partner and parenting readings are for adults only.
+    ...(child ? [] : [lifeHead("partner", false), p(`life.partner.${mul}`)]),
     lifeHead("family", false),
     p(`life.family.${bhg}`),
+    ...(child ? [] : [lifeHead("parent", false), p(`life.parent.${bhg}`)]),
   ]);
   section("health", "life", 1, [
     p(`life.health.${mul}`),
     p(`mulank.${mul}.health`),
+    lifeHead("health_body", false),
+    p(`life.health_body.${mul}`),
+    lifeHead("health_habits", false),
+    p(`life.health_habits.${mul}`),
+    lifeHead("health_mind", false),
+    p(`life.health_mind.${mul}`),
     { kind: "p", id: "ui.health_note", text: ui("health_note"), source: "engine" },
   ]);
 

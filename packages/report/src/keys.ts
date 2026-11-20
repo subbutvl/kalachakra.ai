@@ -19,7 +19,16 @@ export const MULANK_SECTIONS = [
   "strengths",
   "watch_outs",
 ] as const;
-export const BHAGYANK_SECTIONS = ["direction", "lessons", "careers", "decades"] as const;
+export const BHAGYANK_SECTIONS = [
+  "direction",
+  "lessons",
+  "careers",
+  "money",
+  "relationships",
+  "decades",
+  "advice",
+] as const;
+export const NAME_SECTIONS = ["daily", "work", "using"] as const;
 export const OWN_COMPOUNDS = [
   10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 37,
   43, 51,
@@ -77,7 +86,21 @@ export const GLOSSARY = [
   "pinnacle",
   "dasha",
 ];
-export const LIFE_AREAS = ["career", "work_style", "money", "love", "family", "health"] as const;
+export const LIFE_AREAS = [
+  "career",
+  "career_growth",
+  "work_style",
+  "money",
+  "money_plan",
+  "love",
+  "partner",
+  "family",
+  "parent",
+  "health",
+  "health_body",
+  "health_habits",
+  "health_mind",
+] as const;
 
 /** Every key, grouped by the module file it belongs to. */
 export function catalogue(): Record<string, string[]> {
@@ -126,7 +149,7 @@ export function catalogue(): Record<string, string[]> {
   );
   add(
     "name",
-    D.map((n) => `name_number.${n}`),
+    D.flatMap((n) => [`name_number.${n}`, ...NAME_SECTIONS.map((s) => `name_number.${n}.${s}`)]),
   );
   add("name", ["name_fit.supported", "name_fit.mixed", "name_fit.opposed"]);
   add(

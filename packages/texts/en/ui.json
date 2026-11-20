@@ -327,6 +327,22 @@
     "ui.life_section.love": "Love and partnership",
     "ui.life_section.love.child": "Friendships",
     "ui.life_section.family": "Family",
-    "ui.year_section.reading": "What this year asks of you"
+    "ui.year_section.reading": "What this year asks of you",
+    "ui.bhagyank_section.relationships": "With people",
+    "ui.bhagyank_section.money": "Money and fortune",
+    "ui.bhagyank_section.money.child": "Money habits to build",
+    "ui.bhagyank_section.advice": "Advice for the path",
+    "ui.name_section.daily": "The name in daily life",
+    "ui.name_section.work": "The name at work",
+    "ui.name_section.using": "Using the name",
+    "ui.life_section.career_growth": "How your career grows",
+    "ui.life_section.career_growth.child": "Supporting their learning",
+    "ui.life_section.money_plan": "A money plan that suits you",
+    "ui.life_section.money_plan.child": "A first money habit",
+    "ui.life_section.partner": "The partner who suits you",
+    "ui.life_section.parent": "As a parent",
+    "ui.life_section.health_body": "Body",
+    "ui.life_section.health_habits": "Habits that help",
+    "ui.life_section.health_mind": "Mind and stress"
   }
 }

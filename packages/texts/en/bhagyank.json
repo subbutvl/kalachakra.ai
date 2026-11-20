@@ -11,7 +11,6 @@
       "status": "draft"
     },
     "bhagyank.1.decades": "The twenties bring tests of self-belief; the thirties bring the first real authority. The forties and fifties are often the years of greatest recognition, when experience gives leadership real weight.",
-
     "bhagyank.2.direction": "Bhagyank 2 points life toward partnership, cooperation and care. Much of life's progress comes through others: a partner, a team, a community. Peace-making is part of the purpose.",
     "bhagyank.2.lessons": "The lessons are confidence in one's own worth, clear boundaries and the courage to decide. Kindness must include kindness to oneself.",
     "bhagyank.2.careers": {
@@ -20,7 +19,6 @@
       "status": "draft"
     },
     "bhagyank.2.decades": "The early decades can feel uncertain while trust in oneself grows. The thirties and forties bring strong partnerships. Later life is often rich in close, supportive relationships.",
-
     "bhagyank.3.direction": "Bhagyank 3 points life toward knowledge, guidance and expansion. Life keeps offering chances to learn, to teach and to grow in standing. Wisdom shared is the purpose.",
     "bhagyank.3.lessons": "The lessons are discipline, focus and humility. Gifts grow fastest when they are given structure and used for others.",
     "bhagyank.3.careers": {
@@ -29,7 +27,6 @@
       "status": "draft"
     },
     "bhagyank.3.decades": "The twenties are for study and building knowledge. The thirties and forties bring respect and responsibility. Later decades often make one a mentor to many.",
-
     "bhagyank.4.direction": "Bhagyank 4 points life toward building, order and reform. Life asks for patient, practical work and often for finding a new way where old ways fail. Solid structures are the legacy.",
     "bhagyank.4.lessons": "The lessons are flexibility within discipline, and trust in others. Sudden changes are part of the path; meeting them calmly is the skill.",
     "bhagyank.4.careers": {
@@ -38,7 +35,6 @@
       "status": "draft"
     },
     "bhagyank.4.decades": "Early years bring hard work with slow reward. The thirties often bring a sudden turn that opens new ground. The forties and after reward the foundations built earlier.",
-
     "bhagyank.5.direction": "Bhagyank 5 points life toward freedom, variety and communication. Travel, change and many kinds of people shape the journey. The purpose is to experience fully and to share what is learned.",
     "bhagyank.5.lessons": "The lessons are commitment and moderation. Freedom grows, not shrinks, when there is a steady base to return to.",
     "bhagyank.5.careers": {
@@ -47,7 +43,6 @@
       "status": "draft"
     },
     "bhagyank.5.decades": "The twenties are restless and full of change. The thirties bring a career that uses many talents. The forties and later bring the freedom earned through skill.",
-
     "bhagyank.6.direction": "Bhagyank 6 points life toward love, family, beauty and service. Responsibility for others comes often, and caring well is part of the purpose. Home and community are central.",
     "bhagyank.6.lessons": "The lessons are balance between giving and receiving, and letting others carry their own loads. Perfectionism in love must give way to acceptance.",
     "bhagyank.6.careers": {
@@ -56,7 +51,6 @@
       "status": "draft"
     },
     "bhagyank.6.decades": "The twenties often bring early family or caring responsibility. The thirties and forties are rich in home life and creative work. Later life is often comfortable and surrounded by loved ones.",
-
     "bhagyank.7.direction": "Bhagyank 7 points life toward understanding, research and inner growth. Life keeps asking for deeper answers, and quiet study brings the greatest rewards. Wisdom earned is the purpose.",
     "bhagyank.7.lessons": "The lessons are trust and openness. Faith, in oneself and in others, balances the analytical mind.",
     "bhagyank.7.careers": {
@@ -65,7 +59,6 @@
       "status": "draft"
     },
     "bhagyank.7.decades": "The early decades may feel set apart from others. The thirties and forties bring expertise and respect. Later life is often the most peaceful and insightful.",
-
     "bhagyank.8.direction": "Bhagyank 8 points life toward achievement, authority and lasting results. Life tests patience and rewards persistence. Building something that endures is the purpose.",
     "bhagyank.8.lessons": "The lessons are balance between material success and inner peace, and fair use of power. Delays are teachers, not refusals.",
     "bhagyank.8.careers": {
@@ -74,7 +67,6 @@
       "status": "draft"
     },
     "bhagyank.8.decades": "The twenties and early thirties can be demanding, with slow progress. The late thirties and forties bring solid results. The fifties onward are often the most secure and respected years.",
-
     "bhagyank.9.direction": "Bhagyank 9 points life toward service, courage and the bigger picture. Life asks for generosity and for standing up for others. Leaving the world better is the purpose.",
     "bhagyank.9.lessons": "The lessons are letting go and forgiving. Endings come so that something larger can begin.",
     "bhagyank.9.careers": {
@@ -83,14 +75,75 @@
       "status": "draft"
     },
     "bhagyank.9.decades": "The twenties are energetic and sometimes scattered. The thirties and forties bring a cause or role worth fighting for. Later life brings respect for what has been given.",
-
     "master.11": "The total passes through 11, a master number of intuition and inspiration. It adds idealism and spiritual sensitivity to the number it reduces to, and a calling to inspire others.",
     "master.22": "The total passes through 22, the master builder. It adds the capacity to turn vision into lasting, practical results on a large scale, and the pressure that comes with it.",
     "master.33": "The total passes through 33, the master teacher. It adds compassion, responsibility and a calling to heal and uplift others through service.",
-
     "karmic_debt.13": "Karmic debt 13 asks for steady, honest effort. Shortcuts rarely work; patient work and order turn this number into a strength.",
     "karmic_debt.14": "Karmic debt 14 asks for moderation and balance. Freedom must be used responsibly; steady habits turn restlessness into adaptability.",
     "karmic_debt.16": "Karmic debt 16 asks for humility and inner growth. Sudden changes clear the way for something truer; faith and reflection help.",
-    "karmic_debt.19": "Karmic debt 19 asks for independence balanced with accepting help. Strength grows when it is shared."
+    "karmic_debt.19": "Karmic debt 19 asks for independence balanced with accepting help. Strength grows when it is shared.",
+    "bhagyank.1.relationships": "With people, Bhagyank 1 tends to lead and protect. Friends and partners rely on your decisiveness, and you are at your best when someone needs a champion. The lesson is to share the stage: ask for opinions before deciding, and let others take credit now and then. Relationships deepen when strength is shown as support rather than control.",
+    "bhagyank.1.money": {
+      "text": "Your fortune grows through independence and initiative. Income rises when you back your own ideas, run your own unit or earn by results. Keep a reserve for the ventures you will want to start, and avoid guaranteeing others' loans out of pride.",
+      "child": "Encourage your child to earn small amounts through their own initiative, such as a stall or a task they plan themselves, and to keep a record of what they earn.",
+      "status": "draft"
+    },
+    "bhagyank.1.advice": "Set one clear goal for each year and say it aloud to someone you trust. Start before you feel ready; the Sun rewards those who act. Sunday mornings suit planning and beginnings. Keep your word, because your reputation is your greatest asset.",
+    "bhagyank.2.relationships": "With people, Bhagyank 2 is the peacemaker and the trusted confidant. You sense what others feel and help them feel understood. The lesson is to keep your own centre: say what you need, and do not let other people's moods set yours. Relationships thrive when care flows both ways.",
+    "bhagyank.2.money": {
+      "text": "Your fortune grows through partnership and patience. Joint ventures, family businesses and steady savings suit you better than solo risks. Income may rise and fall with the seasons; build a cushion in good months. Choose financial partners for their honesty more than their promises.",
+      "child": "Help your child save in small, regular amounts, perhaps with a parent matching what they put aside, so that saving feels shared and safe.",
+      "status": "draft"
+    },
+    "bhagyank.2.advice": "Make decisions in daylight, after talking them through with one trusted person, and then act without re-opening them. Monday suits gentle beginnings and important conversations. Water, rest and quiet time restore you; schedule them as you would a meeting.",
+    "bhagyank.3.relationships": "With people, Bhagyank 3 is the friend who advises, encourages and brings warmth. Others come to you for guidance. The lesson is to listen fully before advising, and to keep promises of time as well as of help. Relationships grow when you share your own doubts as well as your wisdom.",
+    "bhagyank.3.money": {
+      "text": "Your fortune grows through knowledge, teaching and reputation. Qualifications, consulting and a good name raise your income over time. Generosity can outrun your means, so keep giving within a set amount. Long-term investments chosen with advice suit you.",
+      "child": "Talk with your child about the value of learning as wealth. Let them spend on books, courses or hobbies they choose, within a budget they help set.",
+      "status": "draft"
+    },
+    "bhagyank.3.advice": "Keep learning every year, and teach what you learn. Thursday suits study, advice and starting courses. Write down your plans, choose the three that matter most, and finish them before starting new ones. Respect for elders and teachers strengthens Jupiter.",
+    "bhagyank.4.relationships": "With people, Bhagyank 4 is loyal, frank and dependable, though sometimes unconventional. You show love by solving problems. The lesson is to explain your thinking and feelings, so that your practical care is understood. Relationships hold strong when routine leaves room for surprise.",
+    "bhagyank.4.money": {
+      "text": "Your fortune grows through systems, skills and steady effort, but it can change suddenly. Keep an emergency fund of several months' expenses, avoid speculation, and diversify. Property, technical skills and patient saving serve you better than tips and trends.",
+      "child": "Give your child a simple, written plan for pocket money: what is saved, what is spent and what is shared. Keep the rules the same from month to month.",
+      "status": "draft"
+    },
+    "bhagyank.4.advice": "Build routines that protect you from sudden change: regular sleep, a budget, and a skill you keep current. Saturday suits planning, repairs and paperwork. Question rules where they are unfair, but change them through proper channels rather than rebellion.",
+    "bhagyank.5.relationships": "With people, Bhagyank 5 is lively, curious and good company. You connect easily across ages and cultures. The lesson is constancy: keep in touch with old friends as well as making new ones, and honour your commitments. Relationships last when freedom is balanced with reliability.",
+    "bhagyank.5.money": {
+      "text": "Your fortune grows through trade, communication and many small opportunities. Income can be quick but uneven. Automate saving, keep simple records and avoid impulse decisions about large sums. Several streams of income suit you better than one large risk.",
+      "child": "Let your child try buying, selling or swapping on a small scale, and talk afterwards about what worked. Teach them to wait a day before spending on something unplanned.",
+      "status": "draft"
+    },
+    "bhagyank.5.advice": "Plan change instead of running from routine: a new skill each year, regular travel, a fresh project. Wednesday suits signing, selling and communication. Check details twice before you commit, and keep a written list of promises made.",
+    "bhagyank.6.relationships": "With people, Bhagyank 6 is caring, generous and devoted to family and friends. You make others feel at home. The lesson is balance: let others give back, and do not take responsibility for choices that are theirs. Relationships are happiest when love is free of obligation.",
+    "bhagyank.6.money": {
+      "text": "Your fortune grows through quality, comfort and family. Home, property, design and service-based work suit you. You enjoy spending on beauty and on others; a budget that includes those pleasures is one you will keep. Avoid lending to relatives beyond what you can afford to give.",
+      "child": "Let your child save towards a gift for someone they love, and let them choose it. Giving within a budget teaches both generosity and limits.",
+      "status": "draft"
+    },
+    "bhagyank.6.advice": "Make your home a place of calm and beauty, and keep time for your own creative interests. Friday suits celebrations, relationships and purchases for the home. Say no kindly when you are stretched; your care is worth more when it is not exhausted.",
+    "bhagyank.7.relationships": "With people, Bhagyank 7 is sincere, private and deep. You prefer a few close bonds to many casual ones. The lesson is openness: share what you think and feel, and do not wait to be understood without words. Relationships flourish when you let trusted people into your inner world.",
+    "bhagyank.7.money": {
+      "text": "Your fortune grows through expertise, research and specialist skill, often later in life. You may undervalue your work; set fees by its worth. Simple, long-term investments suit you better than active trading. Avoid lending on trust alone.",
+      "child": "Your child may not think much about money. Teach the basics gently, and connect money to the things they care about, such as books, nature or a cause.",
+      "status": "draft"
+    },
+    "bhagyank.7.advice": "Protect regular quiet time for study, prayer or reflection; it is where your clarity comes from. Monday and Tuesday suit research and planning. Write down your insights, because they become your expertise. Choose depth in one field over breadth across many.",
+    "bhagyank.8.relationships": "With people, Bhagyank 8 is loyal, responsible and steady in a crisis. Others trust you with serious matters. The lesson is warmth: show affection openly, and do not let duty crowd out joy. Relationships strengthen when you share your burdens as well as carrying others'.",
+    "bhagyank.8.money": {
+      "text": "Your fortune grows slowly and lasts. Saturn rewards patience: property, long-term savings, pensions and businesses built over years. Early setbacks are common and teach discipline. Avoid shortcuts, debts taken for others and deals that look too good to be true.",
+      "child": "Praise your child's patience with money, and show them how saving over a long time grows. A long-term goal, such as a bicycle saved for over months, suits them.",
+      "status": "draft"
+    },
+    "bhagyank.8.advice": "Plan in years, not weeks. Saturday suits serious work, signing long-term agreements and service to others. Keep your health and rest in the plan, because endurance is your strength. Be fair in authority; Saturn tests how power is used.",
+    "bhagyank.9.relationships": "With people, Bhagyank 9 is generous, protective and brave. You stand by your friends and fight for those who cannot fight for themselves. The lesson is patience: pause before reacting, and let small things go. Relationships stay strong when passion is matched with kindness.",
+    "bhagyank.9.money": {
+      "text": "Your fortune grows through action, courage and service. Land, property, engineering and work that protects or serves others suit you. Impulse spending and quick deals made in anger are the risks. Keep a reserve, and give generously but within a plan.",
+      "child": "Give your child a goal to save towards and a way to earn towards it through effort, such as chores or a sport. Effort-based rewards suit their energy.",
+      "status": "draft"
+    },
+    "bhagyank.9.advice": "Choose your causes carefully and give them your full energy. Tuesday suits bold starts, exercise and difficult conversations. Daily physical activity keeps your energy steady. Finish what you start before taking up the next fight."
   }
 }

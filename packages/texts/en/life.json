@@ -200,6 +200,141 @@
     "life.health.6": "Health tendencies: watch sweets and comfort habits; gentle exercise helps.",
     "life.health.7": "Health tendencies: worry and irregular habits; meditation and nature walks help.",
     "life.health.8": "Health tendencies: joints and bones; stretching and rest days help.",
-    "life.health.9": "Health tendencies: haste and over-exertion; warm-ups and calm help."
+    "life.health.9": "Health tendencies: haste and over-exertion; warm-ups and calm help.",
+    "life.career_growth.1": {
+      "text": "Growth comes from taking charge early. Volunteer to lead projects, build a record of decisions that worked, and move toward roles where results carry your name. A mentor who has run something larger than you have is worth seeking out. Your thirties and forties often bring the biggest steps up.",
+      "child": "Support your child's learning by giving them small areas to run themselves: a reading list they choose, a club they help organise. Confidence built early carries into every subject.",
+      "status": "draft"
+    },
+    "life.career_growth.2": {
+      "text": "Growth comes through people. A strong working partnership, a trusted manager or a long-standing client often opens the next door. Build a reputation for reliability and tact. Formal training in counselling, teaching or care can turn your natural gifts into recognised skills.",
+      "child": "Support your child's learning with a steady study buddy or a patient tutor. Praise their care and neatness, and help them speak up in class.",
+      "status": "draft"
+    },
+    "life.career_growth.3": {
+      "text": "Growth comes through learning and sharing it. Each qualification, talk or published piece of work adds to your standing. Seek roles where you teach or advise, and keep a list of what you have achieved. Your reputation grows fastest when you finish what you start.",
+      "child": "Support your child's learning through reading together, debates at the dinner table and chances to present to the family. A good teacher can change everything for this child.",
+      "status": "draft"
+    },
+    "life.career_growth.4": {
+      "text": "Growth comes through skill and method. Certifications, technical depth and a reputation for solving hard problems open doors. Change can come suddenly; when it does, treat it as a chance to move into newer work rather than a setback.",
+      "child": "Support your child's learning with hands-on kits, clear timetables and explanations of why things work. Let them learn by building and testing.",
+      "status": "draft"
+    },
+    "life.career_growth.5": {
+      "text": "Growth comes through variety and contacts. A wide network, new skills and willingness to move bring opportunities. Short courses, travel and side projects keep you sharp. Choose employers who let you change roles inside the organisation rather than changing employers every year.",
+      "child": "Support your child's learning with variety: short sessions, games and real-world examples such as shopping maths or travel geography.",
+      "status": "draft"
+    },
+    "life.career_growth.6": {
+      "text": "Growth comes through quality and loyalty. Clients and employers who value your care tend to stay, and they recommend you. Investing in your craft, presentation and working environment pays off. A family business or partnership can become a lasting base.",
+      "child": "Support your child's learning with art, music and group projects. A warm, appreciative teacher brings out their best.",
+      "status": "draft"
+    },
+    "life.career_growth.7": {
+      "text": "Growth comes through depth. Become the specialist others consult, publish or present your findings, and seek roles that value accuracy over speed. Recognition may come later than for others, but it comes from real expertise and lasts.",
+      "child": "Support your child's learning with time to explore one subject deeply, a quiet place to study and adults who answer their questions seriously.",
+      "status": "draft"
+    },
+    "life.career_growth.8": {
+      "text": "Growth comes slowly and steadily. Stay with organisations long enough to rise, take on responsibility others avoid, and keep records of your results. Promotion often arrives after a long wait, and when it does, it is solid.",
+      "child": "Support your child's learning with steady routines and long-term goals, such as exams prepared for over months. Celebrate persistence.",
+      "status": "draft"
+    },
+    "life.career_growth.9": {
+      "text": "Growth comes through courage and results under pressure. Take on the difficult assignment, the turnaround or the crisis, and make your name there. Physical fitness and discipline support your career as much as skill does.",
+      "child": "Support your child's learning with sport, competition and clear goals. Physical activity before study helps them concentrate.",
+      "status": "draft"
+    },
+    "life.money_plan.1": {
+      "text": "A simple plan suits you: keep three months' expenses in reserve, invest in your skills or business, and make large decisions after sleeping on them. Review your money on the first day of each month.",
+      "child": "Give your child a small allowance and let them decide how to use it. Talk through one choice each month.",
+      "status": "draft"
+    },
+    "life.money_plan.2": {
+      "text": "A simple plan suits you: save a fixed amount the day income arrives, keep joint finances transparent, and never lend more than you could give away. Review together with your partner once a month.",
+      "child": "Start a savings jar with your child and add to it together each week.",
+      "status": "draft"
+    },
+    "life.money_plan.3": {
+      "text": "A simple plan suits you: set a monthly limit for gifts and treats, put the rest of surplus into long-term savings, and take advice before big investments. Spend on learning; it repays you.",
+      "child": "Let your child budget for a hobby, and talk about what they learnt from the purchase.",
+      "status": "draft"
+    },
+    "life.money_plan.4": {
+      "text": "A simple plan suits you: an emergency fund first, then steady saving into safe, understandable investments. Avoid tips and schemes. Keep paperwork in order, because details protect you.",
+      "child": "Use two jars, save and spend, and keep the rules the same every week.",
+      "status": "draft"
+    },
+    "life.money_plan.5": {
+      "text": "A simple plan suits you: automate saving, keep a simple record of spending on your phone, and wait a day before any unplanned purchase above a set amount. Spread income across several sources.",
+      "child": "Teach your child to wait a day before buying anything unplanned, and praise them when they do.",
+      "status": "draft"
+    },
+    "life.money_plan.6": {
+      "text": "A simple plan suits you: a budget that includes pleasures, savings for home and family goals, and clear limits on lending to relatives. Property is often a good long-term choice.",
+      "child": "Let your child save towards a gift for someone, and choose it themselves.",
+      "status": "draft"
+    },
+    "life.money_plan.7": {
+      "text": "A simple plan suits you: set your fees by value, put savings into simple long-term funds, and review once a quarter rather than watching every day. Ask a trusted adviser about what you are unsure of.",
+      "child": "Explain the basics of earning and saving, linked to what your child cares about.",
+      "status": "draft"
+    },
+    "life.money_plan.8": {
+      "text": "A simple plan suits you: long-term saving, property and pensions, built steadily. Avoid debts taken on for others. Your patience is your advantage; let compound growth do its work.",
+      "child": "Encourage your child's saving, and show them that money can also be used well for others.",
+      "status": "draft"
+    },
+    "life.money_plan.9": {
+      "text": "A simple plan suits you: a reserve for emergencies, a set amount for generosity, and a rule never to sign a deal on the day you are angry or excited. Land and property often suit you.",
+      "child": "Let your child earn towards a goal through effort, and save what they earn.",
+      "status": "draft"
+    },
+    "life.partner.1": "You do best with a partner who respects your independence and has goals of their own, and who can share or warmly support your drive. Keep time for each other in a busy life, and let your partner lead sometimes. The compatibility add-on reads any partner's numbers against yours.",
+    "life.partner.2": "You do best with a partner who offers steadiness, patience and open affection. Say what you need clearly, and choose someone who notices and responds. The compatibility add-on reads any partner's numbers against yours.",
+    "life.partner.3": "You do best with a partner who is also a friend and shares your warmth and beliefs. Choose someone you can talk with for hours, and make learning or travel something you share. The compatibility add-on reads any partner's numbers against yours.",
+    "life.partner.4": "You do best with a partner who values stability and accepts your independent mind. Honesty and practical support matter more to you than grand gestures. Talk through changes together, because surprises are hard on you. The compatibility add-on reads any partner's numbers against yours.",
+    "life.partner.5": "You do best with a partner who enjoys variety and conversation and gives you room to move while staying close. Shared adventures keep the bond alive. The compatibility add-on reads any partner's numbers against yours.",
+    "life.partner.6": "You do best with a partner who appreciates home, beauty and loyalty, and who gives as much care as they receive. Shared plans for home and family bring you close. The compatibility add-on reads any partner's numbers against yours.",
+    "life.partner.7": "You do best with a partner who respects quiet and depth, and understands your need for time alone without taking it personally. Shared interests and calm evenings matter more than a busy social life. The compatibility add-on reads any partner's numbers against yours.",
+    "life.partner.8": "You do best with a partner who is patient and values commitment. Love grows slowly for you and lasts. Show warmth openly, and choose a partner who shares long-term plans. The compatibility add-on reads any partner's numbers against yours.",
+    "life.partner.9": "You do best with a partner who is strong but gentle, able to match your energy or calm it. Apologise quickly after disagreements, and share physical activities together. The compatibility add-on reads any partner's numbers against yours.",
+    "life.parent.1": "As a parent you encourage independence and achievement. Children learn confidence from you. Remember to praise effort, not only results, and to let them make some of their own choices.",
+    "life.parent.2": "As a parent you are gentle, attentive and protective. Children feel safe with you. Let them face small difficulties on their own, so they build resilience.",
+    "life.parent.3": "As a parent you teach, encourage and share stories and values. Children learn a great deal from you. Listen as much as you guide, and let them form their own opinions.",
+    "life.parent.4": "As a parent you provide structure, routine and practical help. Children know where they stand. Leave room for play and surprise, and explain the reasons behind rules.",
+    "life.parent.5": "As a parent you bring fun, curiosity and new experiences. Children love your energy. Give them steady routines too, so that home feels secure.",
+    "life.parent.6": "As a parent you are devoted and nurturing, often putting children first. Take care of yourself as well, and let children help with the home so they learn responsibility.",
+    "life.parent.7": "As a parent you encourage thinking, questions and inner values. Children learn depth from you. Join in their activities too, so they feel your closeness as well as your wisdom.",
+    "life.parent.8": "As a parent you teach discipline, responsibility and long-term thinking. Children learn to work hard. Show affection openly, and celebrate their small wins.",
+    "life.parent.9": "As a parent you are protective and inspiring, teaching courage and fairness. Keep calm when children test limits, and model the patience you hope they will learn.",
+    "life.health_body.1": "Traditional readings link 1 with the heart, eyes and circulation, and with energy that burns high and then drops. Watch for overwork, high blood pressure and eye strain. Morning sunlight, regular check-ups and real rest after big efforts help.",
+    "life.health_body.2": "Traditional readings link 2 with digestion, fluids and sleep, and with health that follows mood. Watch for stomach upsets, water retention and sleep disturbed by worry. Regular meals, plenty of water and calm evenings help.",
+    "life.health_body.3": "Traditional readings link 3 with the liver, weight and the nerves, and with health affected by indulgence. Watch for rich food, irregular hours and stress from overcommitment. Moderation, regular exercise and a set bedtime help.",
+    "life.health_body.4": "Traditional readings link 4 with the nerves, sudden ailments and hard-to-diagnose complaints. Watch for stress building quietly and for accidents when rushed. A steady routine, time outdoors and early attention to small symptoms help.",
+    "life.health_body.5": "Traditional readings link 5 with the nerves, skin and breathing, and with health affected by restlessness. Watch for burnout, irregular meals and too much screen time. Breathing exercises, walking and digital breaks help.",
+    "life.health_body.6": "Traditional readings link 6 with the throat, kidneys and skin, and with comfort eating. Watch for sweets, rich food and taking on others' stress. Gentle exercise, fresh food and time in pleasant surroundings help.",
+    "life.health_body.7": "Traditional readings link 7 with the nerves, digestion and immunity, and with health affected by worry and isolation. Watch for skipping meals while absorbed in work. Quiet time, good sleep and regular contact with people you trust help.",
+    "life.health_body.8": "Traditional readings link 8 with the bones, joints, teeth and skin, and with complaints that build slowly. Watch for stiffness, long hours and neglecting check-ups. Stretching, warm food and steady routines help.",
+    "life.health_body.9": "Traditional readings link 9 with the blood, muscles and heat in the body, and with injuries from haste. Watch for fevers, inflammation, cuts and strains. Regular exercise, cooling foods in hot weather and care when rushing help.",
+    "life.health_habits.1": "Keep a fixed time for waking and sleeping. Exercise that you lead, such as running or a sport you organise, suits you. Leave work at work at least one day a week.",
+    "life.health_habits.2": "Eat at regular times, and do not skip meals when upset. Swimming, walking by water and gentle yoga suit you. Keep evenings calm and screens off before sleep.",
+    "life.health_habits.3": "Plan meals rather than eating on the go. Group exercise and walking with friends suit you. Limit late nights to keep your energy steady.",
+    "life.health_habits.4": "Build a daily routine and keep it, even on holidays. Steady exercise such as walking, cycling or gym work suits you better than extremes. Slow down when driving or working with tools.",
+    "life.health_habits.5": "Vary your exercise to stay interested: dance, sport, hiking. Set phone-free hours each day. Eat regular, simple meals rather than snacking.",
+    "life.health_habits.6": "Make healthy food beautiful and enjoyable, so that it is easy to choose. Dance, gardening and walks suit you. Rest when you have cared for others all day.",
+    "life.health_habits.7": "Keep regular mealtimes, especially when absorbed in study or work. Walks in nature, yoga and meditation suit you. Stay in touch with friends; isolation affects your health.",
+    "life.health_habits.8": "Stretch every morning, and take regular breaks from sitting. Steady, long-term exercise suits you. Keep up dental and bone check-ups.",
+    "life.health_habits.9": "Exercise every day, ideally something physical and demanding. Drink plenty of water and cool down after effort. Count to ten before reacting; anger affects your health.",
+    "life.health_mind.1": "Your mind is strong and decisive, but pressure to succeed can build. Share responsibilities, and accept that rest is part of leadership.",
+    "life.health_mind.2": "Your mind is sensitive and caring, and absorbs others' moods. Talk about worries early, and keep a few calm, trusted people close.",
+    "life.health_mind.3": "Your mind is optimistic and busy. Too many commitments bring stress; a written list of priorities helps you feel in control.",
+    "life.health_mind.4": "Your mind is analytical and can worry over details. Writing worries down and setting a time to deal with them helps.",
+    "life.health_mind.5": "Your mind is quick and restless. Short meditations, breathing exercises and finishing one thing at a time help you feel settled.",
+    "life.health_mind.6": "Your mind is caring and can feel responsible for everyone. Remind yourself that others' happiness is not yours to carry alone.",
+    "life.health_mind.7": "Your mind is deep and reflective, and can turn inward too far. Balance solitude with company, and share what is on your mind.",
+    "life.health_mind.8": "Your mind is serious and enduring, and can carry too much in silence. Let people help, and make room for enjoyment.",
+    "life.health_mind.9": "Your mind is passionate and quick to react. Physical exercise and time to cool off before decisions keep you balanced."
   }
 }

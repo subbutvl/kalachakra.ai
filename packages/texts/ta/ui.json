@@ -327,6 +327,22 @@
     "ui.life_section.love": "காதலும் துணையும்",
     "ui.life_section.love.child": "நட்புகள்",
     "ui.life_section.family": "குடும்பம்",
-    "ui.year_section.reading": "இந்த ஆண்டு உங்களிடம் கேட்பது"
+    "ui.year_section.reading": "இந்த ஆண்டு உங்களிடம் கேட்பது",
+    "ui.bhagyank_section.relationships": "மனிதர்களுடன்",
+    "ui.bhagyank_section.money": "பணமும் செல்வமும்",
+    "ui.bhagyank_section.money.child": "வளர்க்க வேண்டிய பணப் பழக்கங்கள்",
+    "ui.bhagyank_section.advice": "பாதைக்கான ஆலோசனை",
+    "ui.name_section.daily": "அன்றாட வாழ்வில் பெயர்",
+    "ui.name_section.work": "பணியில் பெயர்",
+    "ui.name_section.using": "பெயரைப் பயன்படுத்துதல்",
+    "ui.life_section.career_growth": "உங்கள் தொழில் எப்படி வளர்கிறது",
+    "ui.life_section.career_growth.child": "அவர்களின் கற்றலை ஆதரித்தல்",
+    "ui.life_section.money_plan": "உங்களுக்குப் பொருந்தும் பணத் திட்டம்",
+    "ui.life_section.money_plan.child": "முதல் பணப் பழக்கம்",
+    "ui.life_section.partner": "உங்களுக்குப் பொருந்தும் துணை",
+    "ui.life_section.parent": "பெற்றோராக",
+    "ui.life_section.health_body": "உடல்",
+    "ui.life_section.health_habits": "உதவும் பழக்கங்கள்",
+    "ui.life_section.health_mind": "மனமும் மன அழுத்தமும்"
   }
 }
