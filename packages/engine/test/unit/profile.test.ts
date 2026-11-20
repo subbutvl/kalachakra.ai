@@ -59,9 +59,9 @@ describe("computeProfile: input checks", () => {
       profile: "house-default",
       as_of: AS_OF,
     });
-    expect(
-      run({ dob: "1991-08-14", name: "Aarav Mehra" }, rules.vedicpupil).meta.input_hash,
-    ).not.toBe(a.meta.input_hash);
+    expect(run({ dob: "1991-08-14", name: "Aarav Mehra" }, rules.classic).meta.input_hash).not.toBe(
+      a.meta.input_hash,
+    );
   });
 });
 
@@ -175,7 +175,7 @@ describe("names (rules spec 3.1, 3.5, D1)", () => {
       where: "chaldean.daily_use",
       value: 35,
     });
-    const off = run({ dob: "2016-03-09", name: "Myra Kapoor" }, rules.vedicpupil);
+    const off = run({ dob: "2016-03-09", name: "Myra Kapoor" }, rules.classic);
     expect(off.chaldean.headline.name_number.compound?.class).toBeUndefined();
     expect(
       run({ dob: "1991-08-14", name: "Ab" }).chaldean.headline.name_number.compound,
@@ -198,7 +198,7 @@ describe("names (rules spec 3.1, 3.5, D1)", () => {
 describe("Pythagorean (rules spec 3.6)", () => {
   it("reads Y by sound (D4)", () => {
     const by = run({ dob: "2016-03-09", name: "Myra Kapoor" });
-    const never = run({ dob: "2016-03-09", name: "Myra Kapoor" }, rules.vedicpupil);
+    const never = run({ dob: "2016-03-09", name: "Myra Kapoor" }, rules.classic);
     expect(by.pythagorean.soul_urge.value).toBe(3);
     expect(never.pythagorean.soul_urge.value).toBe(5);
   });
@@ -324,7 +324,7 @@ describe("Kua (rules spec 3.8, D12)", () => {
   });
 
   it("follows the other cutoffs", () => {
-    expect(k("2026-02-03", "male", rules.vedicpupil).solar_year).toBe(2026);
+    expect(k("2026-02-03", "male", rules.classic).solar_year).toBe(2026);
     expect(k("2026-02-03", "male", rules.practitioner).solar_year).toBe(2025);
     expect(k("2026-02-04", "male", rules.practitioner).solar_year).toBe(2026);
     expect(k("2101-03-01", "male").trace[0]).toMatch(/No Lichun entry/);
@@ -376,7 +376,7 @@ describe("timing (rules spec 3.9)", () => {
     ]);
     expect(t.current).toEqual({ number: 1, from_age: 35, to_age: 36 });
     expect(t.sub_period).toBe(5);
-    expect(run({ dob: "1991-08-14" }, rules.vedicpupil).timing.dasha).toEqual({
+    expect(run({ dob: "1991-08-14" }, rules.classic).timing.dasha).toEqual({
       method: "none",
       periods: [],
     });
@@ -421,7 +421,7 @@ describe("driver–conductor and lucky set", () => {
     const p = run({ dob: "2003-08-04" });
     expect(p.driver_conductor).toMatchObject({ driver: 4, conductor: 8, special: "4-8" });
     expect(p.driver_conductor.text_keys).toContain("driver_conductor.special.4-8");
-    expect(run({ dob: "2003-08-04" }, rules.vedicpupil).driver_conductor.special).toBeUndefined();
+    expect(run({ dob: "2003-08-04" }, rules.classic).driver_conductor.special).toBeUndefined();
   });
 
   it("ranks lucky numbers by the Bhagyank", () => {

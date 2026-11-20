@@ -5,7 +5,7 @@ export const catalog: RulesCatalog = { versions: rulesVersions, profiles: rulePr
 
 export const rules = {
   house: resolveRules(catalog, "house-default"),
-  vedicpupil: resolveRules(catalog, "vedicpupil-compat"),
+  classic: resolveRules(catalog, "kalachakra-classic"),
   practitioner: resolveRules(catalog, "sample-practitioner"),
 } satisfies Record<string, ResolvedRules>;
 

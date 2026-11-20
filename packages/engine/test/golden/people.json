@@ -1,13 +1,13 @@
 {
-  "$comment": "Golden people. 'vedicpupil-compat' holds every number printed in the VedicPupil sample reports (rules spec, section 1); it must match exactly. 'house-default' holds the same people under rules v1.0 as approved; those values follow from the spec's decisions (for example D3 masters, D4 Y by sound, D10 and D11 Lo Shu) and were checked by hand. Add your worked examples as new entries.",
+  "$comment": "Golden people. 'kalachakra-classic' holds every number printed in the benchmark sample reports (rules spec, section 1); it must match exactly. 'house-default' holds the same people under rules v1.0 as approved; those values follow from the spec's decisions (for example D3 masters, D4 Y by sound, D10 and D11 Lo Shu) and were checked by hand. Add your worked examples as new entries.",
   "as_of": "2026-11-20",
   "people": [
     {
       "id": "aarav-mehra",
-      "source": "VedicPupil complete report, adult sample",
+      "source": "benchmark complete report, adult sample",
       "person": { "name": "Aarav Mehra", "dob": "1991-08-14", "gender": "male" },
       "expected": {
-        "vedicpupil-compat": {
+        "kalachakra-classic": {
           "mulank": { "value": 5, "chain": [14, 5] },
           "bhagyank": { "value": 6, "chain": [33, 6] },
           "karmic_debt": [14],
@@ -59,10 +59,10 @@
     },
     {
       "id": "myra-kapoor",
-      "source": "VedicPupil complete report, child sample",
+      "source": "benchmark complete report, child sample",
       "person": { "name": "Myra Kapoor", "dob": "2016-03-09", "gender": "female" },
       "expected": {
-        "vedicpupil-compat": {
+        "kalachakra-classic": {
           "mulank": { "value": 9, "chain": [9] },
           "bhagyank": { "value": 3, "chain": [21, 3] },
           "karmic_debt": [],

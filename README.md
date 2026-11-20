@@ -39,18 +39,18 @@ Print every number for any name and date (milestone 2):
 
 ```sh
 pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male
-pnpm numbers --name "Myra Kapoor" --dob 2016-03-09 --gender female --profile vedicpupil-compat --as-of 2026-11-20
+pnpm numbers --name "Myra Kapoor" --dob 2016-03-09 --gender female --profile kalachakra-classic --as-of 2026-11-20
 ```
 
 Options: `--birth-name "..."` (birth certificate name), `--time HH:MM`, `--profile`
-(`house-default`, `vedicpupil-compat`, `sample-practitioner`), `--as-of YYYY-MM-DD` (default today),
+(`house-default`, `kalachakra-classic`, `sample-practitioner`), `--as-of YYYY-MM-DD` (default today),
 `--kua-basis male|female` (with `--gender unspecified`), `--json` (the full result).
 
-The same command runs the commercial modules (milestone 3). For example, the VedicPupil mobile and
+The same command runs the commercial modules (milestone 3). For example, the benchmark mobile and
 business samples:
 
 ```sh
-pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male --profile vedicpupil-compat   --mobile "+91 98765 24310" --goal finance --goal career --find   --business "Loomcraft Works" --business "Mehra Textiles Pvt Ltd" --partner "Ishaan Verma|2003-01-04|male"
+pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male --profile kalachakra-classic   --mobile "+91 98765 24310" --goal finance --goal career --find   --business "Loomcraft Works" --business "Mehra Textiles Pvt Ltd" --partner "Ishaan Verma|2003-01-04|male"
 ```
 
 More options: `--vehicle "KA 05 MN 1234"`, `--flat 12B --building 45 --door E`, `--trade trade_media`,
