@@ -47,7 +47,9 @@ export function birthMoment(person: Person, rules: ResolvedRules): BirthMoment {
     const lat = person.birth_place?.lat;
     const lon = person.birth_place?.lon;
     if (utcMinutes === undefined || lat === undefined || lon === undefined) {
-      notes.push("Sunrise day boundary needs birth time, latitude and longitude; the civil date is used.");
+      notes.push(
+        "Sunrise day boundary needs birth time, latitude and longitude; the civil date is used.",
+      );
     } else {
       const sunrise = sunriseUtcMinutes(civil, lat, lon);
       if (sunrise !== null && utcMinutes < sunrise) {

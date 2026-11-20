@@ -65,7 +65,8 @@ export function computeProfile(request: ProfileRequestInput, rules: ResolvedRule
   const tm = timing(rules, date, birthName, mulank, py.life_path.reduced, asOf, as_of);
 
   const flags: ProfileResult["flags"] = [];
-  for (const n of dn.karmic_debt) flags.push({ flag: "karmic_debt", where: "date_numbers", value: n });
+  for (const n of dn.karmic_debt)
+    flags.push({ flag: "karmic_debt", where: "date_numbers", value: n });
   for (const [where, r] of [
     ["bhagyank", dn.bhagyank],
     ["mulank", dn.mulank],
@@ -77,12 +78,24 @@ export function computeProfile(request: ProfileRequestInput, rules: ResolvedRule
   ] as const) {
     if (r.master !== undefined) flags.push({ flag: "master", where, value: r.master });
   }
-  for (const [where, r] of [["expression", py.expression], ["soul_urge", py.soul_urge]] as const) {
-    if (r.flags?.includes("karmic_debt")) flags.push({ flag: "karmic_debt", where, value: r.chain.find((n) => [13, 14, 16, 19].includes(n)) });
+  for (const [where, r] of [
+    ["expression", py.expression],
+    ["soul_urge", py.soul_urge],
+  ] as const) {
+    if (r.flags?.includes("karmic_debt"))
+      flags.push({
+        flag: "karmic_debt",
+        where,
+        value: r.chain.find((n) => [13, 14, 16, 19].includes(n)),
+      });
   }
   for (const n of names) {
     if (n.name_number.number.flags?.includes("unfavourable_compound")) {
-      flags.push({ flag: "unfavourable_compound", where: `chaldean.${n.kind}`, value: n.name_number.compound?.value });
+      flags.push({
+        flag: "unfavourable_compound",
+        where: `chaldean.${n.kind}`,
+        value: n.name_number.compound?.value,
+      });
     }
   }
 
@@ -92,7 +105,12 @@ export function computeProfile(request: ProfileRequestInput, rules: ResolvedRule
       rules: rules.rulesVersion,
       profile: rules.profile.id,
       as_of,
-      input_hash: inputHash({ request: parsed.data, rules: rules.rulesVersion, profile: rules.profile.id, settings: rules.settings }),
+      input_hash: inputHash({
+        request: parsed.data,
+        rules: rules.rulesVersion,
+        profile: rules.profile.id,
+        settings: rules.settings,
+      }),
     },
     person: {
       name: person.name,

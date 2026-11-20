@@ -12,7 +12,14 @@
           "bhagyank": { "value": 6, "chain": [33, 6] },
           "karmic_debt": [14],
           "chaldean": { "total": 28, "chain": [28, 10, 1], "parts": [11, 17] },
-          "pythagorean": { "expression": 7, "expression_total": 43, "soul_urge": 9, "personality": 7, "personality_chain": [34, 7], "maturity": 4 },
+          "pythagorean": {
+            "expression": 7,
+            "expression_total": 43,
+            "soul_urge": 9,
+            "personality": 7,
+            "personality_chain": [34, 7],
+            "maturity": 4
+          },
           "driver_conductor": { "score": 2, "label": "friendly" },
           "name_fit": { "mulank": 1, "bhagyank": -2 },
           "loshu": { "inputs": [1, 4, 8, 1, 9, 9, 1, 6, 5], "missing": [2, 3, 7] },
@@ -29,7 +36,14 @@
           "bhagyank": { "value": 6, "chain": [33, 6] },
           "karmic_debt": [14],
           "chaldean": { "total": 28, "chain": [28, 10, 1], "parts": [11, 17] },
-          "pythagorean": { "expression": 7, "expression_total": 43, "soul_urge": 9, "personality": 7, "personality_chain": [34, 7], "maturity": 4 },
+          "pythagorean": {
+            "expression": 7,
+            "expression_total": 43,
+            "soul_urge": 9,
+            "personality": 7,
+            "personality_chain": [34, 7],
+            "maturity": 4
+          },
           "driver_conductor": { "score": 2, "label": "friendly" },
           "name_fit": { "mulank": 1, "bhagyank": -2 },
           "loshu": { "inputs": [1, 4, 8, 1, 9, 9, 1, 6, 5, 9], "missing": [2, 3, 7] },
@@ -53,7 +67,14 @@
           "bhagyank": { "value": 3, "chain": [21, 3] },
           "karmic_debt": [],
           "chaldean": { "total": 35, "chain": [35, 8], "parts": [8, 27] },
-          "pythagorean": { "expression": 7, "expression_total": 52, "soul_urge": 5, "personality": 2, "personality_chain": [38, 11, 2], "maturity": 1 },
+          "pythagorean": {
+            "expression": 7,
+            "expression_total": 52,
+            "soul_urge": 5,
+            "personality": 2,
+            "personality_chain": [38, 11, 2],
+            "maturity": 1
+          },
           "driver_conductor": { "score": 2, "label": "friendly" },
           "name_fit": { "mulank": -1, "bhagyank": 0 },
           "loshu": { "inputs": [9, 3, 2, 1, 6, 3, 9], "missing": [4, 5, 7, 8] },
@@ -70,7 +91,14 @@
           "bhagyank": { "value": 3, "chain": [21, 3] },
           "karmic_debt": [],
           "chaldean": { "total": 35, "chain": [35, 8], "parts": [8, 27] },
-          "pythagorean": { "expression": 7, "expression_total": 52, "soul_urge": 3, "personality": 4, "personality_chain": [31, 4], "maturity": 1 },
+          "pythagorean": {
+            "expression": 7,
+            "expression_total": 52,
+            "soul_urge": 3,
+            "personality": 4,
+            "personality_chain": [31, 4],
+            "maturity": 1
+          },
           "driver_conductor": { "score": 2, "label": "friendly" },
           "name_fit": { "mulank": -1, "bhagyank": 0 },
           "loshu": { "inputs": [9, 3, 2, 1, 6, 3, 4], "missing": [5, 7, 8] },

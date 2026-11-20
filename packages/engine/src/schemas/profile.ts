@@ -135,7 +135,12 @@ export const ProfileResultSchema = z.object({
         text_keys: Keys,
       }),
     ),
-    inputs: z.array(z.object({ value: z.int().min(1).max(9), source: z.enum(["dob", "mulank", "bhagyank", "kua"]) })),
+    inputs: z.array(
+      z.object({
+        value: z.int().min(1).max(9),
+        source: z.enum(["dob", "mulank", "bhagyank", "kua"]),
+      }),
+    ),
     missing: z.array(z.int()),
     repeated: z.array(z.int()),
     planes: z.record(
@@ -200,7 +205,9 @@ export const ProfileResultSchema = z.object({
     birthday_year: z.object({ from_year: z.int(), value: z.int(), reduced: z.int() }).optional(),
     personal_month: Num.extend({ year: z.int(), month: z.int() }),
     personal_day: Num,
-    months_ahead: z.array(z.object({ year: z.int(), month: z.int(), personal_month: Num })).length(12),
+    months_ahead: z
+      .array(z.object({ year: z.int(), month: z.int(), personal_month: Num }))
+      .length(12),
     pinnacles: z.array(Span).length(4),
     challenges: z.array(Span).length(4),
     current_pinnacle: z.int(),

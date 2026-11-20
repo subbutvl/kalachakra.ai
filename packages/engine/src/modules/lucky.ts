@@ -27,21 +27,33 @@ export function lucky(rules: ResolvedRules, mulank: number, bhagyank: number): L
     if (n !== mulank && (friends as readonly string[]).includes(planetOf(data, n))) nums.push(n);
   }
   const ranked = nums
-    .map((n) => ({ number: n, planet: planetOf(data, n), bhagyank_score: pairScore(data, rules.settings, n, bhagyank).score }))
-    .sort((a, b) => b.bhagyank_score - a.bhagyank_score || Number(b.number === mulank) - Number(a.number === mulank) || a.number - b.number);
+    .map((n) => ({
+      number: n,
+      planet: planetOf(data, n),
+      bhagyank_score: pairScore(data, rules.settings, n, bhagyank).score,
+    }))
+    .sort(
+      (a, b) =>
+        b.bhagyank_score - a.bhagyank_score ||
+        Number(b.number === mulank) - Number(a.number === mulank) ||
+        a.number - b.number,
+    );
   const days: string[] = [];
   const colours: string[] = [];
   for (const r of ranked) {
     const day = data.days[r.planet];
     if (day && !days.includes(day)) days.push(day);
-    for (const c of (data.colours[r.planet] as string[] | undefined) ?? []) if (!colours.includes(c)) colours.push(c);
+    for (const c of (data.colours[r.planet] as string[] | undefined) ?? [])
+      if (!colours.includes(c)) colours.push(c);
   }
   return {
     numbers: [...nums].sort((a, b) => a - b),
     ranked,
     days,
     colours,
-    trace: [`Mulank ${mulank} (${mPlanet}); friends ${friends.join(", ") || "none"}: ${[...nums].sort((a, b) => a - b).join(", ")}`],
+    trace: [
+      `Mulank ${mulank} (${mPlanet}); friends ${friends.join(", ") || "none"}: ${[...nums].sort((a, b) => a - b).join(", ")}`,
+    ],
     text_keys: [`lucky.planet.${mPlanet}`],
   };
 }

@@ -22,7 +22,8 @@ export function sunriseUtcMinutes(date: CalendarDate, lat: number, lon: number):
   RA = (RA + Math.floor(L / 90) * 90 - Math.floor(RA / 90) * 90) / 15;
   const sinDec = 0.39782 * Math.sin(rad(L));
   const cosDec = Math.cos(Math.asin(sinDec));
-  const cosH = (Math.cos(rad(90.833)) - sinDec * Math.sin(rad(lat))) / (cosDec * Math.cos(rad(lat)));
+  const cosH =
+    (Math.cos(rad(90.833)) - sinDec * Math.sin(rad(lat))) / (cosDec * Math.cos(rad(lat)));
   if (cosH > 1 || cosH < -1) return null;
   const H = (360 - deg(Math.acos(cosH))) / 15;
   const T = H + RA - 0.06571 * t - 6.622;

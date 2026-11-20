@@ -129,7 +129,11 @@ export function timing(
     `P1 ends at 36 − life path ${lifePathDigit} = ${end1}`,
   ];
   const pin = (r: NumberResult, i: number) =>
-    withExtras(r, { trace: i === 0 ? pinTrace : [], text_keys: [numberKey("pinnacle", r)], rule_refs: ["D3"] });
+    withExtras(r, {
+      trace: i === 0 ? pinTrace : [],
+      text_keys: [numberKey("pinnacle", r)],
+      rule_refs: ["D3"],
+    });
   const pinnacles: Span[] = [
     { number: pin(p1, 0), from_age: 0, to_age: ends[0]! },
     { number: pin(p2, 1), from_age: ends[0]!, to_age: ends[1]! },
@@ -142,7 +146,16 @@ export function timing(
   const c4 = Math.abs(M.reduced - Y.reduced);
   const ch = (v: number) => withExtras(reduce(v), { text_keys: [`challenge.${v}`] });
   const challenges = [
-    { number: { ...ch(c1), trace: [`C1 = |${M.reduced} − ${D.reduced}| = ${c1}; C2 = |${D.reduced} − ${Y.reduced}| = ${c2}; C3 = |${c1} − ${c2}| = ${c3}; C4 = |${M.reduced} − ${Y.reduced}| = ${c4}`] }, from_age: 0, to_age: ends[0]! },
+    {
+      number: {
+        ...ch(c1),
+        trace: [
+          `C1 = |${M.reduced} − ${D.reduced}| = ${c1}; C2 = |${D.reduced} − ${Y.reduced}| = ${c2}; C3 = |${c1} − ${c2}| = ${c3}; C4 = |${M.reduced} − ${Y.reduced}| = ${c4}`,
+        ],
+      },
+      from_age: 0,
+      to_age: ends[0]!,
+    },
     { number: ch(c2), from_age: ends[0]!, to_age: ends[1]! },
     { number: ch(c3), from_age: ends[1]!, to_age: ends[2]! },
     { number: ch(c4), from_age: ends[2]! },
@@ -154,13 +167,26 @@ export function timing(
 
   // Period cycles: month, day, year, changing when P1 and P3 end.
   const periods: Span[] = [
-    { number: withExtras(M, { text_keys: [numberKey("period", M)] }), from_age: 0, to_age: ends[0]! },
-    { number: withExtras(D, { text_keys: [numberKey("period", D)] }), from_age: ends[0]!, to_age: ends[2]! },
+    {
+      number: withExtras(M, { text_keys: [numberKey("period", M)] }),
+      from_age: 0,
+      to_age: ends[0]!,
+    },
+    {
+      number: withExtras(D, { text_keys: [numberKey("period", D)] }),
+      from_age: ends[0]!,
+      to_age: ends[2]!,
+    },
     { number: withExtras(Y, { text_keys: [numberKey("period", Y)] }), from_age: ends[2]! },
   ];
 
   // Letter transits and essence: each letter rules for years equal to its Pythagorean value.
-  const nameScore = scoreName(rules.data.letters, "pythagorean", birthName, rules.settings["letters.y_vowel"]);
+  const nameScore = scoreName(
+    rules.data.letters,
+    "pythagorean",
+    birthName,
+    rules.settings["letters.y_vowel"],
+  );
   const transitAt = (a: number) =>
     nameScore.parts.map((p) => {
       const cycle = p.letters.reduce((s, l) => s + l.value, 0);
@@ -174,7 +200,9 @@ export function timing(
   const transits = transitAt(age);
   const essR = rpy(transits.reduce((s, t) => s + t.value, 0));
   const essence = withExtras(essR, {
-    trace: [`Active letters at age ${age}: ${transits.map((t) => `${t.letter}=${t.value}`).join(" + ")} = ${formatChain(essR.chain)}`],
+    trace: [
+      `Active letters at age ${age}: ${transits.map((t) => `${t.letter}=${t.value}`).join(" + ")} = ${formatChain(essR.chain)}`,
+    ],
     text_keys: [numberKey("essence", essR)],
   });
 
@@ -210,7 +238,10 @@ export function timing(
     as_of: asOfIso,
     age,
     universal: {
-      year: withExtras(uy, { trace: [`Digits of ${asOf.year}: ${formatChain(uy.chain)}`], text_keys: [numberKey("universal_year", uy)] }),
+      year: withExtras(uy, {
+        trace: [`Digits of ${asOf.year}: ${formatChain(uy.chain)}`],
+        text_keys: [numberKey("universal_year", uy)],
+      }),
       month: withExtras(um, { text_keys: [numberKey("universal_month", um)] }),
       day: withExtras(ud, { text_keys: [numberKey("universal_day", ud)] }),
     },

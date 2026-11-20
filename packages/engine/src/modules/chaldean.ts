@@ -72,19 +72,29 @@ export function chaldeanNumber(rules: ResolvedRules, raw: string): NameNumber {
 }
 
 function nameNumberFromScore(rules: ResolvedRules, score: NameScore): NameNumber {
-  const { compound, chain: compoundChain } = toCompound(score.total, rules.data.compounds.max_compound);
+  const { compound, chain: compoundChain } = toCompound(
+    score.total,
+    rules.data.compounds.max_compound,
+  );
   const r = reduce(score.total, { keepMasters: keepMasters(rules.settings, "vedic") });
   const info = compoundInfo(rules, compound);
   const debt = karmicDebtIn(r.chain);
   const trace = [...score.trace];
-  if (compoundChain.length > 1) trace.push(`Above ${rules.data.compounds.max_compound}, so the compound is ${formatChain(compoundChain)}`);
+  if (compoundChain.length > 1)
+    trace.push(
+      `Above ${rules.data.compounds.max_compound}, so the compound is ${formatChain(compoundChain)}`,
+    );
   trace.push(`Name number: ${formatChain(r.chain)}`);
   const number = {
     ...withExtras(r, {
       ...(info ? { compound: info.value } : {}),
       trace,
       rule_refs: ["D3", "D8"],
-      text_keys: [numberKey("name_number", r), ...(info ? [info.text_key] : []), ...debt.map((n) => `karmic_debt.${n}`)],
+      text_keys: [
+        numberKey("name_number", r),
+        ...(info ? [info.text_key] : []),
+        ...debt.map((n) => `karmic_debt.${n}`),
+      ],
       flags: [
         ...(info?.class === "unfavourable" ? (["unfavourable_compound"] as const) : []),
         ...(debt.length ? (["karmic_debt"] as const) : []),
@@ -96,7 +106,13 @@ function nameNumberFromScore(rules: ResolvedRules, score: NameScore): NameNumber
 }
 
 /** Name fit: pair score with the Mulank plus pair score with the Bhagyank, −4 to +4 (rules spec 3.5). */
-export function nameFit(rules: ResolvedRules, nameDigit: number, mulank: number, bhagyank: number, compound?: CompoundInfo): NameFit {
+export function nameFit(
+  rules: ResolvedRules,
+  nameDigit: number,
+  mulank: number,
+  bhagyank: number,
+  compound?: CompoundInfo,
+): NameFit {
   const p = rules.data.planets;
   const m = pairScore(p, rules.settings, nameDigit, mulank);
   const b = pairScore(p, rules.settings, nameDigit, bhagyank);

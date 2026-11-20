@@ -11,7 +11,10 @@ export const OtherNameSchema = z.strictObject({
 export const BirthPlaceSchema = z.strictObject({
   label: z.string().optional(),
   /** UTC offset at birth, e.g. +05:30. Defaults to India (+05:30). */
-  utc_offset: z.string().regex(/^[+-]\d{2}:\d{2}$/).optional(),
+  utc_offset: z
+    .string()
+    .regex(/^[+-]\d{2}:\d{2}$/)
+    .optional(),
   lat: z.number().min(-90).max(90).optional(),
   lon: z.number().min(-180).max(180).optional(),
 });

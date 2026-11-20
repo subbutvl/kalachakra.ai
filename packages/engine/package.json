@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json",
     "lint": "eslint src test scripts",
-    "gen:schemas": "tsx scripts/gen-schemas.ts"
+    "gen:schemas": "tsx scripts/gen-schemas.ts",
+    "numbers": "tsx scripts/numbers.ts"
   },
   "dependencies": {
     "zod": "^4.6.7"

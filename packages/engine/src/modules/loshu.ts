@@ -31,7 +31,10 @@ export interface LoshuGrid {
   inputs: { value: number; source: LoshuSource }[];
   missing: number[];
   repeated: number[];
-  planes: Record<string, { numbers: number[]; present: number; state: PlaneState; text_key: string }>;
+  planes: Record<
+    string,
+    { numbers: number[]; present: number; state: PlaneState; text_key: string }
+  >;
   remedies: LoshuRemedy[];
   elements: Record<string, number>;
   trace: string[];
@@ -39,7 +42,15 @@ export interface LoshuGrid {
 }
 
 function bandOf(count: number): CountBand {
-  return count === 0 ? "missing" : count === 1 ? "single" : count === 2 ? "double" : count === 3 ? "triple" : "four_plus";
+  return count === 0
+    ? "missing"
+    : count === 1
+      ? "single"
+      : count === 2
+        ? "double"
+        : count === 3
+          ? "triple"
+          : "four_plus";
 }
 
 /**
@@ -67,10 +78,14 @@ export function loshu(
   const addMulank = mode === "always" || (mode === "two_digit_days_only" && date.day >= 10);
   if (addMulank) {
     inputs.push({ value: mulank, source: "mulank" });
-    trace.push(`Mulank added: ${mulank}${mode === "two_digit_days_only" ? ` (day ${date.day} has two digits)` : ""}`);
+    trace.push(
+      `Mulank added: ${mulank}${mode === "two_digit_days_only" ? ` (day ${date.day} has two digits)` : ""}`,
+    );
   } else {
     trace.push(
-      mode === "never" ? "Mulank not added (switched off)" : `Mulank not added: day ${date.day} has one digit, so ${mulank} is already counted`,
+      mode === "never"
+        ? "Mulank not added (switched off)"
+        : `Mulank not added: day ${date.day} has one digit, so ${mulank} is already counted`,
     );
   }
 
@@ -92,8 +107,12 @@ export function loshu(
       text_keys: [`loshu.count.${n}.${band}`],
     };
   }
-  const missing = Object.entries(cells).filter(([, c]) => c.count === 0).map(([n]) => Number(n));
-  const repeated = Object.entries(cells).filter(([, c]) => c.count > 1).map(([n]) => Number(n));
+  const missing = Object.entries(cells)
+    .filter(([, c]) => c.count === 0)
+    .map(([n]) => Number(n));
+  const repeated = Object.entries(cells)
+    .filter(([, c]) => c.count > 1)
+    .map(([n]) => Number(n));
 
   const planes: LoshuGrid["planes"] = {};
   for (const [name, numbers] of Object.entries(data.planes)) {
