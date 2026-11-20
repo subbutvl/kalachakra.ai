@@ -18,3 +18,4 @@ test-results/
 # Generated reports (they contain personal details)
 reports/
 packages/report/reports/
+*.tsbuildinfo

@@ -4,17 +4,38 @@ import { useMemo, useState } from "react";
 import { z } from "zod";
 import { settingShapes, type SettingKey } from "@kalachakra/engine";
 import { Button, Card, Select } from "@kalachakra/ui";
-import { catalog, describeRules, diffResults, PROFILE_OPTIONS, profileFor, rulesFor, type ProfileChoice } from "@/lib/engine";
+import {
+  catalog,
+  describeRules,
+  diffResults,
+  PROFILE_OPTIONS,
+  profileFor,
+  rulesFor,
+  type ProfileChoice,
+} from "@/lib/engine";
 import { usePractitioner } from "@/stores/practitioner";
 
 /** A control for one setting, chosen from its schema. */
-function SettingControl({ k, value, onChange }: { k: SettingKey; value: unknown; onChange: (v: unknown) => void }) {
+function SettingControl({
+  k,
+  value,
+  onChange,
+}: {
+  k: SettingKey;
+  value: unknown;
+  onChange: (v: unknown) => void;
+}) {
   const shape = settingShapes[k] as z.ZodType;
   const [draft, setDraft] = useState(JSON.stringify(value));
   const [bad, setBad] = useState(false);
   if (shape instanceof z.ZodEnum) {
     return (
-      <Select aria-label={k} value={String(value)} onChange={(e) => onChange(e.target.value)} className="h-9 text-sm">
+      <Select
+        aria-label={k}
+        value={String(value)}
+        onChange={(e) => onChange(e.target.value)}
+        className="h-9 text-sm"
+      >
         {(shape.options as string[]).map((o) => (
           <option key={o} value={o}>
             {o.replace(/_/g, " ")}
@@ -26,14 +47,24 @@ function SettingControl({ k, value, onChange }: { k: SettingKey; value: unknown;
   if (shape instanceof z.ZodBoolean) {
     return (
       <label className="flex items-center gap-2 text-sm">
-        <input type="checkbox" aria-label={k} checked={Boolean(value)} onChange={(e) => onChange(e.target.checked)} />
+        <input
+          type="checkbox"
+          aria-label={k}
+          checked={Boolean(value)}
+          onChange={(e) => onChange(e.target.checked)}
+        />
         {value ? "on" : "off"}
       </label>
     );
   }
   if (k === "optimizer.max_edits") {
     return (
-      <Select aria-label={k} value={String(value)} onChange={(e) => onChange(Number(e.target.value))} className="h-9 text-sm">
+      <Select
+        aria-label={k}
+        value={String(value)}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="h-9 text-sm"
+      >
         {[1, 2, 3].map((n) => (
           <option key={n} value={n}>
             {n}
@@ -92,7 +123,8 @@ export default function Rules() {
     const base =
       profile.kind === "custom"
         ? profile.overrides
-        : ((catalog.profiles[profile.id] as { overrides?: Record<string, unknown> } | undefined)?.overrides ?? {});
+        : ((catalog.profiles[profile.id] as { overrides?: Record<string, unknown> } | undefined)
+            ?.overrides ?? {});
     setProfile({ kind: "custom", overrides: { ...base, [k]: v } });
   };
 
@@ -105,7 +137,13 @@ export default function Rules() {
           <Select
             className="mt-1"
             value={profile.kind === "custom" ? "custom" : profile.id}
-            onChange={(e) => setProfile(e.target.value === "custom" ? { kind: "custom", overrides } : { kind: "id", id: e.target.value })}
+            onChange={(e) =>
+              setProfile(
+                e.target.value === "custom"
+                  ? { kind: "custom", overrides }
+                  : { kind: "id", id: e.target.value },
+              )
+            }
           >
             {PROFILE_OPTIONS.map((p) => (
               <option key={p.id} value={p.id}>
@@ -128,7 +166,11 @@ export default function Rules() {
           <div className="mt-3 flex flex-col gap-3 sm:flex-row">
             <label className="flex-1 font-label text-sm">
               Client
-              <Select className="mt-1" value={clientId} onChange={(e) => setClientId(e.target.value)}>
+              <Select
+                className="mt-1"
+                value={clientId}
+                onChange={(e) => setClientId(e.target.value)}
+              >
                 {clients.map((c) => (
                   <option key={c.id} value={c.id}>
                     {c.person.name}
@@ -138,7 +180,11 @@ export default function Rules() {
             </label>
             <label className="flex-1 font-label text-sm">
               Compared with
-              <Select className="mt-1" value={compareTo.kind === "id" ? compareTo.id : "custom"} onChange={(e) => setCompareTo({ kind: "id", id: e.target.value })}>
+              <Select
+                className="mt-1"
+                value={compareTo.kind === "id" ? compareTo.id : "custom"}
+                onChange={(e) => setCompareTo({ kind: "id", id: e.target.value })}
+              >
                 {PROFILE_OPTIONS.map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.label}
@@ -178,10 +224,16 @@ export default function Rules() {
 
       <Card>
         <h2 className="text-lg">The 24 decisions</h2>
-        <p className="mt-1 text-sm text-muted">Change any value to switch to a custom profile; every number re-runs at once.</p>
+        <p className="mt-1 text-sm text-muted">
+          Change any value to switch to a custom profile; every number re-runs at once.
+        </p>
         <div className="mt-4 divide-y divide-sand">
           {rows.map((r) => (
-            <div key={r.key} className="grid gap-2 py-3 sm:grid-cols-[4rem_1fr_16rem] sm:items-center" data-testid={`setting-${r.key}`}>
+            <div
+              key={r.key}
+              className="grid gap-2 py-3 sm:grid-cols-[4rem_1fr_16rem] sm:items-center"
+              data-testid={`setting-${r.key}`}
+            >
               <span className="font-label text-xs text-gold-600">{r.decision}</span>
               <div>
                 <div className="text-sm">{r.title}</div>
@@ -190,7 +242,12 @@ export default function Rules() {
                   {r.source === "profile" || r.key in overrides ? " · changed" : ""}
                 </div>
               </div>
-              <SettingControl key={`${r.key}-${JSON.stringify(r.value)}`} k={r.key} value={r.value} onChange={(v) => setOne(r.key, v)} />
+              <SettingControl
+                key={`${r.key}-${JSON.stringify(r.value)}`}
+                k={r.key}
+                value={r.value}
+                onChange={(v) => setOne(r.key, v)}
+              />
             </div>
           ))}
         </div>

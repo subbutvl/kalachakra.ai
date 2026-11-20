@@ -6,12 +6,24 @@ import { checkDate, checkMobile, checkName } from "@/lib/validate";
 import { newId, type Client } from "@/stores/practitioner";
 
 /** Add or edit a client: the person's details, mobiles and notes. */
-export function ClientForm({ initial, onSave, onCancel }: { initial?: Client; onSave: (c: Client) => void; onCancel: () => void }) {
+export function ClientForm({
+  initial,
+  onSave,
+  onCancel,
+}: {
+  initial?: Client;
+  onSave: (c: Client) => void;
+  onCancel: () => void;
+}) {
   const p = initial?.person;
   const [name, setName] = useState(p?.name ?? "");
-  const [birthName, setBirthName] = useState(p?.other_names?.find((n) => n.kind === "birth_certificate")?.name ?? "");
+  const [birthName, setBirthName] = useState(
+    p?.other_names?.find((n) => n.kind === "birth_certificate")?.name ?? "",
+  );
   const [dob, setDob] = useState(p?.dob ?? "");
-  const [gender, setGender] = useState<"male" | "female" | "unspecified">(p?.gender ?? "unspecified");
+  const [gender, setGender] = useState<"male" | "female" | "unspecified">(
+    p?.gender ?? "unspecified",
+  );
   const [kuaBasis, setKuaBasis] = useState<"" | "male" | "female">(p?.kua_basis ?? "");
   const [time, setTime] = useState(p?.birth_time ?? "");
   const [mobiles, setMobiles] = useState((initial?.mobiles ?? []).join(", "));
@@ -39,10 +51,15 @@ export function ClientForm({ initial, onSave, onCancel }: { initial?: Client; on
       created: initial?.created ?? new Date().toISOString(),
       reports: initial?.reports ?? [],
       notes,
-      mobiles: mobiles.split(",").map((m) => m.trim()).filter(Boolean),
+      mobiles: mobiles
+        .split(",")
+        .map((m) => m.trim())
+        .filter(Boolean),
       person: {
         name: name.trim(),
-        other_names: birthName.trim() ? [{ kind: "birth_certificate", name: birthName.trim() }] : [],
+        other_names: birthName.trim()
+          ? [{ kind: "birth_certificate", name: birthName.trim() }]
+          : [],
         dob,
         gender,
         ...(gender === "unspecified" && kuaBasis ? { kua_basis: kuaBasis } : {}),
@@ -65,13 +82,21 @@ export function ClientForm({ initial, onSave, onCancel }: { initial?: Client; on
       </Field>
       <Field id="c-gender" label="Gender" error={tried ? errors.kua : undefined}>
         <div className="flex gap-2">
-          <Select id="c-gender" value={gender} onChange={(e) => setGender(e.target.value as typeof gender)}>
+          <Select
+            id="c-gender"
+            value={gender}
+            onChange={(e) => setGender(e.target.value as typeof gender)}
+          >
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="unspecified">Choose a Kua basis</option>
           </Select>
           {gender === "unspecified" ? (
-            <Select aria-label="Kua basis" value={kuaBasis} onChange={(e) => setKuaBasis(e.target.value as typeof kuaBasis)}>
+            <Select
+              aria-label="Kua basis"
+              value={kuaBasis}
+              onChange={(e) => setKuaBasis(e.target.value as typeof kuaBasis)}
+            >
               <option value="">Kua basis…</option>
               <option value="male">Male formula</option>
               <option value="female">Female formula</option>
@@ -82,12 +107,21 @@ export function ClientForm({ initial, onSave, onCancel }: { initial?: Client; on
       <Field id="c-time" label="Time of birth (optional)">
         <Input id="c-time" type="time" value={time} onChange={(e) => setTime(e.target.value)} />
       </Field>
-      <Field id="c-mobiles" label="Mobile numbers (optional, comma-separated)" error={err("mobiles")}>
+      <Field
+        id="c-mobiles"
+        label="Mobile numbers (optional, comma-separated)"
+        error={err("mobiles")}
+      >
         <Input id="c-mobiles" value={mobiles} onChange={(e) => setMobiles(e.target.value)} />
       </Field>
       <div className="sm:col-span-2">
         <Field id="c-notes" label="Notes">
-          <textarea id="c-notes" className="min-h-24 w-full rounded-xl border border-sand p-3 text-sm" value={notes} onChange={(e) => setNotes(e.target.value)} />
+          <textarea
+            id="c-notes"
+            className="min-h-24 w-full rounded-xl border border-sand p-3 text-sm"
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          />
         </Field>
       </div>
       <div className="flex gap-2 sm:col-span-2">

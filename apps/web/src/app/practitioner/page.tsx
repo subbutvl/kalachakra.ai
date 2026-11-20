@@ -10,7 +10,8 @@ import { usePractitioner, type Client } from "@/stores/practitioner";
 
 /** The client desk (phase 1 spec 6.1): clients kept in this browser, with export and import. */
 export default function ClientDesk() {
-  const { clients, saveClient, removeClient, duplicateClient, importAll, settings } = usePractitioner();
+  const { clients, saveClient, removeClient, duplicateClient, importAll, settings } =
+    usePractitioner();
   const [editing, setEditing] = useState<Client | "new" | null>(clients.length ? null : "new");
   const [query, setQuery] = useState("");
   const [message, setMessage] = useState<string>();
@@ -31,17 +32,32 @@ export default function ClientDesk() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h1 className="text-2xl sm:text-3xl">Client desk</h1>
-          <p className="mt-1 text-muted">{settings.name ? `${settings.name}'s clients` : "Your clients"}, kept in this browser.</p>
+          <p className="mt-1 text-muted">
+            {settings.name ? `${settings.name}'s clients` : "Your clients"}, kept in this browser.
+          </p>
         </div>
         <div className="flex flex-wrap gap-2">
           <Button onClick={() => setEditing("new")}>Add client</Button>
-          <Button variant="outline" onClick={() => downloadJson("kalachakra-clients.json", { version: 1, settings, clients })} disabled={!clients.length}>
+          <Button
+            variant="outline"
+            onClick={() =>
+              downloadJson("kalachakra-clients.json", { version: 1, settings, clients })
+            }
+            disabled={!clients.length}
+          >
             Export
           </Button>
           <Button variant="outline" onClick={() => file.current?.click()}>
             Import
           </Button>
-          <input ref={file} type="file" accept="application/json" className="hidden" aria-label="Import client list" onChange={(e) => e.target.files?.[0] && onImport(e.target.files[0])} />
+          <input
+            ref={file}
+            type="file"
+            accept="application/json"
+            className="hidden"
+            aria-label="Import client list"
+            onChange={(e) => e.target.files?.[0] && onImport(e.target.files[0])}
+          />
         </div>
       </div>
       {message ? (
@@ -62,17 +78,28 @@ export default function ClientDesk() {
         />
       ) : null}
 
-      {clients.length ? <Input placeholder="Search clients" aria-label="Search clients" value={query} onChange={(e) => setQuery(e.target.value)} /> : null}
+      {clients.length ? (
+        <Input
+          placeholder="Search clients"
+          aria-label="Search clients"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      ) : null}
 
       <div className="grid gap-4 sm:grid-cols-2">
         {shown.map((c) => (
           <Card key={c.id} className="flex flex-col gap-3" data-testid="client-card">
             <div>
-              <Link href={`/practitioner/client/${c.id}`} className="font-heading text-lg hover:text-gold-600">
+              <Link
+                href={`/practitioner/client/${c.id}`}
+                className="font-heading text-lg hover:text-gold-600"
+              >
                 {c.person.name}
               </Link>
               <p className="text-sm text-muted">
-                {longDate(c.person.dob)} · {c.reports.length} report{c.reports.length === 1 ? "" : "s"}
+                {longDate(c.person.dob)} · {c.reports.length} report
+                {c.reports.length === 1 ? "" : "s"}
               </p>
               {c.notes ? <p className="mt-2 line-clamp-2 text-sm">{c.notes}</p> : null}
             </div>
@@ -93,7 +120,8 @@ export default function ClientDesk() {
                 size="sm"
                 variant="ghost"
                 onClick={() => {
-                  if (window.confirm(`Delete ${c.person.name} from this browser?`)) removeClient(c.id);
+                  if (window.confirm(`Delete ${c.person.name} from this browser?`))
+                    removeClient(c.id);
                 }}
               >
                 Delete
@@ -102,7 +130,9 @@ export default function ClientDesk() {
           </Card>
         ))}
       </div>
-      {!clients.length && !editing ? <p className="text-muted">No clients yet. Add one to start.</p> : null}
+      {!clients.length && !editing ? (
+        <p className="text-muted">No clients yet. Add one to start.</p>
+      ) : null}
     </div>
   );
 }
