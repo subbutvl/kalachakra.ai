@@ -16,12 +16,13 @@ import { loshu } from "./modules/loshu.js";
 import { driverConductor } from "./modules/driverConductor.js";
 import { lucky } from "./modules/lucky.js";
 import { timing } from "./modules/timing.js";
+import { suggestNames } from "./modules/nameOptimizer.js";
 
 /**
  * Every person-level number (phase 1 spec 4.1): date numbers, Chaldean,
  * Pythagorean, Lo Shu, Kua, driver–conductor, lucky set and timing. Pure and
  * synchronous: the same request and rules always give the same result.
- * The name optimiser joins in milestone 3.
+ * The name optimiser runs on the headline name unless options.name_suggestions is 0.
  */
 export function computeProfile(request: ProfileRequestInput, rules: ResolvedRules): ProfileResult {
   const parsed = ProfileRequestSchema.safeParse(request);
@@ -33,7 +34,7 @@ export function computeProfile(request: ProfileRequestInput, rules: ResolvedRule
       first ? first.path.join(".") : undefined,
     );
   }
-  const { person, as_of } = parsed.data;
+  const { person, as_of, options } = parsed.data;
   const asOf = parseDate(as_of, "as_of");
   const birth = birthMoment(person, rules);
   const date = birth.date;
@@ -131,6 +132,9 @@ export function computeProfile(request: ProfileRequestInput, rules: ResolvedRule
     timing: tm,
     flags,
   };
+  if (options.name_suggestions > 0) {
+    result.name_optimizer = suggestNames(rules, headline.name, mulank, bhagyank, options.name_suggestions);
+  }
 
   const check = ProfileResultSchema.safeParse(result);
   if (!check.success) {

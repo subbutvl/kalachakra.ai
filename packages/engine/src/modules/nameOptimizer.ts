@@ -7,6 +7,7 @@ import { chaldeanNumber, nameFit, type CompoundClass } from "./chaldean.js";
 
 const VOWELS = new Set(["A", "E", "I", "O", "U"]);
 const H_AFTER = new Set(["B", "D", "G", "K", "P", "S", "T"]);
+const NO_DOUBLE = new Set(["H", "W", "X", "Y", "Q"]);
 
 export interface Variant {
   name: string;
@@ -58,12 +59,13 @@ function oneEdit(name: string, lockFirst: boolean): [string, string][] {
       const c = w[i]!;
       const prev = w[i - 1];
       const next = w[i + 1];
-      // Double a consonant (not one already doubled).
-      if (!VOWELS.has(c) && c !== "Y" && c !== next && c !== prev) {
+      // Double a consonant (not one already doubled, not at the end of a word, and not H, W, X, Y, Q,
+      // which do not read naturally doubled in Indian spellings).
+      if (!VOWELS.has(c) && !NO_DOUBLE.has(c) && next !== undefined && c !== next && c !== prev) {
         put(w.slice(0, i + 1) + c + w.slice(i + 1), `double ${c}`);
       }
-      // Double a vowel (not one already doubled).
-      if (VOWELS.has(c) && c !== next && c !== prev) {
+      // Double a vowel (not one already doubled; a final A is the "ending A to AA" rule below).
+      if (VOWELS.has(c) && c !== next && c !== prev && !(c === "A" && next === undefined)) {
         put(w.slice(0, i + 1) + c + w.slice(i + 1), `double ${c}`);
       }
       // Undouble AA at the end (ending AA to A).
