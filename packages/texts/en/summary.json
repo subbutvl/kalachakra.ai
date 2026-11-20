@@ -1,0 +1,28 @@
+{
+  "$comment": "Cover theme lines (by Mulank) and the glossary. Draft text by Claude, for numerologist review.",
+  "language": "en",
+  "module": "summary",
+  "blocks": {
+    "summary.theme.1": "A born leader, here to begin things and show the way.",
+    "summary.theme.2": "A gentle connector, here to bring people together.",
+    "summary.theme.3": "A wise guide, here to learn and to teach.",
+    "summary.theme.4": "A practical innovator, here to build in new ways.",
+    "summary.theme.5": "A quick communicator, here to connect and explore.",
+    "summary.theme.6": "A loving creator, here to care and beautify.",
+    "summary.theme.7": "A deep seeker, here to understand.",
+    "summary.theme.8": "A patient builder, here to create what lasts.",
+    "summary.theme.9": "A courageous giver, here to act and to serve.",
+    "glossary.mulank": "Mulank (driver): the number of the day of birth, showing everyday nature.",
+    "glossary.bhagyank": "Bhagyank (conductor): the sum of the whole birth date, showing life's direction.",
+    "glossary.chaldean": "Chaldean: the letter system used for the name number in Indian practice.",
+    "glossary.pythagorean": "Pythagorean: the Western letter system, used for the core four numbers.",
+    "glossary.compound": "Compound: the two-digit total before reduction, with its own meaning.",
+    "glossary.master_number": "Master number: 11, 22 or 33, kept unreduced where the rules say so.",
+    "glossary.karmic_debt": "Karmic debt: 13, 14, 16 or 19 appearing in a total, showing a lesson to work on.",
+    "glossary.loshu": "Lo Shu: a 3 by 3 magic square used to map the digits of the birth date.",
+    "glossary.kua": "Kua: a number from the birth year and gender that gives good and bad directions.",
+    "glossary.personal_year": "Personal year: the theme of the current year, from 1 to 9.",
+    "glossary.pinnacle": "Pinnacle: one of four long periods of life, each with its own theme.",
+    "glossary.dasha": "Dasha: the numerology period ruled by one number for as many years as its value."
+  }
+}
