@@ -1,4 +1,4 @@
-// `pnpm dev` starts the API and the web app once they exist (milestones 4 and 6).
+// `pnpm dev` starts the API (milestone 4) and the web app (milestone 6) once they exist.
 // Until then it says what can be run instead.
 import { existsSync } from "node:fs";
 import { spawnSync } from "node:child_process";

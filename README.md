@@ -58,7 +58,10 @@ More options: `--vehicle "KA 05 MN 1234"`, `--flat 12B --building 45 --door E`, 
 (`couple`, `business_partners`, `parent_child`), and
 `--dates 2026-12-01..2026-12-31 --purpose launch` (`launch`, `signing`, `move`, `general`).
 
-`pnpm dev` (API and web together) arrives with milestones 4 and 6; until then it lists what you can run.
+`pnpm dev` starts the API on http://localhost:8787 (the web app joins it in milestone 6). Open
+http://localhost:8787/docs to see every endpoint and try each call in the browser. The API listens
+on this computer only, allows only the web app's origin, and logs only method, path, status and
+timing.
 
 ## Changing rules
 
