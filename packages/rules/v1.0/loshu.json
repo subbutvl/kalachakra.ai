@@ -47,5 +47,14 @@
     "8": "earth",
     "9": "fire"
   },
+  "element_colours": {
+    "$comment": "Colour remedies for a missing number follow its cell's element. Draft for numerologist review.",
+    "status": "draft",
+    "water": ["blue", "black"],
+    "wood": ["green"],
+    "fire": ["red", "orange"],
+    "earth": ["yellow", "brown"],
+    "metal": ["white", "gold", "silver"]
+  },
   "remedy_tags": ["colour", "direction", "habit", "mantra", "fasting", "gemstone", "donation"]
 }
