@@ -13,6 +13,7 @@
     "business.json",
     "compatibility.json",
     "optimizer.json",
+    "dates.json",
     "switches.json"
   ],
   "changelog": [

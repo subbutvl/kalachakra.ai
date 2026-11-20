@@ -1,0 +1,19 @@
+{
+  "$comment": "Favourable date finder (rules spec 2, 'Date selector'): dates in a range are ranked by personal day, universal day and lucky numbers. Purpose numbers are the personal days that suit each purpose. Draft for numerologist review.",
+  "status": "draft",
+  "max_range_days": 366,
+  "top_n": 10,
+  "purposes": {
+    "launch": [1, 3, 5, 8],
+    "signing": [2, 6, 8],
+    "move": [4, 6, 9],
+    "general": [1, 3, 5, 6]
+  },
+  "weights": {
+    "purpose_personal_day": 3,
+    "personal_day_with_mulank": 1,
+    "universal_day_lucky": 2,
+    "date_day_lucky": 1,
+    "avoid_weekday_of_enemy": 1
+  }
+}
