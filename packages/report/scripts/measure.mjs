@@ -1,3 +1,4 @@
+/* global process, console */
 // How full each section's pages are, for report HTML files written by `pnpm report --html`.
 // Prints, per section, the pages it takes and how much of its last page is used.
 //
