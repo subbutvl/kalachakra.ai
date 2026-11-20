@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "layout": {
+      "minItems": 3,
+      "maxItems": 3,
+      "type": "array",
+      "items": {
+        "minItems": 3,
+        "maxItems": 3,
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9
+        }
+      }
+    },
+    "south_at_top": {
+      "type": "boolean"
+    },
+    "count_bands": {
+      "type": "object",
+      "properties": {
+        "0": {
+          "type": "string",
+          "const": "missing"
+        },
+        "1": {
+          "type": "string",
+          "const": "single"
+        },
+        "2": {
+          "type": "string",
+          "const": "double"
+        },
+        "3": {
+          "type": "string",
+          "const": "triple"
+        },
+        "$comment": {
+          "type": "string"
+        },
+        "4+": {
+          "type": "string",
+          "const": "four_plus"
+        }
+      },
+      "required": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4+"
+      ],
+      "additionalProperties": false
+    },
+    "planes": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "minItems": 3,
+        "maxItems": 3,
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9
+        }
+      }
+    },
+    "plane_states": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "string",
+          "const": "complete"
+        },
+        {
+          "type": "string",
+          "const": "partial"
+        },
+        {
+          "type": "string",
+          "const": "empty"
+        }
+      ],
+      "items": false,
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "directions": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[1-9]$"
+      },
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": [
+              "N",
+              "NE",
+              "E",
+              "SE",
+              "S",
+              "SW",
+              "W",
+              "NW"
+            ]
+          },
+          {
+            "type": "string",
+            "const": "centre"
+          }
+        ]
+      }
+    },
+    "elements": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[1-9]$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "enum": [
+          "water",
+          "earth",
+          "wood",
+          "metal",
+          "fire"
+        ]
+      }
+    },
+    "remedy_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "colour",
+          "direction",
+          "habit",
+          "mantra",
+          "fasting",
+          "gemstone",
+          "donation"
+        ]
+      }
+    }
+  },
+  "required": [
+    "layout",
+    "south_at_top",
+    "count_bands",
+    "planes",
+    "plane_states",
+    "directions",
+    "elements",
+    "remedy_tags"
+  ],
+  "additionalProperties": false
+}
