@@ -19,3 +19,4 @@ test-results/
 reports/
 packages/report/reports/
 *.tsbuildinfo
+review/

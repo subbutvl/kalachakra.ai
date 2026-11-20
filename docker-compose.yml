@@ -1,0 +1,32 @@
+# Runs the API and the web app together on this computer: docker compose up --build
+# Web: http://localhost:3000   API and its docs: http://localhost:8787/docs
+services:
+  api:
+    build: .
+    command: pnpm --filter @kalachakra/api start
+    environment:
+      API_HOST: 0.0.0.0
+      API_PORT: "8787"
+      WEB_ORIGIN: http://localhost:3000
+    ports:
+      - "127.0.0.1:8787:8787"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:8787/v1/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 5s
+      retries: 20
+  web:
+    build: .
+    command: pnpm --filter @kalachakra/web start
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8787
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      api:
+        condition: service_healthy

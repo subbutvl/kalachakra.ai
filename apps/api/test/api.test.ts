@@ -385,3 +385,43 @@ describe("reports", () => {
 afterAll(async () => {
   await closePdfBrowser();
 });
+
+// Speed targets (phase 1 spec, non-functional): a report in under 3 seconds,
+// the PDF in under 10. Measured through the API, with every add-on.
+describe("speed targets", () => {
+  const full = {
+    person: aarav,
+    as_of: AS_OF,
+    modules: {
+      mobile: { numbers: ["9876524310", "9123456789"] },
+      vehicle: { registrations: ["KA 05 MN 1234"] },
+      house: { flat: "12B", door: "E" },
+      business: { names: ["Loomcraft Works", "Mehra Textiles Pvt Ltd"] },
+      compatibility: { partner: myra, relationship: "parent_child" },
+    },
+  };
+
+  it("builds a full report with every add-on in under 3 seconds, in both languages", async () => {
+    for (const language of ["en", "ta"]) {
+      const start = performance.now();
+      const r = await post("/v1/report", { ...full, language });
+      const ms = performance.now() - start;
+      expect(r.status).toBe(200);
+      expect(ms).toBeLessThan(3_000);
+    }
+  });
+
+  it("renders the full report to PDF in under 10 seconds", async () => {
+    const start = performance.now();
+    const res = await app.request("/v1/report/pdf", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...full, language: "ta" }),
+    });
+    const bytes = (await res.arrayBuffer()).byteLength;
+    const ms = performance.now() - start;
+    expect(res.status).toBe(200);
+    expect(bytes).toBeGreaterThan(50_000);
+    expect(ms).toBeLessThan(10_000);
+  }, 30_000);
+});

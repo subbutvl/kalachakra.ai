@@ -27,6 +27,7 @@ export function Tabs<T extends string>({
     <div
       role="tablist"
       aria-label={label}
+      data-scrolls
       className="-mx-1 flex gap-1 overflow-x-auto border-b border-sand px-1"
     >
       {tabs.map(([id, name]) => (

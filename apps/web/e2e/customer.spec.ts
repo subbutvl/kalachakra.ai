@@ -24,8 +24,13 @@ test.describe("customer mode", () => {
     page,
   }) => {
     await page.goto("/");
-    await page.getByLabel("Try it with your date of birth").fill("1991-08-14");
-    await expect(page.getByTestId("hero-result")).toContainText("Mulank 5, ruled by Mercury");
+    // On a cold dev server the field can be filled before the page is interactive, so retry the fill.
+    await expect(async () => {
+      await page.getByLabel("Try it with your date of birth").fill("1991-08-14");
+      await expect(page.getByTestId("hero-result")).toContainText("Mulank 5, ruled by Mercury", {
+        timeout: 2_000,
+      });
+    }).toPass();
     await expect(page.getByTestId("hero-result")).toContainText("Bhagyank 6, ruled by Venus");
     await expect(page.getByTestId("worked-steps")).toContainText(
       "1 + 4 + 0 + 8 + 1 + 9 + 9 + 1 = 33",
