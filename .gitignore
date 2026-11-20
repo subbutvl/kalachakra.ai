@@ -14,3 +14,7 @@ test-results/
 
 # Real people used for local testing stay on this computer (see packages/engine/test/local/README.md).
 *.local.json
+
+# Generated reports (they contain personal details)
+reports/
+packages/report/reports/

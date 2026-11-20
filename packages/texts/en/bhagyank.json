@@ -1,0 +1,96 @@
+{
+  "$comment": "Bhagyank (conductor, destiny) readings, master and karmic debt notes. Draft text by Claude, for numerologist review.",
+  "language": "en",
+  "module": "bhagyank",
+  "blocks": {
+    "bhagyank.1.direction": "Bhagyank 1 points life toward independence and leadership. Situations keep asking for initiative, for standing on one's own feet and for showing the way. Life goes best when it is led rather than followed.",
+    "bhagyank.1.lessons": "The lessons are confidence without arrogance and leadership that includes others. Fear of failure must be faced; it shrinks with each new beginning.",
+    "bhagyank.1.careers": {
+      "text": "Paths that suit Bhagyank 1: running a business, management, government, politics, the military, design and invention, and any role with authority and room to create.",
+      "child": "Interests to encourage: leadership roles at school, starting clubs or projects, public speaking and subjects where the child can create something of their own.",
+      "status": "draft"
+    },
+    "bhagyank.1.decades": "The twenties bring tests of self-belief; the thirties bring the first real authority. The forties and fifties are often the years of greatest recognition, when experience gives leadership real weight.",
+
+    "bhagyank.2.direction": "Bhagyank 2 points life toward partnership, cooperation and care. Much of life's progress comes through others: a partner, a team, a community. Peace-making is part of the purpose.",
+    "bhagyank.2.lessons": "The lessons are confidence in one's own worth, clear boundaries and the courage to decide. Kindness must include kindness to oneself.",
+    "bhagyank.2.careers": {
+      "text": "Paths that suit Bhagyank 2: counselling, mediation, teaching, healthcare, human resources, hospitality, music and the arts, and any partnership business.",
+      "child": "Interests to encourage: music, art, group projects, caring for animals or younger children, and activities that build quiet confidence.",
+      "status": "draft"
+    },
+    "bhagyank.2.decades": "The early decades can feel uncertain while trust in oneself grows. The thirties and forties bring strong partnerships. Later life is often rich in close, supportive relationships.",
+
+    "bhagyank.3.direction": "Bhagyank 3 points life toward knowledge, guidance and expansion. Life keeps offering chances to learn, to teach and to grow in standing. Wisdom shared is the purpose.",
+    "bhagyank.3.lessons": "The lessons are discipline, focus and humility. Gifts grow fastest when they are given structure and used for others.",
+    "bhagyank.3.careers": {
+      "text": "Paths that suit Bhagyank 3: teaching, law, finance and banking, consulting, religion and philosophy, publishing, administration and advisory roles.",
+      "child": "Interests to encourage: reading, quizzes and debate, explaining what they learn to others, and subjects where they can go deep.",
+      "status": "draft"
+    },
+    "bhagyank.3.decades": "The twenties are for study and building knowledge. The thirties and forties bring respect and responsibility. Later decades often make one a mentor to many.",
+
+    "bhagyank.4.direction": "Bhagyank 4 points life toward building, order and reform. Life asks for patient, practical work and often for finding a new way where old ways fail. Solid structures are the legacy.",
+    "bhagyank.4.lessons": "The lessons are flexibility within discipline, and trust in others. Sudden changes are part of the path; meeting them calmly is the skill.",
+    "bhagyank.4.careers": {
+      "text": "Paths that suit Bhagyank 4: engineering, technology, research, construction, operations, accounting, and any field that needs systems or reform.",
+      "child": "Interests to encourage: building, coding, science projects, puzzles and any activity with clear steps and visible results.",
+      "status": "draft"
+    },
+    "bhagyank.4.decades": "Early years bring hard work with slow reward. The thirties often bring a sudden turn that opens new ground. The forties and after reward the foundations built earlier.",
+
+    "bhagyank.5.direction": "Bhagyank 5 points life toward freedom, variety and communication. Travel, change and many kinds of people shape the journey. The purpose is to experience fully and to share what is learned.",
+    "bhagyank.5.lessons": "The lessons are commitment and moderation. Freedom grows, not shrinks, when there is a steady base to return to.",
+    "bhagyank.5.careers": {
+      "text": "Paths that suit Bhagyank 5: business and trade, sales and marketing, media, travel, writing, finance, technology and any role with variety and people.",
+      "child": "Interests to encourage: languages, travel, debate, drama and a range of activities rather than one narrow track.",
+      "status": "draft"
+    },
+    "bhagyank.5.decades": "The twenties are restless and full of change. The thirties bring a career that uses many talents. The forties and later bring the freedom earned through skill.",
+
+    "bhagyank.6.direction": "Bhagyank 6 points life toward love, family, beauty and service. Responsibility for others comes often, and caring well is part of the purpose. Home and community are central.",
+    "bhagyank.6.lessons": "The lessons are balance between giving and receiving, and letting others carry their own loads. Perfectionism in love must give way to acceptance.",
+    "bhagyank.6.careers": {
+      "text": "Paths that suit Bhagyank 6: design and the arts, healthcare, teaching, hospitality, beauty and fashion, social work and family businesses.",
+      "child": "Interests to encourage: art, music, cooking, caring roles and projects that make their surroundings more beautiful.",
+      "status": "draft"
+    },
+    "bhagyank.6.decades": "The twenties often bring early family or caring responsibility. The thirties and forties are rich in home life and creative work. Later life is often comfortable and surrounded by loved ones.",
+
+    "bhagyank.7.direction": "Bhagyank 7 points life toward understanding, research and inner growth. Life keeps asking for deeper answers, and quiet study brings the greatest rewards. Wisdom earned is the purpose.",
+    "bhagyank.7.lessons": "The lessons are trust and openness. Faith, in oneself and in others, balances the analytical mind.",
+    "bhagyank.7.careers": {
+      "text": "Paths that suit Bhagyank 7: research, science, technology, analysis, medicine and healing, psychology, writing and spiritual work.",
+      "child": "Interests to encourage: science, nature, reading, puzzles and time to explore a subject alone.",
+      "status": "draft"
+    },
+    "bhagyank.7.decades": "The early decades may feel set apart from others. The thirties and forties bring expertise and respect. Later life is often the most peaceful and insightful.",
+
+    "bhagyank.8.direction": "Bhagyank 8 points life toward achievement, authority and lasting results. Life tests patience and rewards persistence. Building something that endures is the purpose.",
+    "bhagyank.8.lessons": "The lessons are balance between material success and inner peace, and fair use of power. Delays are teachers, not refusals.",
+    "bhagyank.8.careers": {
+      "text": "Paths that suit Bhagyank 8: business leadership, finance, property, law, industry and manufacturing, administration and long-term projects.",
+      "child": "Interests to encourage: clear goals, saving toward something, team sport and responsibilities that build steady confidence.",
+      "status": "draft"
+    },
+    "bhagyank.8.decades": "The twenties and early thirties can be demanding, with slow progress. The late thirties and forties bring solid results. The fifties onward are often the most secure and respected years.",
+
+    "bhagyank.9.direction": "Bhagyank 9 points life toward service, courage and the bigger picture. Life asks for generosity and for standing up for others. Leaving the world better is the purpose.",
+    "bhagyank.9.lessons": "The lessons are letting go and forgiving. Endings come so that something larger can begin.",
+    "bhagyank.9.careers": {
+      "text": "Paths that suit Bhagyank 9: medicine, social causes, the armed forces and police, law, the arts, teaching, international work and leadership in service.",
+      "child": "Interests to encourage: sport, causes that help others, drama and the arts, and activities that use their energy well.",
+      "status": "draft"
+    },
+    "bhagyank.9.decades": "The twenties are energetic and sometimes scattered. The thirties and forties bring a cause or role worth fighting for. Later life brings respect for what has been given.",
+
+    "master.11": "The total passes through 11, a master number of intuition and inspiration. It adds idealism and spiritual sensitivity to the number it reduces to, and a calling to inspire others.",
+    "master.22": "The total passes through 22, the master builder. It adds the capacity to turn vision into lasting, practical results on a large scale, and the pressure that comes with it.",
+    "master.33": "The total passes through 33, the master teacher. It adds compassion, responsibility and a calling to heal and uplift others through service.",
+
+    "karmic_debt.13": "Karmic debt 13 asks for steady, honest effort. Shortcuts rarely work; patient work and order turn this number into a strength.",
+    "karmic_debt.14": "Karmic debt 14 asks for moderation and balance. Freedom must be used responsibly; steady habits turn restlessness into adaptability.",
+    "karmic_debt.16": "Karmic debt 16 asks for humility and inner growth. Sudden changes clear the way for something truer; faith and reflection help.",
+    "karmic_debt.19": "Karmic debt 19 asks for independence balanced with accepting help. Strength grows when it is shared."
+  }
+}
