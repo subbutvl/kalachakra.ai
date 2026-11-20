@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n/locale";
 import { useMemo, useState } from "react";
 import { z } from "zod";
 import { settingShapes, type SettingKey } from "@kalachakra/engine";
@@ -25,6 +26,7 @@ function SettingControl({
   value: unknown;
   onChange: (v: unknown) => void;
 }) {
+  const { t } = useT();
   const shape = settingShapes[k] as z.ZodType;
   const [draft, setDraft] = useState(JSON.stringify(value));
   const [bad, setBad] = useState(false);
@@ -92,7 +94,9 @@ function SettingControl({
           }
         }}
       />
-      {bad ? <p className="text-xs text-danger">Not a valid value for this setting.</p> : null}
+      {bad ? (
+        <p className="text-xs text-danger">{t("Not a valid value for this setting.")}</p>
+      ) : null}
     </div>
   );
 }
@@ -103,6 +107,7 @@ function SettingControl({
  * the numbers that change for a client are shown with old and new values.
  */
 export default function Rules() {
+  const { t } = useT();
   const { profile, setProfile, clients } = usePractitioner();
   const [compareTo, setCompareTo] = useState<ProfileChoice>({ kind: "id", id: "house-default" });
   const [clientId, setClientId] = useState(clients[0]?.id ?? "");
@@ -130,10 +135,10 @@ export default function Rules() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl sm:text-3xl">Rule profile</h1>
+      <h1 className="text-2xl sm:text-4xl">{t("Rule profile")}</h1>
       <Card className="flex flex-col gap-4 sm:flex-row sm:items-end">
         <label className="flex-1 font-label text-sm">
-          Profile in use
+          {t("Profile in use")}
           <Select
             className="mt-1"
             value={profile.kind === "custom" ? "custom" : profile.id}
@@ -150,22 +155,22 @@ export default function Rules() {
                 {p.label}
               </option>
             ))}
-            <option value="custom">Custom</option>
+            <option value="custom">{t("Custom")}</option>
           </Select>
         </label>
         {profile.kind === "custom" ? (
           <Button variant="outline" onClick={() => setProfile({ kind: "custom", overrides: {} })}>
-            Reset custom to house default
+            {t("Reset custom to house default")}
           </Button>
         ) : null}
       </Card>
 
       <Card>
-        <h2 className="text-lg">What changes for a client</h2>
+        <h2 className="text-lg">{t("What changes for a client")}</h2>
         {clients.length ? (
           <div className="mt-3 flex flex-col gap-3 sm:flex-row">
             <label className="flex-1 font-label text-sm">
-              Client
+              {t("Client")}
               <Select
                 className="mt-1"
                 value={clientId}
@@ -179,7 +184,7 @@ export default function Rules() {
               </Select>
             </label>
             <label className="flex-1 font-label text-sm">
-              Compared with
+              {t("Compared with")}
               <Select
                 className="mt-1"
                 value={compareTo.kind === "id" ? compareTo.id : "custom"}
@@ -194,16 +199,18 @@ export default function Rules() {
             </label>
           </div>
         ) : (
-          <p className="mt-2 text-sm text-muted">Add a client to see which numbers change.</p>
+          <p className="mt-2 text-sm text-muted">
+            {t("Add a client to see which numbers change.")}
+          </p>
         )}
         {client ? (
           changes.length ? (
             <table className="mt-4 w-full text-sm" data-testid="rule-changes">
               <thead>
                 <tr className="bg-sand text-left font-label">
-                  <th className="p-2">Result</th>
-                  <th className="p-2">Before</th>
-                  <th className="p-2">Now</th>
+                  <th className="p-2">{t("Result")}</th>
+                  <th className="p-2">{t("Before")}</th>
+                  <th className="p-2">{t("Now")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -223,9 +230,9 @@ export default function Rules() {
       </Card>
 
       <Card>
-        <h2 className="text-lg">The 24 decisions</h2>
+        <h2 className="text-lg">{t("The 24 decisions")}</h2>
         <p className="mt-1 text-sm text-muted">
-          Change any value to switch to a custom profile; every number re-runs at once.
+          {t("Change any value to switch to a custom profile; every number re-runs at once.")}
         </p>
         <div className="mt-4 divide-y divide-sand">
           {rows.map((r) => (

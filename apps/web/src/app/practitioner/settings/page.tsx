@@ -1,11 +1,13 @@
 "use client";
 
+import { useT } from "@/i18n/locale";
 import { Card, Field, Input, Select } from "@kalachakra/ui";
 import { PROFILE_OPTIONS } from "@/lib/engine";
 import { usePractitioner } from "@/stores/practitioner";
 
 /** One-time practitioner settings: printed on report headers and footers (phase 1 spec 6.1). */
 export default function Settings() {
+  const { t } = useT();
   const { settings, setSettings, setProfile } = usePractitioner();
   const text = (
     key: "name" | "title" | "phone" | "email" | "website" | "signature",
@@ -27,10 +29,11 @@ export default function Settings() {
   };
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl sm:text-3xl">Practitioner settings</h1>
+      <h1 className="text-2xl sm:text-4xl">{t("Practitioner settings")}</h1>
       <p className="text-muted">
-        These replace the KalaChakra header and footer on your reports. A small "calculated with
-        KalaChakra" line stays. Saved as you type.
+        {t(
+          "These replace the KalaChakra header and footer on your reports. A small line saying the report was calculated with KalaChakra stays. Saved as you type.",
+        )}
       </p>
       <Card className="grid gap-4 sm:grid-cols-2">
         {text("name", "Your name")}
@@ -39,7 +42,7 @@ export default function Settings() {
         {text("email", "Email")}
         {text("website", "Website")}
         {text("signature", "Signature line")}
-        <Field id="s-logo" label="Logo (PNG or JPEG)">
+        <Field id="s-logo" label={t("Logo (PNG or JPEG)")}>
           <input
             id="s-logo"
             type="file"
@@ -49,17 +52,17 @@ export default function Settings() {
         </Field>
         {settings.logo ? (
           <div className="flex items-center gap-3">
-            <img src={settings.logo} alt="Your logo" className="h-12" />
+            <img src={settings.logo} alt={t("Your logo")} className="h-12" />
             <button
               type="button"
               className="text-sm text-danger"
               onClick={() => setSettings({ logo: "" })}
             >
-              Remove
+              {t("Remove")}
             </button>
           </div>
         ) : null}
-        <Field id="s-profile" label="Default rule profile">
+        <Field id="s-profile" label={t("Default rule profile")}>
           <Select
             id="s-profile"
             value={settings.defaultProfile}

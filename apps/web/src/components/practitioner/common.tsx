@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { cn } from "@kalachakra/ui";
+import { useT } from "@/i18n/locale";
 
 /** Renders children only after the browser store has loaded (avoids a flash of empty data). */
 export function useHydrated(): boolean {
@@ -16,16 +17,17 @@ export function Tabs<T extends string>({
   onChange,
   label,
 }: {
-  tabs: [T, string][];
+  tabs: readonly (readonly [T, string])[];
   value: T;
   onChange: (t: T) => void;
   label: string;
 }) {
+  const { t } = useT();
   return (
     <div
       role="tablist"
       aria-label={label}
-      className="flex flex-wrap gap-2 border-b border-sand pb-3"
+      className="-mx-1 flex gap-1 overflow-x-auto border-b border-sand px-1"
     >
       {tabs.map(([id, name]) => (
         <button
@@ -35,11 +37,13 @@ export function Tabs<T extends string>({
           aria-selected={value === id}
           onClick={() => onChange(id)}
           className={cn(
-            "rounded-full px-4 py-1.5 font-label text-sm",
-            value === id ? "bg-ink text-white" : "text-ink hover:bg-sand-50",
+            "-mb-px whitespace-nowrap border-b-2 px-3 py-2.5 font-label text-sm",
+            value === id
+              ? "border-gold font-medium text-ink"
+              : "border-transparent text-muted hover:text-ink",
           )}
         >
-          {name}
+          {t(name)}
         </button>
       ))}
     </div>
@@ -61,19 +65,24 @@ export function NumberTile({
   return (
     <div
       className={cn(
-        "rounded-2xl border bg-white p-4",
-        changed ? "border-gold ring-2 ring-gold/40" : "border-sand",
+        "rounded-xl border bg-white p-4",
+        changed ? "border-gold bg-gold/10 ring-1 ring-gold" : "border-sand",
       )}
       data-changed={changed ? "true" : undefined}
     >
-      <div className="font-label text-xs uppercase tracking-wider text-muted">{label}</div>
+      <div className="font-label text-sm text-muted">{label}</div>
       <div className="mt-1 flex items-baseline gap-2">
-        <span className="font-heading text-2xl text-ink">{value}</span>
-        {detail ? <span className="font-label text-xs text-muted">{detail}</span> : null}
+        <span className="font-heading text-3xl text-ink">{value}</span>
+        {detail ? <span className="font-label text-sm text-gold-700">{detail}</span> : null}
       </div>
-      {changed ? <div className="mt-1 font-label text-xs text-gold-600">was {changed}</div> : null}
+      {changed ? <Was value={changed} /> : null}
     </div>
   );
+}
+
+function Was({ value }: { value: string }) {
+  const { t } = useT();
+  return <div className="mt-1 font-label text-xs text-gold-700">{t("was {v}", { v: value })}</div>;
 }
 
 export function Trace({ lines }: { lines?: string[] }) {

@@ -42,3 +42,46 @@
 .kc-visual .kc-label {
   font-family: var(--font-label);
 }
+
+/* Full-width bands inside the centred page. */
+html,
+body {
+  overflow-x: clip;
+}
+.kc-bleed {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+.kc-home {
+  margin-top: -2rem;
+}
+@media (min-width: 640px) {
+  .kc-home {
+    margin-top: -3rem;
+  }
+}
+
+/* The wheel turns once, when the date changes. */
+.kc-wheel-spin,
+.kc-wheel-spin text {
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .kc-wheel-spin,
+  .kc-wheel-spin text {
+    transition: none;
+  }
+}
+
+/* Tamil runs longer and taller: give it room. */
+:lang(ta) body {
+  line-height: 1.75;
+}
+:lang(ta) h1 {
+  line-height: 1.35;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}

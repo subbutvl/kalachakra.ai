@@ -1,13 +1,11 @@
 import type { HTMLAttributes } from "react";
 import { cn } from "./cn.js";
 
+/** A plain panel: a hairline of sand on white. Hierarchy comes from layout, not shadows. */
 export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn(
-        "rounded-card border border-sand bg-white p-6 shadow-[0_1px_0_rgba(31,38,40,0.04)]",
-        className,
-      )}
+      className={cn("rounded-card border border-sand bg-white p-5 sm:p-6", className)}
       {...props}
     />
   );

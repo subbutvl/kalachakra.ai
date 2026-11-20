@@ -6,6 +6,7 @@ import { Suspense, useMemo, useRef, useState } from "react";
 import { Button } from "@kalachakra/ui";
 import { Steps } from "@/components/steps";
 import { api, ApiError, type ReportRequest } from "@/lib/api";
+import { useT } from "@/i18n/locale";
 import { toRequest, useCustomer } from "@/stores/customer";
 
 /** The fictional benchmark person used for the sample preview. */
@@ -18,11 +19,12 @@ const SAMPLE: ReportRequest = {
 
 function ReportScreen() {
   const router = useRouter();
+  const { t, locale } = useT();
   const sample = useSearchParams().get("sample") === "1";
   const { base, addOns, details, reset } = useCustomer();
   const request = useMemo(
-    () => (sample ? SAMPLE : toRequest(base, addOns, details)),
-    [sample, base, addOns, details],
+    () => (sample ? { ...SAMPLE, language: locale } : toRequest(base, addOns, details)),
+    [sample, base, addOns, details, locale],
   );
   const ready = sample || Boolean(details.name && details.dob);
   const frame = useRef<HTMLIFrameElement>(null);
@@ -43,9 +45,9 @@ function ReportScreen() {
   if (!ready) {
     return (
       <div>
-        <p>Please enter your details first.</p>
+        <p>{t("Please enter your details first.")}</p>
         <Button className="mt-4" onClick={() => router.push("/choose")}>
-          Start
+          {t("Start")}
         </Button>
       </div>
     );
@@ -63,7 +65,7 @@ function ReportScreen() {
       a.click();
       URL.revokeObjectURL(url);
     } catch (e) {
-      setDownloadError(e instanceof Error ? e.message : "The PDF could not be made.");
+      setDownloadError(e instanceof Error ? e.message : t("The PDF could not be made."));
     } finally {
       setDownloading(false);
     }
@@ -77,19 +79,19 @@ function ReportScreen() {
       {!sample ? <Steps current={3} /> : null}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl sm:text-3xl">{sample ? "Sample report" : "Your report"}</h1>
+          <h1 className="text-2xl sm:text-4xl">{sample ? t("Sample report") : t("Your report")}</h1>
           <p className="mt-1 text-muted">{request.person.name}</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <Button variant="gold" onClick={download} disabled={!summary.data || downloading}>
-            {downloading ? "Preparing PDF…" : "Download PDF"}
+            {downloading ? t("Preparing PDF…") : t("Download PDF")}
           </Button>
           <Button
             variant="outline"
             onClick={() => frame.current?.contentWindow?.print()}
             disabled={!html.data}
           >
-            Print
+            {t("Print")}
           </Button>
           <Button
             variant="ghost"
@@ -98,7 +100,7 @@ function ReportScreen() {
               router.push("/");
             }}
           >
-            Start again
+            {t("Start again")}
           </Button>
         </div>
       </div>
@@ -110,7 +112,7 @@ function ReportScreen() {
 
       {error ? (
         <div role="alert" className="mt-8 rounded-card border border-danger/40 bg-white p-6">
-          <p className="font-medium text-danger">The report could not be made.</p>
+          <p className="font-medium text-danger">{t("The report could not be made.")}</p>
           <p className="mt-1 text-sm text-muted">
             {error instanceof ApiError ? error.message : String(error)}
           </p>
@@ -119,15 +121,15 @@ function ReportScreen() {
 
       {!error && (!summary.data || !html.data) ? (
         <p className="mt-10 text-muted" aria-live="polite">
-          Working out your numbers…
+          {t("Working out your numbers…")}
         </p>
       ) : null}
 
       {summary.data && html.data ? (
         <div className="mt-8 grid gap-6 lg:grid-cols-[16rem_1fr]">
-          <nav aria-label="Report contents" className="lg:sticky lg:top-6 lg:self-start">
-            <h2 className="mb-3 font-label text-xs uppercase tracking-wider text-muted">
-              Contents
+          <nav aria-label={t("Report contents")} className="lg:sticky lg:top-6 lg:self-start">
+            <h2 className="mb-3 border-b border-gold pb-1 font-label text-sm font-medium text-gold-700">
+              {t("Contents")}
             </h2>
             <ol className="max-h-48 space-y-1 overflow-y-auto pr-2 text-sm lg:max-h-[70vh]">
               {summary.data.sections.map((s) => (
@@ -137,20 +139,23 @@ function ReportScreen() {
                     className="w-full rounded-lg px-2 py-1 text-left hover:bg-sand-50"
                     onClick={() => jump(`s-${s.id}-${s.number}`)}
                   >
-                    <span className="mr-2 font-label text-gold-600">{s.number}</span>
+                    <span className="mr-2 font-label text-gold-700">{s.number}</span>
                     {s.title}
                   </button>
                 </li>
               ))}
             </ol>
             <p className="mt-4 font-label text-xs text-muted">
-              Engine {summary.data.meta.engine} · rules {summary.data.meta.rules} · texts{" "}
-              {summary.data.meta.texts}
+              {t("Engine {e}, rules {r}, texts {x}", {
+                e: summary.data.meta.engine,
+                r: summary.data.meta.rules,
+                x: summary.data.meta.texts,
+              })}
             </p>
           </nav>
           <iframe
             ref={frame}
-            title="Your report"
+            title={t("Your report")}
             srcDoc={html.data}
             className="h-[80vh] w-full rounded-card border border-sand bg-white"
           />

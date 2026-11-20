@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n/locale";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -51,6 +52,7 @@ function needsAttention(doc: ReportDocument, edits: OverlayEdit[]): OverlayEdit[
  * an overlay applied when the report is built.
  */
 export default function ReportEditor() {
+  const { t } = useT();
   const { id } = useParams<{ id: string }>();
   const { clients, saveReport, settings, profile } = usePractitioner();
   const client = clients.find((c) => c.id === id);
@@ -61,7 +63,7 @@ export default function ReportEditor() {
   if (!client) {
     return (
       <p>
-        Client not found. <Link href="/practitioner">Back to clients</Link>
+        {t("Client not found.")} <Link href="/practitioner">{t("Back to clients")}</Link>
       </p>
     );
   }
@@ -84,12 +86,12 @@ export default function ReportEditor() {
           >
             ← {client.person.name}
           </Link>
-          <h1 className="text-2xl sm:text-3xl">Report editor</h1>
+          <h1 className="text-2xl sm:text-4xl">{t("Report editor")}</h1>
         </div>
         <div className="flex flex-wrap items-end gap-2">
           {client.reports.length ? (
             <label className="font-label text-sm">
-              Report
+              {t("Report")}
               <Select
                 className="mt-1 h-9 text-sm"
                 value={report.id}
@@ -101,13 +103,13 @@ export default function ReportEditor() {
                   </option>
                 ))}
                 {!client.reports.some((r) => r.id === draft.id) ? (
-                  <option value={draft.id}>New (unsaved)</option>
+                  <option value={draft.id}>{t("New (unsaved)")}</option>
                 ) : null}
               </Select>
             </label>
           ) : null}
           <Button variant="outline" size="sm" onClick={() => update(freshReport())}>
-            New report
+            {t("New report")}
           </Button>
         </div>
       </div>
@@ -136,6 +138,7 @@ function Editor({
   branding: Record<string, string>;
   rule_profile: unknown;
 }) {
+  const { t } = useT();
   const [open, setOpen] = useState<string>();
   const [preview, setPreview] = useState<string>();
   const base: ReportRequest = useMemo(
@@ -177,7 +180,7 @@ function Editor({
     },
   });
 
-  if (doc.isPending) return <p className="text-muted">Building the report…</p>;
+  if (doc.isPending) return <p className="text-muted">{t("Building the report…")}</p>;
   if (doc.isError)
     return (
       <p role="alert" className="text-danger">
@@ -242,45 +245,45 @@ function Editor({
     <div className="space-y-6">
       <Card className="flex flex-wrap items-end gap-4">
         <label className="font-label text-sm">
-          Audience
+          {t("Audience")}
           <Select
             className="mt-1 h-9 text-sm"
             value={report.audience}
             onChange={(e) => update({ audience: e.target.value as ClientReport["audience"] })}
           >
-            <option value="adult">Adult</option>
-            <option value="child">Child</option>
+            <option value="adult">{t("Adult")}</option>
+            <option value="child">{t("Child")}</option>
           </Select>
         </label>
         <label className="font-label text-sm">
-          Language
+          {t("Language")}
           <Select
             className="mt-1 h-9 text-sm"
             value={report.language}
             onChange={(e) => update({ language: e.target.value as ClientReport["language"] })}
           >
-            <option value="en">English</option>
+            <option value="en">{t("English")}</option>
             <option value="ta">தமிழ்</option>
           </Select>
         </label>
         <label className="font-label text-sm">
-          Status
+          {t("Status")}
           <Select
             className="mt-1 h-9 text-sm"
             value={report.status}
             onChange={(e) => update({ status: e.target.value as ClientReport["status"] })}
           >
-            <option value="draft">Draft</option>
-            <option value="reviewed">Reviewed</option>
-            <option value="ready">Ready</option>
+            <option value="draft">{t("Draft")}</option>
+            <option value="reviewed">{t("Reviewed")}</option>
+            <option value="ready">{t("Ready")}</option>
           </Select>
         </label>
         <div className="ml-auto flex flex-wrap gap-2">
           <Button variant="outline" onClick={() => html.mutate()} disabled={html.isPending}>
-            {html.isPending ? "Building…" : "Preview"}
+            {html.isPending ? t("Building…") : t("Preview")}
           </Button>
           <Button onClick={() => pdf.mutate()} disabled={pdf.isPending}>
-            {pdf.isPending ? "Making PDF…" : "Download PDF"}
+            {pdf.isPending ? t("Making PDF…") : t("Download PDF")}
           </Button>
         </div>
         <p className="w-full font-label text-xs text-muted">
@@ -297,10 +300,11 @@ function Editor({
 
       {attention.length ? (
         <Card className="border-danger" data-testid="needs-attention">
-          <h2 className="text-lg">Needs attention</h2>
+          <h2 className="text-lg">{t("Needs attention")}</h2>
           <p className="mt-1 text-sm text-muted">
-            These edits point at text that is no longer in the report, for example after a rule
-            profile change. They are left out of the PDF.
+            {t(
+              "These edits point at text that is no longer in the report, for example after a rule profile change. They are left out of the PDF.",
+            )}
           </p>
           <ul className="mt-3 space-y-2 text-sm">
             {attention.map((e, i) => (
@@ -314,7 +318,7 @@ function Editor({
                   variant="ghost"
                   onClick={() => update({ edits: report.edits.filter((x) => x !== e) })}
                 >
-                  Remove
+                  {t("Remove")}
                 </Button>
               </li>
             ))}
@@ -378,14 +382,14 @@ function Editor({
                     onChange={() => toggleSection(s.id)}
                     aria-label={`Show ${s.title}`}
                   />
-                  Show
+                  {t("Show")}
                 </label>
               </div>
               {open === s.id ? (
                 <div className="space-y-4 border-t border-sand p-4">
                   {paras(s).length ? null : (
                     <p className="text-sm text-muted">
-                      This section is numbers and charts only. You can add a note below it.
+                      {t("This section is numbers and charts only. You can add a note below it.")}
                     </p>
                   )}
                   {paras(s).map((p) => {
@@ -402,11 +406,11 @@ function Editor({
                                 className="text-gold-600"
                                 onClick={() => setText(s.id, p, p.text)}
                               >
-                                Restore original
+                                {t("Restore original")}
                               </button>
                             ) : null}
                             <button type="button" onClick={() => togglePara(s.id, p.id)}>
-                              {off ? "Show paragraph" : "Hide paragraph"}
+                              {off ? t("Show paragraph") : t("Hide paragraph")}
                             </button>
                           </span>
                         </div>
@@ -426,14 +430,14 @@ function Editor({
                   })}
                   {notes(s.id).map(([e, k]) => (
                     <div key={k} className="rounded-xl bg-sand-50 p-3 text-sm">
-                      <span className="font-label text-xs text-gold-600">Your note</span>
+                      <span className="font-label text-xs text-gold-600">{t("Your note")}</span>
                       <p>{"text" in e ? e.text : ""}</p>
                       <button
                         type="button"
                         className="mt-1 font-label text-xs text-danger"
                         onClick={() => update({ edits: report.edits.filter((_, j) => j !== k) })}
                       >
-                        Remove note
+                        {t("Remove note")}
                       </button>
                     </div>
                   ))}
@@ -454,13 +458,13 @@ function Editor({
       {preview ? (
         <Card>
           <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-lg">Preview</h2>
+            <h2 className="text-lg">{t("Preview")}</h2>
             <Button size="sm" variant="ghost" onClick={() => setPreview(undefined)}>
-              Close
+              {t("Close")}
             </Button>
           </div>
           <iframe
-            title="Report preview"
+            title={t("Report preview")}
             srcDoc={preview}
             className="h-[80vh] w-full rounded-xl border border-sand bg-white"
           />
@@ -471,12 +475,13 @@ function Editor({
 }
 
 function NoteForm({ onAdd }: { onAdd: (text: string) => void }) {
+  const { t } = useT();
   const [text, setText] = useState("");
   return (
     <div className="flex flex-col gap-2 sm:flex-row">
       <textarea
-        aria-label="New note"
-        placeholder="Add a note in your own words"
+        aria-label={t("New note")}
+        placeholder={t("Add a note in your own words")}
         className="min-h-16 flex-1 rounded-xl border border-sand p-3 text-sm"
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -490,7 +495,7 @@ function NoteForm({ onAdd }: { onAdd: (text: string) => void }) {
           setText("");
         }}
       >
-        Add note
+        {t("Add note")}
       </Button>
     </div>
   );

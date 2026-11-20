@@ -96,6 +96,9 @@ importers:
       '@kalachakra/rules':
         specifier: workspace:*
         version: link:../../packages/rules
+      '@kalachakra/texts':
+        specifier: workspace:*
+        version: link:../../packages/texts
       '@kalachakra/ui':
         specifier: workspace:*
         version: link:../../packages/ui

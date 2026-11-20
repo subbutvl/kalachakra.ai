@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "@/i18n/locale";
 import { useState } from "react";
 import { Button, Card, Field, Input, Select } from "@kalachakra/ui";
 import { checkDate, checkMobile, checkName } from "@/lib/validate";
@@ -15,6 +16,7 @@ export function ClientForm({
   onSave: (c: Client) => void;
   onCancel: () => void;
 }) {
+  const { t } = useT();
   const p = initial?.person;
   const [name, setName] = useState(p?.name ?? "");
   const [birthName, setBirthName] = useState(
@@ -71,51 +73,51 @@ export function ClientForm({
 
   return (
     <Card className="grid gap-4 sm:grid-cols-2">
-      <Field id="c-name" label="Name in daily use" error={tried ? errors.name : undefined}>
+      <Field id="c-name" label={t("Name in daily use")} error={tried ? errors.name : undefined}>
         <Input id="c-name" value={name} onChange={(e) => setName(e.target.value)} />
       </Field>
-      <Field id="c-birth" label="Birth certificate name (optional)">
+      <Field id="c-birth" label={t("Birth certificate name (optional)")}>
         <Input id="c-birth" value={birthName} onChange={(e) => setBirthName(e.target.value)} />
       </Field>
-      <Field id="c-dob" label="Date of birth" error={tried ? errors.dob : undefined}>
+      <Field id="c-dob" label={t("Date of birth")} error={tried ? errors.dob : undefined}>
         <Input id="c-dob" type="date" value={dob} onChange={(e) => setDob(e.target.value)} />
       </Field>
-      <Field id="c-gender" label="Gender" error={tried ? errors.kua : undefined}>
+      <Field id="c-gender" label={t("Gender")} error={tried ? errors.kua : undefined}>
         <div className="flex gap-2">
           <Select
             id="c-gender"
             value={gender}
             onChange={(e) => setGender(e.target.value as typeof gender)}
           >
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="unspecified">Choose a Kua basis</option>
+            <option value="male">{t("Male")}</option>
+            <option value="female">{t("Female")}</option>
+            <option value="unspecified">{t("Choose a Kua basis")}</option>
           </Select>
           {gender === "unspecified" ? (
             <Select
-              aria-label="Kua basis"
+              aria-label={t("Kua basis")}
               value={kuaBasis}
               onChange={(e) => setKuaBasis(e.target.value as typeof kuaBasis)}
             >
-              <option value="">Kua basis…</option>
-              <option value="male">Male formula</option>
-              <option value="female">Female formula</option>
+              <option value="">{t("Kua basis…")}</option>
+              <option value="male">{t("Male formula")}</option>
+              <option value="female">{t("Female formula")}</option>
             </Select>
           ) : null}
         </div>
       </Field>
-      <Field id="c-time" label="Time of birth (optional)">
+      <Field id="c-time" label={t("Time of birth (optional)")}>
         <Input id="c-time" type="time" value={time} onChange={(e) => setTime(e.target.value)} />
       </Field>
       <Field
         id="c-mobiles"
-        label="Mobile numbers (optional, comma-separated)"
+        label={t("Mobile numbers (optional, comma-separated)")}
         error={err("mobiles")}
       >
         <Input id="c-mobiles" value={mobiles} onChange={(e) => setMobiles(e.target.value)} />
       </Field>
       <div className="sm:col-span-2">
-        <Field id="c-notes" label="Notes">
+        <Field id="c-notes" label={t("Notes")}>
           <textarea
             id="c-notes"
             className="min-h-24 w-full rounded-xl border border-sand p-3 text-sm"
@@ -126,10 +128,10 @@ export function ClientForm({
       </div>
       <div className="flex gap-2 sm:col-span-2">
         <Button type="button" onClick={save}>
-          Save client
+          {t("Save client")}
         </Button>
         <Button type="button" variant="ghost" onClick={onCancel}>
-          Cancel
+          {t("Cancel")}
         </Button>
       </div>
     </Card>
