@@ -10,7 +10,17 @@ export const LANGUAGES = ["en", "ta"] as const;
 export type Language = (typeof LANGUAGES)[number];
 export type Audience = "adult" | "child";
 
-export const PLACEHOLDERS = ["name", "first_name", "number", "year", "planet", "direction", "colour", "day", "letter"] as const;
+export const PLACEHOLDERS = [
+  "name",
+  "first_name",
+  "number",
+  "year",
+  "planet",
+  "direction",
+  "colour",
+  "day",
+  "letter",
+] as const;
 export type Placeholders = Partial<Record<(typeof PLACEHOLDERS)[number], string | number>>;
 
 export const TextBlockSchema = z.strictObject({
@@ -18,7 +28,9 @@ export const TextBlockSchema = z.strictObject({
   text: z.string().min(1),
   /** Child edition (written for parents). */
   child: z.string().min(1).optional(),
-  tags: z.array(z.enum(["colour", "direction", "habit", "mantra", "fasting", "gemstone", "donation"])).optional(),
+  tags: z
+    .array(z.enum(["colour", "direction", "habit", "mantra", "fasting", "gemstone", "donation"]))
+    .optional(),
   status: z.enum(["draft", "reviewed"]),
   reviewer: z.string().optional(),
 });
@@ -45,26 +57,35 @@ export interface TextLibrary {
 }
 
 /** Validates the raw text files of one language and merges them into one library. */
-export function loadLibrary(version: string, language: Language, files: Record<string, unknown>): TextLibrary {
+export function loadLibrary(
+  version: string,
+  language: Language,
+  files: Record<string, unknown>,
+): TextLibrary {
   const blocks = new Map<string, TextBlock>();
   const problems: string[] = [];
   for (const [name, raw] of Object.entries(files)) {
     const parsed = TextFileSchema.safeParse(raw);
     if (!parsed.success) {
-      problems.push(`${language}/${name}.json: ${parsed.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; ")}`);
+      problems.push(
+        `${language}/${name}.json: ${parsed.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; ")}`,
+      );
       continue;
     }
-    if (parsed.data.language !== language) problems.push(`${language}/${name}.json says language ${parsed.data.language}`);
+    if (parsed.data.language !== language)
+      problems.push(`${language}/${name}.json says language ${parsed.data.language}`);
     for (const [key, entry] of Object.entries(parsed.data.blocks)) {
       const block: TextBlock = typeof entry === "string" ? { text: entry, status: "draft" } : entry;
       if (blocks.has(key)) problems.push(`${language}: key ${key} is defined twice`);
       blocks.set(key, block);
       for (const m of `${block.text} ${block.child ?? ""}`.matchAll(/\{([a-z_]+)\}/g)) {
-        if (!(PLACEHOLDERS as readonly string[]).includes(m[1]!)) problems.push(`${language}: ${key} uses unknown placeholder {${m[1]}}`);
+        if (!(PLACEHOLDERS as readonly string[]).includes(m[1]!))
+          problems.push(`${language}: ${key} uses unknown placeholder {${m[1]}}`);
       }
     }
   }
-  if (problems.length) throw new Error(`Text library ${language} is invalid:\n${problems.join("\n")}`);
+  if (problems.length)
+    throw new Error(`Text library ${language} is invalid:\n${problems.join("\n")}`);
   return { version, language, blocks };
 }
 
@@ -81,7 +102,12 @@ export function hasText(lib: TextLibrary, key: string): boolean {
 }
 
 /** The wording of a block for an audience, with placeholders filled; undefined when the key has no text. */
-export function textFor(lib: TextLibrary, key: string, audience: Audience, values: Placeholders = {}): string | undefined {
+export function textFor(
+  lib: TextLibrary,
+  key: string,
+  audience: Audience,
+  values: Placeholders = {},
+): string | undefined {
   const b = lib.blocks.get(key);
   if (!b) return undefined;
   return fill(audience === "child" && b.child ? b.child : b.text, values);

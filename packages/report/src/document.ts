@@ -50,8 +50,18 @@ export interface Branding {
 }
 
 export const OverlayEditSchema = z.discriminatedUnion("action", [
-  z.object({ action: z.literal("replace"), section: z.string(), block: z.string(), text: z.string().min(1) }),
-  z.object({ action: z.literal("add_note"), section: z.string(), after: z.string().optional(), text: z.string().min(1) }),
+  z.object({
+    action: z.literal("replace"),
+    section: z.string(),
+    block: z.string(),
+    text: z.string().min(1),
+  }),
+  z.object({
+    action: z.literal("add_note"),
+    section: z.string(),
+    after: z.string().optional(),
+    text: z.string().min(1),
+  }),
   z.object({ action: z.literal("hide"), section: z.string(), block: z.string().optional() }),
 ]);
 export type OverlayEdit = z.infer<typeof OverlayEditSchema>;

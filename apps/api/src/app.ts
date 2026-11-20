@@ -20,6 +20,16 @@ import {
   type ResolvedRules,
 } from "@kalachakra/engine";
 import { rulesVersions } from "@kalachakra/rules";
+import {
+  buildReport,
+  library,
+  OverlaySchema,
+  TEXTS_VERSION as LIBRARY_VERSION,
+  type Overlay,
+  type ReportDocument,
+  type ReportModules,
+} from "@kalachakra/report";
+import { renderReportPdf } from "@kalachakra/report/pdf";
 import { readEnv, type Env } from "./env.js";
 import { ApiError, ErrorSchema, handleError, validationHook } from "./errors.js";
 import { catalog, rulesFor, todayInIndia } from "./rules.js";
@@ -39,8 +49,8 @@ import {
   VehicleBody,
 } from "./schemas.js";
 
-/** The text library has no version until milestone 5. */
-export const TEXTS_VERSION = null;
+/** The text library version recorded in every response. */
+export const TEXTS_VERSION: string = LIBRARY_VERSION;
 
 const json = <S extends z.ZodType>(schema: S, description: string) => ({
   content: { "application/json": { schema } },
@@ -269,28 +279,104 @@ export function createApp(env: Env = readEnv()) {
     return c.json({ meta: meta(rules, asOf), ...result }, 200);
   });
 
-  // ---- Reports (milestone 5) -----------------------------------------------
-  const notYet = () => {
-    throw new ApiError(
-      501,
-      "not_implemented",
-      "Reports arrive with the report builder in milestone 5.",
-    );
+  // ---- Reports ------------------------------------------------------------
+  const buildFrom = (b: z.infer<typeof ReportBody>): ReportDocument => {
+    const rules = rulesFor(b.rule_profile);
+    const asOf = b.as_of ?? todayInIndia();
+    const profile = computeProfile({ person: b.person, as_of: asOf }, rules);
+    const m = b.modules ?? {};
+    const others = (list?: PersonInput[]) => (list ?? []).map((p) => profileOf(p, asOf, rules));
+    const modules: ReportModules = {};
+    if (m.mobile)
+      modules.mobile = computeMobile(
+        { numbers: m.mobile.numbers, ...(m.mobile.goals ? { goals: m.mobile.goals } : {}) },
+        profile,
+        rules,
+      );
+    if (m.vehicle) modules.vehicle = computeVehicle(m.vehicle.registrations, profile, rules);
+    if (m.house) {
+      modules.house = computeHouse(
+        {
+          ...(m.house.flat ? { flat: m.house.flat } : {}),
+          ...(m.house.building ? { building: m.house.building } : {}),
+          ...(m.house.door ? { door: m.house.door } : {}),
+        },
+        [profile, ...others(m.house.others)],
+        rules,
+      );
+    }
+    if (m.business) {
+      modules.business = computeBusiness(
+        {
+          names: m.business.names,
+          ...(m.business.trade ? { trade: m.business.trade } : {}),
+          ...(m.business.incorporation_date
+            ? { incorporation_date: m.business.incorporation_date }
+            : {}),
+        },
+        profile,
+        others(m.business.partners),
+        rules,
+      );
+    }
+    if (m.compatibility) {
+      const partner = profileOf(m.compatibility.partner, asOf, rules);
+      modules.compatibility = {
+        result: computeCompatibility(profile, partner, m.compatibility.relationship, rules),
+        partner,
+      };
+    }
+    let overlay: Overlay | undefined;
+    if (b.overlay) {
+      const parsed = OverlaySchema.safeParse(b.overlay);
+      if (!parsed.success)
+        throw new ApiError(
+          400,
+          "invalid_input",
+          parsed.error.issues.map((i) => `overlay.${i.path.join(".")}: ${i.message}`).join("; "),
+          "overlay",
+        );
+      overlay = parsed.data;
+    }
+    return buildReport({
+      profile,
+      library: library(b.language ?? "en"),
+      audience: b.audience ?? "adult",
+      modules,
+      ...(b.branding ? { branding: b.branding } : {}),
+      ...(overlay ? { overlay } : {}),
+    });
   };
-  const notImplemented = { 501: json(ErrorSchema, "Not built yet: arrives in milestone 5.") };
   app.openapi(
-    createRoute({
-      ...post("/v1/report", "Reports", "Assembled report as JSON (milestone 5)", ReportBody),
-      responses: { ...errors, ...notImplemented },
-    }),
-    notYet,
+    post("/v1/report", "Reports", "Assembled report as JSON (sections, text, data)", ReportBody),
+    (c) => {
+      return c.json(buildFrom(c.req.valid("json")) as never, 200);
+    },
   );
   app.openapi(
     createRoute({
-      ...post("/v1/report/pdf", "Reports", "The report as a PDF (milestone 5)", ReportBody),
-      responses: { ...errors, ...notImplemented },
+      ...post(
+        "/v1/report/pdf",
+        "Reports",
+        "The same report rendered to an A4 PDF, with branding and edit overlay",
+        ReportBody,
+      ),
+      responses: {
+        200: {
+          content: { "application/pdf": { schema: z.string().meta({ format: "binary" }) } },
+          description: "The PDF file",
+        },
+        ...errors,
+      },
     }),
-    notYet,
+    async (c) => {
+      const doc = buildFrom(c.req.valid("json"));
+      const pdf = await renderReportPdf(doc);
+      return c.body(pdf as unknown as ArrayBuffer, 200, {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": `attachment; filename="${doc.file_name}"`,
+      });
+    },
   );
 
   // ---- Rules ---------------------------------------------------------------

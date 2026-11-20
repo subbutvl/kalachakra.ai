@@ -3,35 +3,143 @@
   "language": "en",
   "module": "life",
   "blocks": {
-    "life.career.1": { "text": "Career: leadership, entrepreneurship and roles with authority. Aim for positions where you decide.", "child": "Learning: give responsibility and choice; leadership activities build confidence.", "status": "draft" },
-    "life.career.2": { "text": "Career: partnership, care, mediation and the arts. Choose teams that value harmony.", "child": "Learning: a gentle, encouraging setting and group work suit best.", "status": "draft" },
-    "life.career.3": { "text": "Career: teaching, advice, law and finance. Expertise and reputation are your capital.", "child": "Learning: reading, discussion and explaining ideas to others build strength.", "status": "draft" },
-    "life.career.4": { "text": "Career: technology, engineering, research and systems. Careful, practical work brings advancement.", "child": "Learning: hands-on projects, science and maths with clear steps suit best.", "status": "draft" },
-    "life.career.5": { "text": "Career: business, sales, media and travel. Variety and people keep you at your best.", "child": "Learning: short, varied sessions and languages or debate keep interest high.", "status": "draft" },
-    "life.career.6": { "text": "Career: design, healthcare, hospitality and teaching. A pleasant workplace matters.", "child": "Learning: art, music and caring roles bring out talent.", "status": "draft" },
-    "life.career.7": { "text": "Career: research, analysis, healing and specialist fields. Depth and independence suit you.", "child": "Learning: time to explore one subject deeply, with quiet space.", "status": "draft" },
-    "life.career.8": { "text": "Career: business leadership, finance, property and industry. Patience builds lasting authority.", "child": "Learning: clear goals, routines and steady encouragement.", "status": "draft" },
-    "life.career.9": { "text": "Career: service, the armed forces, medicine, sport and causes. Purpose fuels your energy.", "child": "Learning: physical activity first, then focused study; competitions motivate.", "status": "draft" },
+    "life.career.1": {
+      "text": "Career: leadership, entrepreneurship and roles with authority. Aim for positions where you decide.",
+      "child": "Learning: give responsibility and choice; leadership activities build confidence.",
+      "status": "draft"
+    },
+    "life.career.2": {
+      "text": "Career: partnership, care, mediation and the arts. Choose teams that value harmony.",
+      "child": "Learning: a gentle, encouraging setting and group work suit best.",
+      "status": "draft"
+    },
+    "life.career.3": {
+      "text": "Career: teaching, advice, law and finance. Expertise and reputation are your capital.",
+      "child": "Learning: reading, discussion and explaining ideas to others build strength.",
+      "status": "draft"
+    },
+    "life.career.4": {
+      "text": "Career: technology, engineering, research and systems. Careful, practical work brings advancement.",
+      "child": "Learning: hands-on projects, science and maths with clear steps suit best.",
+      "status": "draft"
+    },
+    "life.career.5": {
+      "text": "Career: business, sales, media and travel. Variety and people keep you at your best.",
+      "child": "Learning: short, varied sessions and languages or debate keep interest high.",
+      "status": "draft"
+    },
+    "life.career.6": {
+      "text": "Career: design, healthcare, hospitality and teaching. A pleasant workplace matters.",
+      "child": "Learning: art, music and caring roles bring out talent.",
+      "status": "draft"
+    },
+    "life.career.7": {
+      "text": "Career: research, analysis, healing and specialist fields. Depth and independence suit you.",
+      "child": "Learning: time to explore one subject deeply, with quiet space.",
+      "status": "draft"
+    },
+    "life.career.8": {
+      "text": "Career: business leadership, finance, property and industry. Patience builds lasting authority.",
+      "child": "Learning: clear goals, routines and steady encouragement.",
+      "status": "draft"
+    },
+    "life.career.9": {
+      "text": "Career: service, the armed forces, medicine, sport and causes. Purpose fuels your energy.",
+      "child": "Learning: physical activity first, then focused study; competitions motivate.",
+      "status": "draft"
+    },
 
-    "life.money.1": { "text": "Money: earned through position and initiative. Invest in your own skills and ventures.", "child": "Money habits: trust them with a small allowance to manage.", "status": "draft" },
-    "life.money.2": { "text": "Money: steady income and partnership bring security. Keep a simple budget.", "child": "Money habits: a visible savings jar builds security.", "status": "draft" },
-    "life.money.3": { "text": "Money: grows through expertise and long-term plans. Avoid lending too freely.", "child": "Money habits: saving toward books or courses suits them.", "status": "draft" },
-    "life.money.4": { "text": "Money: earned by hard work; keep a reserve for the unexpected.", "child": "Money habits: a simple record of saving and spending.", "status": "draft" },
-    "life.money.5": { "text": "Money: comes fast through trade and contacts, and can go fast. Automate savings.", "child": "Money habits: wait a day before buying something new.", "status": "draft" },
-    "life.money.6": { "text": "Money: steady, with spending on home and loved ones. Plan for comfort.", "child": "Money habits: plan for gifts and save for one wanted thing.", "status": "draft" },
-    "life.money.7": { "text": "Money: can be uneven; a steady savings habit protects you.", "child": "Money habits: explain the purpose of saving to them.", "status": "draft" },
-    "life.money.8": { "text": "Money: builds slowly and solidly, especially through property and patience.", "child": "Money habits: long-term goals with small celebrations along the way.", "status": "draft" },
-    "life.money.9": { "text": "Money: comes through effort; generosity is good, but set aside savings first.", "child": "Money habits: set aside a part of any money before spending.", "status": "draft" },
+    "life.money.1": {
+      "text": "Money: earned through position and initiative. Invest in your own skills and ventures.",
+      "child": "Money habits: trust them with a small allowance to manage.",
+      "status": "draft"
+    },
+    "life.money.2": {
+      "text": "Money: steady income and partnership bring security. Keep a simple budget.",
+      "child": "Money habits: a visible savings jar builds security.",
+      "status": "draft"
+    },
+    "life.money.3": {
+      "text": "Money: grows through expertise and long-term plans. Avoid lending too freely.",
+      "child": "Money habits: saving toward books or courses suits them.",
+      "status": "draft"
+    },
+    "life.money.4": {
+      "text": "Money: earned by hard work; keep a reserve for the unexpected.",
+      "child": "Money habits: a simple record of saving and spending.",
+      "status": "draft"
+    },
+    "life.money.5": {
+      "text": "Money: comes fast through trade and contacts, and can go fast. Automate savings.",
+      "child": "Money habits: wait a day before buying something new.",
+      "status": "draft"
+    },
+    "life.money.6": {
+      "text": "Money: steady, with spending on home and loved ones. Plan for comfort.",
+      "child": "Money habits: plan for gifts and save for one wanted thing.",
+      "status": "draft"
+    },
+    "life.money.7": {
+      "text": "Money: can be uneven; a steady savings habit protects you.",
+      "child": "Money habits: explain the purpose of saving to them.",
+      "status": "draft"
+    },
+    "life.money.8": {
+      "text": "Money: builds slowly and solidly, especially through property and patience.",
+      "child": "Money habits: long-term goals with small celebrations along the way.",
+      "status": "draft"
+    },
+    "life.money.9": {
+      "text": "Money: comes through effort; generosity is good, but set aside savings first.",
+      "child": "Money habits: set aside a part of any money before spending.",
+      "status": "draft"
+    },
 
-    "life.love.1": { "text": "Love: loyal and protective; a partner who respects your independence suits you.", "child": "Friendships: a natural leader among friends; teach sharing and turn-taking.", "status": "draft" },
-    "life.love.2": { "text": "Love: devoted and caring; you need warmth and appreciation in return.", "child": "Friendships: close, loyal friendships; help them speak up for themselves.", "status": "draft" },
-    "life.love.3": { "text": "Love: generous and principled; shared values matter most.", "child": "Friendships: often the advisor among friends.", "status": "draft" },
-    "life.love.4": { "text": "Love: slow to open up but faithful; trust grows over time.", "child": "Friendships: a few lasting friends; encourage sharing feelings.", "status": "draft" },
-    "life.love.5": { "text": "Love: charming and fun; freedom and conversation keep love alive.", "child": "Friendships: many friends; help them stay loyal to close ones.", "status": "draft" },
-    "life.love.6": { "text": "Love: deeply loving and family-centred; care without controlling.", "child": "Friendships: caring and generous; teach them to receive as well as give.", "status": "draft" },
-    "life.love.7": { "text": "Love: deep but reserved; a partner who respects quiet suits you.", "child": "Friendships: one or two close friends; respect their need for quiet.", "status": "draft" },
-    "life.love.8": { "text": "Love: shown through duty and loyalty; say the warm words too.", "child": "Friendships: dependable; encourage play and lightness.", "status": "draft" },
-    "life.love.9": { "text": "Love: passionate and generous; patience keeps it smooth.", "child": "Friendships: protective of friends; teach calm ways to resolve quarrels.", "status": "draft" },
+    "life.love.1": {
+      "text": "Love: loyal and protective; a partner who respects your independence suits you.",
+      "child": "Friendships: a natural leader among friends; teach sharing and turn-taking.",
+      "status": "draft"
+    },
+    "life.love.2": {
+      "text": "Love: devoted and caring; you need warmth and appreciation in return.",
+      "child": "Friendships: close, loyal friendships; help them speak up for themselves.",
+      "status": "draft"
+    },
+    "life.love.3": {
+      "text": "Love: generous and principled; shared values matter most.",
+      "child": "Friendships: often the advisor among friends.",
+      "status": "draft"
+    },
+    "life.love.4": {
+      "text": "Love: slow to open up but faithful; trust grows over time.",
+      "child": "Friendships: a few lasting friends; encourage sharing feelings.",
+      "status": "draft"
+    },
+    "life.love.5": {
+      "text": "Love: charming and fun; freedom and conversation keep love alive.",
+      "child": "Friendships: many friends; help them stay loyal to close ones.",
+      "status": "draft"
+    },
+    "life.love.6": {
+      "text": "Love: deeply loving and family-centred; care without controlling.",
+      "child": "Friendships: caring and generous; teach them to receive as well as give.",
+      "status": "draft"
+    },
+    "life.love.7": {
+      "text": "Love: deep but reserved; a partner who respects quiet suits you.",
+      "child": "Friendships: one or two close friends; respect their need for quiet.",
+      "status": "draft"
+    },
+    "life.love.8": {
+      "text": "Love: shown through duty and loyalty; say the warm words too.",
+      "child": "Friendships: dependable; encourage play and lightness.",
+      "status": "draft"
+    },
+    "life.love.9": {
+      "text": "Love: passionate and generous; patience keeps it smooth.",
+      "child": "Friendships: protective of friends; teach calm ways to resolve quarrels.",
+      "status": "draft"
+    },
 
     "life.family.1": "Family: often the one who takes charge and protects the family's standing.",
     "life.family.2": "Family: the peacemaker who keeps everyone connected.",

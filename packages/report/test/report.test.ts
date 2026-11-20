@@ -27,26 +27,61 @@ const myra = computeProfile({ person: myraP, as_of: AS_OF }, house);
 
 const ids = (d: ReportDocument) => d.sections.map((s) => s.id);
 const paragraphs = (d: ReportDocument) =>
-  d.sections.flatMap((s) => s.blocks).filter((b): b is Extract<typeof b, { kind: "p" }> => b.kind === "p");
+  d.sections
+    .flatMap((s) => s.blocks)
+    .filter((b): b is Extract<typeof b, { kind: "p" }> => b.kind === "p");
 
 describe("report builder", () => {
   it("builds the core report in section order with meta", () => {
     const d = buildReport({ profile: aarav, library: library("en"), audience: "adult" });
     expect(ids(d)).toEqual([
-      "cover", "how_to_read", "summary", "mulank", "bhagyank", "driver_conductor", "planets", "name_number", "name_correction",
-      "loshu_grid", "loshu_planes", "missing_repeated", "kua", "core_four", "inner_layers", "planes_chart", "maturity",
-      "career_money", "love_family", "health", "this_year", "months", "life_cycles", "ten_years", "lucky", "remedies",
-      "appendix", "glossary",
+      "cover",
+      "how_to_read",
+      "summary",
+      "mulank",
+      "bhagyank",
+      "driver_conductor",
+      "planets",
+      "name_number",
+      "name_correction",
+      "loshu_grid",
+      "loshu_planes",
+      "missing_repeated",
+      "kua",
+      "core_four",
+      "inner_layers",
+      "planes_chart",
+      "maturity",
+      "career_money",
+      "love_family",
+      "health",
+      "this_year",
+      "months",
+      "life_cycles",
+      "ten_years",
+      "lucky",
+      "remedies",
+      "appendix",
+      "glossary",
     ]);
     expect(d.sections.map((s) => s.number)).toEqual(d.sections.map((_, i) => i + 1));
-    expect(d.meta).toMatchObject({ engine: "0.1.0", rules: "v1.0", texts: "0.1", profile: "house-default", language: "en", audience: "adult" });
+    expect(d.meta).toMatchObject({
+      engine: "0.1.0",
+      rules: "v1.0",
+      texts: "0.1",
+      profile: "house-default",
+      language: "en",
+      audience: "adult",
+    });
     expect(d.file_name).toBe("Kalachakra_Aarav_Mehra_Complete_2026-11-20.pdf");
     expect(d.sections.reduce((s, x) => s + x.pages, 0)).toBeGreaterThanOrEqual(50);
   });
 
   it("uses the person's numbers", () => {
     const d = buildReport({ profile: aarav, library: library("en"), audience: "adult" });
-    const text = paragraphs(d).map((p) => p.text).join("\n");
+    const text = paragraphs(d)
+      .map((p) => p.text)
+      .join("\n");
     expect(text).toContain("Mulank 5 is ruled by Mercury");
     expect(text).toContain("Bhagyank 6 points life toward love");
     expect(text).toContain("28, Trust and Contradiction");
@@ -61,7 +96,9 @@ describe("report builder", () => {
     expect(d.title).toBe("Your Child's Numerology Report");
     expect(d.sections.find((s) => s.id === "career_money")?.title).toBe("School and learning");
     expect(d.sections.find((s) => s.id === "name_correction")?.title).toBe("Spelling choices");
-    expect(paragraphs(d).find((p) => p.id === "mulank.9.work")?.text).toMatch(/^This child is energetic/);
+    expect(paragraphs(d).find((p) => p.id === "mulank.9.work")?.text).toMatch(
+      /^This child is energetic/,
+    );
     expect(d.file_name).toContain("_Child_");
   });
 
@@ -77,7 +114,10 @@ describe("report builder", () => {
 
   it("adds the optional modules and add-ons", () => {
     const vpAarav = computeProfile({ person: aaravP, as_of: AS_OF }, vp);
-    const partner = computeProfile({ person: { name: "Ishaan Verma", dob: "2003-01-04", gender: "male" }, as_of: AS_OF }, vp);
+    const partner = computeProfile(
+      { person: { name: "Ishaan Verma", dob: "2003-01-04", gender: "male" }, as_of: AS_OF },
+      vp,
+    );
     const d = buildReport({
       profile: vpAarav,
       library: library("en"),
@@ -86,8 +126,16 @@ describe("report builder", () => {
         mobile: computeMobile({ numbers: ["9876524310", "9123456789"] }, vpAarav, vp),
         vehicle: computeVehicle(["KA 05 MN 1234"], vpAarav, vp),
         house: computeHouse({ flat: "12B", door: "E" }, [vpAarav, partner], vp),
-        business: computeBusiness({ names: ["Loomcraft Works", "Aarav Weaves"] }, vpAarav, [partner], vp),
-        compatibility: { result: computeCompatibility(vpAarav, myra, "parent_child", vp), partner: myra },
+        business: computeBusiness(
+          { names: ["Loomcraft Works", "Aarav Weaves"] },
+          vpAarav,
+          [partner],
+          vp,
+        ),
+        compatibility: {
+          result: computeCompatibility(vpAarav, myra, "parent_child", vp),
+          partner: myra,
+        },
       },
     });
     expect(ids(d).filter((x) => x === "mobile")).toHaveLength(2);
@@ -100,8 +148,18 @@ describe("report builder", () => {
   });
 
   it("renders every visual as SVG and a how-it-was-worked-out line", () => {
-    const html = renderReportHtml(buildReport({ profile: aarav, library: library("en"), audience: "adult" }));
-    for (const v of ["Lo Shu grid", "Birth chart", "Kua directions", "Nine-year cycle", "Twelve months", "Life cycles", "Next ten years"]) {
+    const html = renderReportHtml(
+      buildReport({ profile: aarav, library: library("en"), audience: "adult" }),
+    );
+    for (const v of [
+      "Lo Shu grid",
+      "Birth chart",
+      "Kua directions",
+      "Nine-year cycle",
+      "Twelve months",
+      "Life cycles",
+      "Next ten years",
+    ]) {
       expect(html, v).toContain(`aria-label="${v}"`);
     }
     expect(html).toContain("How this was worked out");
@@ -110,20 +168,43 @@ describe("report builder", () => {
 
   it("builds for any person, under every profile, in both languages and editions", () => {
     const date = fc
-      .record({ year: fc.integer({ min: 1940, max: 2024 }), month: fc.integer({ min: 1, max: 12 }), day: fc.integer({ min: 1, max: 31 }) })
-      .map(({ year, month, day }) => formatDate({ year, month, day: Math.min(day, daysInMonth(year, month)) }));
-    const name = fc.array(fc.stringMatching(/^[A-Za-z]{2,9}$/), { minLength: 1, maxLength: 3 }).map((p) => p.join(" "));
-    const gender = fc.constantFrom("male", "female", "unspecified") as fc.Arbitrary<"male" | "female" | "unspecified">;
+      .record({
+        year: fc.integer({ min: 1940, max: 2024 }),
+        month: fc.integer({ min: 1, max: 12 }),
+        day: fc.integer({ min: 1, max: 31 }),
+      })
+      .map(({ year, month, day }) =>
+        formatDate({ year, month, day: Math.min(day, daysInMonth(year, month)) }),
+      );
+    const name = fc
+      .array(fc.stringMatching(/^[A-Za-z]{2,9}$/), { minLength: 1, maxLength: 3 })
+      .map((p) => p.join(" "));
+    const gender = fc.constantFrom("male", "female", "unspecified") as fc.Arbitrary<
+      "male" | "female" | "unspecified"
+    >;
     const lang = fc.constantFrom("en", "ta") as fc.Arbitrary<"en" | "ta">;
     const audience = fc.constantFrom("adult", "child") as fc.Arbitrary<"adult" | "child">;
     fc.assert(
-      fc.property(name, date, gender, fc.constantFrom(house, vp, practitioner), lang, audience, (n, dob, g, r, l, a) => {
-        const p = computeProfile({ person: { name: n, dob, gender: g }, as_of: AS_OF, options: { name_suggestions: 3 } }, r);
-        const d = buildReport({ profile: p, library: library(l), audience: a });
-        expect(d.sections.length).toBeGreaterThanOrEqual(26);
-        expect(paragraphs(d).every((b) => b.text.length > 0 && !/\{[a-z_]+\}/.test(b.text))).toBe(true);
-        expect(renderReportHtml(d).length).toBeGreaterThan(20000);
-      }),
+      fc.property(
+        name,
+        date,
+        gender,
+        fc.constantFrom(house, vp, practitioner),
+        lang,
+        audience,
+        (n, dob, g, r, l, a) => {
+          const p = computeProfile(
+            { person: { name: n, dob, gender: g }, as_of: AS_OF, options: { name_suggestions: 3 } },
+            r,
+          );
+          const d = buildReport({ profile: p, library: library(l), audience: a });
+          expect(d.sections.length).toBeGreaterThanOrEqual(26);
+          expect(paragraphs(d).every((b) => b.text.length > 0 && !/\{[a-z_]+\}/.test(b.text))).toBe(
+            true,
+          );
+          expect(renderReportHtml(d).length).toBeGreaterThan(20000);
+        },
+      ),
       { numRuns: 120 },
     );
   });
@@ -140,15 +221,28 @@ describe("edit overlay (phase 1 spec 6.2)", () => {
         branding: { name: "Dr. Practitioner", phone: "000", signature: "With blessings" },
         order: ["cover", "how_to_read", "summary", "kua"],
         edits: [
-          { section: "mulank", block: "mulank.5.work", action: "replace", text: "My own reading of the work section." },
+          {
+            section: "mulank",
+            block: "mulank.5.work",
+            action: "replace",
+            text: "My own reading of the work section.",
+          },
           { section: "loshu_grid", action: "add_note", text: "Note at the end." },
-          { section: "missing_repeated", after: "loshu.count.2.missing", action: "add_note", text: "Try a plant in the south-west." },
+          {
+            section: "missing_repeated",
+            after: "loshu.count.2.missing",
+            action: "add_note",
+            text: "Try a plant in the south-west.",
+          },
           { section: "health", action: "hide" },
           { section: "mulank", block: "mulank.5.mind", action: "hide" },
         ],
       },
     });
-    expect(paragraphs(d).find((p) => p.id === "mulank.5.work")).toMatchObject({ source: "practitioner", text: "My own reading of the work section." });
+    expect(paragraphs(d).find((p) => p.id === "mulank.5.work")).toMatchObject({
+      source: "practitioner",
+      text: "My own reading of the work section.",
+    });
     expect(ids(d)).not.toContain("health");
     expect(ids(d).slice(0, 4)).toEqual(["cover", "how_to_read", "summary", "kua"]);
     expect(paragraphs(d).some((p) => p.id === "mulank.5.mind")).toBe(false);

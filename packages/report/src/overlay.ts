@@ -42,7 +42,13 @@ export function applyOverlay(doc: ReportDocument, overlay: ParsedOverlay): Repor
       continue;
     }
     // add_note
-    const note: Block = { kind: "p", id: `note.${s.id}.${s.blocks.length}`, text: edit.text, source: "practitioner", note: true };
+    const note: Block = {
+      kind: "p",
+      id: `note.${s.id}.${s.blocks.length}`,
+      text: edit.text,
+      source: "practitioner",
+      note: true,
+    };
     if (!edit.after) {
       s.blocks.push(note);
       continue;

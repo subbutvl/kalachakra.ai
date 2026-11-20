@@ -39,7 +39,9 @@ describe("text library", () => {
   it("Tamil text is really Tamil", () => {
     const ta = library("ta");
     const tamil = /[஀-௿]/;
-    const notTamil = [...ta.blocks.entries()].filter(([k, b]) => !tamil.test(b.text) && k !== "ui.trace.lang").map(([k]) => k);
+    const notTamil = [...ta.blocks.entries()]
+      .filter(([k, b]) => !tamil.test(b.text) && k !== "ui.trace.lang")
+      .map(([k]) => k);
     expect(notTamil).toEqual([]);
   });
 
@@ -49,15 +51,23 @@ describe("text library", () => {
   });
 
   it("rejects unknown placeholders, bad files and duplicates", () => {
-    expect(() => loadLibrary("0", "en", { x: { language: "en", module: "x", blocks: { "a.b": "Hi {nobody}" } } })).toThrow(/unknown placeholder \{nobody\}/);
-    expect(() => loadLibrary("0", "en", { x: { language: "en", module: "x", blocks: { nodot: "x" } } })).toThrow(/invalid/);
+    expect(() =>
+      loadLibrary("0", "en", {
+        x: { language: "en", module: "x", blocks: { "a.b": "Hi {nobody}" } },
+      }),
+    ).toThrow(/unknown placeholder \{nobody\}/);
+    expect(() =>
+      loadLibrary("0", "en", { x: { language: "en", module: "x", blocks: { nodot: "x" } } }),
+    ).toThrow(/invalid/);
     expect(() =>
       loadLibrary("0", "en", {
         x: { language: "en", module: "x", blocks: { "a.b": "1" } },
         y: { language: "en", module: "y", blocks: { "a.b": "2" } },
       }),
     ).toThrow(/defined twice/);
-    expect(() => loadLibrary("0", "en", { x: { language: "ta", module: "x", blocks: {} } })).toThrow(/says language ta/);
+    expect(() =>
+      loadLibrary("0", "en", { x: { language: "ta", module: "x", blocks: {} } }),
+    ).toThrow(/says language ta/);
     expect(() => library("hi" as "en")).toThrow(/No text library/);
     expect(Object.keys(textFiles)).toEqual(["en", "ta"]);
   });

@@ -74,68 +74,320 @@
     "loshu.plane.property.partial": "Property plane 2-5-8 partly filled: assets build steadily over time.",
     "loshu.plane.property.empty": "Property plane 2-5-8 empty: careful saving builds assets over time.",
 
-    "loshu.remedy.1.colour": { "text": "Wear or use blue and black accents, the colours of water, to support the missing 1.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.1.direction": { "text": "Strengthen the north of your home or room: keep it clean, bright and uncluttered.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.1.habit": { "text": "Practise speaking up: share one opinion a day clearly and kindly.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.1.mantra": { "text": "Recite a Sun mantra on Sunday mornings, such as \"Om Suryaya Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.1.fasting": { "text": "Traditionally, a light fast or simple meal on Sundays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.1.gemstone": { "text": "Traditionally, ruby is associated with the Sun. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.1.donation": { "text": "Traditionally, giving wheat or jaggery on Sundays.", "tags": ["donation"], "status": "draft" },
-    "loshu.remedy.2.colour": { "text": "Use earthy yellows and browns to support the missing 2.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.2.direction": { "text": "Strengthen the south-west: keep it stable, tidy and well-used.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.2.habit": { "text": "Practise patience: pause and listen fully before responding.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.2.mantra": { "text": "Recite a Moon mantra on Monday evenings, such as \"Om Chandraya Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.2.fasting": { "text": "Traditionally, a light fast on Mondays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.2.gemstone": { "text": "Traditionally, pearl is associated with the Moon. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.2.donation": { "text": "Traditionally, giving rice or milk on Mondays.", "tags": ["donation"], "status": "draft" },
-    "loshu.remedy.3.colour": { "text": "Use green, the colour of wood, to support the missing 3.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.3.direction": { "text": "Strengthen the east: let in morning light and keep healthy plants there.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.3.habit": { "text": "Read or learn something new for a few minutes every day.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.3.mantra": { "text": "Recite a Jupiter mantra on Thursdays, such as \"Om Gurave Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.3.fasting": { "text": "Traditionally, a light fast on Thursdays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.3.gemstone": { "text": "Traditionally, yellow sapphire is associated with Jupiter. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.3.donation": { "text": "Traditionally, giving yellow lentils or books on Thursdays.", "tags": ["donation"], "status": "draft" },
-    "loshu.remedy.4.colour": { "text": "Use green, the colour of wood, to support the missing 4.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.4.direction": { "text": "Strengthen the south-east: keep it orderly and well-lit.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.4.habit": { "text": "Keep a simple daily plan and tick off finished tasks.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.4.mantra": { "text": "Recite a Rahu mantra on Saturdays, such as \"Om Rahave Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.4.fasting": { "text": "Traditionally, a light fast on Saturdays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.4.gemstone": { "text": "Traditionally, hessonite is associated with Rahu. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.4.donation": { "text": "Traditionally, giving dark blankets or mustard oil on Saturdays.", "tags": ["donation"], "status": "draft" },
-    "loshu.remedy.5.colour": { "text": "Use earthy yellows and browns to support the missing 5.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.5.direction": { "text": "Keep the centre of the home open, clean and uncluttered.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.5.habit": { "text": "Move every day and set one clear goal each week.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.5.mantra": { "text": "Recite a Mercury mantra on Wednesdays, such as \"Om Budhaya Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.5.fasting": { "text": "Traditionally, a light fast on Wednesdays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.5.gemstone": { "text": "Traditionally, emerald is associated with Mercury. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.5.donation": { "text": "Traditionally, giving green lentils on Wednesdays.", "tags": ["donation"], "status": "draft" },
-    "loshu.remedy.6.colour": { "text": "Use white, gold and silver, the colours of metal, to support the missing 6.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.6.direction": { "text": "Strengthen the north-west: keep it bright and welcoming.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.6.habit": { "text": "Make time for one shared family activity each week.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.6.mantra": { "text": "Recite a Venus mantra on Fridays, such as \"Om Shukraya Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.6.fasting": { "text": "Traditionally, a light fast on Fridays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.6.gemstone": { "text": "Traditionally, diamond or white sapphire is associated with Venus. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.6.donation": { "text": "Traditionally, giving white sweets or clothes on Fridays.", "tags": ["donation"], "status": "draft" },
-    "loshu.remedy.7.colour": { "text": "Use white, gold and silver, the colours of metal, to support the missing 7.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.7.direction": { "text": "Strengthen the west: keep it calm and well-ordered.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.7.habit": { "text": "Spend ten quiet minutes a day in reflection or meditation.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.7.mantra": { "text": "Recite a Ketu mantra on Tuesdays, such as \"Om Ketave Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.7.fasting": { "text": "Traditionally, a light fast on Tuesdays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.7.gemstone": { "text": "Traditionally, cat's eye is associated with Ketu. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.7.donation": { "text": "Traditionally, giving multicoloured cloth or feeding animals on Tuesdays.", "tags": ["donation"], "status": "draft" },
-    "loshu.remedy.8.colour": { "text": "Use earthy yellows and browns to support the missing 8.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.8.direction": { "text": "Strengthen the north-east: keep it clean, light and peaceful.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.8.habit": { "text": "Finish one task completely before starting the next.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.8.mantra": { "text": "Recite a Saturn mantra on Saturdays, such as \"Om Shanaischaraya Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.8.fasting": { "text": "Traditionally, a light fast on Saturdays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.8.gemstone": { "text": "Traditionally, blue sapphire is associated with Saturn and is considered strong. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.8.donation": { "text": "Traditionally, giving black sesame or helping the elderly on Saturdays.", "tags": ["donation"], "status": "draft" },
-    "loshu.remedy.9.colour": { "text": "Use red and orange, the colours of fire, to support the missing 9.", "tags": ["colour"], "status": "draft" },
-    "loshu.remedy.9.direction": { "text": "Strengthen the south: keep it bright and active.", "tags": ["direction"], "status": "draft" },
-    "loshu.remedy.9.habit": { "text": "Take up one cause or goal that matters beyond yourself.", "tags": ["habit"], "status": "draft" },
-    "loshu.remedy.9.mantra": { "text": "Recite a Mars mantra on Tuesdays, such as \"Om Mangalaya Namah\".", "tags": ["mantra"], "status": "draft" },
-    "loshu.remedy.9.fasting": { "text": "Traditionally, a light fast on Tuesdays.", "tags": ["fasting"], "status": "draft" },
-    "loshu.remedy.9.gemstone": { "text": "Traditionally, red coral is associated with Mars. Consult an expert before wearing any gemstone.", "tags": ["gemstone"], "status": "draft" },
-    "loshu.remedy.9.donation": { "text": "Traditionally, giving red lentils on Tuesdays.", "tags": ["donation"], "status": "draft" }
+    "loshu.remedy.1.colour": {
+      "text": "Wear or use blue and black accents, the colours of water, to support the missing 1.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.1.direction": {
+      "text": "Strengthen the north of your home or room: keep it clean, bright and uncluttered.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.1.habit": {
+      "text": "Practise speaking up: share one opinion a day clearly and kindly.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.1.mantra": {
+      "text": "Recite a Sun mantra on Sunday mornings, such as \"Om Suryaya Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.1.fasting": {
+      "text": "Traditionally, a light fast or simple meal on Sundays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.1.gemstone": {
+      "text": "Traditionally, ruby is associated with the Sun. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.1.donation": {
+      "text": "Traditionally, giving wheat or jaggery on Sundays.",
+      "tags": ["donation"],
+      "status": "draft"
+    },
+    "loshu.remedy.2.colour": {
+      "text": "Use earthy yellows and browns to support the missing 2.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.2.direction": {
+      "text": "Strengthen the south-west: keep it stable, tidy and well-used.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.2.habit": {
+      "text": "Practise patience: pause and listen fully before responding.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.2.mantra": {
+      "text": "Recite a Moon mantra on Monday evenings, such as \"Om Chandraya Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.2.fasting": {
+      "text": "Traditionally, a light fast on Mondays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.2.gemstone": {
+      "text": "Traditionally, pearl is associated with the Moon. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.2.donation": {
+      "text": "Traditionally, giving rice or milk on Mondays.",
+      "tags": ["donation"],
+      "status": "draft"
+    },
+    "loshu.remedy.3.colour": {
+      "text": "Use green, the colour of wood, to support the missing 3.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.3.direction": {
+      "text": "Strengthen the east: let in morning light and keep healthy plants there.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.3.habit": {
+      "text": "Read or learn something new for a few minutes every day.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.3.mantra": {
+      "text": "Recite a Jupiter mantra on Thursdays, such as \"Om Gurave Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.3.fasting": {
+      "text": "Traditionally, a light fast on Thursdays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.3.gemstone": {
+      "text": "Traditionally, yellow sapphire is associated with Jupiter. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.3.donation": {
+      "text": "Traditionally, giving yellow lentils or books on Thursdays.",
+      "tags": ["donation"],
+      "status": "draft"
+    },
+    "loshu.remedy.4.colour": {
+      "text": "Use green, the colour of wood, to support the missing 4.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.4.direction": {
+      "text": "Strengthen the south-east: keep it orderly and well-lit.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.4.habit": {
+      "text": "Keep a simple daily plan and tick off finished tasks.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.4.mantra": {
+      "text": "Recite a Rahu mantra on Saturdays, such as \"Om Rahave Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.4.fasting": {
+      "text": "Traditionally, a light fast on Saturdays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.4.gemstone": {
+      "text": "Traditionally, hessonite is associated with Rahu. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.4.donation": {
+      "text": "Traditionally, giving dark blankets or mustard oil on Saturdays.",
+      "tags": ["donation"],
+      "status": "draft"
+    },
+    "loshu.remedy.5.colour": {
+      "text": "Use earthy yellows and browns to support the missing 5.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.5.direction": {
+      "text": "Keep the centre of the home open, clean and uncluttered.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.5.habit": {
+      "text": "Move every day and set one clear goal each week.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.5.mantra": {
+      "text": "Recite a Mercury mantra on Wednesdays, such as \"Om Budhaya Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.5.fasting": {
+      "text": "Traditionally, a light fast on Wednesdays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.5.gemstone": {
+      "text": "Traditionally, emerald is associated with Mercury. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.5.donation": {
+      "text": "Traditionally, giving green lentils on Wednesdays.",
+      "tags": ["donation"],
+      "status": "draft"
+    },
+    "loshu.remedy.6.colour": {
+      "text": "Use white, gold and silver, the colours of metal, to support the missing 6.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.6.direction": {
+      "text": "Strengthen the north-west: keep it bright and welcoming.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.6.habit": {
+      "text": "Make time for one shared family activity each week.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.6.mantra": {
+      "text": "Recite a Venus mantra on Fridays, such as \"Om Shukraya Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.6.fasting": {
+      "text": "Traditionally, a light fast on Fridays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.6.gemstone": {
+      "text": "Traditionally, diamond or white sapphire is associated with Venus. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.6.donation": {
+      "text": "Traditionally, giving white sweets or clothes on Fridays.",
+      "tags": ["donation"],
+      "status": "draft"
+    },
+    "loshu.remedy.7.colour": {
+      "text": "Use white, gold and silver, the colours of metal, to support the missing 7.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.7.direction": {
+      "text": "Strengthen the west: keep it calm and well-ordered.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.7.habit": {
+      "text": "Spend ten quiet minutes a day in reflection or meditation.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.7.mantra": {
+      "text": "Recite a Ketu mantra on Tuesdays, such as \"Om Ketave Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.7.fasting": {
+      "text": "Traditionally, a light fast on Tuesdays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.7.gemstone": {
+      "text": "Traditionally, cat's eye is associated with Ketu. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.7.donation": {
+      "text": "Traditionally, giving multicoloured cloth or feeding animals on Tuesdays.",
+      "tags": ["donation"],
+      "status": "draft"
+    },
+    "loshu.remedy.8.colour": {
+      "text": "Use earthy yellows and browns to support the missing 8.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.8.direction": {
+      "text": "Strengthen the north-east: keep it clean, light and peaceful.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.8.habit": {
+      "text": "Finish one task completely before starting the next.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.8.mantra": {
+      "text": "Recite a Saturn mantra on Saturdays, such as \"Om Shanaischaraya Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.8.fasting": {
+      "text": "Traditionally, a light fast on Saturdays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.8.gemstone": {
+      "text": "Traditionally, blue sapphire is associated with Saturn and is considered strong. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.8.donation": {
+      "text": "Traditionally, giving black sesame or helping the elderly on Saturdays.",
+      "tags": ["donation"],
+      "status": "draft"
+    },
+    "loshu.remedy.9.colour": {
+      "text": "Use red and orange, the colours of fire, to support the missing 9.",
+      "tags": ["colour"],
+      "status": "draft"
+    },
+    "loshu.remedy.9.direction": {
+      "text": "Strengthen the south: keep it bright and active.",
+      "tags": ["direction"],
+      "status": "draft"
+    },
+    "loshu.remedy.9.habit": {
+      "text": "Take up one cause or goal that matters beyond yourself.",
+      "tags": ["habit"],
+      "status": "draft"
+    },
+    "loshu.remedy.9.mantra": {
+      "text": "Recite a Mars mantra on Tuesdays, such as \"Om Mangalaya Namah\".",
+      "tags": ["mantra"],
+      "status": "draft"
+    },
+    "loshu.remedy.9.fasting": {
+      "text": "Traditionally, a light fast on Tuesdays.",
+      "tags": ["fasting"],
+      "status": "draft"
+    },
+    "loshu.remedy.9.gemstone": {
+      "text": "Traditionally, red coral is associated with Mars. Consult an expert before wearing any gemstone.",
+      "tags": ["gemstone"],
+      "status": "draft"
+    },
+    "loshu.remedy.9.donation": {
+      "text": "Traditionally, giving red lentils on Tuesdays.",
+      "tags": ["donation"],
+      "status": "draft"
+    }
   }
 }

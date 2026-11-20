@@ -41,6 +41,9 @@ importers:
       '@kalachakra/engine':
         specifier: workspace:*
         version: link:../../packages/engine
+      '@kalachakra/report':
+        specifier: workspace:*
+        version: link:../../packages/report
       '@kalachakra/rules':
         specifier: workspace:*
         version: link:../../packages/rules
