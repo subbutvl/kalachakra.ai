@@ -17,7 +17,7 @@ import { buildReport, library, renderReportHtml, type ReportDocument } from "../
 
 const catalog = { versions: rulesVersions, profiles: ruleProfiles };
 const house = resolveRules(catalog, "house-default");
-const vp = resolveRules(catalog, "vedicpupil-compat");
+const classic = resolveRules(catalog, "kalachakra-classic");
 const practitioner = resolveRules(catalog, "sample-practitioner");
 const AS_OF = "2026-11-20";
 const aaravP: PersonInput = { name: "Aarav Mehra", dob: "1991-08-14", gender: "male" };
@@ -113,27 +113,27 @@ describe("report builder", () => {
   });
 
   it("adds the optional modules and add-ons", () => {
-    const vpAarav = computeProfile({ person: aaravP, as_of: AS_OF }, vp);
+    const classicAarav = computeProfile({ person: aaravP, as_of: AS_OF }, classic);
     const partner = computeProfile(
       { person: { name: "Ishaan Verma", dob: "2003-01-04", gender: "male" }, as_of: AS_OF },
-      vp,
+      classic,
     );
     const d = buildReport({
-      profile: vpAarav,
+      profile: classicAarav,
       library: library("en"),
       audience: "adult",
       modules: {
-        mobile: computeMobile({ numbers: ["9876524310", "9123456789"] }, vpAarav, vp),
-        vehicle: computeVehicle(["KA 05 MN 1234"], vpAarav, vp),
-        house: computeHouse({ flat: "12B", door: "E" }, [vpAarav, partner], vp),
+        mobile: computeMobile({ numbers: ["9876524310", "9123456789"] }, classicAarav, classic),
+        vehicle: computeVehicle(["KA 05 MN 1234"], classicAarav, classic),
+        house: computeHouse({ flat: "12B", door: "E" }, [classicAarav, partner], classic),
         business: computeBusiness(
           { names: ["Loomcraft Works", "Aarav Weaves"] },
-          vpAarav,
+          classicAarav,
           [partner],
-          vp,
+          classic,
         ),
         compatibility: {
-          result: computeCompatibility(vpAarav, myra, "parent_child", vp),
+          result: computeCompatibility(classicAarav, myra, "parent_child", classic),
           partner: myra,
         },
       },
@@ -189,7 +189,7 @@ describe("report builder", () => {
         name,
         date,
         gender,
-        fc.constantFrom(house, vp, practitioner),
+        fc.constantFrom(house, classic, practitioner),
         lang,
         audience,
         (n, dob, g, r, l, a) => {

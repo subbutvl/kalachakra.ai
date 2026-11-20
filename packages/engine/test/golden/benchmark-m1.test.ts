@@ -5,10 +5,10 @@ import golden from "./benchmark-m1.json" with { type: "json" };
 
 // Golden tests must match exactly: a change that alters any of these numbers
 // fails the build until the rules version is bumped on purpose (spec section 10).
-const r = rules.vedicpupil;
+const r = rules.classic;
 expect(r.profile.id).toBe(golden.profile);
 
-describe("VedicPupil benchmark: name totals", () => {
+describe("benchmark: name totals", () => {
   for (const g of golden.names) {
     it(`${g.name} (${g.sample})`, () => {
       const c = scoreName(r.data.letters, "chaldean", g.name, r.settings["letters.y_vowel"]);
@@ -29,7 +29,7 @@ describe("VedicPupil benchmark: name totals", () => {
   }
 });
 
-describe("VedicPupil benchmark: pair scores", () => {
+describe("benchmark: pair scores", () => {
   for (const g of golden.pairs) {
     it(`${g.sample}: ${g.a}–${g.b} = ${g.score}`, () => {
       expect(pairScore(r.data.planets, r.settings, g.a, g.b).score).toBe(g.score);

@@ -115,7 +115,7 @@ describe("profile", () => {
     const vp = await post("/v1/profile", {
       person: myra,
       as_of: AS_OF,
-      rule_profile: "vedicpupil-compat",
+      rule_profile: "kalachakra-classic",
     });
     expect(house.body.loshu.missing).toEqual([5, 7, 8]);
     expect(vp.body.loshu.missing).toEqual([4, 5, 7, 8]);
@@ -195,7 +195,7 @@ describe("numbers in daily life", () => {
     const r = await post("/v1/mobile", {
       person: aarav,
       as_of: AS_OF,
-      rule_profile: "vedicpupil-compat",
+      rule_profile: "kalachakra-classic",
       numbers: ["+91 98765 24310"],
       goals: ["finance"],
       find_for: "9876524310",
@@ -235,7 +235,7 @@ describe("business, compatibility, dates", () => {
       owner: aarav,
       partners: [{ name: "Ishaan Verma", dob: "2003-01-04", gender: "male" }],
       names: ["Loomcraft Works", "Aarav Weaves", "Mehra Textiles Pvt Ltd", "Loomcraft India"],
-      rule_profile: "vedicpupil-compat",
+      rule_profile: "kalachakra-classic",
       as_of: AS_OF,
     });
     expect(r.status).toBe(200);
@@ -274,10 +274,10 @@ describe("rules", () => {
     const l = await get("/v1/rules/profiles");
     expect(l.body.profiles.map((p: { id: string }) => p.id)).toEqual([
       "house-default",
-      "vedicpupil-compat",
+      "kalachakra-classic",
       "sample-practitioner",
     ]);
-    const d = await get("/v1/rules/profiles/vedicpupil-compat");
+    const d = await get("/v1/rules/profiles/kalachakra-classic");
     expect(
       d.body.settings.find((s: { key: string }) => s.key === "loshu.include_mulank"),
     ).toMatchObject({ decision: "D10", value: "always", source: "profile" });
@@ -288,7 +288,7 @@ describe("rules", () => {
     const r = await post("/v1/rules/diff", {
       person: myra,
       a: "house-default",
-      b: "vedicpupil-compat",
+      b: "kalachakra-classic",
       as_of: AS_OF,
     });
     expect(r.status).toBe(200);

@@ -7,7 +7,7 @@ import golden from "./people.json" with { type: "json" };
 // the build until the rules version is bumped and the example updated on purpose.
 
 const byId = {
-  "vedicpupil-compat": rules.vedicpupil,
+  "kalachakra-classic": rules.classic,
   "house-default": rules.house,
 } as const;
 
