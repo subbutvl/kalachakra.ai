@@ -11,6 +11,7 @@ import mobile from "./v1.0/mobile.json" with { type: "json" };
 import business from "./v1.0/business.json" with { type: "json" };
 import compatibility from "./v1.0/compatibility.json" with { type: "json" };
 import optimizer from "./v1.0/optimizer.json" with { type: "json" };
+import dates from "./v1.0/dates.json" with { type: "json" };
 import switches from "./v1.0/switches.json" with { type: "json" };
 
 import houseDefault from "./profiles/house-default.json" with { type: "json" };
@@ -30,6 +31,7 @@ export const rulesVersions = {
     business,
     compatibility,
     optimizer,
+    dates,
     switches,
   },
 } as const;

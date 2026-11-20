@@ -10,14 +10,15 @@ export default tseslint.config(
   {
     rules: {
       "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      // With noUncheckedIndexedAccess on, a checked lookup is often clearest with "!".
+      "@typescript-eslint/no-non-null-assertion": "off",
       "no-restricted-imports": "off",
     },
   },
   {
+    // Tests poke at loose JSON responses and deliberately broken data.
     files: ["**/test/**/*.ts"],
-    rules: {
-      "@typescript-eslint/no-non-null-assertion": "off",
-    },
+    rules: { "@typescript-eslint/no-explicit-any": "off" },
   },
   {
     // The engine is pure calculation: no Node built-ins, no network, no clock.
