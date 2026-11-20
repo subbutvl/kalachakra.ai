@@ -42,7 +42,11 @@ export default function Check() {
     [t("Date of birth"), longDate(d.dob, locale)],
     [
       t("Kua basis"),
-      t((d.gender === "unspecified" ? d.kuaBasis : d.gender) === "female" ? "Female formula" : "Male formula"),
+      t(
+        (d.gender === "unspecified" ? d.kuaBasis : d.gender) === "female"
+          ? "Female formula"
+          : "Male formula",
+      ),
     ],
     [t("Report language"), d.language === "ta" ? "தமிழ்" : "English"],
   ];
@@ -51,14 +55,18 @@ export default function Check() {
       <Steps current={2} />
       <h1 className="text-2xl sm:text-4xl">{t("Check your details")}</h1>
       <p className="mt-2 text-muted">
-        {t("Only the letters A to Z are counted. If a name looks wrong, go back and correct the spelling.")}
+        {t(
+          "Only the letters A to Z are counted. If a name looks wrong, go back and correct the spelling.",
+        )}
       </p>
       <Card className="mt-8">
         <dl className="divide-y divide-sand">
           {rows.map(([k, v]) => (
             <div key={k} className="grid gap-1 py-3 sm:grid-cols-3">
               <dt className="font-label text-sm text-muted">{k}</dt>
-              <dd className="font-heading text-lg tracking-wide [overflow-wrap:anywhere] sm:col-span-2">{v}</dd>
+              <dd className="font-heading text-lg tracking-wide [overflow-wrap:anywhere] sm:col-span-2">
+                {v}
+              </dd>
             </div>
           ))}
         </dl>

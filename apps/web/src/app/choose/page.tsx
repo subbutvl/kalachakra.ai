@@ -54,39 +54,74 @@ export default function Choose() {
       <Steps current={0} />
       <h1 className="text-2xl sm:text-4xl">{t("Choose a report")}</h1>
       <p className="mt-3 max-w-2xl text-muted">
-        {t("Pick one report, then add anything you would like included. Everything goes into one PDF.")}
+        {t(
+          "Pick one report, then add anything you would like included. Everything goes into one PDF.",
+        )}
       </p>
 
-      <RadioGroup value={base} onValueChange={(v) => setBase(v as BaseReport)} className="mt-8 gap-4 sm:grid-cols-2" aria-label={t("Report")}>
+      <RadioGroup
+        value={base}
+        onValueChange={(v) => setBase(v as BaseReport)}
+        className="mt-8 gap-4 sm:grid-cols-2"
+        aria-label={t("Report")}
+      >
         {BASES.map((b) => (
           <Label
             key={b.id}
             htmlFor={`base-${b.id}`}
             className={cn(
               "flex cursor-pointer gap-4 rounded-card border p-5 transition-colors sm:p-6",
-              base === b.id ? "border-ink bg-ink text-white" : "border-sand bg-white hover:border-gold",
+              base === b.id
+                ? "border-ink bg-ink text-white"
+                : "border-sand bg-white hover:border-gold",
             )}
           >
             <RadioItem id={`base-${b.id}`} value={b.id} className="mt-1.5" />
             <span>
-              <span className={cn("block font-label text-xs font-normal", base === b.id ? "text-gold" : "text-gold-700")}>{t(b.who)}</span>
+              <span
+                className={cn(
+                  "block font-label text-xs font-normal",
+                  base === b.id ? "text-gold" : "text-gold-700",
+                )}
+              >
+                {t(b.who)}
+              </span>
               <span className="mt-1 block font-heading text-xl">{t(b.title)}</span>
-              <span className={cn("mt-2 block font-body text-sm font-normal leading-relaxed", base === b.id ? "text-sand" : "text-muted")}>{t(b.text)}</span>
+              <span
+                className={cn(
+                  "mt-2 block font-body text-sm font-normal leading-relaxed",
+                  base === b.id ? "text-sand" : "text-muted",
+                )}
+              >
+                {t(b.text)}
+              </span>
             </span>
           </Label>
         ))}
       </RadioGroup>
 
       <h2 className="mt-12 text-xl sm:text-2xl">{t("Add to your report")}</h2>
-      <p className="mt-2 text-sm text-muted">{t("Optional. Each one adds its own section, and asks for a few more details.")}</p>
+      <p className="mt-2 text-sm text-muted">
+        {t("Optional. Each one adds its own section, and asks for a few more details.")}
+      </p>
       <ul className="mt-5 divide-y divide-sand border-y border-sand">
         {ADD_ONS.map((a) => (
           <li key={a.id}>
-            <Label htmlFor={`addon-${a.id}`} className="flex cursor-pointer items-start gap-4 py-4 hover:bg-sand-50/60 sm:px-2">
-              <Checkbox id={`addon-${a.id}`} checked={addOns.includes(a.id)} onCheckedChange={() => toggleAddOn(a.id)} className="mt-1" />
+            <Label
+              htmlFor={`addon-${a.id}`}
+              className="flex cursor-pointer items-start gap-4 py-4 hover:bg-sand-50/60 sm:px-2"
+            >
+              <Checkbox
+                id={`addon-${a.id}`}
+                checked={addOns.includes(a.id)}
+                onCheckedChange={() => toggleAddOn(a.id)}
+                className="mt-1"
+              />
               <span className="grid flex-1 gap-1 sm:grid-cols-[12rem_1fr] sm:gap-6">
                 <span className="font-heading text-lg">{t(a.title)}</span>
-                <span className="font-body text-sm font-normal leading-relaxed text-muted">{t(a.text)}</span>
+                <span className="font-body text-sm font-normal leading-relaxed text-muted">
+                  {t(a.text)}
+                </span>
               </span>
             </Label>
           </li>

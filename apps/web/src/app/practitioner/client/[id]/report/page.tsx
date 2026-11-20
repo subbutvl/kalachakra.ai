@@ -302,7 +302,9 @@ function Editor({
         <Card className="border-danger" data-testid="needs-attention">
           <h2 className="text-lg">{t("Needs attention")}</h2>
           <p className="mt-1 text-sm text-muted">
-            {t("These edits point at text that is no longer in the report, for example after a rule profile change. They are left out of the PDF.")}
+            {t(
+              "These edits point at text that is no longer in the report, for example after a rule profile change. They are left out of the PDF.",
+            )}
           </p>
           <ul className="mt-3 space-y-2 text-sm">
             {attention.map((e, i) => (

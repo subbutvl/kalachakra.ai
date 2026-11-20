@@ -22,14 +22,7 @@ export function Input({ className, ...props }: InputHTMLAttributes<HTMLInputElem
 
 export function Select({ className, children, ...props }: SelectHTMLAttributes<HTMLSelectElement>) {
   return (
-    <select
-      className={cn(
-        field,
-        "kc-select appearance-none pr-10",
-        className,
-      )}
-      {...props}
-    >
+    <select className={cn(field, "kc-select appearance-none pr-10", className)} {...props}>
       {children}
     </select>
   );

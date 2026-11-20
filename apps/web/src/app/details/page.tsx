@@ -120,7 +120,9 @@ export default function DetailsPage() {
       <Steps current={1} />
       <h1 className="text-2xl sm:text-4xl">{t("Your details")}</h1>
       <p className="mt-2 text-muted">
-        {base === "child" ? t("Enter your child's details.") : t("Enter the details as you use them.")}{" "}
+        {base === "child"
+          ? t("Enter your child's details.")
+          : t("Enter the details as you use them.")}{" "}
         {t("Names in English letters, spelt as used.")}
       </p>
 
@@ -140,7 +142,11 @@ export default function DetailsPage() {
         <Field id="nickname" label={t("Nickname (optional)")} error={tr(e.nickname?.message)}>
           <Input id="nickname" {...register("nickname")} />
         </Field>
-        <Field id="marriedName" label={t("Married name (optional)")} error={tr(e.marriedName?.message)}>
+        <Field
+          id="marriedName"
+          label={t("Married name (optional)")}
+          error={tr(e.marriedName?.message)}
+        >
           <Input id="marriedName" {...register("marriedName")} />
         </Field>
         <Field id="dob" label={t("Date of birth")} error={tr(e.dob?.message)}>
@@ -276,7 +282,11 @@ export default function DetailsPage() {
           <Field id="flat" label={t("Flat number")} error={tr(e.flat?.message)}>
             <Input id="flat" placeholder="12B" {...register("flat")} {...aria(e.flat, "flat")} />
           </Field>
-          <Field id="building" label={t("House or building number")} error={tr(e.building?.message)}>
+          <Field
+            id="building"
+            label={t("House or building number")}
+            error={tr(e.building?.message)}
+          >
             <Input id="building" {...register("building")} {...aria(e.building, "building")} />
           </Field>
           <Field id="door" label={t("Main door faces")}>

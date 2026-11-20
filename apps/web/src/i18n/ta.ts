@@ -50,11 +50,13 @@ export const ta: Record<string, string> = {
   "Mulank {n}, ruled by {planet}.": "பிறவி எண் {n}, ஆளும் கிரகம் {planet}.",
   "Bhagyank, from the whole date": "விதி எண், முழுத் தேதியிலிருந்து",
   "Bhagyank {n}, ruled by {planet}.": "விதி எண் {n}, ஆளும் கிரகம் {planet}.",
-  "{n} is a master number, and the report reads it too.": "{n} ஒரு முதன்மை எண்; அறிக்கை அதையும் படிக்கிறது.",
+  "{n} is a master number, and the report reads it too.":
+    "{n} ஒரு முதன்மை எண்; அறிக்கை அதையும் படிக்கிறது.",
   "Name number, from the letters (Chaldean)": "பெயர் எண், எழுத்துகளிலிருந்து (கல்தேய முறை)",
   "Name number {n}, ruled by {planet}. The report also reads the compound {c} and how well the name fits your birth numbers.":
     "பெயர் எண் {n}, ஆளும் கிரகம் {planet}. அறிக்கை கூட்டு எண் {c} ஐயும், பெயர் உங்கள் பிறந்த எண்களுடன் எவ்வளவு பொருந்துகிறது என்பதையும் படிக்கிறது.",
-  "Type a name in English letters to see the sums.": "கணக்குகளைக் காண ஆங்கில எழுத்துகளில் ஒரு பெயரை உள்ளிடுங்கள்.",
+  "Type a name in English letters to see the sums.":
+    "கணக்குகளைக் காண ஆங்கில எழுத்துகளில் ஒரு பெயரை உள்ளிடுங்கள்.",
   "Three systems, one report": "மூன்று முறைகள், ஒரே அறிக்கை",
   "Each system reads something different. Where they agree, the report says so; where they differ, it shows both.":
     "ஒவ்வொரு முறையும் வெவ்வேறு ஒன்றைப் படிக்கிறது. அவை ஒத்துப்போகும் இடத்தில் அறிக்கை அதைச் சொல்கிறது; வேறுபடும் இடத்தில் இரண்டையும் காட்டுகிறது.",
@@ -135,7 +137,8 @@ export const ta: Record<string, string> = {
   // Details
   "Enter your child's details.": "உங்கள் குழந்தையின் விவரங்களை உள்ளிடுங்கள்.",
   "Enter the details as you use them.": "விவரங்களை நீங்கள் பயன்படுத்துவது போலவே உள்ளிடுங்கள்.",
-  "Names in English letters, spelt as used.": "பெயர்களை ஆங்கில எழுத்துகளில், பயன்படுத்தும் எழுத்துக்கூட்டலுடன்.",
+  "Names in English letters, spelt as used.":
+    "பெயர்களை ஆங்கில எழுத்துகளில், பயன்படுத்தும் எழுத்துக்கூட்டலுடன்.",
   "Full name as used daily": "தினமும் பயன்படுத்தும் முழுப் பெயர்",
   "Name on the birth certificate (optional)": "பிறப்புச் சான்றிதழில் உள்ள பெயர் (விருப்பம்)",
   "Nickname (optional)": "செல்லப் பெயர் (விருப்பம்)",
@@ -150,7 +153,8 @@ export const ta: Record<string, string> = {
   "Male formula": "ஆண் சூத்திரம்",
   "Female formula": "பெண் சூத்திரம்",
   "Time of birth (optional)": "பிறந்த நேரம் (விருப்பம்)",
-  "Helps only for births near the solar new year.": "சூரியப் புத்தாண்டுக்கு அருகில் பிறந்தவர்களுக்கு மட்டுமே உதவும்.",
+  "Helps only for births near the solar new year.":
+    "சூரியப் புத்தாண்டுக்கு அருகில் பிறந்தவர்களுக்கு மட்டுமே உதவும்.",
   "Place of birth (optional)": "பிறந்த இடம் (விருப்பம்)",
   "Report language": "அறிக்கை மொழி",
   English: "ஆங்கிலம்",
@@ -202,7 +206,8 @@ export const ta: Record<string, string> = {
 
   // Validation
   "Please enter the name.": "பெயரை உள்ளிடுங்கள்.",
-  "Please type the name in English letters, as it is spelt.": "பெயரை ஆங்கில எழுத்துகளில், எழுத்துக்கூட்டியபடியே உள்ளிடுங்கள்.",
+  "Please type the name in English letters, as it is spelt.":
+    "பெயரை ஆங்கில எழுத்துகளில், எழுத்துக்கூட்டியபடியே உள்ளிடுங்கள்.",
   "A name needs at least 2 letters.": "பெயருக்குக் குறைந்தது 2 எழுத்துகள் தேவை.",
   "Please enter the date of birth.": "பிறந்த தேதியை உள்ளிடுங்கள்.",
   "Please enter the incorporation date.": "நிறுவனப் பதிவுத் தேதியை உள்ளிடுங்கள்.",
@@ -371,7 +376,8 @@ export const ta: Record<string, string> = {
   "Add note": "குறிப்பைச் சேர்",
 
   // Labs
-  "Add a client on the client desk to use the labs.": "ஆய்வகங்களைப் பயன்படுத்த, வாடிக்கையாளர் மேசையில் ஒரு வாடிக்கையாளரைச் சேருங்கள்.",
+  "Add a client on the client desk to use the labs.":
+    "ஆய்வகங்களைப் பயன்படுத்த, வாடிக்கையாளர் மேசையில் ஒரு வாடிக்கையாளரைச் சேருங்கள்.",
   "Name lab": "பெயர் ஆய்வகம்",
   "Mobile lab": "கைபேசி ஆய்வகம்",
   "Business lab": "வணிக ஆய்வகம்",
@@ -383,7 +389,8 @@ export const ta: Record<string, string> = {
   "Pinned spellings": "குறித்துவைத்த எழுத்துக்கூட்டல்கள்",
   "Numbers (up to 20, one per line)": "எண்கள் (20 வரை, ஒரு வரிக்கு ஒன்று)",
   "Find new endings": "புதிய இறுதி இலக்கங்களைக் கண்டறி",
-  "Prefix or full number (first 6 digits are kept)": "முன்னொட்டு அல்லது முழு எண் (முதல் 6 இலக்கங்கள் வைக்கப்படும்)",
+  "Prefix or full number (first 6 digits are kept)":
+    "முன்னொட்டு அல்லது முழு எண் (முதல் 6 இலக்கங்கள் வைக்கப்படும்)",
   Goal: "நோக்கம்",
   Any: "ஏதேனும்",
   "Enter at least 6 digits.": "குறைந்தது 6 இலக்கங்களை உள்ளிடுங்கள்.",
@@ -410,7 +417,8 @@ export const ta: Record<string, string> = {
   "Reset custom to house default": "தனிப்பயனை இயல்புநிலைக்கு மீட்டமை",
   "What changes for a client": "ஒரு வாடிக்கையாளருக்கு என்ன மாறுகிறது",
   "Compared with": "ஒப்பிடுவது",
-  "Add a client to see which numbers change.": "எந்த எண்கள் மாறுகின்றன என்று பார்க்க ஒரு வாடிக்கையாளரைச் சேருங்கள்.",
+  "Add a client to see which numbers change.":
+    "எந்த எண்கள் மாறுகின்றன என்று பார்க்க ஒரு வாடிக்கையாளரைச் சேருங்கள்.",
   Result: "முடிவு",
   Before: "முன்பு",
   Now: "இப்போது",

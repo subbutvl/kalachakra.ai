@@ -24,7 +24,11 @@ export function Tabs<T extends string>({
 }) {
   const { t } = useT();
   return (
-    <div role="tablist" aria-label={label} className="-mx-1 flex gap-1 overflow-x-auto border-b border-sand px-1">
+    <div
+      role="tablist"
+      aria-label={label}
+      className="-mx-1 flex gap-1 overflow-x-auto border-b border-sand px-1"
+    >
       {tabs.map(([id, name]) => (
         <button
           key={id}
@@ -34,7 +38,9 @@ export function Tabs<T extends string>({
           onClick={() => onChange(id)}
           className={cn(
             "-mb-px whitespace-nowrap border-b-2 px-3 py-2.5 font-label text-sm",
-            value === id ? "border-gold font-medium text-ink" : "border-transparent text-muted hover:text-ink",
+            value === id
+              ? "border-gold font-medium text-ink"
+              : "border-transparent text-muted hover:text-ink",
           )}
         >
           {t(name)}

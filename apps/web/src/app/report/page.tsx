@@ -128,7 +128,9 @@ function ReportScreen() {
       {summary.data && html.data ? (
         <div className="mt-8 grid gap-6 lg:grid-cols-[16rem_1fr]">
           <nav aria-label={t("Report contents")} className="lg:sticky lg:top-6 lg:self-start">
-            <h2 className="mb-3 border-b border-gold pb-1 font-label text-sm font-medium text-gold-700">{t("Contents")}</h2>
+            <h2 className="mb-3 border-b border-gold pb-1 font-label text-sm font-medium text-gold-700">
+              {t("Contents")}
+            </h2>
             <ol className="max-h-48 space-y-1 overflow-y-auto pr-2 text-sm lg:max-h-[70vh]">
               {summary.data.sections.map((s) => (
                 <li key={`${s.id}-${s.number}`}>
@@ -144,7 +146,11 @@ function ReportScreen() {
               ))}
             </ol>
             <p className="mt-4 font-label text-xs text-muted">
-              {t("Engine {e}, rules {r}, texts {x}", { e: summary.data.meta.engine, r: summary.data.meta.rules, x: summary.data.meta.texts })}
+              {t("Engine {e}, rules {r}, texts {x}", {
+                e: summary.data.meta.engine,
+                r: summary.data.meta.rules,
+                x: summary.data.meta.texts,
+              })}
             </p>
           </nav>
           <iframe

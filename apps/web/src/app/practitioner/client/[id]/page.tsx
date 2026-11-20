@@ -29,7 +29,8 @@ const v = (r: NumberResult) => formatValue(r);
 /** The working view for one client (phase 1 spec 6.1), computed in the page. */
 export default function WorkingView() {
   const { t, locale } = useT();
-  const planet = (p?: string) => (p && p in PLANET_NAMES ? PLANET_NAMES[p as Planet][locale] : (p ?? ""));
+  const planet = (p?: string) =>
+    p && p in PLANET_NAMES ? PLANET_NAMES[p as Planet][locale] : (p ?? "");
   const { id } = useParams<{ id: string }>();
   const { clients, profile, setProfile } = usePractitioner();
   const client = clients.find((c) => c.id === id);
@@ -91,7 +92,9 @@ export default function WorkingView() {
               aria-label={t("Rule profile")}
               className="h-9 w-auto border-ink-500 bg-ink-700 text-sm text-white"
               value={profile.kind === "custom" ? "custom" : profile.id}
-              onChange={(e) => e.target.value !== "custom" && setProfile({ kind: "id", id: e.target.value })}
+              onChange={(e) =>
+                e.target.value !== "custom" && setProfile({ kind: "id", id: e.target.value })
+              }
             >
               {PROFILE_OPTIONS.map((p) => (
                 <option key={p.id} value={p.id}>
@@ -126,7 +129,10 @@ export default function WorkingView() {
       </div>
       {changes.size ? (
         <p role="status" className="rounded-xl bg-sand-50 p-3 text-sm" data-testid="changes-banner">
-          {t("The rule profile changed: {n} results changed. Changed numbers are outlined in gold with their old value.", { n: changes.size })}{" "}
+          {t(
+            "The rule profile changed: {n} results changed. Changed numbers are outlined in gold with their old value.",
+            { n: changes.size },
+          )}{" "}
           <button type="button" className="underline" onClick={() => setBefore(undefined)}>
             {t("Clear")}
           </button>

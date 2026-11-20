@@ -94,7 +94,9 @@ function SettingControl({
           }
         }}
       />
-      {bad ? <p className="text-xs text-danger">{t("Not a valid value for this setting.")}</p> : null}
+      {bad ? (
+        <p className="text-xs text-danger">{t("Not a valid value for this setting.")}</p>
+      ) : null}
     </div>
   );
 }
@@ -197,7 +199,9 @@ export default function Rules() {
             </label>
           </div>
         ) : (
-          <p className="mt-2 text-sm text-muted">{t("Add a client to see which numbers change.")}</p>
+          <p className="mt-2 text-sm text-muted">
+            {t("Add a client to see which numbers change.")}
+          </p>
         )}
         {client ? (
           changes.length ? (

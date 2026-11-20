@@ -31,7 +31,9 @@ export default function Settings() {
     <div className="space-y-6">
       <h1 className="text-2xl sm:text-4xl">{t("Practitioner settings")}</h1>
       <p className="text-muted">
-        {t("These replace the KalaChakra header and footer on your reports. A small line saying the report was calculated with KalaChakra stays. Saved as you type.")}
+        {t(
+          "These replace the KalaChakra header and footer on your reports. A small line saying the report was calculated with KalaChakra stays. Saved as you type.",
+        )}
       </p>
       <Card className="grid gap-4 sm:grid-cols-2">
         {text("name", "Your name")}

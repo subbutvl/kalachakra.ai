@@ -6,12 +6,45 @@ import { expect, test } from "@playwright/test";
 test.describe("customer mode", () => {
   test("home shows what the report covers and the mode switch", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: /your numbers, explained/i })).toBeVisible();
-    await expect(page.getByText("What the report covers")).toBeVisible();
-    await page.getByRole("link", { name: "Practitioner" }).click();
+    await expect(page.getByRole("heading", { name: /wheel of time/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Inside the report" })).toBeVisible();
+    await page
+      .getByRole("navigation", { name: "Mode" })
+      .getByRole("link", { name: "Practitioner" })
+      .click();
     await expect(page.getByRole("heading", { name: /client desk/i })).toBeVisible();
-    await page.getByRole("link", { name: "Customer", exact: true }).click();
+    await page
+      .getByRole("navigation", { name: "Mode" })
+      .getByRole("link", { name: "Customer" })
+      .click();
     await expect(page).toHaveURL("/");
+  });
+
+  test("the wheel turns to your Mulank and the worked example follows the date", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.getByLabel("Try it with your date of birth").fill("1991-08-14");
+    await expect(page.getByTestId("hero-result")).toContainText("Mulank 5, ruled by Mercury");
+    await expect(page.getByTestId("hero-result")).toContainText("Bhagyank 6, ruled by Venus");
+    await expect(page.getByTestId("worked-steps")).toContainText(
+      "1 + 4 + 0 + 8 + 1 + 9 + 9 + 1 = 33",
+    );
+  });
+
+  test("the whole site switches to Tamil and remembers it", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "தமிழ்" }).click();
+    await expect(page.locator("html")).toHaveAttribute("lang", "ta");
+    await expect(
+      page.getByRole("heading", { name: "காலச்சக்கரத்தில் படிக்கப்படும் உங்கள் பிறந்த தேதி" }),
+    ).toBeVisible();
+    await page.reload();
+    await expect(page.getByRole("link", { name: "முழு அறிக்கையைப் பெறுங்கள்" }).first()).toBeVisible();
+    await page.getByRole("link", { name: "முழு அறிக்கையைப் பெறுங்கள்" }).first().click();
+    await expect(page.getByRole("heading", { name: "அறிக்கையைத் தேர்ந்தெடுங்கள்" })).toBeVisible();
+    await page.getByRole("button", { name: "English" }).click();
+    await expect(page.getByRole("heading", { name: "Choose a report" })).toBeVisible();
   });
 
   test("a complete report with a mobile number, end to end", async ({ page }) => {
@@ -62,7 +95,7 @@ test.describe("customer mode", () => {
 
   test("a child report in Tamil", async ({ page }) => {
     await page.goto("/choose");
-    await page.getByText("Child report (for parents)").click();
+    await page.getByText("Child report", { exact: true }).click();
     await page.getByRole("button", { name: "Continue" }).click();
     await page.getByLabel("Full name as used daily").fill("Myra Kapoor");
     await page.getByLabel("Date of birth").fill("2016-03-09");
@@ -85,7 +118,7 @@ test.describe("customer mode", () => {
 
   test("the sample report opens without entering anything", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "See a sample report" }).click();
+    await page.getByRole("main").getByRole("link", { name: "See a sample report" }).click();
     await expect(page.getByRole("heading", { name: /sample report/i })).toBeVisible();
     await expect(
       page.frameLocator('iframe[title="Your report"]').getByText("Prepared for Aarav Mehra"),

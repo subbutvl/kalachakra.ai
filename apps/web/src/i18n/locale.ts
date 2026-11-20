@@ -32,7 +32,9 @@ export type T = (text: string, vars?: Vars) => string;
 
 export function translate(locale: Locale, text: string, vars?: Vars): string {
   const out = locale === "ta" ? (ta[text] ?? text) : text;
-  return vars ? out.replace(/\{(\w+)\}/g, (m: string, k: string) => (k in vars ? String(vars[k]) : m)) : out;
+  return vars
+    ? out.replace(/\{(\w+)\}/g, (m: string, k: string) => (k in vars ? String(vars[k]) : m))
+    : out;
 }
 
 /** The current language and its lookup function. */

@@ -27,7 +27,17 @@ export function libText(locale: Locale, key: string): string | undefined {
 }
 
 /** The planet that rules each root number, in the system's order (1 Sun … 9 Mars). */
-export const PLANETS = ["sun", "moon", "jupiter", "rahu", "mercury", "venus", "ketu", "saturn", "mars"] as const;
+export const PLANETS = [
+  "sun",
+  "moon",
+  "jupiter",
+  "rahu",
+  "mercury",
+  "venus",
+  "ketu",
+  "saturn",
+  "mars",
+] as const;
 export type Planet = (typeof PLANETS)[number];
 
 export const PLANET_NAMES: Record<Planet, { en: string; ta: string }> = {

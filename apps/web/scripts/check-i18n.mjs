@@ -37,7 +37,8 @@ for (const f of files) {
 const missing = [...used.keys()].filter((k) => !keys.has(k));
 if (missing.length) {
   console.error(`${missing.length} screen strings have no Tamil yet:`);
-  for (const k of missing) console.error(`  ${JSON.stringify(k)}  (${relative(root, used.get(k))})`);
+  for (const k of missing)
+    console.error(`  ${JSON.stringify(k)}  (${relative(root, used.get(k))})`);
   process.exit(1);
 }
 console.log(`Tamil: all ${used.size} screen strings translated.`);

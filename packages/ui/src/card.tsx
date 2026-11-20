@@ -4,7 +4,10 @@ import { cn } from "./cn.js";
 /** A plain panel: a hairline of sand on white. Hierarchy comes from layout, not shadows. */
 export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("rounded-card border border-sand bg-white p-5 sm:p-6", className)} {...props} />
+    <div
+      className={cn("rounded-card border border-sand bg-white p-5 sm:p-6", className)}
+      {...props}
+    />
   );
 }
 

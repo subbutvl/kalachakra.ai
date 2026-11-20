@@ -15,7 +15,8 @@ const STATUS = /* i18n */ { draft: "Draft", reviewed: "Reviewed", ready: "Ready"
 /** The client desk (phase 1 spec 6.1): a register of clients kept in this browser, with export and import. */
 export default function ClientDesk() {
   const { t, locale } = useT();
-  const { clients, saveClient, removeClient, duplicateClient, importAll, settings, profile } = usePractitioner();
+  const { clients, saveClient, removeClient, duplicateClient, importAll, settings, profile } =
+    usePractitioner();
   const [editing, setEditing] = useState<Client | "new" | null>(clients.length ? null : "new");
   const [query, setQuery] = useState("");
   const [message, setMessage] = useState<string>();
@@ -28,7 +29,14 @@ export default function ClientDesk() {
         clients.map((c) => {
           try {
             const p = profileFor(c.person, rules, 0);
-            return [c.id, [p.date_numbers.mulank.reduced, p.date_numbers.bhagyank.reduced, p.chaldean.headline.name_number.number.reduced]] as const;
+            return [
+              c.id,
+              [
+                p.date_numbers.mulank.reduced,
+                p.date_numbers.bhagyank.reduced,
+                p.chaldean.headline.name_number.number.reduced,
+              ],
+            ] as const;
           } catch {
             return [c.id, undefined] as const;
           }
@@ -52,12 +60,20 @@ export default function ClientDesk() {
         <div>
           <h1 className="text-2xl sm:text-4xl">{t("Client desk")}</h1>
           <p className="mt-2 text-muted">
-            {clients.length ? t("{n} clients, kept in this browser.", { n: clients.length }) : t("Your clients, kept in this browser.")}
+            {clients.length
+              ? t("{n} clients, kept in this browser.", { n: clients.length })
+              : t("Your clients, kept in this browser.")}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
           <Button onClick={() => setEditing("new")}>{t("Add client")}</Button>
-          <Button variant="outline" onClick={() => downloadJson("kalachakra-clients.json", { version: 1, settings, clients })} disabled={!clients.length}>
+          <Button
+            variant="outline"
+            onClick={() =>
+              downloadJson("kalachakra-clients.json", { version: 1, settings, clients })
+            }
+            disabled={!clients.length}
+          >
             {t("Export")}
           </Button>
           <Button variant="outline" onClick={() => file.current?.click()}>
@@ -93,7 +109,13 @@ export default function ClientDesk() {
 
       {clients.length ? (
         <div>
-          <Input placeholder={t("Search clients")} aria-label={t("Search clients")} value={query} onChange={(e) => setQuery(e.target.value)} className="max-w-sm" />
+          <Input
+            placeholder={t("Search clients")}
+            aria-label={t("Search clients")}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="max-w-sm"
+          />
           <div className="mt-6 hidden grid-cols-[1.6fr_1fr_7.5rem_1.4fr] gap-4 border-b-2 border-ink pb-2 font-label text-sm md:grid">
             <span>{t("Client")}</span>
             <span>{t("Date of birth")}</span>
@@ -105,9 +127,16 @@ export default function ClientDesk() {
               const n = numbers.get(c.id);
               const last = c.reports.at(-1);
               return (
-                <li key={c.id} className="grid gap-3 py-4 md:grid-cols-[1.6fr_1fr_7.5rem_1.4fr] md:items-center md:gap-4" data-testid="client-card">
+                <li
+                  key={c.id}
+                  className="grid gap-3 py-4 md:grid-cols-[1.6fr_1fr_7.5rem_1.4fr] md:items-center md:gap-4"
+                  data-testid="client-card"
+                >
                   <div className="min-w-0">
-                    <Link href={`/practitioner/client/${c.id}`} className="font-heading text-lg hover:text-gold-700">
+                    <Link
+                      href={`/practitioner/client/${c.id}`}
+                      className="font-heading text-lg hover:text-gold-700"
+                    >
                       {c.person.name}
                     </Link>
                     {c.notes ? <p className="truncate text-sm text-muted">{c.notes}</p> : null}
@@ -115,7 +144,10 @@ export default function ClientDesk() {
                   <span className="text-sm">{longDate(c.person.dob, locale)}</span>
                   <span className="flex gap-1.5" aria-label={t("Mulank, Bhagyank, name")}>
                     {n?.map((x, i) => (
-                      <span key={i} className={`flex h-8 w-8 items-center justify-center rounded-md font-heading ${i === 0 ? "bg-ink text-gold" : "bg-sand-100"}`}>
+                      <span
+                        key={i}
+                        className={`flex h-8 w-8 items-center justify-center rounded-md font-heading ${i === 0 ? "bg-ink text-gold" : "bg-sand-100"}`}
+                      >
                         {x}
                       </span>
                     ))}
@@ -141,7 +173,12 @@ export default function ClientDesk() {
                       variant="ghost"
                       className="text-danger"
                       onClick={() => {
-                        if (window.confirm(t("Delete {name} from this browser?", { name: c.person.name }))) removeClient(c.id);
+                        if (
+                          window.confirm(
+                            t("Delete {name} from this browser?", { name: c.person.name }),
+                          )
+                        )
+                          removeClient(c.id);
                       }}
                     >
                       {t("Delete")}
@@ -153,7 +190,9 @@ export default function ClientDesk() {
           </ul>
         </div>
       ) : null}
-      {!clients.length && !editing ? <p className="text-muted">{t("No clients yet. Add one to start.")}</p> : null}
+      {!clients.length && !editing ? (
+        <p className="text-muted">{t("No clients yet. Add one to start.")}</p>
+      ) : null}
     </div>
   );
 }
