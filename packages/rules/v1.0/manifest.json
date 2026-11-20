@@ -1,0 +1,25 @@
+{
+  "version": "v1.0",
+  "date": "2026-11-20",
+  "approved_by": "Subbu",
+  "source": "https://claude.ai/artifact/JKVsWsSt9KZY1ztngnbRgK",
+  "files": [
+    "letters.json",
+    "planets.json",
+    "compounds.json",
+    "loshu.json",
+    "kua.json",
+    "mobile.json",
+    "business.json",
+    "compatibility.json",
+    "optimizer.json",
+    "switches.json"
+  ],
+  "changelog": [
+    {
+      "version": "v1.0",
+      "date": "2026-11-20",
+      "summary": "First approved rules. All 24 recommended defaults (D1 to D24) accepted. Items marked status: draft (compound classes, planet colours, life path pair table) await numerologist review."
+    }
+  ]
+}

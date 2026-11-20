@@ -1,0 +1,29 @@
+{
+  "$comment": "The 24 decisions D1 to D24 from rules spec v1.0, section 5, as named settings. Values here are the approved defaults (all accepted 20 Nov 2026). A rule profile overrides them by setting name. Allowed values are checked by the engine's settings schema.",
+  "decisions": {
+    "D1":  { "title": "Which name is analysed", "settings": { "names.analysed": "both" } },
+    "D2":  { "title": "When the birth day changes", "settings": { "date.day_boundary": "civil_midnight" } },
+    "D3":  { "title": "Master numbers 11, 22, 33", "settings": { "masters.mode": "pythagorean_and_personal_years" } },
+    "D4":  { "title": "Y as a vowel", "settings": { "letters.y_vowel": "by_sound" } },
+    "D5":  { "title": "Bhagyank sum", "settings": { "bhagyank.sum_method": "all_digits" } },
+    "D6":  { "title": "Rahu (4) and Ketu (7) friendships", "settings": { "planets.rahu_proxy": "saturn", "planets.ketu_proxy": "mars", "planets.view_overrides": {} } },
+    "D7":  { "title": "Special Driver-Conductor pairs", "settings": { "driver_conductor.special_pairs": ["4-8", "8-8", "4-4"] } },
+    "D8":  { "title": "Unfavourable compound numbers", "settings": { "compounds.classification": "classical_draft" } },
+    "D9":  { "title": "Maturity number system", "settings": { "maturity.headline": "pythagorean", "maturity.show_other": true } },
+    "D10": { "title": "Mulank in the Lo Shu grid", "settings": { "loshu.include_mulank": "two_digit_days_only" } },
+    "D11": { "title": "Kua in the Lo Shu grid", "settings": { "loshu.include_kua": true } },
+    "D12": { "title": "Kua year cutoff", "settings": { "kua.year_cutoff": "lichun" } },
+    "D13": { "title": "Personal year start", "settings": { "personal_year.start": "jan_1", "personal_year.show_birthday_year": true } },
+    "D14": { "title": "Numerology dasha", "settings": { "dasha.method": "mulank_led" } },
+    "D15": { "title": "Name edit limits", "settings": { "optimizer.max_edits": 2, "optimizer.lock_first_letter": true } },
+    "D16": { "title": "Zeros in mobile numbers", "settings": { "mobile.zero_mode": "pause" } },
+    "D17": { "title": "Letters in vehicle numbers", "settings": { "vehicle.letters": "both" } },
+    "D18": { "title": "Compatibility weights", "settings": { "compatibility.weights": "default" } },
+    "D19": { "title": "Remedy scope", "settings": { "remedies.enabled_tags": ["habit", "colour", "direction", "mantra"] } },
+    "D20": { "title": "Mobile reading model", "settings": { "mobile.reading_model": "both" } },
+    "D21": { "title": "Mobile pairs to avoid", "settings": { "mobile.avoid_pairs": ["18", "24", "28", "44", "46", "48", "68", "88"] } },
+    "D22": { "title": "Legal suffix and symbols in business names", "settings": { "business.legal_suffix": "exclude", "business.ampersand": "ignore", "business.digits": "face_value" } },
+    "D23": { "title": "Business number bonus", "settings": { "business.bonus": "by_trade" } },
+    "D24": { "title": "Counting domain names", "settings": { "business.domain_count": "with_extension" } }
+  }
+}

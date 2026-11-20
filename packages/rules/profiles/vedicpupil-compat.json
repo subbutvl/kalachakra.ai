@@ -1,0 +1,18 @@
+{
+  "id": "vedicpupil-compat",
+  "name": "VedicPupil-compatible",
+  "description": "Settings that reproduce the VedicPupil sample reports exactly. Used only to prove the golden tests; not offered to customers.",
+  "base": "v1.0",
+  "overrides": {
+    "masters.mode": "always_reduce",
+    "letters.y_vowel": "never",
+    "driver_conductor.special_pairs": [],
+    "compounds.classification": "none",
+    "loshu.include_mulank": "always",
+    "loshu.include_kua": false,
+    "kua.year_cutoff": "jan_1",
+    "dasha.method": "none",
+    "optimizer.max_edits": 1,
+    "business.bonus": "popular"
+  }
+}

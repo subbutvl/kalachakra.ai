@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "relationship_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "couple",
+          "business_partners",
+          "parent_child"
+        ]
+      }
+    },
+    "weights": {
+      "type": "object",
+      "properties": {
+        "driver_harmony": {
+          "type": "number",
+          "minimum": 0
+        },
+        "conductor_harmony": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cross_harmony": {
+          "type": "number",
+          "minimum": 0
+        },
+        "loshu_gap_filling": {
+          "type": "number",
+          "minimum": 0
+        },
+        "life_path_synergy": {
+          "type": "number",
+          "minimum": 0
+        },
+        "name_harmony": {
+          "type": "number",
+          "minimum": 0
+        },
+        "kua_group": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "driver_harmony",
+        "conductor_harmony",
+        "cross_harmony",
+        "loshu_gap_filling",
+        "life_path_synergy",
+        "name_harmony",
+        "kua_group"
+      ],
+      "additionalProperties": false
+    },
+    "bands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "min": {
+            "type": "number"
+          },
+          "label": {
+            "type": "string",
+            "enum": [
+              "excellent",
+              "good",
+              "workable",
+              "needs_effort"
+            ]
+          }
+        },
+        "required": [
+          "min",
+          "label"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "life_path_pairs": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "reviewed"
+          ]
+        },
+        "credit": {
+          "type": "object",
+          "properties": {
+            "natural": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "compatible": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "challenging": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "natural",
+            "compatible",
+            "challenging"
+          ],
+          "additionalProperties": false
+        },
+        "natural_groups": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9
+            }
+          }
+        },
+        "compatible": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9
+              },
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      },
+      "required": [
+        "status",
+        "credit",
+        "natural_groups",
+        "compatible"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "relationship_types",
+    "weights",
+    "bands",
+    "life_path_pairs"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,67 @@
+{
+  "$comment": "Rules spec v1.0, section 3.4. Planet order is fixed at 1 Sun to 9 Mars (D6 note). Friendship is the classical natural friendship table, read from each side. Rahu and Ketu have no row: they are read through their proxy planets, set by decision D6 in switches.json (planets.rahu_proxy, planets.ketu_proxy, planets.view_overrides).",
+  "numbers": {
+    "1": "sun",
+    "2": "moon",
+    "3": "jupiter",
+    "4": "rahu",
+    "5": "mercury",
+    "6": "venus",
+    "7": "ketu",
+    "8": "saturn",
+    "9": "mars"
+  },
+  "friendship": {
+    "sun":     { "friends": ["moon", "mars", "jupiter"],  "neutral": ["mercury"],                             "enemies": ["venus", "saturn"] },
+    "moon":    { "friends": ["sun", "mercury"],           "neutral": ["mars", "jupiter", "venus", "saturn"],  "enemies": [] },
+    "jupiter": { "friends": ["sun", "moon", "mars"],      "neutral": ["saturn"],                              "enemies": ["mercury", "venus"] },
+    "mercury": { "friends": ["sun", "venus"],             "neutral": ["mars", "jupiter", "saturn"],           "enemies": ["moon"] },
+    "venus":   { "friends": ["mercury", "saturn"],        "neutral": ["mars", "jupiter"],                     "enemies": ["sun", "moon"] },
+    "saturn":  { "friends": ["mercury", "venus"],         "neutral": ["jupiter"],                             "enemies": ["sun", "moon", "mars"] },
+    "mars":    { "friends": ["sun", "moon", "jupiter"],   "neutral": ["venus", "saturn"],                     "enemies": ["mercury"] }
+  },
+  "pair_score": {
+    "$comment": "Pair score = A's view of B + B's view of A (each +1 friend, 0 neutral, -1 enemy), so -2 to +2. The same planet scores +2. A Rahu or Ketu number paired with its proxy (4-8, 7-9) counts as the same planet.",
+    "friend": 1,
+    "neutral": 0,
+    "enemy": -1,
+    "same_planet": 2
+  },
+  "days": {
+    "$comment": "Traditional weekday of each planet; Rahu as Saturday and Ketu as Tuesday (spec 3.4).",
+    "sun": "sunday",
+    "moon": "monday",
+    "mars": "tuesday",
+    "mercury": "wednesday",
+    "jupiter": "thursday",
+    "venus": "friday",
+    "saturn": "saturday",
+    "rahu": "saturday",
+    "ketu": "tuesday"
+  },
+  "colours": {
+    "$comment": "Traditional colours. Draft for numerologist review.",
+    "status": "draft",
+    "sun": ["gold", "orange", "copper"],
+    "moon": ["white", "cream", "silver"],
+    "jupiter": ["yellow", "saffron"],
+    "rahu": ["grey", "electric blue"],
+    "mercury": ["green"],
+    "venus": ["white", "light pink", "light blue"],
+    "ketu": ["smoky grey", "multicolour"],
+    "saturn": ["black", "dark blue"],
+    "mars": ["red", "coral"]
+  },
+  "elements": {
+    "$comment": "Tattva of each planet, used by the mobile element flow (spec 3.11); Rahu as Saturn and Ketu as Mars.",
+    "sun": "fire",
+    "ketu": "fire",
+    "mars": "fire",
+    "moon": "water",
+    "venus": "water",
+    "jupiter": "space",
+    "rahu": "air",
+    "saturn": "air",
+    "mercury": "earth"
+  }
+}
