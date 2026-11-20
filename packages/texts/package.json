@@ -1,0 +1,15 @@
+{
+  "name": "@kalachakra/texts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KalaChakra interpretation library (English and Tamil). Edited by writers and reviewers, never code.",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./en/*": "./en/*",
+    "./ta/*": "./ta/*"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}
