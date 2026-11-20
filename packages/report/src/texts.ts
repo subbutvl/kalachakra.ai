@@ -10,7 +10,7 @@ export const LANGUAGES = ["en", "ta"] as const;
 export type Language = (typeof LANGUAGES)[number];
 export type Audience = "adult" | "child";
 
-export const PLACEHOLDERS = ["name", "first_name", "number", "year", "planet", "direction", "colour", "day"] as const;
+export const PLACEHOLDERS = ["name", "first_name", "number", "year", "planet", "direction", "colour", "day", "letter"] as const;
 export type Placeholders = Partial<Record<(typeof PLACEHOLDERS)[number], string | number>>;
 
 export const TextBlockSchema = z.strictObject({
