@@ -7,7 +7,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./pdf": "./src/pdf.ts",
-    "./fonts": "./src/fonts.ts"
+    "./fonts": "./src/fonts.ts",
+    "./visuals": "./src/visuals.tsx"
   },
   "scripts": {
     "test": "vitest run",

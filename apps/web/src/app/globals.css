@@ -24,3 +24,14 @@
     font-weight: 600;
   }
 }
+
+/* Colours the shared report visuals (SVG) read. */
+:root {
+  --kc-gold: #d8a250;
+  --kc-sand: #e8d4b6;
+  --kc-ink: #1f2628;
+  --kc-muted: #6e7476;
+}
+.kc-visual { max-width: 100%; height: auto; }
+.kc-visual .kc-num { font-family: var(--font-heading); }
+.kc-visual .kc-label { font-family: var(--font-label); }

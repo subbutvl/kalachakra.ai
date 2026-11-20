@@ -93,6 +93,9 @@ importers:
       '@kalachakra/report':
         specifier: workspace:*
         version: link:../../packages/report
+      '@kalachakra/rules':
+        specifier: workspace:*
+        version: link:../../packages/rules
       '@kalachakra/ui':
         specifier: workspace:*
         version: link:../../packages/ui

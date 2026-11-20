@@ -131,3 +131,6 @@ export {
   type Relationship,
 } from "./modules/compatibility.js";
 export { findDates, type DateRequest, type DateResult } from "./modules/dates.js";
+
+// Rule diff: what changed between two results (rules diff endpoint, practitioner rule switch).
+export { diffResults, type Change } from "./diff.js";

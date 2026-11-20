@@ -20,6 +20,7 @@
     "@hookform/resolvers": "^5.9.2",
     "@kalachakra/engine": "workspace:*",
     "@kalachakra/report": "workspace:*",
+    "@kalachakra/rules": "workspace:*",
     "@kalachakra/ui": "workspace:*",
     "@tanstack/react-query": "^5.108.0",
     "lucide-react": "^1.76.0",
