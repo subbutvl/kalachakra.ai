@@ -24,9 +24,12 @@ test.describe("customer mode", () => {
     page,
   }) => {
     await page.goto("/");
-    // On a cold dev server the field can be filled before the page is interactive, so retry the fill.
+    // On a cold or busy dev server the field can be filled before the page is interactive, so
+    // retry. Clear it first: refilling the same value would not count as a change.
+    const dob = page.getByLabel("Try it with your date of birth");
     await expect(async () => {
-      await page.getByLabel("Try it with your date of birth").fill("1991-08-14");
+      await dob.fill("");
+      await dob.fill("1991-08-14");
       await expect(page.getByTestId("hero-result")).toContainText("Mulank 5, ruled by Mercury", {
         timeout: 2_000,
       });
