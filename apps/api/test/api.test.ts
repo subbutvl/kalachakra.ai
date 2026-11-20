@@ -2,7 +2,7 @@ import { afterAll, describe, expect, it } from "vitest";
 import { closePdfBrowser } from "@kalachakra/report/pdf";
 import { createApp } from "../src/app.js";
 import { todayInIndia } from "../src/rules.js";
-import { diffResults } from "../src/diff.js";
+import { diffResults } from "@kalachakra/engine";
 
 process.env.API_QUIET = "1";
 const app = createApp({ host: "127.0.0.1", port: 8787, webOrigin: "http://localhost:3000" });
