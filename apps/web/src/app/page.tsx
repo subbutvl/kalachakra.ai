@@ -328,7 +328,7 @@ export default function Home() {
             "Each system reads something different. Where they agree, the report says so; where they differ, it shows both.",
           )}
         </p>
-        <div className="mt-8 overflow-x-auto">
+        <div className="mt-8 overflow-x-auto" data-scrolls>
           <table className="w-full min-w-[36rem] border-collapse text-left">
             <thead>
               <tr className="border-b-2 border-ink font-label text-sm">

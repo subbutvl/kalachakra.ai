@@ -285,7 +285,7 @@ export default function WorkingView() {
                 {n.normalised}{" "}
                 <span className="font-label text-xs text-muted">({n.kind.replace("_", " ")})</span>
               </h3>
-              <div className="mt-3 overflow-x-auto">
+              <div className="mt-3 overflow-x-auto" data-scrolls>
                 <table className="text-sm">
                   <tbody>
                     {n.name_number.letters.map((part) => (

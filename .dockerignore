@@ -1,0 +1,9 @@
+**/node_modules
+**/.next
+**/.turbo
+**/test-results
+**/playwright-report
+review
+packages/report/reports
+**/*.local.json
+.git

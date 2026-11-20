@@ -78,6 +78,16 @@ only; the API allows only the web app's origin and logs only method, path, statu
 details stay in the browser tab and are cleared by "Start again".
 
 Browser tests: `pnpm --filter @kalachakra/web test:e2e` (starts both servers if they are not running).
+They cover the customer and practitioner flows, the Tamil switch, and a phone-width check that no
+screen scrolls sideways in either language.
+
+With Docker instead of Node: `docker compose up --build` builds one image (with Chromium for the PDFs)
+and runs the API and the web app on the same ports.
+
+Showing it to someone: follow [docs/demo-guide.md](docs/demo-guide.md). For the manual review of
+reports, `node scripts/review-reports.mjs` (with the API running) makes five reports for fictional
+people in `./review` (git-ignored), each chosen to test something different, and prints how long each
+took.
 
 ## Changing rules
 
