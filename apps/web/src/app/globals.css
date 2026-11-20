@@ -32,6 +32,13 @@
   --kc-ink: #1f2628;
   --kc-muted: #6e7476;
 }
-.kc-visual { max-width: 100%; height: auto; }
-.kc-visual .kc-num { font-family: var(--font-heading); }
-.kc-visual .kc-label { font-family: var(--font-label); }
+.kc-visual {
+  max-width: 100%;
+  height: auto;
+}
+.kc-visual .kc-num {
+  font-family: var(--font-heading);
+}
+.kc-visual .kc-label {
+  font-family: var(--font-label);
+}

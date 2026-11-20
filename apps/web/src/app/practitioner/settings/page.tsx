@@ -7,9 +7,16 @@ import { usePractitioner } from "@/stores/practitioner";
 /** One-time practitioner settings: printed on report headers and footers (phase 1 spec 6.1). */
 export default function Settings() {
   const { settings, setSettings, setProfile } = usePractitioner();
-  const text = (key: "name" | "title" | "phone" | "email" | "website" | "signature", label: string) => (
+  const text = (
+    key: "name" | "title" | "phone" | "email" | "website" | "signature",
+    label: string,
+  ) => (
     <Field id={`s-${key}`} label={label}>
-      <Input id={`s-${key}`} value={settings[key]} onChange={(e) => setSettings({ [key]: e.target.value })} />
+      <Input
+        id={`s-${key}`}
+        value={settings[key]}
+        onChange={(e) => setSettings({ [key]: e.target.value })}
+      />
     </Field>
   );
   const onLogo = (f: File) => {
@@ -21,7 +28,10 @@ export default function Settings() {
   return (
     <div className="space-y-6">
       <h1 className="text-2xl sm:text-3xl">Practitioner settings</h1>
-      <p className="text-muted">These replace the KalaChakra header and footer on your reports. A small "calculated with KalaChakra" line stays. Saved as you type.</p>
+      <p className="text-muted">
+        These replace the KalaChakra header and footer on your reports. A small "calculated with
+        KalaChakra" line stays. Saved as you type.
+      </p>
       <Card className="grid gap-4 sm:grid-cols-2">
         {text("name", "Your name")}
         {text("title", "Title")}
@@ -30,12 +40,21 @@ export default function Settings() {
         {text("website", "Website")}
         {text("signature", "Signature line")}
         <Field id="s-logo" label="Logo (PNG or JPEG)">
-          <input id="s-logo" type="file" accept="image/png,image/jpeg" onChange={(e) => e.target.files?.[0] && onLogo(e.target.files[0])} />
+          <input
+            id="s-logo"
+            type="file"
+            accept="image/png,image/jpeg"
+            onChange={(e) => e.target.files?.[0] && onLogo(e.target.files[0])}
+          />
         </Field>
         {settings.logo ? (
           <div className="flex items-center gap-3">
             <img src={settings.logo} alt="Your logo" className="h-12" />
-            <button type="button" className="text-sm text-danger" onClick={() => setSettings({ logo: "" })}>
+            <button
+              type="button"
+              className="text-sm text-danger"
+              onClick={() => setSettings({ logo: "" })}
+            >
               Remove
             </button>
           </div>

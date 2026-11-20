@@ -10,9 +10,23 @@ export function useHydrated(): boolean {
   return ok;
 }
 
-export function Tabs<T extends string>({ tabs, value, onChange, label }: { tabs: [T, string][]; value: T; onChange: (t: T) => void; label: string }) {
+export function Tabs<T extends string>({
+  tabs,
+  value,
+  onChange,
+  label,
+}: {
+  tabs: [T, string][];
+  value: T;
+  onChange: (t: T) => void;
+  label: string;
+}) {
   return (
-    <div role="tablist" aria-label={label} className="flex flex-wrap gap-2 border-b border-sand pb-3">
+    <div
+      role="tablist"
+      aria-label={label}
+      className="flex flex-wrap gap-2 border-b border-sand pb-3"
+    >
       {tabs.map(([id, name]) => (
         <button
           key={id}
@@ -20,7 +34,10 @@ export function Tabs<T extends string>({ tabs, value, onChange, label }: { tabs:
           type="button"
           aria-selected={value === id}
           onClick={() => onChange(id)}
-          className={cn("rounded-full px-4 py-1.5 font-label text-sm", value === id ? "bg-ink text-white" : "text-ink hover:bg-sand-50")}
+          className={cn(
+            "rounded-full px-4 py-1.5 font-label text-sm",
+            value === id ? "bg-ink text-white" : "text-ink hover:bg-sand-50",
+          )}
         >
           {name}
         </button>
@@ -30,9 +47,25 @@ export function Tabs<T extends string>({ tabs, value, onChange, label }: { tabs:
 }
 
 /** One number with its label, planet or detail, and an optional change marker (old → new). */
-export function NumberTile({ label, value, detail, changed }: { label: string; value: ReactNode; detail?: ReactNode; changed?: string }) {
+export function NumberTile({
+  label,
+  value,
+  detail,
+  changed,
+}: {
+  label: string;
+  value: ReactNode;
+  detail?: ReactNode;
+  changed?: string;
+}) {
   return (
-    <div className={cn("rounded-2xl border bg-white p-4", changed ? "border-gold ring-2 ring-gold/40" : "border-sand")} data-changed={changed ? "true" : undefined}>
+    <div
+      className={cn(
+        "rounded-2xl border bg-white p-4",
+        changed ? "border-gold ring-2 ring-gold/40" : "border-sand",
+      )}
+      data-changed={changed ? "true" : undefined}
+    >
       <div className="font-label text-xs uppercase tracking-wider text-muted">{label}</div>
       <div className="mt-1 flex items-baseline gap-2">
         <span className="font-heading text-2xl text-ink">{value}</span>
@@ -59,7 +92,9 @@ export function signed(n: number): string {
 }
 
 export function downloadJson(name: string, data: unknown) {
-  const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
+  const url = URL.createObjectURL(
+    new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }),
+  );
   const a = document.createElement("a");
   a.href = url;
   a.download = name;

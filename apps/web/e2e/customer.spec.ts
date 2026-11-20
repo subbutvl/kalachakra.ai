@@ -9,7 +9,7 @@ test.describe("customer mode", () => {
     await expect(page.getByRole("heading", { name: /your numbers, explained/i })).toBeVisible();
     await expect(page.getByText("What the report covers")).toBeVisible();
     await page.getByRole("link", { name: "Practitioner" }).click();
-    await expect(page.getByRole("heading", { name: /practitioner mode/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /client desk/i })).toBeVisible();
     await page.getByRole("link", { name: "Customer", exact: true }).click();
     await expect(page).toHaveURL("/");
   });

@@ -5,7 +5,12 @@ const config: NextConfig = {
   // The monorepo root, so Next.js does not guess from lockfiles elsewhere on this computer.
   outputFileTracingRoot: join(import.meta.dirname, "..", ".."),
   // The shared packages ship TypeScript source.
-  transpilePackages: ["@kalachakra/ui", "@kalachakra/engine", "@kalachakra/rules", "@kalachakra/report"],
+  transpilePackages: [
+    "@kalachakra/ui",
+    "@kalachakra/engine",
+    "@kalachakra/rules",
+    "@kalachakra/report",
+  ],
   reactStrictMode: true,
   poweredByHeader: false,
   // Linting runs from the repository root (pnpm lint), with the shared ESLint config.
