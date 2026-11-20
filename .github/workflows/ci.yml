@@ -28,6 +28,9 @@ jobs:
       - name: Type check, lint and test
         run: pnpm check
 
+      - name: Browser tests (customer mode, desktop and phone)
+        run: pnpm --filter @kalachakra/web test:e2e
+
       - name: Lichun table is reproducible
         run: |
           pnpm --filter @kalachakra/rules gen:lichun

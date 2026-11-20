@@ -71,10 +71,13 @@ Reports go to `./reports` (git-ignored, since they hold personal details). Optio
 The PDF uses Microsoft Edge or Google Chrome already installed on the computer (or the browser named in
 `KALACHAKRA_CHROME`); nothing is downloaded.
 
-`pnpm dev` starts the API on http://localhost:8787 (the web app joins it in milestone 6). Open
-http://localhost:8787/docs to see every endpoint and try each call in the browser. The API listens
-on this computer only, allows only the web app's origin, and logs only method, path, status and
-timing.
+`pnpm dev` starts the API on http://localhost:8787 and the web app on http://localhost:3000. Open
+http://localhost:3000 for Customer mode (choose a report, enter details, check them, read the report,
+download the PDF or print). The API docs are at http://localhost:8787/docs. Both listen on this computer
+only; the API allows only the web app's origin and logs only method, path, status and timing. Customer
+details stay in the browser tab and are cleared by "Start again".
+
+Browser tests: `pnpm --filter @kalachakra/web test:e2e` (starts both servers if they are not running).
 
 ## Changing rules
 
