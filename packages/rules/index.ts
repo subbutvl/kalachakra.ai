@@ -15,7 +15,7 @@ import dates from "./v1.0/dates.json" with { type: "json" };
 import switches from "./v1.0/switches.json" with { type: "json" };
 
 import houseDefault from "./profiles/house-default.json" with { type: "json" };
-import vedicpupilCompat from "./profiles/vedicpupil-compat.json" with { type: "json" };
+import kalachakraClassic from "./profiles/kalachakra-classic.json" with { type: "json" };
 import samplePractitioner from "./profiles/sample-practitioner.json" with { type: "json" };
 
 /** Every rules version shipped, keyed by version id. Values are raw, unvalidated JSON. */
@@ -39,7 +39,7 @@ export const rulesVersions = {
 /** The rule profiles shipped in phase 1, keyed by profile id. Raw, unvalidated JSON. */
 export const ruleProfiles = {
   "house-default": houseDefault,
-  "vedicpupil-compat": vedicpupilCompat,
+  "kalachakra-classic": kalachakraClassic,
   "sample-practitioner": samplePractitioner,
 } as const;
 

@@ -1,5 +1,5 @@
 {
-  "$comment": "Rules spec v1.0, section 3.11 (mobile, vehicle, house). Element flow matrix confirmed against the VedicPupil mobile sample (section 1). Pairs not listed are neutral.",
+  "$comment": "Rules spec v1.0, section 3.11 (mobile, vehicle, house). Element flow matrix confirmed against the benchmark mobile sample (section 1). Pairs not listed are neutral.",
   "national_number": {
     "length": 10,
     "strip_prefixes": ["+91", "0091", "0"]

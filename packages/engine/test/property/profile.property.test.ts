@@ -17,7 +17,7 @@ const name = fc
   .array(fc.stringMatching(/^[A-Za-z]{1,10}$/), { minLength: 1, maxLength: 4 })
   .map((p) => p.join(" "));
 const gender = fc.constantFrom("male", "female") as fc.Arbitrary<"male" | "female">;
-const profile = fc.constantFrom(rules.house, rules.vedicpupil, rules.practitioner);
+const profile = fc.constantFrom(rules.house, rules.classic, rules.practitioner);
 const asOf = date;
 
 describe("profile invariants", () => {

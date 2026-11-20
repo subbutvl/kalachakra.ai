@@ -22,7 +22,7 @@ export const RuleProfileRef = z
   .optional()
   .meta({
     description:
-      "A profile id (house-default, vedicpupil-compat, sample-practitioner) or an inline custom profile.",
+      "A profile id (house-default, kalachakra-classic, sample-practitioner) or an inline custom profile.",
   });
 
 export const Common = {

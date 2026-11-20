@@ -1,10 +1,10 @@
 // Prints every number for a name and date (milestone 2 "you can see").
 //
 //   pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male
-//   pnpm numbers --name "Myra Kapoor" --dob 2016-03-09 --gender female --profile vedicpupil-compat
+//   pnpm numbers --name "Myra Kapoor" --dob 2016-03-09 --gender female --profile kalachakra-classic
 //
 // Options: --birth-name, --as-of YYYY-MM-DD (default today), --time HH:MM,
-// --profile <id> (house-default, vedicpupil-compat, sample-practitioner),
+// --profile <id> (house-default, kalachakra-classic, sample-practitioner),
 // --kua-basis male|female (with --gender unspecified), --json.
 import { existsSync, readFileSync } from "node:fs";
 import { parseArgs } from "node:util";
@@ -91,7 +91,7 @@ if (values.sample) {
 
 if (values.help || (!sample && (!values.name || !values.dob))) {
   console.log(
-    'Usage: pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male [--profile vedicpupil-compat] [--as-of 2026-11-20] [--birth-name "..."] [--time HH:MM] [--json]\n' +
+    'Usage: pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male [--profile kalachakra-classic] [--as-of 2026-11-20] [--birth-name "..."] [--time HH:MM] [--json]\n' +
       "   or: pnpm numbers --sample <id>   (a person from packages/engine/test/local/people.local.json)",
   );
   process.exit(values.help ? 0 : 1);

@@ -28,7 +28,7 @@ const person = fc.record({
   dob: date,
   gender: fc.constantFrom("male", "female") as fc.Arbitrary<"male" | "female">,
 });
-const profileRules = fc.constantFrom(rules.house, rules.vedicpupil, rules.practitioner);
+const profileRules = fc.constantFrom(rules.house, rules.classic, rules.practitioner);
 const mobile = fc.stringMatching(/^[6-9][0-9]{9}$/);
 const build = (p: { name: string; dob: string; gender: "male" | "female" }, r = rules.house) =>
   computeProfile({ person: p, as_of: "2026-11-20", options: { name_suggestions: 0 } }, r);

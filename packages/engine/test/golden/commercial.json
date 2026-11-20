@@ -1,5 +1,5 @@
 {
-  "$comment": "Golden values from the VedicPupil mobile and business samples (rules spec, section 1, second batch), checked under the VedicPupil-compatible profile. Ishaan Verma's date of birth is not in the sample; 2003-01-04 is used because it gives the sample's Mulank 4 and Bhagyank 1.",
+  "$comment": "Golden values from the benchmark mobile and business samples (rules spec, section 1, second batch), checked under the benchmark-compatible profile. Ishaan Verma's date of birth is not in the sample; 2003-01-04 is used because it gives the sample's Mulank 4 and Bhagyank 1.",
   "as_of": "2026-11-20",
   "owner": { "name": "Aarav Mehra", "dob": "1991-08-14", "gender": "male" },
   "mobile": {
