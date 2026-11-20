@@ -1,0 +1,33 @@
+{
+  "$comment": "Compatibility bands, relationship types, life path kinds and components. Draft text by Claude, for numerologist review.",
+  "language": "en",
+  "module": "compatibility",
+  "blocks": {
+    "compatibility.band.excellent": "Excellent (80 and above): the numbers support each other strongly.",
+    "compatibility.band.good": "Good (65 to 79): a supportive match with a few areas to work on.",
+    "compatibility.band.workable": "Workable (50 to 64): a match that works well with understanding and effort.",
+    "compatibility.band.needs_effort": "Needs effort (below 50): the numbers pull in different directions; awareness and patience make the difference.",
+    "compatibility.couple.excellent": "As a couple, the numbers point to natural harmony. Shared goals come easily; keep making time for each other.",
+    "compatibility.couple.good": "As a couple, there is real support between you. Talk openly about the areas below where you differ.",
+    "compatibility.couple.workable": "As a couple, the match works with patience. Respect each other's different rhythms and plan important steps together.",
+    "compatibility.couple.needs_effort": "As a couple, your numbers differ a good deal. Many such couples do well; clear communication and shared routines help most.",
+    "compatibility.business_partners.excellent": "As partners in business, the numbers support each other strongly. Divide roles by strength and the partnership can grow well.",
+    "compatibility.business_partners.good": "As partners in business, there is good support. Agree roles and decision rules early.",
+    "compatibility.business_partners.workable": "As partners in business, the match is workable. Written agreements and clear roles prevent friction.",
+    "compatibility.business_partners.needs_effort": "As partners in business, the numbers pull apart. Clear contracts and separate areas of control are wise.",
+    "compatibility.parent_child.excellent": "As parent and child, the numbers show natural understanding. Encourage the child's own strengths.",
+    "compatibility.parent_child.good": "As parent and child, there is good support. Notice where the child differs, and give room for it.",
+    "compatibility.parent_child.workable": "As parent and child, the match works with patience. The child may need a different style than comes naturally to the parent.",
+    "compatibility.parent_child.needs_effort": "As parent and child, your natures differ. Learning the child's numbers helps the parent understand their needs.",
+    "compatibility.life_path.natural": "The life paths are natural partners: they share a rhythm and understand each other easily.",
+    "compatibility.life_path.compatible": "The life paths are compatible: different, but complementary.",
+    "compatibility.life_path.challenging": "The life paths are challenging together: they want different things, so understanding must be built.",
+    "compatibility.component.driver_harmony": "Driver harmony: how the two Mulanks, your everyday natures, get along.",
+    "compatibility.component.conductor_harmony": "Conductor harmony: how the two Bhagyanks, your life directions, get along.",
+    "compatibility.component.cross_harmony": "Cross harmony: how each person's nature suits the other's direction.",
+    "compatibility.component.loshu_gap_filling": "Lo Shu gap filling: how much each person supplies the numbers the other is missing.",
+    "compatibility.component.life_path_synergy": "Life path synergy: how the two Western life paths combine.",
+    "compatibility.component.name_harmony": "Name harmony: how the two name numbers get along.",
+    "compatibility.component.kua_group": "Kua group: whether you share the same good directions at home."
+  }
+}

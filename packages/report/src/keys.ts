@@ -70,7 +70,7 @@ export function catalogue(): Record<string, string[]> {
   add("compatibility", COMPAT_COMPONENTS.map((c) => `compatibility.component.${c}`));
   add("life", LIFE_AREAS.flatMap((a) => D.map((n) => `life.${a}.${n}`)));
   add("summary", D.map((n) => `summary.theme.${n}`));
-  add("glossary", GLOSSARY.map((g) => `glossary.${g}`));
+  add("summary", GLOSSARY.map((g) => `glossary.${g}`));
   return k;
 }
 
