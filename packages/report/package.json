@@ -6,7 +6,8 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./pdf": "./src/pdf.ts"
+    "./pdf": "./src/pdf.ts",
+    "./fonts": "./src/fonts.ts"
   },
   "scripts": {
     "test": "vitest run",
