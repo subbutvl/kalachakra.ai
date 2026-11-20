@@ -41,7 +41,6 @@
     "ui.brand_kit": "பிராண்ட் தொகுப்பு",
     "ui.yes": "ஆம்",
     "ui.no": "இல்லை",
-
     "ui.part.opening": "தொடக்கம்",
     "ui.part.vedic": "I. வேத முக்கிய எண்கள்",
     "ui.part.name": "II. பெயர் (கல்தேய முறை)",
@@ -52,7 +51,6 @@
     "ui.part.daily": "VII. அன்றாட வாழ்வில் உங்கள் எண்கள்",
     "ui.part.closing": "நிறைவு",
     "ui.part.addons": "கூடுதல் பகுதிகள்",
-
     "ui.section.cover": "உங்கள் எண்கள் ஒரே பார்வையில்",
     "ui.section.how_to_read": "இந்த அறிக்கையை எப்படிப் படிப்பது",
     "ui.section.summary": "ஒரே பக்கத்தில் உங்கள் சுயவிவரம்",
@@ -88,7 +86,6 @@
     "ui.section.glossary": "சொற்களஞ்சியமும் நிறைவுக் குறிப்பும்",
     "ui.section.compatibility": "பொருத்தம்",
     "ui.section.business": "வணிகப் பெயர்",
-
     "ui.mulank_section.nature": "இயல்பு",
     "ui.mulank_section.mind": "மனம்",
     "ui.mulank_section.work": "வேலை",
@@ -102,7 +99,6 @@
     "ui.bhagyank_section.careers": "தொழில் துறைகள்",
     "ui.bhagyank_section.careers.child": "ஊக்குவிக்க வேண்டிய ஆர்வங்கள்",
     "ui.bhagyank_section.decades": "பத்தாண்டுவாரியாக எப்படி விரிகிறது",
-
     "ui.label.mulank": "பிறவி எண்",
     "ui.label.bhagyank": "விதி எண்",
     "ui.label.name_number": "பெயர் எண்",
@@ -173,7 +169,6 @@
     "ui.label.launch_days": "எந்த மாதத்திலும் தொடக்கத் தேதிகள்",
     "ui.label.launch_weekdays": "தொடக்க வார நாட்கள்",
     "ui.label.colours": "நிறங்கள்",
-
     "ui.planet.sun": "சூரியன்",
     "ui.planet.moon": "சந்திரன்",
     "ui.planet.jupiter": "குரு",
@@ -282,7 +277,6 @@
     "ui.component.life_path_synergy": "வாழ்க்கைப் பாதை இசைவு",
     "ui.component.name_harmony": "பெயர் இணக்கம்",
     "ui.component.kua_group": "குவா குழு",
-
     "ui.caption.loshu": "லோ ஷு கட்டம், தெற்கு மேலே. சிறு எழுத்துகள் எண் எங்கிருந்து வந்தது என்பதைக் காட்டுகின்றன: m பிறவி எண், b விதி எண், k குவா.",
     "ui.caption.kua": "உங்கள் எட்டுத் திசைகள்: உங்களை ஆதரிக்கும் நான்கும் தவிர்க்க வேண்டிய நான்கும்.",
     "ui.caption.birth_chart": "பிதாகரஸ் பிறப்பு அட்டவணை (3-6-9 கட்டம்), பலம் மற்றும் பலவீன அம்புகளுடன்.",
@@ -294,13 +288,35 @@
     "ui.caption.compatibility": "பொருத்த மதிப்பெண்ணின் ஒவ்வொரு பகுதியிலும் பெற்ற புள்ளிகள்.",
     "ui.caption.combined_loshu": "இருவரின் இணைந்த லோ ஷு கட்டம்.",
     "ui.caption.triangle": "தேர்ந்தெடுக்கப்பட்ட பெயரைச் சுற்றி உரிமையாளரும் கூட்டாளிகளும்; ஒவ்வொரு கோடும் அவரவர் பொருத்தத்தைக் காட்டுகிறது.",
-
     "ui.trace.lang": "ta",
     "ui.trace.date_digits": "பூஜ்ஜியம் தவிர்த்த தேதி இலக்கங்கள்",
     "ui.trace.bhagyank_added": "விதி எண் சேர்க்கப்பட்டது",
     "ui.trace.mulank_added": "பிறவி எண் சேர்க்கப்பட்டது",
     "ui.trace.mulank_not_added": "பிறவி எண் சேர்க்கப்படவில்லை",
     "ui.trace.kua_added": "குவா குறிக்கப்பட்ட கட்டமாகச் சேர்க்கப்பட்டது",
-    "ui.trace.missing": "இல்லாதவை"
+    "ui.trace.missing": "இல்லாதவை",
+    "ui.trace.pythagorean_expression": "பிதாகரஸ் வெளிப்பாடு",
+    "ui.trace.chaldean_name_number": "கல்தேய பெயர் எண்",
+    "ui.trace.day_of_birth": "பிறந்த தேதி",
+    "ui.trace.name_number": "பெயர் எண்",
+    "ui.trace.life_path": "வாழ்க்கைப் பாதை",
+    "ui.trace.all_letters": "எல்லா எழுத்துகள்",
+    "ui.trace.consonants": "மெய்யெழுத்துகள்",
+    "ui.trace.vowels": "உயிரெழுத்துகள்",
+    "ui.trace.first_name": "முதல் பெயர்",
+    "ui.trace.birth_day": "பிறந்த தேதி",
+    "ui.trace.year_cutoff": "ஆண்டு வரம்பு",
+    "ui.trace.solar_year": "சூரிய ஆண்டு",
+    "ui.trace.local_date": "உள்ளூர்த் தேதி",
+    "ui.trace.digit_sum_of": "இலக்கக் கூட்டுத்தொகை",
+    "ui.trace.ends_at": "முடிவடையும் வயது",
+    "ui.trace.female": "பெண்",
+    "ui.trace.male": "ஆண்",
+    "ui.trace.total": "கூட்டுத்தொகை",
+    "ui.trace.month": "மாதம்",
+    "ui.trace.month_lower": "மாதம்",
+    "ui.trace.day": "தேதி",
+    "ui.trace.day_lower": "தேதி",
+    "ui.trace.year": "ஆண்டு"
   }
 }

@@ -9,7 +9,9 @@ function BlockView({ block, labels }: { block: Block; labels: ReportDocument["la
       if (block.source === "practitioner") {
         return (
           <div className={`kc-practitioner${block.note ? " kc-note" : ""}`} data-block={block.id}>
-            <span className="kc-badge">{block.note ? labels.practitioner_note : labels.practitioner_words}</span>
+            <span className="kc-badge">
+              {block.note ? labels.practitioner_note : labels.practitioner_words}
+            </span>
             <p>{block.text}</p>
           </div>
         );
@@ -74,7 +76,11 @@ function BlockView({ block, labels }: { block: Block; labels: ReportDocument["la
 
 function SectionView({ section, labels }: { section: Section; labels: ReportDocument["labels"] }) {
   return (
-    <section className={`kc-section kc-${section.id}`} id={`s-${section.id}-${section.number}`} data-section={section.id}>
+    <section
+      className={`kc-section kc-${section.id}`}
+      id={`s-${section.id}-${section.number}`}
+      data-section={section.id}
+    >
       <header>
         <span className="kc-part">{section.part}</span>
         <h2>
@@ -94,16 +100,24 @@ export function ReportView({ doc }: { doc: ReportDocument }) {
   return (
     <article className="kc-report" lang={doc.meta.language} data-audience={doc.meta.audience}>
       <div className="kc-cover">
-        {doc.branding?.logo ? <img className="kc-logo" src={doc.branding.logo} alt="" /> : <div className="kc-mark">KalaChakra</div>}
+        {doc.branding?.logo ? (
+          <img className="kc-logo" src={doc.branding.logo} alt="" />
+        ) : (
+          <div className="kc-mark">KalaChakra</div>
+        )}
         <h1>{doc.title}</h1>
         <p className="kc-subtitle">{doc.subtitle}</p>
         <p className="kc-dob">{doc.person.dob}</p>
-        {cover ? cover.blocks.map((b, i) => <BlockView key={i} block={b} labels={doc.labels} />) : null}
+        {cover
+          ? cover.blocks.map((b, i) => <BlockView key={i} block={b} labels={doc.labels} />)
+          : null}
         {doc.branding?.name ? (
           <div className="kc-branding">
             <strong>{doc.branding.name}</strong>
             {doc.branding.title ? <span>{doc.branding.title}</span> : null}
-            {[doc.branding.phone, doc.branding.email, doc.branding.website].filter(Boolean).join(" · ")}
+            {[doc.branding.phone, doc.branding.email, doc.branding.website]
+              .filter(Boolean)
+              .join(" · ")}
           </div>
         ) : null}
       </div>
@@ -145,5 +159,8 @@ export function renderReportHtml(doc: ReportDocument, options: HtmlOptions = {})
 }
 
 function escapeHtml(s: string): string {
-  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+  return s.replace(
+    /[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
+  );
 }

@@ -26,7 +26,9 @@ function launch(): Promise<Browser> {
   ];
   const found = candidates.find((p) => existsSync(p));
   if (found) return chromium.launch({ executablePath: found, headless: true });
-  return chromium.launch({ channel: "msedge", headless: true }).catch(() => chromium.launch({ channel: "chrome", headless: true }));
+  return chromium
+    .launch({ channel: "msedge", headless: true })
+    .catch(() => chromium.launch({ channel: "chrome", headless: true }));
 }
 
 export async function renderReportPdf(doc: ReportDocument): Promise<Uint8Array> {
@@ -34,7 +36,9 @@ export async function renderReportPdf(doc: ReportDocument): Promise<Uint8Array> 
   const b = await browser;
   const page = await b.newPage();
   try {
-    await page.setContent(renderReportHtml(doc, { fontCss: embeddedFontCss() }), { waitUntil: "load" });
+    await page.setContent(renderReportHtml(doc, { fontCss: embeddedFontCss() }), {
+      waitUntil: "load",
+    });
     await page.evaluate(() => document.fonts.ready);
     const footer = `<div style="font-family:sans-serif;font-size:7px;color:#6E7476;width:100%;padding:0 16mm;display:flex;justify-content:space-between"><span>${escape(doc.person.name)} · ${escape(doc.labels.calculated_with ?? "")}</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>`;
     const pdf = await page.pdf({
@@ -62,5 +66,8 @@ export async function closePdfBrowser(): Promise<void> {
 }
 
 function escape(s: string): string {
-  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+  return s.replace(
+    /[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
+  );
 }

@@ -41,7 +41,6 @@
     "ui.brand_kit": "Brand kit",
     "ui.yes": "yes",
     "ui.no": "no",
-
     "ui.part.opening": "Opening",
     "ui.part.vedic": "I. Vedic core",
     "ui.part.name": "II. Name (Chaldean)",
@@ -52,7 +51,6 @@
     "ui.part.daily": "VII. Your numbers in daily life",
     "ui.part.closing": "Closing",
     "ui.part.addons": "Add-ons",
-
     "ui.section.cover": "Your numbers at a glance",
     "ui.section.how_to_read": "How to read this report",
     "ui.section.summary": "Your profile on one page",
@@ -88,7 +86,6 @@
     "ui.section.glossary": "Glossary and closing note",
     "ui.section.compatibility": "Compatibility",
     "ui.section.business": "Business name",
-
     "ui.mulank_section.nature": "Nature",
     "ui.mulank_section.mind": "Mind",
     "ui.mulank_section.work": "Work",
@@ -102,7 +99,6 @@
     "ui.bhagyank_section.careers": "Career fields",
     "ui.bhagyank_section.careers.child": "Interests to encourage",
     "ui.bhagyank_section.decades": "How it unfolds by decade",
-
     "ui.label.mulank": "Mulank",
     "ui.label.bhagyank": "Bhagyank",
     "ui.label.name_number": "Name number",
@@ -173,7 +169,6 @@
     "ui.label.launch_days": "Launch dates in any month",
     "ui.label.launch_weekdays": "Launch weekdays",
     "ui.label.colours": "Colours",
-
     "ui.planet.sun": "Sun",
     "ui.planet.moon": "Moon",
     "ui.planet.jupiter": "Jupiter",
@@ -282,7 +277,6 @@
     "ui.component.life_path_synergy": "Life path synergy",
     "ui.component.name_harmony": "Name harmony",
     "ui.component.kua_group": "Kua group",
-
     "ui.caption.loshu": "Lo Shu grid, south at the top. Small letters mark where a number came from: m Mulank, b Bhagyank, k Kua.",
     "ui.caption.kua": "Your eight directions: the four that support you and the four to avoid.",
     "ui.caption.birth_chart": "Pythagorean birth chart (3-6-9 grid) with arrows of strength and weakness.",
@@ -294,13 +288,35 @@
     "ui.caption.compatibility": "Points earned in each part of the compatibility score.",
     "ui.caption.combined_loshu": "Combined Lo Shu grid of both people.",
     "ui.caption.triangle": "Owner and partners around the chosen name; each line shows that person's fit.",
-
     "ui.trace.lang": "en",
     "ui.trace.date_digits": "Date digits without zeros",
     "ui.trace.bhagyank_added": "Bhagyank added",
     "ui.trace.mulank_added": "Mulank added",
     "ui.trace.mulank_not_added": "Mulank not added",
     "ui.trace.kua_added": "Kua added as a marked cell",
-    "ui.trace.missing": "Missing"
+    "ui.trace.missing": "Missing",
+    "ui.trace.pythagorean_expression": "Pythagorean expression",
+    "ui.trace.chaldean_name_number": "Chaldean name number",
+    "ui.trace.day_of_birth": "Day of birth",
+    "ui.trace.name_number": "Name number",
+    "ui.trace.life_path": "Life path",
+    "ui.trace.all_letters": "All letters",
+    "ui.trace.consonants": "Consonants",
+    "ui.trace.vowels": "Vowels",
+    "ui.trace.first_name": "First name",
+    "ui.trace.birth_day": "birth day",
+    "ui.trace.year_cutoff": "Year cutoff",
+    "ui.trace.solar_year": "solar year",
+    "ui.trace.local_date": "local date",
+    "ui.trace.digit_sum_of": "digit sum of",
+    "ui.trace.ends_at": "ends at",
+    "ui.trace.female": "Female",
+    "ui.trace.male": "Male",
+    "ui.trace.total": "Total",
+    "ui.trace.month": "Month",
+    "ui.trace.month_lower": "month",
+    "ui.trace.day": "Day",
+    "ui.trace.day_lower": "day",
+    "ui.trace.year": "year"
   }
 }

@@ -58,6 +58,19 @@ More options: `--vehicle "KA 05 MN 1234"`, `--flat 12B --building 45 --door E`, 
 (`couple`, `business_partners`, `parent_child`), and
 `--dates 2026-12-01..2026-12-31 --purpose launch` (`launch`, `signing`, `move`, `general`).
 
+Make a report PDF from the command line (milestone 5):
+
+```sh
+pnpm report --name "Aarav Mehra" --dob 1991-08-14 --gender male
+pnpm report --name "Myra Kapoor" --dob 2016-03-09 --gender female --audience child --language ta
+pnpm report --sample example --html        # a person from packages/engine/test/local/people.local.json
+```
+
+Reports go to `./reports` (git-ignored, since they hold personal details). Options: `--audience adult|child`,
+`--language en|ta`, `--profile`, `--as-of`, `--mobile` and `--vehicle` (repeatable), `--html`, `--out <folder>`.
+The PDF uses Microsoft Edge or Google Chrome already installed on the computer (or the browser named in
+`KALACHAKRA_CHROME`); nothing is downloaded.
+
 `pnpm dev` starts the API on http://localhost:8787 (the web app joins it in milestone 6). Open
 http://localhost:8787/docs to see every endpoint and try each call in the browser. The API listens
 on this computer only, allows only the web app's origin, and logs only method, path, status and
@@ -68,3 +81,10 @@ timing.
 Rules are data, not code. Edit the JSON in `packages/rules`, then follow
 [docs/rules-change-process.md](docs/rules-change-process.md). Every rules file is validated
 against the engine's schemas on load and in the tests.
+
+## Editing the report text
+
+Every sentence in a report comes from `packages/texts/<language>/<module>.json`. A block written as a plain
+string is a draft; to mark it reviewed, turn it into `{"text": "...", "status": "reviewed", "reviewer": "Name"}`.
+A `"child"` field gives the parents' wording for the child edition. `pnpm test` fails if any key the
+report can ask for has no text in English or Tamil, or if a placeholder is unknown.
