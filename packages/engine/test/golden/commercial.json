@@ -21,7 +21,13 @@
     "partner": { "name": "Ishaan Verma", "dob": "2003-01-04", "gender": "male" },
     "partner_numbers": { "mulank": 4, "bhagyank": 1, "name_number": 7 },
     "names": ["Loomcraft Works", "Aarav Weaves", "Mehra Textiles Pvt Ltd", "Loomcraft India"],
-    "loomcraft_works": { "total": 59, "compound": 14, "number": 5, "owner_fit": 5, "partner_fit": 1 },
+    "loomcraft_works": {
+      "total": 59,
+      "compound": 14,
+      "number": 5,
+      "owner_fit": 5,
+      "partner_fit": 1
+    },
     "suffix": { "without": 47, "without_number": 2, "with": 76, "with_number": 4 },
     "ranking": [
       { "name": "Loomcraft Works", "total": 7 },
@@ -39,6 +45,11 @@
       { "extension": ".in", "total": 65, "number": 2 },
       { "extension": ".co", "total": 69, "number": 6 }
     ],
-    "brand_kit": { "day": "wednesday", "colour": "green", "lucky_numbers": [1, 5, 6], "launch_days": [5, 14, 23] }
+    "brand_kit": {
+      "day": "wednesday",
+      "colour": "green",
+      "lucky_numbers": [1, 5, 6],
+      "launch_days": [5, 14, 23]
+    }
   }
 }

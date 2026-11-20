@@ -76,11 +76,15 @@ function oneEdit(name: string, lockFirst: boolean): [string, string][] {
       if (c === "I") put(w.slice(0, i) + "Y" + w.slice(i + 1), "I to Y");
       if (c === "Y") put(w.slice(0, i) + "I" + w.slice(i + 1), "Y to I");
       // Silent H: add after a stop or S, or drop an H that follows a consonant.
-      if (H_AFTER.has(c) && next !== "H") put(w.slice(0, i + 1) + "H" + w.slice(i + 1), `add H after ${c}`);
-      if (c === "H" && prev !== undefined && !VOWELS.has(prev)) put(w.slice(0, i) + w.slice(i + 1), "drop silent H");
+      if (H_AFTER.has(c) && next !== "H")
+        put(w.slice(0, i + 1) + "H" + w.slice(i + 1), `add H after ${c}`);
+      if (c === "H" && prev !== undefined && !VOWELS.has(prev))
+        put(w.slice(0, i) + w.slice(i + 1), "drop silent H");
       // K and C before A, O, U keep the sound.
-      if (c === "K" && next && "AOU".includes(next)) put(w.slice(0, i) + "C" + w.slice(i + 1), "K to C");
-      if (c === "C" && next && "AOU".includes(next)) put(w.slice(0, i) + "K" + w.slice(i + 1), "C to K");
+      if (c === "K" && next && "AOU".includes(next))
+        put(w.slice(0, i) + "C" + w.slice(i + 1), "K to C");
+      if (c === "C" && next && "AOU".includes(next))
+        put(w.slice(0, i) + "K" + w.slice(i + 1), "C to K");
     }
     // Add a vowel at the end (Aarav to Aarave), or ending A to AA.
     const last = w.at(-1)!;
@@ -135,8 +139,15 @@ export function scoreSpelling(
   const digit = ch.number.reduced;
   const fit = nameFit(rules, digit, mulank, bhagyank, ch.compound);
   const first = chaldeanNumber(rules, normaliseName(name).parts[0]!);
-  const firstFit = pairScore(rules.data.planets, rules.settings, first.number.reduced, mulank).score;
-  const py = reduce(scoreName(rules.data.letters, "pythagorean", name, rules.settings["letters.y_vowel"]).total);
+  const firstFit = pairScore(
+    rules.data.planets,
+    rules.settings,
+    first.number.reduced,
+    mulank,
+  ).score;
+  const py = reduce(
+    scoreName(rules.data.letters, "pythagorean", name, rules.settings["letters.y_vowel"]).total,
+  );
   const pyOk = pairScore(rules.data.planets, rules.settings, py.reduced, bhagyank).score >= 0;
   const debt = karmicDebtIn([ch.total, ...ch.number.chain]).length > 0;
   const cls = ch.compound?.class;
@@ -205,7 +216,9 @@ export function suggestNames(
   );
   const scored = variants
     .map((v) => scoreSpelling(rules, v.name, v.edits, mulank, bhagyank))
-    .sort((a, b) => b.score - a.score || a.edits.length - b.edits.length || (a.name < b.name ? -1 : 1));
+    .sort(
+      (a, b) => b.score - a.score || a.edits.length - b.edits.length || (a.name < b.name ? -1 : 1),
+    );
   const suggestions = scored.slice(0, topN);
   const best = suggestions[0] && suggestions[0].score > current.score ? suggestions[0] : current;
   const parts = normaliseName(best.name).parts;

@@ -133,7 +133,13 @@ export function computeProfile(request: ProfileRequestInput, rules: ResolvedRule
     flags,
   };
   if (options.name_suggestions > 0) {
-    result.name_optimizer = suggestNames(rules, headline.name, mulank, bhagyank, options.name_suggestions);
+    result.name_optimizer = suggestNames(
+      rules,
+      headline.name,
+      mulank,
+      bhagyank,
+      options.name_suggestions,
+    );
   }
 
   const check = ProfileResultSchema.safeParse(result);

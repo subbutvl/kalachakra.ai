@@ -6,8 +6,24 @@ import { addDays, formatDate, parseDate, toDayNumber, weekday } from "../core/da
 import { digitSum, reduce } from "../core/reduce.js";
 import { effectivePlanet, pairScore, planetOf } from "../core/planets.js";
 
-const WEEKDAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"] as const;
-const WEEKDAY_PLANET: ClassicalPlanet[] = ["sun", "moon", "mars", "mercury", "jupiter", "venus", "saturn"];
+const WEEKDAYS = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+] as const;
+const WEEKDAY_PLANET: ClassicalPlanet[] = [
+  "sun",
+  "moon",
+  "mars",
+  "mercury",
+  "jupiter",
+  "venus",
+  "saturn",
+];
 
 export interface DateRequest {
   from: string;
@@ -39,20 +55,33 @@ export interface DateResult {
  * date selector; phase 1 spec 4.1 findDates). Each date is scored for every
  * person by personal day, universal day and lucky numbers, then summed.
  */
-export function findDates(request: DateRequest, people: ProfileResult[], rules: ResolvedRules): DateResult {
+export function findDates(
+  request: DateRequest,
+  people: ProfileResult[],
+  rules: ResolvedRules,
+): DateResult {
   const data = rules.data.dates;
   const purposes = data.purposes as Record<string, number[]>;
   const purposeDays = purposes[request.purpose];
   if (!purposeDays) {
-    throw new EngineError("invalid_input", `Unknown purpose "${request.purpose}" (have: ${Object.keys(purposes).join(", ")}).`, "purpose");
+    throw new EngineError(
+      "invalid_input",
+      `Unknown purpose "${request.purpose}" (have: ${Object.keys(purposes).join(", ")}).`,
+      "purpose",
+    );
   }
-  if (people.length === 0) throw new EngineError("invalid_input", "Give at least one person.", "profiles");
+  if (people.length === 0)
+    throw new EngineError("invalid_input", "Give at least one person.", "profiles");
   const from = parseDate(request.from, "from");
   const to = parseDate(request.to, "to");
   const days = toDayNumber(to) - toDayNumber(from) + 1;
   if (days < 1) throw new EngineError("invalid_input", "The range ends before it starts.", "to");
   if (days > data.max_range_days) {
-    throw new EngineError("invalid_input", `The range can be at most ${data.max_range_days} days.`, "to");
+    throw new EngineError(
+      "invalid_input",
+      `The range can be at most ${data.max_range_days} days.`,
+      "to",
+    );
   }
 
   const w = data.weights;
@@ -79,7 +108,10 @@ export function findDates(request: DateRequest, people: ProfileResult[], rules: 
       }
       const withMulank = pairScore(pd, rules.settings, pday, mulank).score;
       points += withMulank * w.personal_day_with_mulank;
-      if (withMulank !== 0) reasons.push(`personal day ${pday} with Mulank ${mulank}: ${withMulank > 0 ? "+" : ""}${withMulank}`);
+      if (withMulank !== 0)
+        reasons.push(
+          `personal day ${pday} with Mulank ${mulank}: ${withMulank > 0 ? "+" : ""}${withMulank}`,
+        );
       if (lucky.includes(ud)) {
         points += w.universal_day_lucky;
         reasons.push(`universal day ${ud} is a lucky number`);

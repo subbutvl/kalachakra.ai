@@ -5,7 +5,13 @@ import { pairScore } from "../core/planets.js";
 
 export type Relationship = "couple" | "business_partners" | "parent_child";
 type Weights = Record<
-  "driver_harmony" | "conductor_harmony" | "cross_harmony" | "loshu_gap_filling" | "life_path_synergy" | "name_harmony" | "kua_group",
+  | "driver_harmony"
+  | "conductor_harmony"
+  | "cross_harmony"
+  | "loshu_gap_filling"
+  | "life_path_synergy"
+  | "name_harmony"
+  | "kua_group",
   number
 >;
 
@@ -25,7 +31,12 @@ export interface CompatibilityResult {
   score: number;
   band: "excellent" | "good" | "workable" | "needs_effort";
   components: Component[];
-  combined_loshu: { cells: Record<string, { a: number; b: number; total: number }>; shared_gaps: number[]; a_fills_b: number[]; b_fills_a: number[] };
+  combined_loshu: {
+    cells: Record<string, { a: number; b: number; total: number }>;
+    shared_gaps: number[];
+    a_fills_b: number[];
+    b_fills_a: number[];
+  };
   life_path: { a: number; b: number; kind: "natural" | "compatible" | "challenging" };
   timeline: { year: number; a: number; b: number; pair_score: number; joint_step: boolean }[];
   rule_refs: string[];
@@ -33,10 +44,15 @@ export interface CompatibilityResult {
 }
 
 /** Life path pair kind from the symmetric table in compatibility.json. */
-export function lifePathKind(rules: ResolvedRules, a: number, b: number): "natural" | "compatible" | "challenging" {
+export function lifePathKind(
+  rules: ResolvedRules,
+  a: number,
+  b: number,
+): "natural" | "compatible" | "challenging" {
   const t = rules.data.compatibility.life_path_pairs;
   if (t.natural_groups.some((g) => g.includes(a) && g.includes(b))) return "natural";
-  if (t.compatible.some(([x, y]) => (x === a && y === b) || (x === b && y === a))) return "compatible";
+  if (t.compatible.some(([x, y]) => (x === a && y === b) || (x === b && y === a)))
+    return "compatible";
   return "challenging";
 }
 
@@ -52,7 +68,11 @@ export function computeCompatibility(
 ): CompatibilityResult {
   const data = rules.data.compatibility;
   if (!data.relationship_types.includes(relationship)) {
-    throw new EngineError("invalid_input", `Unknown relationship type "${relationship}".`, "relationship");
+    throw new EngineError(
+      "invalid_input",
+      `Unknown relationship type "${relationship}".`,
+      "relationship",
+    );
   }
   const setting = rules.settings["compatibility.weights"];
   const w: Weights = setting === "default" ? data.weights : setting;
@@ -76,7 +96,8 @@ export function computeCompatibility(
   const hasB = (n: number) => !missB.includes(n);
   const bFillsA = missA.filter(hasB);
   const aFillsB = missB.filter(hasA);
-  const shareOf = (missing: number[], filled: number[]) => (missing.length ? filled.length / missing.length : 1);
+  const shareOf = (missing: number[], filled: number[]) =>
+    missing.length ? filled.length / missing.length : 1;
   const gapShare = (shareOf(missA, bFillsA) + shareOf(missB, aFillsB)) / 2;
 
   const lpKind = lifePathKind(rules, lpA, lpB);
@@ -84,16 +105,61 @@ export function computeCompatibility(
   const kuaSame = a.kua && b.kua ? a.kua.group === b.kua.group : null;
 
   const raw: Omit<Component, "points">[] = [
-    { id: "driver_harmony", weight: w.driver_harmony, share: share(ps(mA, mB)), detail: `Mulank ${mA} and ${mB}: ${ps(mA, mB)}` },
-    { id: "conductor_harmony", weight: w.conductor_harmony, share: share(ps(bA, bB)), detail: `Bhagyank ${bA} and ${bB}: ${ps(bA, bB)}` },
-    { id: "cross_harmony", weight: w.cross_harmony, share: share(cross), detail: `Mulank ${mA} with Bhagyank ${bB}: ${ps(mA, bB)}; Mulank ${mB} with Bhagyank ${bA}: ${ps(mB, bA)}; average ${cross}` },
-    { id: "loshu_gap_filling", weight: w.loshu_gap_filling, share: gapShare, detail: `${b.person.name} fills ${bFillsA.length} of ${missA.length} gaps; ${a.person.name} fills ${aFillsB.length} of ${missB.length}` },
-    { id: "life_path_synergy", weight: w.life_path_synergy, share: data.life_path_pairs.credit[lpKind], detail: `Life paths ${lpA} and ${lpB}: ${lpKind}` },
-    { id: "name_harmony", weight: w.name_harmony, share: share(ps(nA, nB)), detail: `Name numbers ${nA} and ${nB}: ${ps(nA, nB)}` },
-    { id: "kua_group", weight: w.kua_group, share: kuaSame ? 1 : 0, detail: kuaSame === null ? "Kua needs both people's Kua basis" : kuaSame ? `Both ${a.kua!.group} group` : `${a.kua!.group} and ${b.kua!.group} groups` },
+    {
+      id: "driver_harmony",
+      weight: w.driver_harmony,
+      share: share(ps(mA, mB)),
+      detail: `Mulank ${mA} and ${mB}: ${ps(mA, mB)}`,
+    },
+    {
+      id: "conductor_harmony",
+      weight: w.conductor_harmony,
+      share: share(ps(bA, bB)),
+      detail: `Bhagyank ${bA} and ${bB}: ${ps(bA, bB)}`,
+    },
+    {
+      id: "cross_harmony",
+      weight: w.cross_harmony,
+      share: share(cross),
+      detail: `Mulank ${mA} with Bhagyank ${bB}: ${ps(mA, bB)}; Mulank ${mB} with Bhagyank ${bA}: ${ps(mB, bA)}; average ${cross}`,
+    },
+    {
+      id: "loshu_gap_filling",
+      weight: w.loshu_gap_filling,
+      share: gapShare,
+      detail: `${b.person.name} fills ${bFillsA.length} of ${missA.length} gaps; ${a.person.name} fills ${aFillsB.length} of ${missB.length}`,
+    },
+    {
+      id: "life_path_synergy",
+      weight: w.life_path_synergy,
+      share: data.life_path_pairs.credit[lpKind],
+      detail: `Life paths ${lpA} and ${lpB}: ${lpKind}`,
+    },
+    {
+      id: "name_harmony",
+      weight: w.name_harmony,
+      share: share(ps(nA, nB)),
+      detail: `Name numbers ${nA} and ${nB}: ${ps(nA, nB)}`,
+    },
+    {
+      id: "kua_group",
+      weight: w.kua_group,
+      share: kuaSame ? 1 : 0,
+      detail:
+        kuaSame === null
+          ? "Kua needs both people's Kua basis"
+          : kuaSame
+            ? `Both ${a.kua!.group} group`
+            : `${a.kua!.group} and ${b.kua!.group} groups`,
+    },
   ];
-  const components: Component[] = raw.map((c) => ({ ...c, points: Math.round(c.share * c.weight * 10) / 10 }));
-  const score = totalWeight ? Math.round((components.reduce((s, c) => s + c.share * c.weight, 0) / totalWeight) * 100) : 0;
+  const components: Component[] = raw.map((c) => ({
+    ...c,
+    points: Math.round(c.share * c.weight * 10) / 10,
+  }));
+  const score = totalWeight
+    ? Math.round((components.reduce((s, c) => s + c.share * c.weight, 0) / totalWeight) * 100)
+    : 0;
   const band = data.bands.find((x) => score >= x.min)!.label;
 
   const cells: CompatibilityResult["combined_loshu"]["cells"] = {};
@@ -107,7 +173,13 @@ export function computeCompatibility(
   const timeline = a.timing.next_10_years.map((ya, i) => {
     const yb = b.timing.next_10_years[i]!;
     const s = ps(ya.personal_year.reduced, yb.personal_year.reduced);
-    return { year: ya.year, a: ya.personal_year.value, b: yb.personal_year.value, pair_score: s, joint_step: s > 0 };
+    return {
+      year: ya.year,
+      a: ya.personal_year.value,
+      b: yb.personal_year.value,
+      pair_score: s,
+      joint_step: s > 0,
+    };
   });
 
   return {
@@ -117,10 +189,19 @@ export function computeCompatibility(
     score,
     band,
     components,
-    combined_loshu: { cells, shared_gaps: missA.filter((n) => missB.includes(n)), a_fills_b: aFillsB, b_fills_a: bFillsA },
+    combined_loshu: {
+      cells,
+      shared_gaps: missA.filter((n) => missB.includes(n)),
+      a_fills_b: aFillsB,
+      b_fills_a: bFillsA,
+    },
     life_path: { a: lpA, b: lpB, kind: lpKind },
     timeline,
     rule_refs: ["D18"],
-    text_keys: [`compatibility.band.${band}`, `compatibility.${relationship}.${band}`, `compatibility.life_path.${lpKind}`],
+    text_keys: [
+      `compatibility.band.${band}`,
+      `compatibility.${relationship}.${band}`,
+      `compatibility.life_path.${lpKind}`,
+    ],
   };
 }
