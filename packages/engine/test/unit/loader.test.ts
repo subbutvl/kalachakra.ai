@@ -124,7 +124,7 @@ describe("rule profiles (phase 1 spec 4.4)", () => {
     const list = listRuleProfiles(catalog);
     expect(list.map((p) => p.id)).toEqual([
       "house-default",
-      "vedicpupil-compat",
+      "kalachakra-classic",
       "sample-practitioner",
     ]);
     expect(list[0]).toMatchObject({ base: "v1.0", overrides: 0 });
@@ -132,16 +132,16 @@ describe("rule profiles (phase 1 spec 4.4)", () => {
   });
 
   it("merges overrides and records each setting's source", () => {
-    const vp = rules.vedicpupil;
-    expect(vp.rulesVersion).toBe("v1.0");
-    expect(vp.profile.id).toBe("vedicpupil-compat");
-    expect(vp.settings["loshu.include_mulank"]).toBe("always");
-    expect(vp.sources["loshu.include_mulank"]).toEqual({
+    const classicRules = rules.classic;
+    expect(classicRules.rulesVersion).toBe("v1.0");
+    expect(classicRules.profile.id).toBe("kalachakra-classic");
+    expect(classicRules.settings["loshu.include_mulank"]).toBe("always");
+    expect(classicRules.sources["loshu.include_mulank"]).toEqual({
       decision: "D10",
       source: "profile",
       default: "two_digit_days_only",
     });
-    expect(vp.sources["date.day_boundary"].source).toBe("default");
+    expect(classicRules.sources["date.day_boundary"].source).toBe("default");
   });
 
   it("describes every setting in D1 to D24 order", () => {

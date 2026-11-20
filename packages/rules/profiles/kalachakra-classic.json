@@ -1,7 +1,7 @@
 {
-  "id": "vedicpupil-compat",
-  "name": "VedicPupil-compatible",
-  "description": "Settings that reproduce the VedicPupil sample reports exactly. Used only to prove the golden tests; not offered to customers.",
+  "id": "kalachakra-classic",
+  "name": "KalaChakra Classic",
+  "description": "The classic settings used in popular Indian numerology reports: master numbers always reduced, Y never a vowel, the Mulank always added to the Lo Shu grid, no Kua in the grid, a 1 January Kua year and no dasha. The golden tests use it to reproduce the benchmark sample reports exactly.",
   "base": "v1.0",
   "overrides": {
     "masters.mode": "always_reduce",

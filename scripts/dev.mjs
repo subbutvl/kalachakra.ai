@@ -10,7 +10,7 @@ KalaChakra has no server or web app yet: the API arrives in milestone 4 and the 
 
 What you can run now:
   pnpm numbers --name "Aarav Mehra" --dob 1991-08-14 --gender male
-      prints every number for a name and date (add --profile vedicpupil-compat, --as-of 2026-11-20, --json)
+      prints every number for a name and date (add --profile kalachakra-classic, --as-of 2026-11-20, --json)
   pnpm check
       type check, lint and every test
 `);

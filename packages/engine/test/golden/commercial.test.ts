@@ -10,10 +10,10 @@ import {
 import { rules } from "../helpers.js";
 import g from "./commercial.json" with { type: "json" };
 
-const r = rules.vedicpupil;
+const r = rules.classic;
 const owner = computeProfile({ person: g.owner as PersonInput, as_of: g.as_of }, r);
 
-describe("VedicPupil mobile sample: 98765 24310 for Aarav Mehra", () => {
+describe("benchmark mobile sample: 98765 24310 for Aarav Mehra", () => {
   const m = computeMobile(
     { numbers: [g.mobile.number], goals: g.mobile.goals, find_for: g.mobile.number },
     owner,
@@ -73,7 +73,7 @@ describe("VedicPupil mobile sample: 98765 24310 for Aarav Mehra", () => {
   });
 });
 
-describe("VedicPupil business sample: Loomcraft Works for Aarav Mehra and Ishaan Verma", () => {
+describe("benchmark business sample: Loomcraft Works for Aarav Mehra and Ishaan Verma", () => {
   const partner = computeProfile({ person: g.business.partner as PersonInput, as_of: g.as_of }, r);
   const b = computeBusiness({ names: g.business.names }, owner, [partner], r);
 

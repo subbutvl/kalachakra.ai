@@ -1,6 +1,6 @@
 {
-  "$comment": "Golden values from the VedicPupil samples (rules spec, section 1) that milestone 1 can check: letter totals and pair scores. Person-level numbers (Mulank, Bhagyank, Lo Shu, Kua, timing) are added in M2 with the full golden files.",
-  "profile": "vedicpupil-compat",
+  "$comment": "Golden values from the benchmark samples (rules spec, section 1) that milestone 1 can check: letter totals and pair scores. Person-level numbers (Mulank, Bhagyank, Lo Shu, Kua, timing) are added in M2 with the full golden files.",
+  "profile": "kalachakra-classic",
   "names": [
     {
       "sample": "Aarav Mehra report",
