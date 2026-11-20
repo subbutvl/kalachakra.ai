@@ -1,0 +1,19 @@
+/*
+ * KalaChakra brand tokens for Tailwind v4 (docs/decisions/0002-brand.md).
+ * Colours: white, sand, gold, ink. Fonts: Aboreto (headings), Poppins (body),
+ * Geist (labels and badges), Noto Sans Tamil for Tamil in every role.
+ */
+@theme {
+  --color-white: #ffffff;
+  --color-sand: #e8d4b6;
+  --color-sand-50: #fbf5ec;
+  --color-gold: #d8a250;
+  --color-gold-600: #b9852f;
+  --color-ink: #1f2628;
+  --color-muted: #6e7476;
+  --color-danger: #a33a2c;
+  --font-heading: "Aboreto", "Noto Sans Tamil", serif;
+  --font-body: "Poppins", "Noto Sans Tamil", sans-serif;
+  --font-label: "Geist", "Geist Sans", "Noto Sans Tamil", sans-serif;
+  --radius-card: 1rem;
+}

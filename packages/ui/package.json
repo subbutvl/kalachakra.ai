@@ -1,0 +1,28 @@
+{
+  "name": "@kalachakra/ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KalaChakra shared UI: shadcn/ui-style components on Radix, and the brand tokens.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./src/tokens.css"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@radix-ui/react-checkbox": "^1.4.1",
+    "@radix-ui/react-label": "^2.1.17",
+    "@radix-ui/react-radio-group": "^1.5.1",
+    "@radix-ui/react-slot": "^1.5.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "react": "^19.3.1",
+    "typescript": "~6.0.3"
+  }
+}

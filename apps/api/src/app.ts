@@ -23,6 +23,7 @@ import { rulesVersions } from "@kalachakra/rules";
 import {
   buildReport,
   library,
+  renderReportHtml,
   OverlaySchema,
   TEXTS_VERSION as LIBRARY_VERSION,
   type Overlay,
@@ -30,6 +31,7 @@ import {
   type ReportModules,
 } from "@kalachakra/report";
 import { renderReportPdf } from "@kalachakra/report/pdf";
+import { embeddedFontCss } from "@kalachakra/report/fonts";
 import { readEnv, type Env } from "./env.js";
 import { ApiError, ErrorSchema, handleError, validationHook } from "./errors.js";
 import { catalog, rulesFor, todayInIndia } from "./rules.js";
@@ -352,6 +354,22 @@ export function createApp(env: Env = readEnv()) {
     (c) => {
       return c.json(buildFrom(c.req.valid("json")) as never, 200);
     },
+  );
+  app.openapi(
+    createRoute({
+      ...post(
+        "/v1/report/html",
+        "Reports",
+        "The same report as one self-contained HTML page (the web app shows it on screen)",
+        ReportBody,
+      ),
+      responses: {
+        200: { content: { "text/html": { schema: z.string() } }, description: "The report page" },
+        ...errors,
+      },
+    }),
+    (c) =>
+      c.html(renderReportHtml(buildFrom(c.req.valid("json")), { fontCss: embeddedFontCss() }), 200),
   );
   app.openapi(
     createRoute({

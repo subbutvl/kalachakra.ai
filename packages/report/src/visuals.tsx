@@ -1,3 +1,5 @@
+/** @jsxRuntime automatic */
+/** @jsxImportSource react */
 /**
  * Report visuals as hand-built SVG (phase 1 spec 8). Colours come from the
  * brand tokens in print.css through CSS variables, so screen and PDF match.
