@@ -1,0 +1,88 @@
+{
+  "$comment": "Golden people. 'vedicpupil-compat' holds every number printed in the VedicPupil sample reports (rules spec, section 1); it must match exactly. 'house-default' holds the same people under rules v1.0 as approved; those values follow from the spec's decisions (for example D3 masters, D4 Y by sound, D10 and D11 Lo Shu) and were checked by hand. Add your worked examples as new entries.",
+  "as_of": "2026-11-20",
+  "people": [
+    {
+      "id": "aarav-mehra",
+      "source": "VedicPupil complete report, adult sample",
+      "person": { "name": "Aarav Mehra", "dob": "1991-08-14", "gender": "male" },
+      "expected": {
+        "vedicpupil-compat": {
+          "mulank": { "value": 5, "chain": [14, 5] },
+          "bhagyank": { "value": 6, "chain": [33, 6] },
+          "karmic_debt": [14],
+          "chaldean": { "total": 28, "chain": [28, 10, 1], "parts": [11, 17] },
+          "pythagorean": { "expression": 7, "expression_total": 43, "soul_urge": 9, "personality": 7, "personality_chain": [34, 7], "maturity": 4 },
+          "driver_conductor": { "score": 2, "label": "friendly" },
+          "name_fit": { "mulank": 1, "bhagyank": -2 },
+          "loshu": { "inputs": [1, 4, 8, 1, 9, 9, 1, 6, 5], "missing": [2, 3, 7] },
+          "kua": 9,
+          "personal_year": { "value": 5, "chain": [23, 5] },
+          "personal_month_dec": 8,
+          "pinnacles": [4, 7, 2, 1],
+          "pinnacle_ages": [0, 30, 39, 48],
+          "challenges": [3, 3, 0, 6],
+          "lucky": [1, 5, 6]
+        },
+        "house-default": {
+          "mulank": { "value": 5, "chain": [14, 5] },
+          "bhagyank": { "value": 6, "chain": [33, 6] },
+          "karmic_debt": [14],
+          "chaldean": { "total": 28, "chain": [28, 10, 1], "parts": [11, 17] },
+          "pythagorean": { "expression": 7, "expression_total": 43, "soul_urge": 9, "personality": 7, "personality_chain": [34, 7], "maturity": 4 },
+          "driver_conductor": { "score": 2, "label": "friendly" },
+          "name_fit": { "mulank": 1, "bhagyank": -2 },
+          "loshu": { "inputs": [1, 4, 8, 1, 9, 9, 1, 6, 5, 9], "missing": [2, 3, 7] },
+          "kua": 9,
+          "personal_year": { "value": 5, "chain": [23, 5] },
+          "personal_month_dec": 8,
+          "pinnacles": [4, 7, 11, 1],
+          "pinnacle_ages": [0, 30, 39, 48],
+          "challenges": [3, 3, 0, 6],
+          "lucky": [1, 5, 6]
+        }
+      }
+    },
+    {
+      "id": "myra-kapoor",
+      "source": "VedicPupil complete report, child sample",
+      "person": { "name": "Myra Kapoor", "dob": "2016-03-09", "gender": "female" },
+      "expected": {
+        "vedicpupil-compat": {
+          "mulank": { "value": 9, "chain": [9] },
+          "bhagyank": { "value": 3, "chain": [21, 3] },
+          "karmic_debt": [],
+          "chaldean": { "total": 35, "chain": [35, 8], "parts": [8, 27] },
+          "pythagorean": { "expression": 7, "expression_total": 52, "soul_urge": 5, "personality": 2, "personality_chain": [38, 11, 2], "maturity": 1 },
+          "driver_conductor": { "score": 2, "label": "friendly" },
+          "name_fit": { "mulank": -1, "bhagyank": 0 },
+          "loshu": { "inputs": [9, 3, 2, 1, 6, 3, 9], "missing": [4, 5, 7, 8] },
+          "kua": 4,
+          "personal_year": { "value": 4, "chain": [22, 4] },
+          "personal_month_dec": 7,
+          "pinnacles": [3, 9, 3, 3],
+          "pinnacle_ages": [0, 33, 42, 51],
+          "challenges": [6, 0, 6, 6],
+          "lucky": [1, 2, 3, 9]
+        },
+        "house-default": {
+          "mulank": { "value": 9, "chain": [9] },
+          "bhagyank": { "value": 3, "chain": [21, 3] },
+          "karmic_debt": [],
+          "chaldean": { "total": 35, "chain": [35, 8], "parts": [8, 27] },
+          "pythagorean": { "expression": 7, "expression_total": 52, "soul_urge": 3, "personality": 4, "personality_chain": [31, 4], "maturity": 1 },
+          "driver_conductor": { "score": 2, "label": "friendly" },
+          "name_fit": { "mulank": -1, "bhagyank": 0 },
+          "loshu": { "inputs": [9, 3, 2, 1, 6, 3, 4], "missing": [5, 7, 8] },
+          "kua": 4,
+          "personal_year": { "value": 22, "chain": [22] },
+          "personal_month_dec": 7,
+          "pinnacles": [3, 9, 3, 3],
+          "pinnacle_ages": [0, 33, 42, 51],
+          "challenges": [6, 0, 6, 6],
+          "lucky": [1, 2, 3, 9]
+        }
+      }
+    }
+  ]
+}
