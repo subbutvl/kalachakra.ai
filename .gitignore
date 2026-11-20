@@ -11,3 +11,6 @@ coverage/
 Thumbs.db
 playwright-report/
 test-results/
+
+# Real people used for local testing stay on this computer (see packages/engine/test/local/README.md).
+*.local.json
