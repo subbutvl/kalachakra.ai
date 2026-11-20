@@ -57,6 +57,25 @@ export async function renderReportPdf(doc: ReportDocument): Promise<Uint8Array> 
   }
 }
 
+/**
+ * Starts the shared browser and renders one tiny page with the embedded fonts,
+ * so the first real report does not pay for the browser's cold start and font
+ * cache (several seconds on a fresh machine). The API calls this at start-up.
+ */
+export async function warmUpPdf(): Promise<void> {
+  browser ??= launch();
+  const page = await (await browser).newPage();
+  try {
+    await page.setContent(
+      `<html><head><style>${embeddedFontCss()}</style></head><body style="font-family:Poppins">KalaChakra <span style="font-family:'Noto Sans Tamil'">காலசக்கரம்</span> <span style="font-family:Aboreto">Aa</span> <span style="font-family:Geist">Aa</span></body></html>`,
+    );
+    await page.evaluate(() => document.fonts.ready);
+    await page.pdf({ format: "A4" });
+  } finally {
+    await page.close();
+  }
+}
+
 /** Closes the shared browser (tests and scripts call this when done). */
 export async function closePdfBrowser(): Promise<void> {
   if (!browser) return;

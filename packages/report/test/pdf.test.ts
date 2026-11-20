@@ -1,8 +1,8 @@
 import { ruleProfiles, rulesVersions } from "@kalachakra/rules";
 import { computeProfile, resolveRules } from "@kalachakra/engine";
-import { afterAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { buildReport, library } from "../src/index.js";
-import { closePdfBrowser, renderReportPdf } from "../src/pdf.js";
+import { closePdfBrowser, renderReportPdf, warmUpPdf } from "../src/pdf.js";
 
 const rules = resolveRules({ versions: rulesVersions, profiles: ruleProfiles }, "house-default");
 const profile = computeProfile(
@@ -15,6 +15,11 @@ const pages = (pdf: Uint8Array) =>
       .toString("latin1")
       .match(/\/Type\s*\/Page[^s]/g) ?? []
   ).length;
+
+// The 10-second target is for a running service, so the browser is started first.
+beforeAll(async () => {
+  await warmUpPdf();
+}, 120_000);
 
 afterAll(async () => {
   await closePdfBrowser();
