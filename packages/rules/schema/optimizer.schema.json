@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "edit_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "example": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "example"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "top_n": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "max_candidates": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "weights": {
+      "type": "object",
+      "properties": {
+        "name_pair_score": {
+          "type": "number"
+        },
+        "compound_class": {
+          "type": "number"
+        },
+        "first_name_fit": {
+          "type": "number"
+        },
+        "pythagorean_not_opposed": {
+          "type": "number"
+        },
+        "no_karmic_debt_compound": {
+          "type": "number"
+        },
+        "readability_closeness": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name_pair_score",
+        "compound_class",
+        "first_name_fit",
+        "pythagorean_not_opposed",
+        "no_karmic_debt_compound",
+        "readability_closeness"
+      ],
+      "additionalProperties": false
+    },
+    "compound_class_credit": {
+      "type": "object",
+      "properties": {
+        "favourable": {
+          "type": "number"
+        },
+        "mixed": {
+          "type": "number"
+        },
+        "unfavourable": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "favourable",
+        "mixed",
+        "unfavourable"
+      ],
+      "additionalProperties": false
+    },
+    "karmic_debt_numbers": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": -9007199254740991,
+        "maximum": 9007199254740991
+      }
+    }
+  },
+  "required": [
+    "edit_rules",
+    "top_n",
+    "max_candidates",
+    "weights",
+    "compound_class_credit",
+    "karmic_debt_numbers"
+  ],
+  "additionalProperties": false
+}

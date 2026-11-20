@@ -1,0 +1,51 @@
+{
+  "$comment": "Rules spec v1.0, section 3.7. Layout rows top to bottom with south at the top.",
+  "layout": [
+    [4, 9, 2],
+    [3, 5, 7],
+    [8, 1, 6]
+  ],
+  "south_at_top": true,
+  "count_bands": {
+    "$comment": "Each number is read as missing, single, double, triple, or four or more.",
+    "0": "missing",
+    "1": "single",
+    "2": "double",
+    "3": "triple",
+    "4+": "four_plus"
+  },
+  "planes": {
+    "mental": [4, 9, 2],
+    "emotional": [3, 5, 7],
+    "practical": [8, 1, 6],
+    "thought": [4, 3, 8],
+    "will": [9, 5, 1],
+    "action": [2, 7, 6],
+    "golden": [4, 5, 6],
+    "property": [2, 5, 8]
+  },
+  "plane_states": ["complete", "partial", "empty"],
+  "directions": {
+    "1": "N",
+    "2": "SW",
+    "3": "E",
+    "4": "SE",
+    "5": "centre",
+    "6": "NW",
+    "7": "W",
+    "8": "NE",
+    "9": "S"
+  },
+  "elements": {
+    "1": "water",
+    "2": "earth",
+    "3": "wood",
+    "4": "wood",
+    "5": "earth",
+    "6": "metal",
+    "7": "metal",
+    "8": "earth",
+    "9": "fire"
+  },
+  "remedy_tags": ["colour", "direction", "habit", "mantra", "fasting", "gemstone", "donation"]
+}

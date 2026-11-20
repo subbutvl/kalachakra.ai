@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "chaldean": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Z]$"
+      },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 8
+      }
+    },
+    "pythagorean": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Z]$"
+      },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 9
+      }
+    },
+    "vowels": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]$"
+      }
+    },
+    "planes_of_expression": {
+      "type": "object",
+      "properties": {
+        "$comment": {
+          "type": "string"
+        },
+        "physical": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]$"
+          }
+        },
+        "mental": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]$"
+          }
+        },
+        "emotional": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]$"
+          }
+        },
+        "intuitive": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]$"
+          }
+        }
+      },
+      "required": [
+        "physical",
+        "mental",
+        "emotional",
+        "intuitive"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "chaldean",
+    "pythagorean",
+    "vowels",
+    "planes_of_expression"
+  ],
+  "additionalProperties": false
+}

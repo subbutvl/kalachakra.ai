@@ -1,0 +1,23 @@
+{
+  "$comment": "Rules spec v1.0, section 3.10. Edit limits come from D15 in switches.json.",
+  "edit_rules": [
+    { "id": "double_consonant", "example": "MYRA -> MYRRA" },
+    { "id": "add_or_double_vowel", "example": "AARAV -> AARAVE" },
+    { "id": "swap_i_y", "example": "MYRA -> MIRA" },
+    { "id": "silent_h", "example": "ROHIT -> ROHHIT / RAHUL -> RAUL" },
+    { "id": "ending_a_aa", "example": "DIVYA -> DIVYAA" },
+    { "id": "k_to_c_or_q", "example": "KAPIL -> CAPIL" }
+  ],
+  "top_n": 5,
+  "max_candidates": 2000,
+  "weights": {
+    "name_pair_score": 35,
+    "compound_class": 20,
+    "first_name_fit": 15,
+    "pythagorean_not_opposed": 10,
+    "no_karmic_debt_compound": 10,
+    "readability_closeness": 10
+  },
+  "compound_class_credit": { "favourable": 1, "mixed": 0.5, "unfavourable": 0 },
+  "karmic_debt_numbers": [13, 14, 16, 19]
+}

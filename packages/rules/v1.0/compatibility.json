@@ -1,0 +1,26 @@
+{
+  "$comment": "Rules spec v1.0, section 3.12 and D18. Each pair score of -2 to +2 maps linearly to 0 to 100% of its weight.",
+  "relationship_types": ["couple", "business_partners", "parent_child"],
+  "weights": {
+    "driver_harmony": 20,
+    "conductor_harmony": 15,
+    "cross_harmony": 15,
+    "loshu_gap_filling": 20,
+    "life_path_synergy": 15,
+    "name_harmony": 10,
+    "kua_group": 5
+  },
+  "bands": [
+    { "min": 80, "label": "excellent" },
+    { "min": 65, "label": "good" },
+    { "min": 50, "label": "workable" },
+    { "min": 0, "label": "needs_effort" }
+  ],
+  "life_path_pairs": {
+    "$comment": "Western life path pair table. Symmetric; pairs not listed under natural or compatible are challenging. Natural = the same triad {1,5,7}, {2,4,8}, {3,6,9}. Draft for numerologist review.",
+    "status": "draft",
+    "credit": { "natural": 1, "compatible": 0.6, "challenging": 0.2 },
+    "natural_groups": [[1, 5, 7], [2, 4, 8], [3, 6, 9]],
+    "compatible": [[1, 3], [1, 9], [3, 5], [5, 9], [4, 7], [2, 6], [4, 6], [6, 8], [2, 9], [2, 3]]
+  }
+}

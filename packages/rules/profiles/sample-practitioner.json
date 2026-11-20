@@ -1,0 +1,13 @@
+{
+  "id": "sample-practitioner",
+  "name": "Sample practitioner",
+  "description": "A demo practitioner who differs from the house default on a few switches, to show rule profiles changing results.",
+  "base": "v1.0",
+  "overrides": {
+    "masters.mode": "everywhere",
+    "letters.y_vowel": "always",
+    "loshu.include_mulank": "always",
+    "kua.year_cutoff": "fixed_feb_4",
+    "remedies.enabled_tags": ["habit", "colour", "direction", "mantra", "fasting", "gemstone"]
+  }
+}

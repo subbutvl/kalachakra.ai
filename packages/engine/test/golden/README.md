@@ -1,0 +1,1 @@
+One JSON file per worked example with its expected numbers. Milestone 1 holds the benchmark letter totals and pair scores; full person files arrive in M2, and the 15 to 20 trusted examples are added when they are sent.
