@@ -10,13 +10,14 @@
   "type": "module",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "node scripts/dev.mjs",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "check": "turbo run typecheck lint test",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "numbers": "pnpm --silent --filter @kalachakra/engine run numbers"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

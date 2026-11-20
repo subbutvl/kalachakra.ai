@@ -67,7 +67,12 @@ export function pythagorean(
     text_keys: [numberKey("pythagorean.life_path", lp)],
   });
 
-  const fromTotal = (key: string, total: number, label: string, debtCheck: boolean): NumberResult => {
+  const fromTotal = (
+    key: string,
+    total: number,
+    label: string,
+    debtCheck: boolean,
+  ): NumberResult => {
     const r = red(total);
     const debt = debtCheck ? karmicDebtIn(r.chain) : [];
     return withExtras(r, {
@@ -81,7 +86,12 @@ export function pythagorean(
   const expression = fromTotal("expression", score.total, "All letters", true);
   expression.trace = [...score.trace, ...(expression.trace ?? [])];
   const vowelLetters = letters.filter((l) => l.vowel);
-  const soul_urge = fromTotal("soul_urge", sumByVowel(score, true), `Vowels ${vowelLetters.map((l) => `${l.letter}=${l.value}`).join(" + ")}`, true);
+  const soul_urge = fromTotal(
+    "soul_urge",
+    sumByVowel(score, true),
+    `Vowels ${vowelLetters.map((l) => `${l.letter}=${l.value}`).join(" + ")}`,
+    true,
+  );
   const personality = fromTotal("personality", sumByVowel(score, false), "Consonants", false);
 
   // Maturity (D9): life path + expression; the Chaldean version uses the Chaldean name number.
@@ -89,7 +99,9 @@ export function pythagorean(
   const chMat = red(lp.reduced + chaldeanNameDigit);
   const mk = (r: NumberResult, system: "pythagorean" | "chaldean", nameDigit: number) => ({
     ...withExtras(r, {
-      trace: [`Life path ${lp.reduced} + ${system === "pythagorean" ? "Pythagorean expression" : "Chaldean name number"} ${nameDigit} = ${formatChain(r.chain)}`],
+      trace: [
+        `Life path ${lp.reduced} + ${system === "pythagorean" ? "Pythagorean expression" : "Chaldean name number"} ${nameDigit} = ${formatChain(r.chain)}`,
+      ],
       rule_refs: ["D9"],
       text_keys: [numberKey("pythagorean.maturity", r)],
     }),
@@ -103,7 +115,10 @@ export function pythagorean(
   const counts = new Map<number, number>();
   for (const l of letters) counts.set(l.value, (counts.get(l.value) ?? 0) + 1);
   const max = Math.max(...counts.values());
-  const passion = [...counts.entries()].filter(([, c]) => c === max).map(([v]) => v).sort((a, b) => a - b);
+  const passion = [...counts.entries()]
+    .filter(([, c]) => c === max)
+    .map(([v]) => v)
+    .sort((a, b) => a - b);
   const lessons = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter((v) => !counts.has(v));
   const subconscious = 9 - lessons.length;
 
@@ -111,7 +126,12 @@ export function pythagorean(
   const initials = score.parts.map((p) => p.letters[0]!);
   const bal = red(initials.reduce((s, l) => s + l.value, 0));
   const balance = withExtras(bal, {
-    trace: [sumTrace(initials.map((l) => `${l.letter}=${l.value}`), bal)],
+    trace: [
+      sumTrace(
+        initials.map((l) => `${l.letter}=${l.value}`),
+        bal,
+      ),
+    ],
     text_keys: [numberKey("pythagorean.balance", bal)],
   });
   const first = score.parts[0]!;
@@ -131,19 +151,30 @@ export function pythagorean(
   const planeLetters = tables.planes_of_expression;
   const planes = {} as PythagoreanProfile["planes_of_expression"];
   for (const plane of ["physical", "mental", "emotional", "intuitive"] as const) {
-    const inPlane = letters.filter((l) => planeLetters[plane].includes(l.letter)).map((l) => l.letter);
-    planes[plane] = { count: inPlane.length, letters: inPlane, text_keys: [`pythagorean.plane.${plane}`] };
+    const inPlane = letters
+      .filter((l) => planeLetters[plane].includes(l.letter))
+      .map((l) => l.letter);
+    planes[plane] = {
+      count: inPlane.length,
+      letters: inPlane,
+      text_keys: [`pythagorean.plane.${plane}`],
+    };
   }
 
   // Birth chart: non-zero date digits on the 3-6-9 grid; full lines are strengths, empty lines weaknesses.
-  const digits = `${date.day}${date.month}${date.year}`.split("").map(Number).filter((n) => n > 0);
+  const digits = `${date.day}${date.month}${date.year}`
+    .split("")
+    .map(Number)
+    .filter((n) => n > 0);
   const cells: Record<string, number> = {};
   for (let n = 1; n <= 9; n++) cells[String(n)] = digits.filter((x) => x === n).length;
   const arrows: PythagoreanProfile["birth_chart"]["arrows"] = [];
   for (const id of CHART_LINES) {
     const present = [...id].map((c) => (cells[c] ?? 0) > 0);
-    if (present.every(Boolean)) arrows.push({ id, kind: "strength", text_key: `pythagorean.arrow.${id}.strength` });
-    else if (!present.some(Boolean)) arrows.push({ id, kind: "weakness", text_key: `pythagorean.arrow.${id}.weakness` });
+    if (present.every(Boolean))
+      arrows.push({ id, kind: "strength", text_key: `pythagorean.arrow.${id}.strength` });
+    else if (!present.some(Boolean))
+      arrows.push({ id, kind: "weakness", text_key: `pythagorean.arrow.${id}.weakness` });
   }
 
   const out: PythagoreanProfile = {
@@ -152,18 +183,41 @@ export function pythagorean(
     soul_urge,
     personality,
     maturity: headlinePy ? pyM : chM,
-    hidden_passion: { values: passion, count: max, text_keys: passion.map((v) => `pythagorean.hidden_passion.${v}`) },
-    karmic_lessons: { values: lessons, text_keys: lessons.map((v) => `pythagorean.karmic_lesson.${v}`) },
-    subconscious_self: { value: subconscious, text_keys: [`pythagorean.subconscious.${subconscious}`] },
+    hidden_passion: {
+      values: passion,
+      count: max,
+      text_keys: passion.map((v) => `pythagorean.hidden_passion.${v}`),
+    },
+    karmic_lessons: {
+      values: lessons,
+      text_keys: lessons.map((v) => `pythagorean.karmic_lesson.${v}`),
+    },
+    subconscious_self: {
+      value: subconscious,
+      text_keys: [`pythagorean.subconscious.${subconscious}`],
+    },
     balance,
     rational_thought,
-    cornerstone: { letter: cornerLetter.letter, value: cornerLetter.value, text_keys: [`pythagorean.cornerstone.${cornerLetter.letter}`] },
-    capstone: { letter: capLetter.letter, value: capLetter.value, text_keys: [`pythagorean.capstone.${capLetter.letter}`] },
+    cornerstone: {
+      letter: cornerLetter.letter,
+      value: cornerLetter.value,
+      text_keys: [`pythagorean.cornerstone.${cornerLetter.letter}`],
+    },
+    capstone: {
+      letter: capLetter.letter,
+      value: capLetter.value,
+      text_keys: [`pythagorean.capstone.${capLetter.letter}`],
+    },
     planes_of_expression: planes,
     birth_chart: { cells, arrows },
     name: score.name.text,
   };
   if (rules.settings["maturity.show_other"]) out.maturity_other = headlinePy ? chM : pyM;
-  if (fv) out.first_vowel = { letter: fv.letter, value: fv.value, text_keys: [`pythagorean.first_vowel.${fv.letter}`] };
+  if (fv)
+    out.first_vowel = {
+      letter: fv.letter,
+      value: fv.value,
+      text_keys: [`pythagorean.first_vowel.${fv.letter}`],
+    };
   return out;
 }

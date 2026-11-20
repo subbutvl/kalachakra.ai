@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeProfile, type ProfileResult } from "../../src/index.js";
+import { computeProfile, type PersonInput, type ProfileResult } from "../../src/index.js";
 import { rules } from "../helpers.js";
 import golden from "./people.json" with { type: "json" };
 
@@ -33,8 +33,14 @@ function pick(p: ProfileResult) {
       personality_chain: py.personality.chain,
       maturity: py.maturity.value,
     },
-    driver_conductor: { score: p.driver_conductor.pair.score, label: p.driver_conductor.pair.label },
-    name_fit: { mulank: p.chaldean.headline.fit.mulank, bhagyank: p.chaldean.headline.fit.bhagyank },
+    driver_conductor: {
+      score: p.driver_conductor.pair.score,
+      label: p.driver_conductor.pair.label,
+    },
+    name_fit: {
+      mulank: p.chaldean.headline.fit.mulank,
+      bhagyank: p.chaldean.headline.fit.bhagyank,
+    },
     loshu: { inputs: p.loshu.inputs.map((i) => i.value), missing: p.loshu.missing },
     kua: p.kua?.value,
     personal_year: { value: p.timing.personal_year.value, chain: p.timing.personal_year.chain },
@@ -51,7 +57,7 @@ for (const person of golden.people) {
     for (const [profileId, expected] of Object.entries(person.expected)) {
       it(`matches every number under ${profileId}`, () => {
         const r = byId[profileId as keyof typeof byId];
-        const p = computeProfile({ person: person.person, as_of: golden.as_of }, r);
+        const p = computeProfile({ person: person.person as PersonInput, as_of: golden.as_of }, r);
         expect(pick(p)).toEqual(expected);
       });
     }

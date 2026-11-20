@@ -10,13 +10,9 @@ export default tseslint.config(
   {
     rules: {
       "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
-      "no-restricted-imports": "off",
-    },
-  },
-  {
-    files: ["**/test/**/*.ts"],
-    rules: {
+      // With noUncheckedIndexedAccess on, a checked lookup is often clearest with "!".
       "@typescript-eslint/no-non-null-assertion": "off",
+      "no-restricted-imports": "off",
     },
   },
   {

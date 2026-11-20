@@ -44,11 +44,21 @@ export function dateNumbers(date: CalendarDate, rules: ResolvedRules): DateNumbe
   let trace: string;
   if (rules.settings["bhagyank.sum_method"] === "all_digits") {
     const digits = digitsOf(date);
-    b = reduce(digits.reduce((s, x) => s + x, 0), { keepMasters: keep });
+    b = reduce(
+      digits.reduce((s, x) => s + x, 0),
+      { keepMasters: keep },
+    );
     trace = sumTrace(digits, b);
   } else {
-    const parts = [reduce(date.day).reduced, reduce(date.month).reduced, reduce(digitSum(date.year)).reduced];
-    b = reduce(parts.reduce((s, x) => s + x, 0), { keepMasters: keep });
+    const parts = [
+      reduce(date.day).reduced,
+      reduce(date.month).reduced,
+      reduce(digitSum(date.year)).reduced,
+    ];
+    b = reduce(
+      parts.reduce((s, x) => s + x, 0),
+      { keepMasters: keep },
+    );
     trace = `Day, month and year reduced first: ${sumTrace(parts, b)}`;
   }
   const bDebt = karmicDebtIn(b.chain);

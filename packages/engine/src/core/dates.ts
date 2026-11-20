@@ -99,13 +99,15 @@ export function weekday(d: CalendarDate): number {
 
 /** Completed years of age on a date (a 29 February birthday counts on 1 March in common years). */
 export function ageOn(birth: CalendarDate, on: CalendarDate): number {
-  const hadBirthday =
-    on.month > birth.month || (on.month === birth.month && on.day >= birth.day);
+  const hadBirthday = on.month > birth.month || (on.month === birth.month && on.day >= birth.day);
   return on.year - birth.year - (hadBirthday ? 0 : 1);
 }
 
 /** Parses HH:MM (24 hour). */
-export function parseTime(hhmm: string, field = "person.birth_time"): { hour: number; minute: number } {
+export function parseTime(
+  hhmm: string,
+  field = "person.birth_time",
+): { hour: number; minute: number } {
   const m = /^(\d{2}):(\d{2})$/.exec(hhmm);
   const hour = Number(m?.[1]);
   const minute = Number(m?.[2]);

@@ -70,7 +70,9 @@ export function kua(rules: ResolvedRules, person: Person, birth: BirthMoment): K
           }
         }
       }
-      trace.push(`Lichun ${date.year}: ${iso} (local date ${formatDate(lichunLocal)}); solar year ${solarYear}`);
+      trace.push(
+        `Lichun ${date.year}: ${iso} (local date ${formatDate(lichunLocal)}); solar year ${solarYear}`,
+      );
     }
   } else {
     trace.push(`Year cutoff 1 January: solar year ${solarYear}`);
@@ -81,10 +83,14 @@ export function kua(rules: ResolvedRules, person: Person, birth: BirthMoment): K
   let raw: number;
   if (basis === "male") {
     raw = reduce(data.formula.male.base - s.value).value;
-    trace.push(`Male: ${data.formula.male.base} − ${s.value} = ${data.formula.male.base - s.value} → ${raw}`);
+    trace.push(
+      `Male: ${data.formula.male.base} − ${s.value} = ${data.formula.male.base - s.value} → ${raw}`,
+    );
   } else {
     raw = reduce(data.formula.female.base + s.value).value;
-    trace.push(`Female: ${data.formula.female.base} + ${s.value} = ${data.formula.female.base + s.value} → ${raw}`);
+    trace.push(
+      `Female: ${data.formula.female.base} + ${s.value} = ${data.formula.female.base + s.value} → ${raw}`,
+    );
   }
   let value = raw;
   if (raw === 5) {
