@@ -100,6 +100,15 @@ export const LoshuSchema = z.strictObject({
   plane_states: z.tuple([z.literal("complete"), z.literal("partial"), z.literal("empty")]),
   directions: z.record(DigitKey, z.union([Direction, z.literal("centre")])),
   elements: z.record(DigitKey, z.enum(["water", "earth", "wood", "metal", "fire"])),
+  element_colours: z.strictObject({
+    $comment: Comment,
+    status: Status,
+    water: z.array(z.string()).min(1),
+    wood: z.array(z.string()).min(1),
+    fire: z.array(z.string()).min(1),
+    earth: z.array(z.string()).min(1),
+    metal: z.array(z.string()).min(1),
+  }),
   remedy_tags: z.array(RemedyTagSchema),
 });
 
