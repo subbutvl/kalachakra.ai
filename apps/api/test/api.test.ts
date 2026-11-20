@@ -60,6 +60,7 @@ describe("service", () => {
       "/v1/dates",
       "/v1/report",
       "/v1/report/pdf",
+      "/v1/report/html",
       "/v1/rules/profiles",
       "/v1/rules/profiles/{id}",
       "/v1/rules/diff",
@@ -349,6 +350,19 @@ describe("reports", () => {
     });
     expect(bad.status).toBe(400);
     expect(bad.body.error.field).toBe("overlay");
+  });
+
+  it("returns the report as an HTML page", async () => {
+    const res = await app.request("/v1/report/html", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ person: aarav, as_of: AS_OF }),
+    });
+    expect(res.status).toBe(200);
+    expect(res.headers.get("content-type")).toContain("text/html");
+    const html = await res.text();
+    expect(html).toContain("<!doctype html>");
+    expect(html).toContain("@font-face");
   });
 
   it("returns a PDF", async () => {

@@ -1,3 +1,5 @@
+/** @jsxRuntime automatic */
+/** @jsxImportSource react */
 import { renderToStaticMarkup } from "react-dom/server";
 import type { Block, ReportDocument, Section } from "./document.js";
 import { Visual } from "./visuals.js";
